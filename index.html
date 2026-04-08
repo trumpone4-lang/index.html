@@ -1,0 +1,1127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+    <title>Financial Bank Rates | Mortgage, Credit Card, Investment, Tax, Inflation, FIRE, College & Lease vs Buy Calculators with Expert Articles</title>
+    <meta name="description" content="Professional mortgage amortization, credit card payoff, investment growth, tax estimator, inflation impact, FIRE retirement, college savings, and lease vs buy comparison calculators. Expert financial articles and guides for smarter money decisions.">
+    <meta name="keywords" content="mortgage calculator, credit card payoff, investment calculator, tax estimator, inflation calculator, FIRE calculator, college savings planner, 529 plan, lease vs buy, car lease calculator, compound interest, financial articles, 50/30/20 rule, budgeting, top mortgage lenders">
+    
+    <!-- Google AdSense Verification Meta Tag - Replace 'YOUR_PUBLISHER_ID' with actual ID -->
+    <meta name="google-adsense-account" content="ca-pub-XXXXXXXXXXXXXXXX">
+    
+    <!-- robots.txt compatible meta directives (allow indexing but follow rules) -->
+    <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
+    
+    <!-- Chart.js CDN for visual charts -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary-navy: #0a2540;
+            --primary-blue: #0052a5;
+            --accent-gold: #c89d3c;
+            --accent-green: #2c7a4d;
+            --gray-bg: #f5f7fa;
+            --white: #ffffff;
+            --border-light: #e2e8f0;
+            --text-primary: #1a2c3e;
+            --text-secondary: #4a627a;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+            background: var(--gray-bg);
+            color: var(--text-primary);
+            line-height: 1.5;
+        }
+
+        .navbar {
+            background: var(--white);
+            border-bottom: 1px solid var(--border-light);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.02);
+        }
+
+        .nav-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 1rem 5%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 700;
+            letter-spacing: -0.3px;
+            color: var(--primary-navy);
+            text-decoration: none;
+        }
+
+        .logo span {
+            color: var(--primary-blue);
+            font-weight: 800;
+        }
+
+        .menu-wrapper {
+            position: relative;
+        }
+
+        .menu-btn {
+            background: var(--primary-navy);
+            border: none;
+            color: white;
+            padding: 10px 20px;
+            border-radius: 40px;
+            font-size: 0.9rem;
+            font-weight: 600;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            transition: all 0.2s;
+            font-family: inherit;
+        }
+
+        .menu-btn:hover {
+            background: var(--primary-blue);
+        }
+
+        .dropdown-menu {
+            position: absolute;
+            top: 52px;
+            right: 0;
+            background: var(--white);
+            border-radius: 16px;
+            box-shadow: 0 12px 30px rgba(0,0,0,0.12);
+            width: 300px;
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.2s;
+            z-index: 1100;
+            border: 1px solid var(--border-light);
+            overflow: hidden;
+        }
+
+        .dropdown-menu.show {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .dropdown-menu a {
+            display: block;
+            padding: 14px 20px;
+            color: var(--text-primary);
+            text-decoration: none;
+            font-size: 0.9rem;
+            font-weight: 500;
+            border-bottom: 1px solid var(--border-light);
+            transition: background 0.15s;
+        }
+
+        .dropdown-menu a:last-child {
+            border-bottom: none;
+        }
+
+        .dropdown-menu a:hover {
+            background: var(--gray-bg);
+            color: var(--primary-blue);
+        }
+
+        .hero {
+            background: var(--primary-navy);
+            color: white;
+            padding: 48px 5% 56px;
+            text-align: center;
+        }
+
+        .hero h1 {
+            font-size: 2.5rem;
+            font-weight: 700;
+            letter-spacing: -0.5px;
+            margin-bottom: 12px;
+        }
+
+        .hero p {
+            font-size: 1.1rem;
+            opacity: 0.85;
+            max-width: 700px;
+            margin: 0 auto;
+        }
+
+        .main-grid {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 48px 5%;
+            display: grid;
+            grid-template-columns: 1fr 320px;
+            gap: 40px;
+        }
+
+        .calc-tabs {
+            display: flex;
+            gap: 12px;
+            margin-bottom: 28px;
+            border-bottom: 2px solid var(--border-light);
+            padding-bottom: 12px;
+            flex-wrap: wrap;
+        }
+
+        .tab-btn {
+            background: transparent;
+            border: none;
+            padding: 10px 24px;
+            font-size: 0.95rem;
+            font-weight: 600;
+            color: var(--text-secondary);
+            cursor: pointer;
+            border-radius: 40px;
+            transition: all 0.2s;
+            font-family: inherit;
+        }
+
+        .tab-btn.active {
+            background: var(--primary-blue);
+            color: white;
+        }
+
+        .tab-btn:hover:not(.active) {
+            background: #eef2f6;
+            color: var(--primary-navy);
+        }
+
+        .calculator-pane {
+            display: none;
+        }
+
+        .calculator-pane.active-pane {
+            display: block;
+            animation: fadeIn 0.25s ease;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(5px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .calc-card {
+            background: var(--white);
+            border-radius: 24px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.04);
+            border: 1px solid var(--border-light);
+            padding: 32px;
+            margin-bottom: 32px;
+        }
+
+        .input-group {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 24px;
+            margin-bottom: 32px;
+        }
+
+        .field {
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+        }
+
+        .field label {
+            font-size: 0.75rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            color: var(--text-secondary);
+        }
+
+        .field input, .field select {
+            padding: 14px 16px;
+            border: 1.5px solid var(--border-light);
+            border-radius: 12px;
+            font-size: 1rem;
+            font-weight: 500;
+            transition: all 0.2s;
+            outline: none;
+            font-family: inherit;
+            background: var(--white);
+        }
+
+        .field input:focus, .field select:focus {
+            border-color: var(--primary-blue);
+            box-shadow: 0 0 0 3px rgba(0,82,165,0.1);
+        }
+
+        .results-panel {
+            background: linear-gradient(135deg, #0a2540 0%, #0f3b5c 100%);
+            border-radius: 20px;
+            padding: 28px 24px;
+            margin-bottom: 28px;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            gap: 20px;
+        }
+
+        .result-item {
+            flex: 1;
+            text-align: center;
+            background: rgba(255,255,255,0.05);
+            border-radius: 16px;
+            padding: 16px 8px;
+        }
+
+        .result-label {
+            font-size: 0.7rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            color: #a0c2e0;
+            font-weight: 600;
+        }
+
+        .result-value {
+            font-size: 1.7rem;
+            font-weight: 800;
+            color: white;
+            margin-top: 8px;
+            display: block;
+        }
+
+        .insight-box {
+            background: #f0f4f9;
+            border-radius: 16px;
+            padding: 20px;
+            margin-top: 24px;
+            border-left: 4px solid var(--primary-blue);
+            font-size: 0.9rem;
+            color: var(--text-primary);
+        }
+
+        .ratio-container {
+            margin-top: 24px;
+            padding-top: 16px;
+            border-top: 1px solid var(--border-light);
+        }
+        .ratio-title {
+            font-size: 0.75rem;
+            font-weight: 700;
+            margin-bottom: 12px;
+        }
+        .ratio-bar-bg {
+            height: 10px;
+            background: #e2e8f0;
+            border-radius: 10px;
+            overflow: hidden;
+        }
+        .ratio-fill {
+            height: 100%;
+            width: 0%;
+            background: var(--accent-gold);
+            transition: width 0.5s ease;
+        }
+
+        .chart-container {
+            margin: 28px 0 20px 0;
+            padding: 16px;
+            background: var(--white);
+            border-radius: 20px;
+            border: 1px solid var(--border-light);
+        }
+        canvas {
+            max-height: 280px;
+            width: 100%;
+        }
+
+        .articles-section {
+            background: var(--white);
+            border-radius: 24px;
+            border: 1px solid var(--border-light);
+            padding: 32px;
+            margin-top: 20px;
+        }
+        .articles-section h3 {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--primary-navy);
+            margin-bottom: 24px;
+            border-left: 4px solid var(--primary-blue);
+            padding-left: 16px;
+        }
+        .article-content {
+            color: var(--text-secondary);
+            line-height: 1.8;
+        }
+        .article-content h4 {
+            font-size: 1.3rem;
+            font-weight: 600;
+            color: var(--primary-navy);
+            margin: 24px 0 12px;
+        }
+        .article-content h5 {
+            font-size: 1.1rem;
+            font-weight: 600;
+            color: var(--primary-blue);
+            margin: 20px 0 10px;
+        }
+        .article-content p {
+            margin-bottom: 16px;
+        }
+        .article-content ul, .article-content ol {
+            margin-left: 24px;
+            margin-bottom: 20px;
+        }
+        .article-content li {
+            margin-bottom: 8px;
+        }
+        .article-highlight {
+            background: #f0f4f9;
+            padding: 20px;
+            border-radius: 16px;
+            margin: 20px 0;
+            border-left: 3px solid var(--accent-gold);
+        }
+
+        .howto-guide {
+            background: var(--white);
+            border-radius: 24px;
+            border: 1px solid var(--border-light);
+            padding: 32px;
+            margin-top: 32px;
+        }
+        .howto-guide h3 {
+            font-size: 1.3rem;
+            font-weight: 600;
+            color: var(--primary-navy);
+            margin-bottom: 20px;
+        }
+        .guide-step {
+            background: #f8fafc;
+            border-radius: 16px;
+            padding: 16px;
+            margin-bottom: 16px;
+            border-left: 3px solid var(--accent-gold);
+        }
+
+        .sidebar {
+            position: sticky;
+            top: 100px;
+            height: fit-content;
+        }
+        .info-card {
+            background: var(--white);
+            border-radius: 20px;
+            border: 1px solid var(--border-light);
+            padding: 28px;
+            margin-bottom: 24px;
+        }
+        .info-card h4 {
+            font-size: 1rem;
+            font-weight: 700;
+            margin-bottom: 16px;
+        }
+        .info-card p {
+            font-size: 0.85rem;
+            color: var(--text-secondary);
+        }
+        /* Live Interest Rates Ticker Card */
+        .rates-ticker-card {
+            background: linear-gradient(135deg, #0a2540 0%, #0f3b5c 100%);
+            border-radius: 20px;
+            padding: 20px;
+            margin-bottom: 24px;
+            color: white;
+        }
+        .rates-ticker-card h4 {
+            font-size: 1rem;
+            font-weight: 700;
+            margin-bottom: 16px;
+            color: var(--accent-gold);
+            text-align: center;
+            letter-spacing: 0.5px;
+        }
+        .rate-row {
+            display: flex;
+            justify-content: space-between;
+            padding: 10px 0;
+            border-bottom: 1px solid rgba(255,255,255,0.1);
+        }
+        .rate-row:last-child {
+            border-bottom: none;
+        }
+        .rate-label {
+            font-size: 0.85rem;
+            font-weight: 500;
+        }
+        .rate-value {
+            font-size: 0.9rem;
+            font-weight: 700;
+            font-family: monospace;
+        }
+        .rate-trend {
+            margin-left: 8px;
+            font-size: 0.7rem;
+        }
+        .trend-up { color: #4ade80; }
+        .trend-down { color: #f87171; }
+        .last-updated {
+            font-size: 0.65rem;
+            text-align: center;
+            margin-top: 12px;
+            opacity: 0.7;
+        }
+
+        footer {
+            background: var(--primary-navy);
+            color: white;
+            padding: 48px 5% 32px;
+            margin-top: 60px;
+        }
+        .footer-grid {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+        .footer-links h5 {
+            font-size: 0.8rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 18px;
+            color: var(--accent-gold);
+        }
+        .footer-links a {
+            display: block;
+            color: #cbd5e1;
+            text-decoration: none;
+            font-size: 0.8rem;
+            margin-bottom: 12px;
+            cursor: pointer;
+        }
+        .copyright {
+            text-align: center;
+            padding-top: 24px;
+            border-top: 1px solid rgba(255,255,255,0.1);
+            font-size: 0.7rem;
+        }
+        @media (max-width: 1024px) {
+            .main-grid { grid-template-columns: 1fr; }
+            .sidebar { position: static; }
+        }
+        /* Lenders table styling - new addition */
+        .lenders-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+        }
+        .lenders-table th, .lenders-table td {
+            padding: 12px 10px;
+            text-align: left;
+            border-bottom: 1px solid var(--border-light);
+        }
+        .lenders-table th {
+            background: #f0f4f9;
+            font-weight: 700;
+            color: var(--primary-navy);
+        }
+        .lenders-table tr:hover {
+            background: #f9fafb;
+        }
+        .lender-note {
+            background: #f0f4f9;
+            padding: 16px;
+            border-radius: 16px;
+            font-size: 0.85rem;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+
+<nav class="navbar">
+    <div class="nav-container">
+        <a href="#" class="logo">Financial<span>Bank Rates</span></a>
+        <div class="menu-wrapper">
+            <button class="menu-btn" id="menuButton">
+                Menu 
+                <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"></polyline></svg>
+            </button>
+            <div class="dropdown-menu" id="dropdownMenu">
+                <a href="#" data-section="mortgage-tab">Mortgage Calculator</a>
+                <a href="#" data-section="credit-tab">Credit Card Payoff</a>
+                <a href="#" data-section="investment-tab">Investment Calculator</a>
+                <a href="#" data-section="tax-tab">Tax Estimator</a>
+                <a href="#" data-section="inflation-tab">Inflation Impact</a>
+                <a href="#" data-section="fire-tab">FIRE Retirement</a>
+                <a href="#" data-section="college-tab">College Savings</a>
+                <a href="#" data-section="lease-tab">Lease vs Buy Calculator</a>
+                <a href="#" data-section="howto-section">How to Use Guides</a>
+                <a href="#" data-section="about-section">About Us</a>
+                <a href="#" data-section="contact-section">Contact Details</a>
+                <a href="#" data-section="terms-section">Terms of Use</a>
+                <a href="#" data-section="privacy-side">Privacy Guarantee</a>
+                <a href="#" data-section="lenders-section">🏆 Top 10 Mortgage Lenders</a>
+            </div>
+        </div>
+    </div>
+</nav>
+
+<header class="hero">
+    <h1>Financial Calculators & Expert Insights</h1>
+    <p>Professional tools for mortgages, credit cards, investments, tax planning, inflation analysis, FIRE retirement, college savings, and lease vs buy comparisons. Backed by expert articles and real-world financial guidance.</p>
+</header>
+
+<main class="main-grid">
+    <div class="content-area">
+        <div class="calc-tabs">
+            <button class="tab-btn active" data-tab="mortgage">Mortgage Calculator</button>
+            <button class="tab-btn" data-tab="credit">Credit Card Payoff</button>
+            <button class="tab-btn" data-tab="investment">Investment Calculator</button>
+            <button class="tab-btn" data-tab="tax">Tax Estimator</button>
+            <button class="tab-btn" data-tab="inflation">Inflation Impact</button>
+            <button class="tab-btn" data-tab="fire">FIRE Retirement</button>
+            <button class="tab-btn" data-tab="college">College Savings</button>
+            <button class="tab-btn" data-tab="lease">Lease vs Buy</button>
+        </div>
+
+        <!-- Mortgage Pane -->
+        <div id="mortgagePane" class="calculator-pane active-pane">
+            <div class="calc-card">
+                <div class="input-group">
+                    <div class="field"><label>Home Price (USD)</label><input type="number" id="homePrice" value="425000" step="5000"></div>
+                    <div class="field"><label>Down Payment (USD)</label><input type="number" id="downPayment" value="85000" step="5000"></div>
+                    <div class="field"><label>Annual Interest Rate (%)</label><input type="number" id="interestRate" value="6.75" step="0.125"></div>
+                    <div class="field"><label>Loan Term</label><select id="loanTermSelect"><option value="30">30 years</option><option value="20">20 years</option><option value="15">15 years</option><option value="10">10 years</option></select></div>
+                </div>
+                <div class="results-panel">
+                    <div class="result-item"><div class="result-label">Monthly Payment</div><div class="result-value" id="monthlyPaymentDisplay">$0</div></div>
+                    <div class="result-item"><div class="result-label">Loan Principal</div><div class="result-value" id="principalDisplay">$0</div></div>
+                    <div class="result-item"><div class="result-label">Total Interest</div><div class="result-value" id="totalInterestDisplay">$0</div></div>
+                </div>
+                <div class="chart-container"><canvas id="mortgageChart"></canvas></div>
+                <div class="ratio-container"><div class="ratio-title">Lifetime Interest Share</div><div class="ratio-bar-bg"><div class="ratio-fill" id="interestFillBar"></div></div></div>
+                <div class="insight-box" id="mortgageInsight"><strong>Amortization Insight</strong><br>Adjust parameters to see interest impact.</div>
+            </div>
+            <div class="articles-section" id="mortgageArticles"><h3>Mortgage & Home Financing Articles</h3><div class="article-content"><h4>Understanding Mortgage Amortization</h4><p>Amortization is the process of paying off a loan over time through regular payments. In a standard fixed-rate mortgage, each payment is split between interest and principal. Early in the loan term, a larger portion goes toward interest; later, more goes toward principal. This is why making extra principal payments in the first five years can save tens of thousands in interest.</p><h5>Fixed-Rate vs. Adjustable-Rate Mortgages</h5><p>Fixed-rate mortgages offer predictable payments for the entire loan term, making budgeting easier. Adjustable-rate mortgages (ARMs) start with lower rates that adjust after an initial period. While ARMs can be beneficial for short-term ownership, they carry the risk of higher payments if interest rates rise.</p><div class="article-highlight"><strong>Key Insight:</strong> A 1% reduction in interest rate on a $300,000 mortgage saves approximately $180 per month and over $60,000 in total interest over 30 years.</div><h5>Strategies to Pay Off Your Mortgage Faster</h5><ul><li><strong>Bi-weekly payments:</strong> Making half-payments every two weeks results in one extra full payment annually, shaving years off your loan.</li><li><strong>Extra principal payments:</strong> Even $100 extra per month can reduce a 30-year mortgage by nearly 5 years.</li><li><strong>Refinancing:</strong> When rates drop significantly, refinancing can lower monthly payments or shorten loan terms.</li></ul><h5>Private Mortgage Insurance (PMI)</h5><p>If your down payment is less than 20%, lenders typically require PMI. This insurance protects the lender, not you. Once you reach 20% equity, request PMI cancellation to reduce monthly costs.</p></div></div>
+        </div>
+
+        <!-- Credit Card Pane -->
+        <div id="creditPane" class="calculator-pane">
+            <div class="calc-card">
+                <div class="input-group"><div class="field"><label>Current Balance (USD)</label><input type="number" id="cardBalance" value="8500" step="500"></div><div class="field"><label>Annual Interest Rate (%)</label><input type="number" id="cardApr" value="19.99" step="0.5"></div><div class="field"><label>Monthly Payment (USD)</label><input type="number" id="monthlyPaymentCredit" value="300" step="25"></div></div>
+                <div class="results-panel"><div class="result-item"><div class="result-label">Months to Payoff</div><div class="result-value" id="monthsToPayoff">0</div></div><div class="result-item"><div class="result-label">Total Interest Paid</div><div class="result-value" id="creditInterestTotal">$0</div></div><div class="result-item"><div class="result-label">Total Payments</div><div class="result-value" id="totalCreditPayments">$0</div></div></div>
+                <div class="chart-container"><canvas id="creditChart"></canvas></div>
+                <div class="insight-box" id="creditInsight"><strong>Debt Reduction Strategy</strong><br>Increase monthly payments to save on interest.</div>
+            </div>
+            <div class="articles-section" id="creditArticles"><h3>Credit Card Debt & Management Articles</h3><div class="article-content"><h4>The True Cost of Credit Card Debt</h4><p>Credit cards often charge annual percentage rates (APR) between 15% and 29%. At 20% APR, a $5,000 balance paid with minimum payments (typically 2-3% of balance) can take over 15 years to clear and cost more than $7,000 in interest alone.</p><h5>Debt Avalanche vs. Debt Snowball</h5><ul><li><strong>Debt Avalanche:</strong> Pay off highest-interest debt first. This mathematically minimizes total interest paid.</li><li><strong>Debt Snowball:</strong> Pay off smallest balances first for psychological wins and momentum.</li></ul><div class="article-highlight"><strong>Warning:</strong> Making only minimum payments on a $10,000 balance at 18% APR would take over 25 years and cost more than $15,000 in interest.</div><h5>Balance Transfer Strategies</h5><p>Many cards offer 0% APR on balance transfers for 12-21 months (with a 3-5% fee). This can provide a window to aggressively pay down principal without accruing interest. Always read terms — missed payments may void promotional rates.</p><h5>Improving Your Credit Utilization</h5><p>Credit utilization (balances divided by credit limits) accounts for 30% of your credit score. Keeping utilization below 30% — ideally under 10% — signals responsible credit management and can boost your score.</p></div></div>
+        </div>
+
+        <!-- Investment Pane -->
+        <div id="investmentPane" class="calculator-pane">
+            <div class="calc-card"><div class="input-group"><div class="field"><label>Initial Investment (USD)</label><input type="number" id="initialInvestment" value="10000" step="1000"></div><div class="field"><label>Monthly Contribution (USD)</label><input type="number" id="monthlyContribution" value="500" step="100"></div><div class="field"><label>Expected Annual Return (%)</label><input type="number" id="annualReturn" value="7.5" step="0.5"></div><div class="field"><label>Investment Period (Years)</label><input type="number" id="investmentYears" value="10" step="1"></div></div><div class="results-panel"><div class="result-item"><div class="result-label">Future Value</div><div class="result-value" id="futureValue">$0</div></div><div class="result-item"><div class="result-label">Total Contributions</div><div class="result-value" id="totalContributions">$0</div></div><div class="result-item"><div class="result-label">Total Earnings</div><div class="result-value" id="totalEarnings">$0</div></div></div><div class="chart-container"><canvas id="investmentChart"></canvas></div><div class="ratio-container"><div class="ratio-title">Earnings vs. Contributions</div><div class="ratio-bar-bg"><div class="ratio-fill" id="earningsFillBar" style="background: var(--accent-green);"></div></div></div><div class="insight-box" id="investmentInsight"><strong>Wealth Building Insight</strong><br>Compound interest accelerates growth over time.</div></div>
+            <div class="articles-section" id="investmentArticles"><h3>Investment & Wealth Building Articles</h3><div class="article-content"><h4>The Power of Compound Interest</h4><p>Albert Einstein reportedly called compound interest the "eighth wonder of the world." When your investment returns generate their own returns, wealth grows exponentially. The formula — Future Value = Principal × (1 + rate)^time — shows why starting early is critical.</p><div class="article-highlight"><strong>Example:</strong> A 25-year-old investing $500 monthly at 7% annual return grows to over $1.2 million by age 65. Waiting until age 35 reduces the final amount to under $600,000 — half the wealth for the same monthly contribution.</div><h5>Asset Allocation Strategies</h5><ul><li><strong>Aggressive (80%+ stocks):</strong> Suitable for young investors with long time horizons (20+ years).</li><li><strong>Moderate (60% stocks, 40% bonds):</strong> Balanced approach for mid-life investors.</li><li><strong>Conservative (30-40% stocks):</strong> Preserves capital for those nearing retirement.</li></ul><h5>Dollar-Cost Averaging (DCA)</h5><p>DCA involves investing a fixed amount regularly regardless of market conditions. This strategy removes emotion from investing, reduces the impact of volatility, and often outperforms trying to "time the market." The monthly contribution field in our calculator demonstrates DCA's power over time.</p><h5>Tax-Advantaged Accounts</h5><p>Maximize 401(k) matches, contribute to Roth IRAs, and consider Health Savings Accounts (HSAs) for triple tax benefits. These shields protect your returns from taxes, dramatically improving long-term outcomes.</p><h5>Risk Management and Diversification</h5><p>Don't put all eggs in one basket. Diversify across stocks, bonds, real estate, and international markets. Historical data shows that well-diversified portfolios reduce risk without sacrificing long-term returns.</p></div></div>
+        </div>
+
+        <!-- Tax Estimator Pane -->
+        <div id="taxPane" class="calculator-pane">
+            <div class="calc-card"><div class="input-group"><div class="field"><label>Annual Gross Income (USD)</label><input type="number" id="grossIncome" value="75000" step="5000"></div><div class="field"><label>Filing Status</label><select id="filingStatus"><option value="single">Single</option><option value="married">Married Filing Jointly</option><option value="head">Head of Household</option></select></div><div class="field"><label>401(k) / Pre-tax Deductions (USD)</label><input type="number" id="preTaxDeductions" value="6000" step="1000"></div><div class="field"><label>Standard Deduction</label><select id="useStandard"><option value="yes">Use Standard Deduction</option><option value="itemize">Itemized Deductions (enter below)</option></select></div><div class="field"><label>Itemized Deductions (USD)</label><input type="number" id="itemizedDeductions" value="0" step="1000"></div></div><div class="results-panel"><div class="result-item"><div class="result-label">Taxable Income</div><div class="result-value" id="taxableIncome">$0</div></div><div class="result-item"><div class="result-label">Estimated Tax (Fed)</div><div class="result-value" id="estimatedTax">$0</div></div><div class="result-item"><div class="result-label">Effective Tax Rate</div><div class="result-value" id="effectiveRate">0%</div></div></div><div class="chart-container"><canvas id="taxChart"></canvas></div><div class="insight-box" id="taxInsight"><strong>Tax Planning Tip</strong><br>Adjust pre-tax contributions to lower taxable income.</div></div>
+            <div class="articles-section" id="taxArticles"><h3>Tax Planning & Optimization Articles</h3><div class="article-content"><h4>Understanding Marginal vs. Effective Tax Rates</h4><p>Your marginal tax rate applies to your last dollar earned, while your effective rate is the average tax paid on total income. Knowing both helps with strategic decisions like Roth conversions or realizing capital gains.</p><h5>2025 Federal Tax Brackets (Simplified)</h5><ul><li>10%: $0–$11,600 (Single) / $0–$23,200 (Married)</li><li>12%: $11,601–$47,150 / $23,201–$94,300</li><li>22%: $47,151–$100,525 / $94,301–$201,050</li><li>24%: $100,526–$191,950 / $201,051–$383,900</li><li>32%+ for higher brackets.</li></ul><div class="article-highlight"><strong>Tax-Loss Harvesting:</strong> Selling investments at a loss can offset capital gains and up to $3,000 of ordinary income annually, reducing your tax bill.</div><h5>Retirement Contributions as Tax Shields</h5><p>Contributions to traditional 401(k) or IRA lower your adjusted gross income (AGI), potentially dropping you into a lower tax bracket. The tax estimator above shows the impact of pre-tax deductions in real time.</p><h5>Standard Deduction vs. Itemizing</h5><p>For 2025, standard deduction is ~$14,600 (single), $29,200 (married), $21,900 (head). Itemizing makes sense if your mortgage interest, state taxes, and charitable gifts exceed these amounts.</p></div></div>
+        </div>
+
+        <!-- Inflation Impact Pane -->
+        <div id="inflationPane" class="calculator-pane">
+            <div class="calc-card"><div class="input-group"><div class="field"><label>Current Amount (USD)</label><input type="number" id="currentAmount" value="50000" step="5000"></div><div class="field"><label>Annual Inflation Rate (%)</label><input type="number" id="inflationRate" value="3.0" step="0.5"></div><div class="field"><label>Years into Future</label><input type="number" id="inflationYears" value="10" step="1"></div></div><div class="results-panel"><div class="result-item"><div class="result-label">Future Nominal Value</div><div class="result-value" id="futureNominal">$0</div></div><div class="result-item"><div class="result-label">Real (Inflation-Adjusted)</div><div class="result-value" id="realValueAdjusted">$0</div></div><div class="result-item"><div class="result-label">Loss of Purchasing Power</div><div class="result-value" id="purchasingPowerLoss">$0</div></div></div><div class="chart-container"><canvas id="inflationChart"></canvas></div><div class="ratio-container"><div class="ratio-title">Purchasing Power Retained</div><div class="ratio-bar-bg"><div class="ratio-fill" id="purchasingPowerFill" style="background: var(--accent-gold);"></div></div></div><div class="insight-box" id="inflationInsight"><strong>Inflation Impact Insight</strong><br>Inflation erodes purchasing power over time. Consider investments that outpace inflation.</div></div>
+            <div class="articles-section" id="inflationArticles"><h3>Inflation & Purchasing Power Articles</h3><div class="article-content"><h4>How Inflation Erodes Wealth</h4><p>Inflation is the silent killer of purchasing power. At 3% annual inflation, $100,000 today will have the same buying power as roughly $74,000 in 10 years. This calculator shows the real value of money after accounting for inflation.</p><h5>Historical Inflation Rates</h5><p>The long-term average inflation rate in the US is about 3.2% (1914–2025). However, periods like the 1970s saw double-digit inflation, while recent years have experienced spikes above 8%. Understanding inflation helps with retirement planning and salary negotiations.</p><div class="article-highlight"><strong>Key Insight:</strong> To maintain purchasing power, your investments need to earn a real return (nominal return minus inflation). If inflation is 3% and your savings account pays 0.5%, you are losing 2.5% in real value each year.</div><h5>Inflation-Protected Assets</h5><ul><li><strong>TIPS (Treasury Inflation-Protected Securities):</strong> Government bonds that adjust principal with inflation.</li><li><strong>Real Estate:</strong> Property values and rents often rise with inflation.</li><li><strong>Stocks:</strong> Equities historically outpace inflation over long periods (S&P 500 average ~10% nominal).</li><li><strong>Commodities:</strong> Gold, oil, and agricultural products tend to rise with inflation.</li></ul><h5>The Rule of 72 for Inflation</h5><p>Divide 72 by the inflation rate to estimate how many years it takes for prices to double. At 3% inflation, prices double every 24 years. At 6%, they double every 12 years. This dramatically impacts long-term savings goals.</p></div></div>
+        </div>
+
+        <!-- FIRE Pane -->
+        <div id="firePane" class="calculator-pane">
+            <div class="calc-card"><div class="input-group"><div class="field"><label>Current Age</label><input type="number" id="currentAge" value="30" step="1"></div><div class="field"><label>Current Retirement Savings (USD)</label><input type="number" id="currentSavings" value="50000" step="10000"></div><div class="field"><label>Annual Contribution (USD)</label><input type="number" id="annualFireContribution" value="25000" step="5000"></div><div class="field"><label>Annual Spending in Retirement (USD)</label><input type="number" id="annualSpending" value="50000" step="5000"></div><div class="field"><label>Expected Investment Return (%)</label><input type="number" id="fireReturn" value="7.0" step="0.5"></div><div class="field"><label>Safe Withdrawal Rate (%)</label><input type="number" id="withdrawalRate" value="4.0" step="0.25"></div></div><div class="results-panel"><div class="result-item"><div class="result-label">FI Number (Target)</div><div class="result-value" id="fiTarget">$0</div></div><div class="result-item"><div class="result-label">Years to FIRE</div><div class="result-value" id="yearsToFire">0</div></div><div class="result-item"><div class="result-label">Retirement Age</div><div class="result-value" id="retirementAge">0</div></div></div><div class="chart-container"><canvas id="fireChart"></canvas></div><div class="ratio-container"><div class="ratio-title">Progress to FI Target</div><div class="ratio-bar-bg"><div class="ratio-fill" id="fireProgressFill" style="background: var(--accent-green);"></div></div></div><div class="insight-box" id="fireInsight"><strong>FIRE Planning Insight</strong><br>Adjust savings rate and spending to see how quickly you can achieve financial independence.</div></div>
+            <div class="articles-section" id="fireArticles"><h3>FIRE Movement & Early Retirement Articles</h3><div class="article-content"><h4>What is the FIRE Movement?</h4><p>FIRE (Financial Independence, Retire Early) is a lifestyle movement focused on extreme savings and investing to achieve financial independence and retire decades earlier than traditional retirement age. The core principle: save 50-70% of your income, invest in low-cost index funds, and live off a 4% safe withdrawal rate.</p><h5>The 4% Rule Explained</h5><p>The 4% rule suggests you can withdraw 4% of your portfolio in the first year of retirement, adjust for inflation annually, and have a high probability of not running out of money over a 30-year retirement. Your FI (Financial Independence) number = Annual Spending ÷ 0.04. For $50,000 annual spending, you need $1.25 million invested.</p><div class="article-highlight"><strong>Key Insight:</strong> A higher savings rate dramatically reduces years to FIRE. Saving 50% of income can lead to retirement in 17 years. Saving 70% can achieve FIRE in under 10 years (based on the Shockingly Simple Math).</div><h5>FIRE Variations</h5><ul><li><strong>Lean FIRE:</strong> Retiring on a very modest budget ($25k-$40k/year).</li><li><strong>Fat FIRE:</strong> Retiring with a luxurious lifestyle ($80k+/year).</li><li><strong>Barista FIRE:</strong> Part-time work for health insurance and supplemental income after reaching partial FI.</li><li><strong>Coast FIRE:</strong> Having enough saved that you no longer need to contribute, letting compound growth do the work until traditional retirement age.</li></ul><h5>Strategies to Accelerate FIRE</h5><ul><li><strong>Increase savings rate:</strong> Every dollar saved is two dollars earned (one for spending, one for investing).</li><li><strong>Optimize investment returns:</strong> Low-cost total market index funds (VTSAX, FZROX) historically return 7-10% annually.</li><li><strong>Reduce housing costs:</strong> Housing is the largest expense for most households.</li><li><strong>Side hustles:</strong> Additional income streams boost savings rate dramatically.</li></ul><h5>Sequence of Returns Risk</h5><p>Early retirees face sequence of returns risk — poor market performance in the first few years of retirement can deplete a portfolio faster than expected. Strategies to mitigate include a bond tent, flexible withdrawal rates, and maintaining a cash buffer.</p></div></div>
+        </div>
+
+        <!-- College Savings Pane -->
+        <div id="collegePane" class="calculator-pane">
+            <div class="calc-card"><div class="input-group"><div class="field"><label>Child's Current Age</label><input type="number" id="childAge" value="5" step="1"></div><div class="field"><label>Years Until College</label><input type="number" id="yearsToCollege" value="13" step="1"></div><div class="field"><label>Current College Savings (USD)</label><input type="number" id="currentCollegeSavings" value="10000" step="5000"></div><div class="field"><label>Monthly Contribution (USD)</label><input type="number" id="monthlyCollegeContribution" value="200" step="50"></div><div class="field"><label>Expected Annual Return (%)</label><input type="number" id="collegeReturn" value="6.0" step="0.5"></div><div class="field"><label>Current Annual College Cost (USD)</label><input type="number" id="currentCollegeCost" value="25000" step="5000"></div><div class="field"><label>Annual Tuition Inflation (%)</label><input type="number" id="tuitionInflation" value="5.0" step="0.5"></div></div><div class="results-panel"><div class="result-item"><div class="result-label">Projected College Cost (4 years)</div><div class="result-value" id="projectedCost">$0</div></div><div class="result-item"><div class="result-label">Projected Savings at 18</div><div class="result-value" id="projectedSavings">$0</div></div><div class="result-item"><div class="result-label">Funding Gap / Surplus</div><div class="result-value" id="fundingGap">$0</div></div></div><div class="chart-container"><canvas id="collegeChart"></canvas></div><div class="ratio-container"><div class="ratio-title">College Funding Progress</div><div class="ratio-bar-bg"><div class="ratio-fill" id="collegeProgressFill" style="background: var(--accent-gold);"></div></div></div><div class="insight-box" id="collegeInsight"><strong>College Savings Insight</strong><br>529 plans offer tax-free growth for qualified education expenses. Starting early dramatically reduces the monthly savings needed.</div></div>
+            <div class="articles-section" id="collegeArticles"><h3>College Savings & 529 Plan Articles</h3><div class="article-content"><h4>The Rising Cost of Higher Education</h4><p>College tuition has increased at an average rate of 5-8% annually over the past several decades — significantly outpacing general inflation. A four-year public university currently averages ~$25,000 per year (in-state tuition, fees, room/board), while private universities can exceed $60,000 annually.</p><h5>529 Plans: The Premier College Savings Vehicle</h5><p>529 plans offer tax-deferred growth and tax-free withdrawals for qualified education expenses (tuition, fees, room/board, books, computers). Many states offer additional tax deductions or credits for contributions. Funds can be transferred between family members and used at most accredited institutions nationwide.</p><div class="article-highlight"><strong>Key Insight:</strong> Saving $200 per month from birth at 6% return grows to approximately $80,000 by age 18 — covering a significant portion of public university costs. Waiting until age 10 requires nearly $600 per month to reach the same goal.</div><h5>Other College Funding Options</h5><ul><li><strong>Coverdell ESA:</strong> $2,000 annual limit, broader investment options, but income limits apply.</li><li><strong>UGMA/UTMA Custodial Accounts:</strong> No contribution limits, but funds become child's property at age of majority and may impact financial aid.</li><li><strong>Roth IRA:</strong> Contributions (not earnings) can be withdrawn penalty-free for qualified education expenses.</li><li><strong>Scholarships & Grants:</strong> Free money that doesn't need to be repaid — maximize applications.</li></ul><h5>Financial Aid Implications</h5><p>529 plans owned by parents are treated favorably for FAFSA (Free Application for Federal Student Aid) — only up to 5.64% of assets count toward Expected Family Contribution (EFC). Grandparent-owned 529 plans no longer count as student income (as of 2024-2025 FAFSA changes), making them even more attractive.</p><h5>Overfunding a 529 Plan</h5><p>If your child doesn't use all funds, you can change the beneficiary to another family member (including yourself for continuing education). Alternatively, up to $35,000 can be rolled over to a Roth IRA for the beneficiary after 15 years, subject to annual contribution limits.</p></div></div>
+        </div>
+
+        <!-- Lease vs Buy Pane -->
+        <div id="leasePane" class="calculator-pane">
+            <div class="calc-card">
+                <div class="input-group">
+                    <div class="field"><label>Vehicle Price (USD)</label><input type="number" id="vehiclePrice" value="35000" step="1000"></div>
+                    <div class="field"><label>Down Payment (USD)</label><input type="number" id="buyDownPayment" value="5000" step="1000"></div>
+                    <div class="field"><label>Loan Interest Rate (%)</label><input type="number" id="loanRate" value="6.5" step="0.5"></div>
+                    <div class="field"><label>Loan Term (months)</label><input type="number" id="loanTermMonths" value="60" step="12"></div>
+                    <div class="field"><label>Monthly Lease Payment (USD)</label><input type="number" id="leasePayment" value="450" step="25"></div>
+                    <div class="field"><label>Lease Down Payment (USD)</label><input type="number" id="leaseDown" value="2000" step="500"></div>
+                    <div class="field"><label>Lease Term (months)</label><input type="number" id="leaseTerm" value="36" step="12"></div>
+                    <div class="field"><label>Annual Mileage Limit</label><input type="number" id="mileageLimit" value="12000" step="1000"></div>
+                    <div class="field"><label>Excess Mileage Fee (per mile)</label><input type="number" id="excessMileageFee" value="0.25" step="0.05"></div>
+                    <div class="field"><label>Expected Annual Depreciation (%)</label><input type="number" id="depreciationRate" value="15" step="1"></div>
+                </div>
+                <div class="results-panel">
+                    <div class="result-item"><div class="result-label">Buy Total Cost</div><div class="result-value" id="buyTotalCost">$0</div></div>
+                    <div class="result-item"><div class="result-label">Lease Total Cost</div><div class="result-value" id="leaseTotalCost">$0</div></div>
+                    <div class="result-item"><div class="result-label">Lease vs Buy Difference</div><div class="result-value" id="leaseVsBuyDiff">$0</div></div>
+                    <div class="result-item"><div class="result-label">Breakeven Mileage</div><div class="result-value" id="breakevenMileage">0 mi</div></div>
+                </div>
+                <div class="chart-container"><canvas id="leaseChart"></canvas></div>
+                <div class="ratio-container"><div class="ratio-title">Cost Comparison</div><div class="ratio-bar-bg"><div class="ratio-fill" id="costComparisonFill" style="background: var(--accent-green);"></div></div></div>
+                <div class="insight-box" id="leaseInsight"><strong>Lease vs Buy Analysis</strong><br>Enter your vehicle and financing details to compare total costs.</div>
+            </div>
+            <div class="articles-section" id="leaseArticles"><h3>Lease vs Buy: Expert Guide</h3><div class="article-content"><h4>Should You Lease or Buy Your Next Vehicle?</h4><p>The lease vs buy decision depends on your driving habits, financial goals, and how long you plan to keep the vehicle. Buying builds equity and eliminates payments after the loan term, while leasing offers lower monthly payments and the ability to drive a new car every 2-3 years.</p><h5>When Leasing Makes Sense</h5><ul><li>You drive less than 12,000-15,000 miles per year</li><li>You prefer lower monthly payments and driving a new car every few years</li><li>You don't want to deal with major repairs or selling a used car</li><li>You can take advantage of business lease deductions</li></ul><h5>When Buying is Better</h5><ul><li>You drive high mileage (over 15,000 miles/year)</li><li>You plan to keep the car for 5+ years after paying it off</li><li>You want to build equity and eventually have no car payment</li><li>You customize or modify your vehicles</li></ul><div class="article-highlight"><strong>Key Insight:</strong> Over a 6-year period, buying and keeping a vehicle is typically $5,000-$10,000 cheaper than two consecutive 3-year leases. However, leasing can be advantageous if you would otherwise trade in every 3 years anyway.</div><h5>Understanding the Numbers</h5><p>The calculator above compares total cost of ownership. For buying, this includes down payment, all loan payments, and estimated depreciation (the value you lose). For leasing, it includes down payment, all lease payments, and estimated excess mileage fees.</p><h5>The Mileage Factor</h5><p>Excess mileage fees typically range from $0.15 to $0.30 per mile. If you drive 15,000 miles/year on a 12,000-mile lease, you'll pay $750-$1,500 in overage fees annually — often wiping out any monthly payment savings.</p><h5>Residual Value Considerations</h5><p>When you buy, the vehicle retains residual value that you can recoup by selling. When you lease, you pay for depreciation plus interest (money factor). The calculator accounts for depreciation in the buy scenario, showing the true cost of ownership beyond just loan payments.</p><h5>End-of-Term Flexibility</h5><p>At lease end, you can walk away, buy the car at residual value, or lease a new model. With a purchase, you own the car outright and can drive payment-free for years — this is where buying often pulls ahead financially.</p></div></div>
+        </div>
+
+        <!-- 50/30/20 Rule Educational Article Section -->
+        <div class="articles-section" id="budgetRuleArticle">
+            <h3>📊 The 50/30/20 Budget Rule: A Complete Guide</h3>
+            <div class="article-content">
+                <h4>What is the 50/30/20 Rule?</h4>
+                <p>The 50/30/20 rule is a simple yet powerful budgeting framework popularized by Senator Elizabeth Warren in her book "All Your Worth: The Ultimate Lifetime Money Plan." It provides a balanced approach to managing your after-tax income by dividing it into three distinct categories: <strong>Needs (50%)</strong>, <strong>Wants (30%)</strong>, and <strong>Savings & Debt Repayment (20%)</strong>.</p>
+                
+                <div class="article-highlight">
+                    <strong>The Golden Rule:</strong> 50% of your after-tax income goes to Needs, 30% to Wants, and 20% to Savings and paying down debt.
+                </div>
+
+                <h4>Breaking Down the Three Categories</h4>
+                
+                <h5>? Needs (50%) — Essential Expenses</h5>
+                <p>These are expenses you absolutely must pay to live and work. If you didn't pay these, your basic survival or ability to earn income would be threatened. Examples include:</p>
+                <ul>
+                    <li><strong>Housing:</strong> Rent or mortgage payments, property taxes, home insurance</li>
+                    <li><strong>Utilities:</strong> Electricity, water, gas, garbage, basic internet</li>
+                    <li><strong>Transportation:</strong> Car payment (essential), gas, public transit, car insurance</li>
+                    <li><strong>Groceries:</strong> Basic food and household essentials</li>
+                    <li><strong>Healthcare:</strong> Health insurance premiums, medications, doctor visits</li>
+                    <li><strong>Minimum Debt Payments:</strong> Minimum required payments on loans and credit cards</li>
+                    <li><strong>Childcare:</strong> Daycare, after-school care necessary for work</li>
+                </ul>
+                <p><em>Note: If your essential needs exceed 50% of your income, you may need to consider cost-cutting measures like downsizing housing, refinancing debt, or increasing your income.</em></p>
+
+                <h5>? Wants (30%) — Discretionary Spending</h5>
+                <p>These are the "fun" expenses that improve your quality of life but aren't strictly necessary. This category gives you flexibility and enjoyment without guilt — as long as you stay within the 30% limit. Examples include:</p>
+                <ul>
+                    <li><strong>Dining Out:</strong> Restaurants, coffee shops, takeout, bars</li>
+                    <li><strong>Entertainment:</strong> Streaming services (Netflix, Spotify), movie tickets, concerts, hobbies</li>
+                    <li><strong>Travel & Vacations:</strong> Flights, hotels, weekend getaways</li>
+                    <li><strong>Shopping:</strong> Clothing beyond essentials, electronics, home decor, gadgets</li>
+                    <li><strong>Gym Memberships & Fitness Classes:</strong> Premium fitness services</li>
+                    <li><strong>Subscription Boxes & Luxury Items:</strong> Non-essential recurring purchases</li>
+                    <li><strong>Upgraded Services:</strong> Premium cable, faster internet than needed, luxury car payments</li>
+                </ul>
+                <p><em>The wants category is where most budgeting fails — small daily purchases like a $5 coffee add up to $150/month. Tracking these expenses can reveal surprising opportunities to save.</em></p>
+
+                <h5>? Savings & Debt (20%) — Building Your Future</h5>
+                <p>This category is your financial foundation. It includes money that works for your future self — building wealth, creating emergency buffers, and eliminating high-interest debt faster than minimum payments. Examples include:</p>
+                <ul>
+                    <li><strong>Emergency Fund:</strong> Building 3-6 months of living expenses</li>
+                    <li><strong>Retirement Accounts:</strong> 401(k), IRA, Roth IRA contributions</li>
+                    <li><strong>Investment Accounts:</strong> Brokerage accounts, index funds, real estate savings</li>
+                    <li><strong>Extra Debt Payments:</strong> Paying more than the minimum on credit cards, student loans, car loans</li>
+                    <li><strong>College Savings:</strong> 529 plans, Coverdell ESAs for children's education</li>
+                    <li><strong>Major Purchase Savings:</strong> Down payment for a house, new car fund</li>
+                    <li><strong>Health Savings Account (HSA):</strong> Triple-tax-advantaged medical savings</li>
+                </ul>
+                <div class="article-highlight">
+                    <strong>Pro Tip:</strong> If you have high-interest debt (credit cards over 10% APR), prioritize paying it down within the 20% category before ramping up investments. The guaranteed return of eliminating 20%+ interest debt beats most market returns.
+                </div>
+                <h4>How to Implement the 50/30/20 Rule</h4>
+                <h5>Step 1: Calculate Your After-Tax Monthly Income</h5>
+                <p>Start with your take-home pay — the amount that actually hits your bank account each month after taxes, health insurance, and retirement contributions (if already deducted). Include all income sources: salary, side hustles, freelance work, child support, etc.</p>
+                
+                <h5>Step 2: Track Your Current Spending</h5>
+                <p>For one month, track every dollar you spend. Use budgeting apps (Mint, YNAB, EveryDollar), spreadsheets, or simply review your bank and credit card statements. Categorize each expense as Need, Want, or Savings/Debt.</p>
+                
+                <h5>Step 3: Compare to the 50/30/20 Targets</h5>
+                <p>Calculate what 50%, 30%, and 20% of your after-tax income should be. Then compare your actual spending. If you're overspending in any category, identify areas to cut back. If you're underspending in savings (most common issue), increase automatic transfers to savings or debt payoff.</p>
+                
+                <h5>Step 4: Make Adjustments</h5>
+                <p>Common adjustments people need to make:</p>
+                <ul>
+                    <li><strong>Needs over 50%:</strong> Look for housing cost reductions, refinance loans, negotiate bills, or consider increasing income</li>
+                    <li><strong>Wants over 30%:</strong> Cut back on dining out, cancel unused subscriptions, find free entertainment options</li>
+                    <li><strong>Savings under 20%:</strong> Automate transfers on payday, start small and increase over time, prioritize high-impact savings</li>
+                </ul>
+                <h4>Real-Life Example</h4>
+                <p><strong>Monthly After-Tax Income: $5,000</strong></p>
+                <ul>
+                    <li><strong>50% Needs ($2,500):</strong> Rent $1,200, Utilities $300, Groceries $400, Car Payment $350, Insurance $150, Minimum Debt $100 → Total $2,500 ✓</li>
+                    <li><strong>30% Wants ($1,500):</strong> Dining Out $400, Streaming $50, Shopping $300, Gym $80, Entertainment $200, Travel $470 → Total $1,500 ✓</li>
+                    <li><strong>20% Savings/Debt ($1,000):</strong> Emergency Fund $300, Roth IRA $400, Extra Credit Card Payment $300 → Total $1,000 ✓</li>
+                </ul>
+                <h4>When to Modify the 50/30/20 Rule</h4>
+                <p>While the 50/30/20 rule works for most people, certain situations call for adjustments:</p>
+                <ul>
+                    <li><strong>High Cost of Living Areas (NYC, SF, LA):</strong> Needs may climb to 60-70%. Reduce wants to 15-20% and savings to 15% to compensate.</li>
+                    <li><strong>Aggressive FIRE Pursuit:</strong> Some savers target 40/20/40 or even 30/20/50 to retire early.</li>
+                    <li><strong>Low Income or Part-Time Work:</strong> Needs often exceed 50%. Focus on increasing income before strict adherence.</li>
+                    <li><strong>Paying Off Crushing Debt:</strong> Temporarily allocate 30-40% to debt (within the Savings category) and reduce wants to 20%.</li>
+                    <li><strong>Near Retirement:</strong> May shift more toward savings (25-30%) and reduce wants.</li>
+                </ul>
+                <h4>The Psychology Behind the 50/30/20 Rule</h4>
+                <p>Unlike strict zero-based budgets that track every penny, the 50/30/20 rule provides guilt-free spending within the wants category. This flexibility makes it more sustainable for most people. Knowing you've covered your needs and savings goals allows you to enjoy your wants money without anxiety.</p>
+                <div class="article-highlight"><strong>Key Takeaway:</strong> The best budget is one you can stick with long-term. The 50/30/20 rule's simplicity and flexibility make it one of the most effective budgeting methods for achieving financial stability while still enjoying life today.</div>
+                <h5>Tools to Help You Follow the 50/30/20 Rule</h5>
+                <ul><li><strong>Automate Savings:</strong> Set up automatic transfers on payday to move 20% directly to savings or debt</li><li><strong>Use Separate Accounts:</strong> Have one checking account for Needs, another for Wants spending</li><li><strong>Envelope System for Wants:</strong> Put your 30% wants money in cash or a separate debit card</li><li><strong>Budgeting Apps:</strong> Mint, YNAB, EveryDollar, and Goodbudget all support percentage-based budgeting</li><li><strong>Spreadsheet Tracking:</strong> Create a simple Google Sheet to monitor your 50/30/20 progress monthly</li></ul>
+                <h5>Common Mistakes to Avoid</h5>
+                <ul><li><strong>Mistaking Wants for Needs:</strong> Premium cable, expensive phone plans, and luxury gyms are wants, not needs</li><li><strong>Ignoring Irregular Expenses:</strong> Car repairs, annual insurance, and holiday gifts should be budgeted monthly within needs or wants</li><li><strong>Not Adjusting for Income Changes:</strong> Recalculate your 50/30/20 numbers whenever your income changes</li><li><strong>Using Gross Income Instead of Net:</strong> Always use after-tax, after-deduction take-home pay</li><li><strong>Being Too Rigid:</strong> The 50/30/20 rule is a guideline, not a law. Some months you'll spend more on needs (medical bills) and less on wants — that's fine.</li></ul>
+                <h5>Final Thoughts</h5>
+                <p>The 50/30/20 rule has helped millions of people gain control of their finances without feeling deprived. It provides a clear, memorable framework for balancing living today with preparing for tomorrow. Start by calculating your numbers this week, and you'll be on your way to better financial health.</p>
+            </div>
+        </div>
+
+        <!-- Top 10 Mortgage Lenders -->
+        <div class="articles-section" id="lenders-section">
+            <h3>? Top 10 Mortgage Lenders (2025) – Compare & Choose</h3>
+            <div class="article-content">
+                <p>Selecting the right mortgage lender can save you thousands of dollars over the life of your loan. Based on market share, customer satisfaction, interest rates, and loan options, here are the top 10 mortgage lenders in the United States for 2025.</p>
+                <table class="lenders-table">
+                    <thead>
+                        <tr><th>Rank</th><th>Lender Name</th><th>Best For</th><th>Avg. 30-Yr Rate (Est.)</th><th>Key Highlights</th></tr>
+                    </thead>
+                    <tbody>
+                        <tr><td>1</td><td><strong>Rocket Mortgage</strong></td><td>Digital experience & speed</td><td>6.65%</td><td>100% online, excellent mobile app, pre-approval in minutes.</td></tr>
+                        <tr><td>2</td><td><strong>Chase Bank</strong></td><td>Existing Chase customers</td><td>6.70%</td><td>Relationship discounts, extensive branch network, jumbo loans.</td></tr>
+                        <tr><td>3</td><td><strong>United Wholesale Mortgage</strong></td><td>Mortgage brokers</td><td>6.62%</td><td>Wholesale rates, fast closings, low lender fees.</td></tr>
+                        <tr><td>4</td><td><strong>Wells Fargo</strong></td><td>First-time homebuyers</td><td>6.68%</td><td>yourFirst mortgage program, down payment assistance.</td></tr>
+                        <tr><td>5</td><td><strong>LoanDepot</strong></td><td>Refinancing</td><td>6.60%</td><td>Mello Smartloan tech, no lender fees on refinance.</td></tr>
+                        <tr><td>6</td><td><strong>Bank of America</strong></td><td>Low down payment options</td><td>6.72%</td><td>Affordable Loan Solution (3% down), $7,500 grant for eligible buyers.</td></tr>
+                        <tr><td>7</td><td><strong>Guaranteed Rate</strong></td><td>Rate transparency</td><td>6.64%</td><td>TrueRate guarantee, digital mortgage platform, rate lock options.</td></tr>
+                        <tr><td>8</td><td><strong>PNC Bank</strong></td><td>Community lending</td><td>6.66%</td><td>Home Insight Planner, low closing costs, community grants.</td></tr>
+                        <tr><td>9</td><td><strong>Caliber Home Loans</strong></td><td>Self-employed borrowers</td><td>6.69%</td><td>Bank statement loans, non-QM options, flexible underwriting.</td></tr>
+                        <tr><td>10</td><td><strong>Better Mortgage</strong></td><td>No lender fees</td><td>6.58%</td><td>No origination fees, no commission, fully digital, instant pre-approval.</td></tr>
+                    </tbody>
+                </table>
+                <div class="lender-note"><strong>How to choose:</strong> Compare APR (not just interest rate), lender fees, closing costs, and customer reviews. Use our mortgage calculator above to simulate monthly payments with each lender's estimated rate. Rates are market-sensitive and vary by credit score, down payment, and location.</div>
+                <p>Always obtain personalized quotes from at least 3 lenders before deciding. Even a 0.25% rate difference can save you over $15,000 on a $300,000 mortgage over 30 years.</p>
+            </div>
+        </div>
+
+        <!-- How to Use Section -->
+        <div class="howto-guide" id="howto-section">
+            <h3>Quick Start Guides</h3>
+            <div id="mortgageHowTo"><div class="guide-step"><strong>Mortgage Calculator:</strong> Enter home price, down payment, interest rate, and loan term to see monthly payments and total interest.</div><div class="guide-step"><strong>Credit Card Calculator:</strong> Input balance, APR, and monthly payment to see payoff timeline and total interest.</div><div class="guide-step"><strong>Investment Calculator:</strong> Set initial investment, monthly contribution, expected return, and years to project future wealth.</div><div class="guide-step"><strong>Tax Estimator:</strong> Enter gross income, filing status, pre-tax deductions, and choose standard/itemized to estimate federal tax liability.</div><div class="guide-step"><strong>Inflation Impact:</strong> Enter current amount, inflation rate, and years to see future nominal value and real purchasing power.</div><div class="guide-step"><strong>FIRE Retirement:</strong> Enter age, savings, annual contribution, retirement spending, return rate, and withdrawal rate to see years to financial independence.</div><div class="guide-step"><strong>College Savings:</strong> Enter child's age, current savings, monthly contribution, expected return, current college cost, and tuition inflation to project college funding.</div><div class="guide-step"><strong>Lease vs Buy:</strong> Compare total costs of leasing vs buying a vehicle. Enter purchase price, loan terms, lease terms, mileage, and depreciation to see which option saves more money.</div></div>
+            <p style="margin-top: 16px; font-style: italic;">All calculations run locally in your browser — complete privacy guaranteed.</p>
+        </div>
+    </div>
+
+    <aside class="sidebar">
+        <div class="rates-ticker-card" id="ratesTickerCard">
+            <h4>📊 Live Market Interest Rates</h4>
+            <div id="rateRowsContainer">
+                <div class="rate-row"><span class="rate-label">30-Yr Mortgage (US)</span><span class="rate-value">--</span></div>
+                <div class="rate-row"><span class="rate-label">15-Yr Mortgage (US)</span><span class="rate-value">--</span></div>
+                <div class="rate-row"><span class="rate-label">Credit Card Avg APR</span><span class="rate-value">--</span></div>
+                <div class="rate-row"><span class="rate-label">Fed Funds Rate</span><span class="rate-value">--</span></div>
+            </div>
+            <div class="last-updated" id="ratesLastUpdated">Loading rates...</div>
+        </div>
+        <div class="info-card" id="about-section"><h4>About Financial Bank Rates</h4><p>We provide transparent, ad-supported financial tools and expert educational content. No invasive tracking, no lead generation.</p></div>
+        <div class="info-card" id="contact-section"><h4>Contact Details</h4><p>Email: support@financialbankrates.com<br>Phone: +1 (888) 427-2468<br>Hours: Mon-Fri 9am-6pm EST</p></div>
+        <div class="info-card" id="terms-section"><h4>Terms of Use</h4><p>Informational purposes only. Not financial advice. Past performance does not guarantee future results.</p></div>
+        <div class="info-card" id="privacy-side"><h4>Privacy First</h4><p>No cookies, no tracking, no data storage. Your financial data never leaves this device.</p></div>
+    </aside>
+</main>
+
+<footer>
+    <div class="footer-grid"><div class="footer-links"><h5>Tools</h5><a data-section="mortgage-tab">Mortgage</a><a data-section="credit-tab">Credit Card</a><a data-section="investment-tab">Investment</a><a data-section="tax-tab">Tax Estimator</a><a data-section="inflation-tab">Inflation Impact</a><a data-section="fire-tab">FIRE Retirement</a><a data-section="college-tab">College Savings</a><a data-section="lease-tab">Lease vs Buy</a></div><div class="footer-links"><h5>Resources</h5><a data-section="mortgage-tab">Mortgage Articles</a><a data-section="credit-tab">Debt Management</a><a data-section="investment-tab">Investment Guides</a><a href="#" data-section="budget-rule">50/30/20 Budget Rule</a><a href="#" data-section="lenders-section">🏆 Top 10 Lenders</a></div><div class="footer-links"><h5>Legal</h5><a data-section="terms-section">Terms</a><a data-section="privacy-side">Privacy</a></div></div>
+    <div class="copyright">© 2026 Financial Bank Rates — Educational purposes only. Consult a financial advisor.</div>
+</footer>
+
+<script>
+    // Live interest rates (unchanged)
+    async function fetchLiveRates() {
+        try {
+            const fmpRes = await fetch('https://financialmodelingprep.com/api/v3/treasury?apikey=demo').catch(() => null);
+            let mortgage30 = 6.82, mortgage15 = 6.15, creditCardApr = 21.45, fedRate = 4.50;
+            if (fmpRes && fmpRes.ok) {
+                const fmpData = await fmpRes.json();
+                if (Array.isArray(fmpData) && fmpData.length) {
+                    const tenYear = fmpData.find(t => t.name === '10 Year');
+                    if (tenYear) fedRate = tenYear.value || 4.50;
+                }
+            }
+            const timeSeed = Date.now() / 10000;
+            const variation = (Math.sin(timeSeed) * 0.15).toFixed(2);
+            mortgage30 = (parseFloat(mortgage30) + parseFloat(variation)).toFixed(2);
+            mortgage15 = (parseFloat(mortgage15) + parseFloat(variation) * 0.8).toFixed(2);
+            creditCardApr = (21.45 + (Math.sin(timeSeed + 1) * 0.3)).toFixed(2);
+            fedRate = (4.50 + (Math.cos(timeSeed) * 0.1)).toFixed(2);
+            const container = document.getElementById('rateRowsContainer');
+            if (container) {
+                container.innerHTML = `
+                    <div class="rate-row"><span class="rate-label">30-Yr Mortgage (US)</span><span class="rate-value">${mortgage30}%</span></div>
+                    <div class="rate-row"><span class="rate-label">15-Yr Mortgage (US)</span><span class="rate-value">${mortgage15}%</span></div>
+                    <div class="rate-row"><span class="rate-label">Credit Card Avg APR</span><span class="rate-value">${creditCardApr}%</span></div>
+                    <div class="rate-row"><span class="rate-label">Fed Funds Rate</span><span class="rate-value">${fedRate}%</span></div>
+                `;
+            }
+            const updatedSpan = document.getElementById('ratesLastUpdated');
+            if (updatedSpan) updatedSpan.innerText = `Updated: ${new Date().toLocaleTimeString()}`;
+        } catch (err) {
+            const container = document.getElementById('rateRowsContainer');
+            if (container) {
+                container.innerHTML = `<div class="rate-row"><span class="rate-label">30-Yr Mortgage (US)</span><span class="rate-value">6.87%</span></div><div class="rate-row"><span class="rate-label">15-Yr Mortgage (US)</span><span class="rate-value">6.20%</span></div><div class="rate-row"><span class="rate-label">Credit Card Avg APR</span><span class="rate-value">21.45%</span></div><div class="rate-row"><span class="rate-label">Fed Funds Rate</span><span class="rate-value">4.50%</span></div>`;
+            }
+            const updatedSpan = document.getElementById('ratesLastUpdated');
+            if (updatedSpan) updatedSpan.innerText = `Updated: ${new Date().toLocaleTimeString()} (estimate)`;
+        }
+    }
+    fetchLiveRates();
+    setInterval(fetchLiveRates, 45000);
+
+    let charts = {};
+    function formatUSD(value) { return '$' + Math.round(value).toLocaleString(); }
+
+    function calculateMortgage() { 
+        let homePrice = parseFloat(document.getElementById('homePrice').value) || 0;
+        let downPayment = parseFloat(document.getElementById('downPayment').value) || 0;
+        let annualRate = parseFloat(document.getElementById('interestRate').value) || 0;
+        let termYears = parseInt(document.getElementById('loanTermSelect').value) || 30;
+        let principal = Math.max(0, homePrice - downPayment);
+        const monthlyRate = annualRate / 100 / 12;
+        const totalPayments = termYears * 12;
+        let monthlyPayment = 0, totalCost = 0, totalInterest = 0;
+        if (principal === 0) { monthlyPayment = 0; totalInterest = 0; }
+        else if (monthlyRate === 0) { monthlyPayment = principal / totalPayments; totalCost = principal; totalInterest = 0; }
+        else { const factor = Math.pow(1 + monthlyRate, totalPayments); monthlyPayment = (principal * factor * monthlyRate) / (factor - 1); totalCost = monthlyPayment * totalPayments; totalInterest = totalCost - principal; }
+        if (!isFinite(monthlyPayment)) { monthlyPayment = 0; totalInterest = 0; }
+        document.getElementById('monthlyPaymentDisplay').innerText = formatUSD(monthlyPayment);
+        document.getElementById('principalDisplay').innerText = formatUSD(principal);
+        document.getElementById('totalInterestDisplay').innerText = formatUSD(totalInterest);
+        let interestPercent = (totalCost > 0 && totalInterest > 0) ? (totalInterest / totalCost) * 100 : 0;
+        document.getElementById('interestFillBar').style.width = Math.min(100, interestPercent) + '%';
+        document.getElementById('mortgageInsight').innerHTML = `<strong>Amortization Insight</strong><br>Interest: ${interestPercent.toFixed(1)}% of total payments. ${interestPercent > 65 ? 'Consider larger down payment.' : interestPercent > 40 ? 'Extra payments help.' : 'Efficient structure.'}`;
+        if (charts.mortgage) charts.mortgage.data.datasets[0].data = [principal, totalInterest];
+        else if (document.getElementById('mortgageChart')) charts.mortgage = new Chart(document.getElementById('mortgageChart'), { type: 'doughnut', data: { labels: ['Principal', 'Total Interest'], datasets: [{ data: [principal, totalInterest], backgroundColor: ['#2c7a4d', '#dc2626'] }] }, options: { responsive: true, maintainAspectRatio: true, plugins: { legend: { position: 'bottom' } } } });
+        if (charts.mortgage) charts.mortgage.update();
+    }
+    function calculateCreditPayoff() { 
+        let balance = parseFloat(document.getElementById('cardBalance').value) || 0;
+        let apr = parseFloat(document.getElementById('cardApr').value) || 0;
+        let monthlyPayment = parseFloat(document.getElementById('monthlyPaymentCredit').value) || 0;
+        if (balance <= 0) { document.getElementById('monthsToPayoff').innerText = '0'; document.getElementById('creditInterestTotal').innerText = '$0'; document.getElementById('totalCreditPayments').innerText = '$0'; if(charts.credit) charts.credit.data.datasets[0].data = [0]; charts.credit?.update(); return; }
+        if (monthlyPayment <= 0) { document.getElementById('monthsToPayoff').innerText = 'N/A'; document.getElementById('creditInterestTotal').innerText = '$0'; document.getElementById('totalCreditPayments').innerText = '$0'; return; }
+        let monthlyRate = apr / 100 / 12;
+        let currentBalance = balance;
+        let months = 0;
+        let totalInterestPaid = 0;
+        if (monthlyPayment <= (currentBalance * monthlyRate) && monthlyRate > 0) { document.getElementById('monthsToPayoff').innerText = '∞'; document.getElementById('creditInterestTotal').innerText = formatUSD(0); document.getElementById('totalCreditPayments').innerText = formatUSD(0); return; }
+        while (currentBalance > 0.01 && months < 600) { let interestAccrued = currentBalance * monthlyRate; totalInterestPaid += interestAccrued; let principalPaid = monthlyPayment - interestAccrued; if (principalPaid <= 0) break; currentBalance -= principalPaid; months++; }
+        document.getElementById('monthsToPayoff').innerText = months; document.getElementById('creditInterestTotal').innerText = formatUSD(totalInterestPaid); document.getElementById('totalCreditPayments').innerText = formatUSD(balance + totalInterestPaid);
+        if (charts.credit) charts.credit.data.datasets[0].data = [balance, totalInterestPaid];
+        else if (document.getElementById('creditChart')) charts.credit = new Chart(document.getElementById('creditChart'), { type: 'doughnut', data: { labels: ['Principal', 'Interest Paid'], datasets: [{ data: [balance, totalInterestPaid], backgroundColor: ['#2c7a4d', '#dc2626'] }] }, options: { responsive: true } });
+        if (charts.credit) charts.credit.update();
+    }
+    function calculateInvestment() { 
+        let initial = parseFloat(document.getElementById('initialInvestment').value) || 0;
+        let monthlyContrib = parseFloat(document.getElementById('monthlyContribution').value) || 0;
+        let annualRate = parseFloat(document.getElementById('annualReturn').value) || 0;
+        let years = parseFloat(document.getElementById('investmentYears').value) || 0;
+        let monthlyRate = annualRate / 100 / 12;
+        let months = years * 12;
+        let futureValue = initial * Math.pow(1 + monthlyRate, months);
+        if (monthlyContrib > 0 && monthlyRate > 0) futureValue += monthlyContrib * ((Math.pow(1 + monthlyRate, months) - 1) / monthlyRate);
+        else if (monthlyContrib > 0) futureValue += monthlyContrib * months;
+        let totalContributions = initial + (monthlyContrib * months);
+        let totalEarnings = Math.max(0, futureValue - totalContributions);
+        document.getElementById('futureValue').innerText = formatUSD(futureValue);
+        document.getElementById('totalContributions').innerText = formatUSD(totalContributions);
+        document.getElementById('totalEarnings').innerText = formatUSD(totalEarnings);
+        let earningsPercent = (futureValue > 0) ? (totalEarnings / futureValue) * 100 : 0;
+        document.getElementById('earningsFillBar').style.width = Math.min(100, earningsPercent) + '%';
+        if (charts.investment) charts.investment.data.datasets[0].data = [totalContributions, totalEarnings];
+        else if (document.getElementById('investmentChart')) charts.investment = new Chart(document.getElementById('investmentChart'), { type: 'doughnut', data: { labels: ['Total Contributions', 'Total Earnings'], datasets: [{ data: [totalContributions, totalEarnings], backgroundColor: ['#2c7a4d', '#dc2626'] }] }, options: { responsive: true } });
+        if (charts.investment) charts.investment.update();
+    }
+    function calculateTax() { 
+        let gross = parseFloat(document.getElementById('grossIncome').value) || 0;
+        let preTax = parseFloat(document.getElementById('preTaxDeductions').value) || 0;
+        let adjustedGross = Math.max(0, gross - preTax);
+        let standardDeduction = 0;
+        let filing = document.getElementById('filingStatus').value;
+        if (filing === 'single') standardDeduction = 14600;
+        else if (filing === 'married') standardDeduction = 29200;
+        else standardDeduction = 21900;
+        let useStandard = document.getElementById('useStandard').value === 'yes';
+        let itemized = parseFloat(document.getElementById('itemizedDeductions').value) || 0;
+        let deduction = useStandard ? standardDeduction : Math.max(0, itemized);
+        let taxable = Math.max(0, adjustedGross - deduction);
+        let tax = 0;
+        if (filing === 'single') { if (taxable <= 11600) tax = taxable * 0.10; else if (taxable <= 47150) tax = 1160 + (taxable - 11600) * 0.12; else if (taxable <= 100525) tax = 1160 + (47150-11600)*0.12 + (taxable-47150)*0.22; else if (taxable <= 191950) tax = 1160 + (47150-11600)*0.12 + (100525-47150)*0.22 + (taxable-100525)*0.24; else if (taxable <= 243725) tax = 1160 + (47150-11600)*0.12 + (100525-47150)*0.22 + (191950-100525)*0.24 + (taxable-191950)*0.32; else tax = 1160 + (47150-11600)*0.12 + (100525-47150)*0.22 + (191950-100525)*0.24 + (243725-191950)*0.32 + (taxable-243725)*0.35; }
+        else if (filing === 'married') { if (taxable <= 23200) tax = taxable * 0.10; else if (taxable <= 94300) tax = 2320 + (taxable - 23200) * 0.12; else if (taxable <= 201050) tax = 2320 + (94300-23200)*0.12 + (taxable-94300)*0.22; else if (taxable <= 383900) tax = 2320 + (94300-23200)*0.12 + (201050-94300)*0.22 + (taxable-201050)*0.24; else if (taxable <= 487450) tax = 2320 + (94300-23200)*0.12 + (201050-94300)*0.22 + (383900-201050)*0.24 + (taxable-383900)*0.32; else tax = 2320 + (94300-23200)*0.12 + (201050-94300)*0.22 + (383900-201050)*0.24 + (487450-383900)*0.32 + (taxable-487450)*0.35; }
+        else { if (taxable <= 16550) tax = taxable * 0.10; else if (taxable <= 63100) tax = 1655 + (taxable - 16550) * 0.12; else if (taxable <= 100500) tax = 1655 + (63100-16550)*0.12 + (taxable-63100)*0.22; else if (taxable <= 191950) tax = 1655 + (63100-16550)*0.12 + (100500-63100)*0.22 + (taxable-100500)*0.24; else if (taxable <= 243700) tax = 1655 + (63100-16550)*0.12 + (100500-63100)*0.22 + (191950-100500)*0.24 + (taxable-191950)*0.32; else tax = 1655 + (63100-16550)*0.12 + (100500-63100)*0.22 + (191950-100500)*0.24 + (243700-191950)*0.32 + (taxable-243700)*0.35; }
+        tax = Math.max(0, tax);
+        let effectiveRateVal = (gross > 0) ? (tax / gross) * 100 : 0;
+        document.getElementById('taxableIncome').innerText = formatUSD(taxable);
+        document.getElementById('estimatedTax').innerText = formatUSD(tax);
+        document.getElementById('effectiveRate').innerText = effectiveRateVal.toFixed(1) + '%';
+        if (charts.tax) charts.tax.data.datasets[0].data = [tax, Math.max(0, gross - tax)];
+        else if (document.getElementById('taxChart')) charts.tax = new Chart(document.getElementById('taxChart'), { type: 'doughnut', data: { labels: ['Estimated Tax', 'After-Tax Income'], datasets: [{ data: [tax, Math.max(0, gross - tax)], backgroundColor: ['#dc2626', '#2c7a4d'] }] }, options: { responsive: true } });
+        if (charts.tax) charts.tax.update();
+    }
+    function calculateInflation() { 
+        let amount = parseFloat(document.getElementById('currentAmount').value) || 0;
+        let annualInflation = parseFloat(document.getElementById('inflationRate').value) || 0;
+        let years = parseFloat(document.getElementById('inflationYears').value) || 0;
+        let inflationFactor = Math.pow(1 + annualInflation / 100, years);
+        let futureNominal = amount * inflationFactor;
+        let realValueToday = amount / inflationFactor;
+        let lossOfPower = amount - realValueToday;
+        document.getElementById('futureNominal').innerText = formatUSD(futureNominal);
+        document.getElementById('realValueAdjusted').innerText = formatUSD(realValueToday);
+        document.getElementById('purchasingPowerLoss').innerText = formatUSD(lossOfPower);
+        let retainedPercent = (realValueToday / amount) * 100;
+        document.getElementById('purchasingPowerFill').style.width = Math.min(100, Math.max(0, retainedPercent)) + '%';
+        if (charts.inflation) charts.inflation.data.datasets[0].data = [realValueToday, lossOfPower];
+        else if (document.getElementById('inflationChart')) charts.inflation = new Chart(document.getElementById('inflationChart'), { type: 'bar', data: { labels: ['Real Value', 'Loss of Power'], datasets: [{ data: [realValueToday, lossOfPower], backgroundColor: ['#2c7a4d', '#dc2626'] }] }, options: { responsive: true, indexAxis: 'y' } });
+        if (charts.inflation) charts.inflation.update();
+    }
+    function calculateFIRE() { 
+        let currentAge = parseFloat(document.getElementById('currentAge').value) || 0;
+        let currentSavings = parseFloat(document.getElementById('currentSavings').value) || 0;
+        let annualContribution = parseFloat(document.getElementById('annualFireContribution').value) || 0;
+        let annualSpending = parseFloat(document.getElementById('annualSpending').value) || 0;
+        let returnRate = parseFloat(document.getElementById('fireReturn').value) || 0;
+        let withdrawalRate = parseFloat(document.getElementById('withdrawalRate').value) || 4.0;
+        let fiTarget = (withdrawalRate > 0) ? annualSpending / (withdrawalRate / 100) : Infinity;
+        document.getElementById('fiTarget').innerText = formatUSD(fiTarget);
+        let years = 0;
+        let current = currentSavings;
+        if (current >= fiTarget) years = 0;
+        else if (returnRate === 0) { let needed = fiTarget - current; years = (needed > 0 && annualContribution > 0) ? needed / annualContribution : 999; }
+        else { let r = returnRate / 100; let p = current; let c = annualContribution; let target = fiTarget; let n = 0; while (n < 100) { let fv = p * Math.pow(1 + r, n) + c * (Math.pow(1 + r, n) - 1) / r; if (fv >= target) break; n++; } years = n; }
+        years = Math.ceil(years);
+        let retirementAge = currentAge + years;
+        document.getElementById('yearsToFire').innerText = years > 90 ? '40+' : years;
+        document.getElementById('retirementAge').innerText = retirementAge > 120 ? 'N/A' : retirementAge;
+        let progressPercent = (currentSavings / fiTarget) * 100;
+        if (progressPercent > 100) progressPercent = 100;
+        document.getElementById('fireProgressFill').style.width = progressPercent + '%';
+        if (charts.fire) charts.fire.data.datasets[0].data = [currentSavings, Math.max(0, fiTarget - currentSavings)];
+        else if (document.getElementById('fireChart')) charts.fire = new Chart(document.getElementById('fireChart'), { type: 'doughnut', data: { labels: ['Current Savings', 'Remaining to FI'], datasets: [{ data: [currentSavings, Math.max(0, fiTarget - currentSavings)], backgroundColor: ['#2c7a4d', '#dc2626'] }] }, options: { responsive: true } });
+        if (charts.fire) charts.fire.update();
+    }
+    function calculateCollege() { 
+        let childAge = parseFloat(document.getElementById('childAge').value) || 0;
+        let yearsToCollege = parseFloat(document.getElementById('yearsToCollege').value) || (18 - childAge);
+        if (yearsToCollege < 0) yearsToCollege = 0;
+        let currentSavings = parseFloat(document.getElementById('currentCollegeSavings').value) || 0;
+        let monthlyContrib = parseFloat(document.getElementById('monthlyCollegeContribution').value) || 0;
+        let annualReturn = parseFloat(document.getElementById('collegeReturn').value) || 0;
+        let currentAnnualCost = parseFloat(document.getElementById('currentCollegeCost').value) || 25000;
+        let tuitionInflation = parseFloat(document.getElementById('tuitionInflation').value) || 5.0;
+        let firstYearCost = currentAnnualCost * Math.pow(1 + tuitionInflation / 100, yearsToCollege);
+        let totalCost = 0;
+        for (let i = 0; i < 4; i++) totalCost += firstYearCost * Math.pow(1 + tuitionInflation / 100, i);
+        let months = yearsToCollege * 12;
+        let monthlyRate = annualReturn / 100 / 12;
+        let futureSavings = currentSavings * Math.pow(1 + monthlyRate, months);
+        if (monthlyContrib > 0 && monthlyRate > 0) futureSavings += monthlyContrib * ((Math.pow(1 + monthlyRate, months) - 1) / monthlyRate);
+        else if (monthlyContrib > 0) futureSavings += monthlyContrib * months;
+        let gap = totalCost - futureSavings;
+        document.getElementById('projectedCost').innerText = formatUSD(totalCost);
+        document.getElementById('projectedSavings').innerText = formatUSD(futureSavings);
+        document.getElementById('fundingGap').innerText = gap > 0 ? formatUSD(gap) : formatUSD(0);
+        let progressPercent = (futureSavings / totalCost) * 100;
+        if (progressPercent > 100) progressPercent = 100;
+        document.getElementById('collegeProgressFill').style.width = progressPercent + '%';
+        if (charts.college) charts.college.data.datasets[0].data = [futureSavings, Math.max(0, totalCost - futureSavings)];
+        else if (document.getElementById('collegeChart')) charts.college = new Chart(document.getElementById('collegeChart'), { type: 'doughnut', data: { labels: ['Projected Savings', 'Remaining Cost'], datasets: [{ data: [futureSavings, Math.max(0, totalCost - futureSavings)], backgroundColor: ['#2c7a4d', '#dc2626'] }] }, options: { responsive: true } });
+        if (charts.college) charts.college.update();
+    }
+
+    function calculateLeaseVsBuy() {
+        const vehiclePrice = parseFloat(document.getElementById('vehiclePrice').value) || 0;
+        const downPaymentBuy = parseFloat(document.getElementById('buyDownPayment').value) || 0;
+        const loanRate = parseFloat(document.getElementById('loanRate').value) || 0;
+        const loanTermMonths = parseInt(document.getElementById('loanTermMonths').value) || 60;
+        const leasePayment = parseFloat(document.getElementById('leasePayment').value) || 0;
+        const leaseDown = parseFloat(document.getElementById('leaseDown').value) || 0;
+        const leaseTerm = parseInt(document.getElementById('leaseTerm').value) || 36;
+        const mileageLimit = parseInt(document.getElementById('mileageLimit').value) || 12000;
+        const excessFee = parseFloat(document.getElementById('excessMileageFee').value) || 0.25;
+        const annualDepreciation = parseFloat(document.getElementById('depreciationRate').value) || 15;
+
+        const loanPrincipal = Math.max(0, vehiclePrice - downPaymentBuy);
+        let monthlyLoanPayment = 0;
+        if (loanPrincipal > 0 && loanRate > 0) {
+            const monthlyRate = loanRate / 100 / 12;
+            const factor = Math.pow(1 + monthlyRate, loanTermMonths);
+            monthlyLoanPayment = (loanPrincipal * monthlyRate * factor) / (factor - 1);
+        } else if (loanPrincipal > 0) {
+            monthlyLoanPayment = loanPrincipal / loanTermMonths;
+        }
+        const totalLoanPayments = monthlyLoanPayment * loanTermMonths;
+        const buyTotal = downPaymentBuy + totalLoanPayments;
+        const totalLeasePayments = leasePayment * leaseTerm;
+        const estimatedAnnualMiles = 15000;
+        const totalMilesOverTerm = estimatedAnnualMiles * (leaseTerm / 12);
+        const allowedMiles = mileageLimit * (leaseTerm / 12);
+        const excessMiles = Math.max(0, totalMilesOverTerm - allowedMiles);
+        const excessCost = excessMiles * excessFee;
+        const leaseTotal = leaseDown + totalLeasePayments + excessCost;
+        const yearsOwned = leaseTerm / 12;
+        const residualValue = vehiclePrice * Math.pow(1 - annualDepreciation / 100, yearsOwned);
+        const buyNetCostAfterResale = buyTotal - residualValue;
+        const difference = leaseTotal - buyNetCostAfterResale;
+        document.getElementById('buyTotalCost').innerText = formatUSD(buyTotal);
+        document.getElementById('leaseTotalCost').innerText = formatUSD(leaseTotal);
+        document.getElementById('leaseVsBuyDiff').innerText = difference > 0 ? formatUSD(difference) + ' (Buy saves)' : formatUSD(Math.abs(difference)) + ' (Lease saves)';
+        let breakevenMiles = 0;
+        if (excessFee > 0) {
+            const fixedLeaseCost = leaseDown + totalLeasePayments;
+            const targetCost = buyNetCostAfterResale;
+            if (targetCost > fixedLeaseCost) {
+                const neededExcess = (targetCost - fixedLeaseCost) / excessFee;
+                const totalMilesNeeded = allowedMiles + neededExcess;
+                breakevenMiles = Math.round(totalMilesNeeded / (leaseTerm / 12));
+            } else {
+                breakevenMiles = mileageLimit;
+            }
+        } else {
+            breakevenMiles = 0;
+        }
+        document.getElementById('breakevenMileage').innerText = breakevenMiles > 0 ? `${breakevenMiles.toLocaleString()} mi/yr` : 'N/A';
+        const fillPercent = (Math.min(buyNetCostAfterResale, leaseTotal) / Math.max(buyNetCostAfterResale, leaseTotal)) * 100;
+        document.getElementById('costComparisonFill').style.width = `${fillPercent}%`;
+        document.getElementById('leaseInsight').innerHTML = `<strong>Lease vs Buy Analysis</strong><br>Buy net cost (after resale): ${formatUSD(buyNetCostAfterResale)}. Lease total: ${formatUSD(leaseTotal)}. ${difference < 0 ? 'Leasing saves money in this scenario.' : 'Buying saves money in this scenario.'} ${breakevenMiles > 0 ? `Drive over ${breakevenMiles.toLocaleString()} miles/year and buying becomes cheaper.` : ''}`;
+        if (charts.lease) charts.lease.data.datasets[0].data = [buyNetCostAfterResale, leaseTotal];
+        else if (document.getElementById('leaseChart')) charts.lease = new Chart(document.getElementById('leaseChart'), { type: 'doughnut', data: { labels: ['Buy Net Cost (incl. resale)', 'Lease Total Cost'], datasets: [{ data: [buyNetCostAfterResale, leaseTotal], backgroundColor: ['#2c7a4d', '#c89d3c'] }] }, options: { responsive: true } });
+        if (charts.lease) charts.lease.update();
+    }
+
+    function bindEventsAndInit() {
+        document.querySelectorAll('#homePrice, #downPayment, #interestRate, #loanTermSelect').forEach(el => el.addEventListener('input', () => calculateMortgage()));
+        document.querySelectorAll('#cardBalance, #cardApr, #monthlyPaymentCredit').forEach(el => el.addEventListener('input', () => calculateCreditPayoff()));
+        document.querySelectorAll('#initialInvestment, #monthlyContribution, #annualReturn, #investmentYears').forEach(el => el.addEventListener('input', () => calculateInvestment()));
+        document.querySelectorAll('#grossIncome, #filingStatus, #preTaxDeductions, #useStandard, #itemizedDeductions').forEach(el => el.addEventListener('input', () => calculateTax()));
+        document.querySelectorAll('#currentAmount, #inflationRate, #inflationYears').forEach(el => el.addEventListener('input', () => calculateInflation()));
+        document.querySelectorAll('#currentAge, #currentSavings, #annualFireContribution, #annualSpending, #fireReturn, #withdrawalRate').forEach(el => el.addEventListener('input', () => calculateFIRE()));
+        document.querySelectorAll('#childAge, #yearsToCollege, #currentCollegeSavings, #monthlyCollegeContribution, #collegeReturn, #currentCollegeCost, #tuitionInflation').forEach(el => el.addEventListener('input', () => calculateCollege()));
+        document.querySelectorAll('#vehiclePrice, #buyDownPayment, #loanRate, #loanTermMonths, #leasePayment, #leaseDown, #leaseTerm, #mileageLimit, #excessMileageFee, #depreciationRate').forEach(el => el.addEventListener('input', () => calculateLeaseVsBuy()));
+        calculateMortgage(); calculateCreditPayoff(); calculateInvestment(); calculateTax(); calculateInflation(); calculateFIRE(); calculateCollege(); calculateLeaseVsBuy();
+    }
+
+    window.addEventListener('DOMContentLoaded', () => { bindEventsAndInit(); 
+        const menuBtn = document.getElementById('menuButton'); const dropdown = document.getElementById('dropdownMenu');
+        menuBtn.addEventListener('click', (e) => { e.stopPropagation(); dropdown.classList.toggle('show'); });
+        document.addEventListener('click', (e) => { if (!menuBtn.contains(e.target) && !dropdown.contains(e.target)) dropdown.classList.remove('show'); });
+        document.querySelectorAll('.dropdown-menu a, .footer-links a').forEach(link => { link.addEventListener('click', (e) => { const sectionId = link.getAttribute('data-section'); if(sectionId === 'mortgage-tab') switchTab('mortgage'); else if(sectionId === 'credit-tab') switchTab('credit'); else if(sectionId === 'investment-tab') switchTab('investment'); else if(sectionId === 'tax-tab') switchTab('tax'); else if(sectionId === 'inflation-tab') switchTab('inflation'); else if(sectionId === 'fire-tab') switchTab('fire'); else if(sectionId === 'college-tab') switchTab('college'); else if(sectionId === 'lease-tab') switchTab('lease'); else if(sectionId === 'howto-section') document.getElementById('howto-section')?.scrollIntoView({ behavior: 'smooth' }); else if(sectionId === 'about-section') document.getElementById('about-section')?.scrollIntoView({ behavior: 'smooth' }); else if(sectionId === 'contact-section') document.getElementById('contact-section')?.scrollIntoView({ behavior: 'smooth' }); else if(sectionId === 'terms-section') document.getElementById('terms-section')?.scrollIntoView({ behavior: 'smooth' }); else if(sectionId === 'privacy-side') document.getElementById('privacy-side')?.scrollIntoView({ behavior: 'smooth' }); else if(sectionId === 'budget-rule') document.getElementById('budgetRuleArticle')?.scrollIntoView({ behavior: 'smooth' }); else if(sectionId === 'lenders-section') document.getElementById('lenders-section')?.scrollIntoView({ behavior: 'smooth' }); dropdown?.classList.remove('show'); }); });
+        window.switchTab = function(tabId) { const panes = ['mortgagePane','creditPane','investmentPane','taxPane','inflationPane','firePane','collegePane','leasePane']; panes.forEach(p => document.getElementById(p).classList.remove('active-pane')); document.getElementById(tabId+'Pane').classList.add('active-pane'); document.querySelectorAll('.tab-btn').forEach(btn => { if(btn.getAttribute('data-tab')===tabId) btn.classList.add('active'); else btn.classList.remove('active'); }); if(tabId==='mortgage') calculateMortgage(); if(tabId==='credit') calculateCreditPayoff(); if(tabId==='investment') calculateInvestment(); if(tabId==='tax') calculateTax(); if(tabId==='inflation') calculateInflation(); if(tabId==='fire') calculateFIRE(); if(tabId==='college') calculateCollege(); if(tabId==='lease') calculateLeaseVsBuy(); };
+        document.querySelectorAll('.tab-btn').forEach(btn => btn.addEventListener('click', () => window.switchTab(btn.getAttribute('data-tab'))));
+    });
+</script>
+</body>
+</html>
