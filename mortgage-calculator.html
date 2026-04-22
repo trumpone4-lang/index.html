@@ -459,26 +459,6 @@
             text-decoration: underline;
         }
 
-        .blog-section {
-            margin-top: 0;
-        }
-        
-        .blog-item {
-            margin-bottom: 0.75rem;
-            cursor: pointer;
-            transition: opacity 0.2s;
-        }
-        
-        .blog-item:hover {
-            opacity: 0.8;
-        }
-        
-        .blog-title {
-            font-size: 0.85rem;
-            color: #bdd4e8;
-            display: block;
-        }
-
         .copyright {
             text-align: center;
             font-size: 0.8rem;
@@ -655,8 +635,7 @@
     <div class="container">
         <div class="footer-grid">
             <div class="footer-col"><h4>SmartRatesLab</h4><p style="font-size:0.85rem;">Professional-grade financial calculators. 100% free.</p></div>
-            <div class="footer-col"><h4>Quick Links</h4><ul class="footer-links"><li><a class="footer-nav-link" data-nav="home">Home</a></li><li><a class="footer-nav-link" data-nav="about">About</a></li><li><a class="footer-nav-link" data-nav="contact">Contact</a></li><li><a class="footer-nav-link" data-nav="privacy">Privacy</a></li><li><a class="footer-nav-link" data-nav="terms">Terms</a></li></ul></div>
-            <div class="footer-col"><div class="blog-section"><h4>Blog</h4><div class="blog-item" data-blog="1"><span class="blog-title">Mortgage prepayment vs. index funds</span></div><div class="blog-item" data-blog="2"><span class="blog-title">How to calculate real return after inflation</span></div><div class="blog-item" data-blog="3"><span class="blog-title">Coast FIRE: when investments outrun expenses</span></div><div class="blog-item" data-blog="4"><span class="blog-title">Mortgage recasting without refinancing</span></div><div class="blog-item" data-blog="5"><span class="blog-title">Tax-loss harvesting for capital gains</span></div></div></div>
+            <div class="footer-col"><h4>Quick Links</h4><ul class="footer-links"><li><a class="footer-nav-link" data-nav="about">📄 About</a></li><li><a class="footer-nav-link" data-nav="contact">📞 Contact</a></li><li><a class="footer-nav-link" data-nav="privacy">🔒 Privacy</a></li><li><a class="footer-nav-link" data-nav="terms">⚖️ Terms</a></li></ul></div>
         </div>
         <div class="copyright"><span>© 2026 SmartRatesLab - Educational purposes only.</span><span><a class="footer-legal-link" data-nav="privacy">Privacy</a> | <a class="footer-legal-link" data-nav="terms">Terms</a> | <a class="footer-legal-link" data-nav="about">About</a> | <a class="footer-legal-link" data-nav="contact">Contact</a></span></div>
     </div>
@@ -811,9 +790,44 @@
         
         createMortgageCalculator();
         
+        // Updated drawer menu with all 7 tools
         const drawerToolsList = document.getElementById('drawerToolsList');
-        const allTools = [ "🏠 Mortgage Calculator", "📈 Investment Calculator", "💰 Savings Calculator", "📊 Retirement Planner", "🏦 Loan Comparison Tool", "📉 Amortization Schedule", "🔄 Refinance Breakeven", "💳 Credit Card Payoff", "📅 DTI Calculator", "🏡 Rent vs Buy Analyzer", "📈 Compound Interest Calculator", "🎓 Student Loan Planner" ];
-        allTools.forEach(toolName => { const toolLink = document.createElement('a'); toolLink.className = 'drawer-item'; toolLink.innerHTML = toolName; toolLink.href = '#'; toolLink.style.fontSize = '0.85rem'; toolLink.addEventListener('click', (e) => { e.preventDefault(); document.getElementById('mortgageCalculatorCard').scrollIntoView({ behavior: 'smooth' }); closeDrawer(); }); drawerToolsList.appendChild(toolLink); });
+        const allTools = [
+            "🏠 Mortgage Calculator",
+            "🚗 Car Refinance Calculator",
+            "💳 Credit Card Points Calculator",
+            "📈 Investment Calculator",
+            "📊 Budget Calculator",
+            "📉 Inflation Calculator",
+            "🎓 College Savings Calculator"
+        ];
+        
+        const toolFileMap = {
+            "🏠 Mortgage Calculator": "mortgage-calculator.html",
+            "🚗 Car Refinance Calculator": "car-refinance-calculator.html",
+            "💳 Credit Card Points Calculator": "credit-card-points-calculator.html",
+            "📈 Investment Calculator": "investment-calculator.html",
+            "📊 Budget Calculator": "budget-calculator.html",
+            "📉 Inflation Calculator": "inflation-calculator.html",
+            "🎓 College Savings Calculator": "college-savings-calculator.html"
+        };
+        
+        allTools.forEach(toolName => {
+            const toolLink = document.createElement('a');
+            toolLink.className = 'drawer-item';
+            toolLink.innerHTML = toolName;
+            toolLink.href = '#';
+            toolLink.style.fontSize = '0.85rem';
+            toolLink.addEventListener('click', (e) => {
+                e.preventDefault();
+                const fileName = toolFileMap[toolName];
+                if (fileName) {
+                    window.location.href = fileName;
+                }
+                closeDrawer();
+            });
+            drawerToolsList.appendChild(toolLink);
+        });
         
         const modal = document.getElementById('infoModal'); const modalTitle = document.getElementById('modalTitle'); const modalText = document.getElementById('modalText'); const closeModalBtn = document.getElementById('closeModalBtn');
         function closeModalFunc() { modal.style.display = 'none'; }
@@ -828,6 +842,7 @@
         document.querySelectorAll('.drawer-item[data-nav]').forEach(item => { item.addEventListener('click', (e) => { e.preventDefault(); handleNavigation(item.getAttribute('data-nav')); }); });
         document.querySelectorAll('.footer-nav-link, .footer-legal-link, [data-nav]').forEach(link => { if (!link.closest('.drawer')) { link.addEventListener('click', (e) => { e.preventDefault(); const nav = link.getAttribute('data-nav'); if (nav) handleNavigation(nav); }); } });
         document.getElementById('homeLinkHeader')?.addEventListener('click', () => { window.scrollTo({ top: 0, behavior: 'smooth' }); openModal('home'); });
+        
         const blogPosts = { 1: { title: "Mortgage prepayment vs. index funds", content: "<p>Extra mortgage payments give a guaranteed return equal to your interest rate.</p>" }, 2: { title: "Real return after inflation & taxes", content: "<p>Adjust nominal returns for inflation and taxes.</p>" }, 3: { title: "Coast FIRE fundamentals", content: "<p>Coast FIRE is when your existing investments will grow to cover retirement.</p>" }, 4: { title: "Mortgage recasting explained", content: "<p>Recasting lowers monthly payments without refinancing.</p>" }, 5: { title: "Tax-loss harvesting strategies", content: "<p>Offset capital gains by selling losing positions.</p>" } };
         document.querySelectorAll('.blog-item').forEach(item => { item.addEventListener('click', () => { const blogId = item.getAttribute('data-blog'); const post = blogPosts[blogId]; if (post) { modalTitle.innerText = post.title; modalText.innerHTML = post.content; modal.style.display = 'flex'; } closeDrawer(); }); });
         
