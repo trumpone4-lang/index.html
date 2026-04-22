@@ -583,26 +583,6 @@
             text-decoration: underline;
         }
 
-        .blog-section {
-            margin-top: 0;
-        }
-        
-        .blog-item {
-            margin-bottom: 0.75rem;
-            cursor: pointer;
-            transition: opacity 0.2s;
-        }
-        
-        .blog-item:hover {
-            opacity: 0.8;
-        }
-        
-        .blog-title {
-            font-size: 0.85rem;
-            color: #bdd4e8;
-            display: block;
-        }
-
         .copyright {
             text-align: center;
             font-size: 0.8rem;
@@ -756,13 +736,9 @@
                     </thead>
                     <tbody>
                         <tr><td>529 Plan</td><td>Tax-free growth & withdrawals for education</td><td>$300,000+ per beneficiary</td><td>Parent-owned: 5.64% counted</td></tr>
-                        <tr>
                         <tr><td>Roth IRA</td><td>Tax-free growth, penalty-free withdrawal of contributions</td><td>$7,000/year (2024)</td><td>Counts as parent asset</td></tr>
-                        <tr>
                         <tr><td>Custodial (UTMA/UGMA)</td><td>First $1,250 tax-free, next $1,250 at child's rate</td><td>No limit</td><td>Counts as child asset (20%+ impact)</td></tr>
-                        <tr>
                         <tr><td>Coverdell ESA</td><td>Tax-free growth & withdrawals</td><td>$2,000/year</td><td>Parent asset</td></tr>
-                        </tr>
                     </tbody>
                 </table>
                 
@@ -775,13 +751,9 @@
                     </thead>
                     <tbody>
                         <tr><td>Newborn</td><td>$40,000 (20% of $200k)</td><td>$120,000 (60%)</td><td>$200,000 (100%)</td></tr>
-                        <tr>
                         <tr><td>5 years old</td><td>$25,000 (15%)</td><td>$75,000 (45%)</td><td>$125,000 (75%)</td></tr>
-                        <tr>
                         <tr><td>10 years old</td><td>$12,000 (8%)</td><td>$36,000 (24%)</td><td>$60,000 (40%)</td></tr>
-                        <tr>
                         <tr><td>15 years old</td><td>$5,000 (4%)</td><td>$15,000 (12%)</td><td>$25,000 (20%)</td></tr>
-                        </tr>
                     </tbody>
                 </table>
                 
@@ -841,8 +813,7 @@
     <div class="container">
         <div class="footer-grid">
             <div class="footer-col"><h4>SmartRatesLab</h4><p style="font-size:0.85rem;">Professional-grade financial calculators. 100% free.</p></div>
-            <div class="footer-col"><h4>Quick Links</h4><ul class="footer-links"><li><a class="footer-nav-link" data-nav="home">Home</a></li><li><a class="footer-nav-link" data-nav="about">About</a></li><li><a class="footer-nav-link" data-nav="contact">Contact</a></li><li><a class="footer-nav-link" data-nav="privacy">Privacy</a></li><li><a class="footer-nav-link" data-nav="terms">Terms</a></li></ul></div>
-            <div class="footer-col"><div class="blog-section"><h4>📖 Blog</h4><div class="blog-item" data-blog="1"><span class="blog-title">Mortgage prepayment vs. index funds</span></div><div class="blog-item" data-blog="2"><span class="blog-title">How to calculate real return after inflation</span></div><div class="blog-item" data-blog="3"><span class="blog-title">Coast FIRE: when investments outrun expenses</span></div><div class="blog-item" data-blog="4"><span class="blog-title">Mortgage recasting without refinancing</span></div><div class="blog-item" data-blog="5"><span class="blog-title">Tax-loss harvesting for capital gains</span></div></div></div>
+            <div class="footer-col"><h4>Quick Links</h4><ul class="footer-links"><li><a class="footer-nav-link" data-nav="about">📄 About</a></li><li><a class="footer-nav-link" data-nav="contact">📞 Contact</a></li><li><a class="footer-nav-link" data-nav="privacy">🔒 Privacy</a></li><li><a class="footer-nav-link" data-nav="terms">⚖️ Terms</a></li></ul></div>
         </div>
         <div class="copyright"><span>© 2026 SmartRatesLab - Educational purposes only.</span><span><a class="footer-legal-link" data-nav="privacy">Privacy</a> | <a class="footer-legal-link" data-nav="terms">Terms</a> | <a class="footer-legal-link" data-nav="about">About</a> | <a class="footer-legal-link" data-nav="contact">Contact</a></span></div>
     </div>
@@ -1004,14 +975,28 @@
         
         createCollegeSavingsCalculator();
         
-        // RESTORE ALL TOOLS in drawer menu
+        // Updated drawer menu with all 7 tools
         const drawerToolsList = document.getElementById('drawerToolsList');
         const allTools = [
-            "🎓 College Savings Calculator", "💳 Credit Card Points Calculator", "💳 Credit Card Payoff Calculator", 
-            "🚗 Car Refinance Calculator", "🏠 Mortgage Calculator", "💰 Savings Calculator",
-            "📊 Retirement Planner", "🏦 Loan Comparison Tool", "🔄 Refinance Breakeven",
-            "📅 DTI Calculator", "🏡 Rent vs Buy Analyzer", "📈 Compound Interest Calculator", "🎓 Student Loan Planner"
+            "🏠 Mortgage Calculator",
+            "🚗 Car Refinance Calculator",
+            "💳 Credit Card Points Calculator",
+            "📈 Investment Calculator",
+            "📊 Budget Calculator",
+            "📉 Inflation Calculator",
+            "🎓 College Savings Calculator"
         ];
+        
+        const toolFileMap = {
+            "🏠 Mortgage Calculator": "mortgage-calculator.html",
+            "🚗 Car Refinance Calculator": "car-refinance-calculator.html",
+            "💳 Credit Card Points Calculator": "credit-card-points-calculator.html",
+            "📈 Investment Calculator": "investment-calculator.html",
+            "📊 Budget Calculator": "budget-calculator.html",
+            "📉 Inflation Calculator": "inflation-calculator.html",
+            "🎓 College Savings Calculator": "college-savings-calculator.html"
+        };
+        
         allTools.forEach(toolName => {
             const toolLink = document.createElement('a');
             toolLink.className = 'drawer-item';
@@ -1020,7 +1005,10 @@
             toolLink.style.fontSize = '0.85rem';
             toolLink.addEventListener('click', (e) => {
                 e.preventDefault();
-                document.getElementById('mortgageCalculatorCard').scrollIntoView({ behavior: 'smooth' });
+                const fileName = toolFileMap[toolName];
+                if (fileName) {
+                    window.location.href = fileName;
+                }
                 closeDrawer();
             });
             drawerToolsList.appendChild(toolLink);
@@ -1114,4 +1102,4 @@
     })();
 </script>
 </body>
-</html>
+                </html>
