@@ -1,0 +1,1005 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <title>How Do I Calculate the Future Value of an Investment?</title>
+    <meta name="description" content="Free investment calculator. See how your money grows over time. Calculate future value with monthly contributions and compound interest.">
+    
+    <link rel="canonical" href="https://www.smartrateslab.com/">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
+    
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', system-ui, -apple-system, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+            background: #f4f8fe;
+            color: #1a2c3e;
+            line-height: 1.5;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+
+        .container {
+            max-width: 1280px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        .site-header {
+            background: #0c1f2f;
+            box-shadow: 0 2px 12px rgba(0, 0, 0, 0.15);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .header-inner {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 0;
+            min-height: 70px;
+        }
+
+        .site-title {
+            font-size: 1.6rem;
+            font-weight: 700;
+            letter-spacing: -0.3px;
+            color: #ffffff;
+            cursor: pointer;
+            transition: opacity 0.2s;
+        }
+
+        .site-title:hover {
+            opacity: 0.85;
+        }
+
+        .menu-btn {
+            background: #ffffff;
+            color: #0c1f2f;
+            border: none;
+            padding: 0.6rem 1.4rem;
+            border-radius: 40px;
+            font-weight: 600;
+            font-size: 0.95rem;
+            cursor: pointer;
+            transition: all 0.2s;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+        }
+
+        .menu-btn:hover {
+            background: #eef3fc;
+            transform: scale(1.02);
+        }
+
+        .drawer {
+            position: fixed;
+            top: 0;
+            right: -400px;
+            width: 380px;
+            max-width: 85vw;
+            height: 100%;
+            background: #ffffff;
+            box-shadow: -4px 0 30px rgba(0, 0, 0, 0.15);
+            z-index: 1000;
+            transition: right 0.3s ease;
+            display: flex;
+            flex-direction: column;
+            overflow-y: auto;
+        }
+
+        .drawer.open {
+            right: 0;
+        }
+
+        .drawer-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1.5rem;
+            border-bottom: 1px solid #e2ebf3;
+        }
+
+        .drawer-header h3 {
+            font-size: 1.4rem;
+            color: #122b44;
+        }
+
+        .close-drawer {
+            background: none;
+            border: none;
+            font-size: 1.8rem;
+            cursor: pointer;
+            color: #6c8eaa;
+        }
+
+        .drawer-nav {
+            padding: 1rem 0;
+        }
+
+        .drawer-section {
+            padding: 0.5rem 1.5rem;
+        }
+
+        .drawer-section h4 {
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            color: #6c8eaa;
+            margin: 1rem 0 0.5rem 0;
+        }
+
+        .drawer-item {
+            display: block;
+            padding: 0.75rem 1rem;
+            color: #1a2c3e;
+            text-decoration: none;
+            font-weight: 500;
+            border-radius: 12px;
+            transition: background 0.2s;
+            cursor: pointer;
+        }
+
+        .drawer-item:hover {
+            background: #eef3fc;
+        }
+
+        .drawer-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0,0,0,0.4);
+            z-index: 999;
+            display: none;
+        }
+
+        .drawer-overlay.active {
+            display: block;
+        }
+
+        /* Direct Answer Box */
+        .direct-answer {
+            background: #ffffff;
+            border-radius: 20px;
+            padding: 1.8rem 2rem;
+            margin: 1rem auto 2rem auto;
+            max-width: 1000px;
+            text-align: left;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.04);
+            border: 1px solid #e2ebf3;
+        }
+        
+        .direct-answer h1 {
+            font-size: 2rem;
+            font-weight: 800;
+            color: #122b44;
+            margin-bottom: 0.5rem;
+            line-height: 1.2;
+        }
+        
+        .direct-answer .subtitle {
+            font-size: 1.1rem;
+            color: #5a7a9a;
+            margin-bottom: 1.5rem;
+            border-bottom: 1px solid #eef2f6;
+            padding-bottom: 0.75rem;
+        }
+        
+        .direct-answer .answer-text {
+            font-size: 1rem;
+            line-height: 1.7;
+            color: #1a2c3e;
+        }
+        
+        .direct-answer .answer-text strong:first-child {
+            font-size: 1.05rem;
+            color: #000000;
+        }
+        
+        .direct-answer .answer-text p {
+            margin-bottom: 1rem;
+        }
+
+        .tools-section {
+            padding: 0 0 2rem 0;
+            background: white;
+        }
+
+        .tools-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 1.5rem;
+            margin-bottom: 1.5rem;
+            max-width: 1000px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .calculator-card {
+            background: white;
+            border-radius: 24px;
+            padding: 1.8rem;
+            border: 1px solid #e2ebf3;
+            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.04);
+        }
+        
+        .calc-two-columns {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 2rem;
+        }
+        
+        .calc-input-group {
+            margin-bottom: 1rem;
+        }
+        
+        .calc-input-group label {
+            display: block;
+            font-size: 0.85rem;
+            font-weight: 600;
+            color: #122b44;
+            margin-bottom: 0.5rem;
+        }
+        
+        .calc-input-group input {
+            width: 100%;
+            padding: 0.75rem;
+            border: 1px solid #e2ebf3;
+            border-radius: 12px;
+            font-size: 1rem;
+            font-family: inherit;
+        }
+        
+        .calc-input-group input:focus {
+            outline: none;
+            border-color: #3f9eff;
+        }
+        
+        .calc-button {
+            background: #122b44;
+            color: white;
+            border: none;
+            padding: 0.75rem 1.5rem;
+            border-radius: 40px;
+            font-weight: 600;
+            font-size: 0.95rem;
+            cursor: pointer;
+            width: 100%;
+            margin-top: 0.5rem;
+        }
+        
+        .calc-button:hover {
+            background: #1f4a6e;
+            transform: translateY(-2px);
+        }
+        
+        .results-box {
+            margin-top: 1rem;
+            text-align: center;
+        }
+        
+        .result-item {
+            display: flex;
+            justify-content: space-between;
+            padding: 0.6rem 0;
+            border-bottom: 1px solid #eef2f6;
+        }
+        
+        .result-label {
+            font-size: 0.85rem;
+            color: #6c8eaa;
+        }
+        
+        .result-value {
+            font-weight: 600;
+            color: #122b44;
+            font-size: 1rem;
+        }
+        
+        .best-value {
+            color: #059669;
+            font-weight: 800;
+            font-size: 1.1rem;
+        }
+        
+        .green-dot {
+            display: inline-block;
+            width: 12px;
+            height: 12px;
+            background-color: #10b981;
+            border-radius: 50%;
+            margin-right: 6px;
+        }
+
+        .donut-wrapper {
+            max-width: 200px;
+            margin: 0 auto;
+        }
+
+        /* Blog Post Styles */
+        .blog-post-section {
+            background: white;
+            padding: 2rem 0 0 0;
+            border-top: 1px solid #eef2f6;
+        }
+        
+        .blog-post-container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+        
+        .blog-post-card {
+            background: #ffffff;
+            border-radius: 28px;
+            padding: 2rem;
+            border: 1px solid #e2ebf3;
+            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.04);
+        }
+        
+        .blog-post-card h2 {
+            font-size: 1.6rem;
+            font-weight: 700;
+            color: #122b44;
+            margin-bottom: 1rem;
+            line-height: 1.3;
+        }
+        
+        .blog-post-card h3 {
+            font-size: 1.3rem;
+            font-weight: 600;
+            color: #122b44;
+            margin: 1.5rem 0 0.75rem 0;
+        }
+        
+        .blog-post-card p {
+            margin-bottom: 1rem;
+            line-height: 1.7;
+            color: #2c4c6e;
+        }
+        
+        .blog-post-card .highlight-box {
+            background: #f0f9ff;
+            border-left: 4px solid #3b82f6;
+            padding: 1.25rem;
+            border-radius: 16px;
+            margin: 1.5rem 0;
+        }
+        
+        .blog-post-card .warning-box {
+            background: #fff5f0;
+            border-left: 4px solid #ef4444;
+            padding: 1.25rem;
+            border-radius: 16px;
+            margin: 1.5rem 0;
+        }
+        
+        .blog-post-card table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 1.5rem 0;
+            font-size: 0.9rem;
+        }
+        
+        .blog-post-card th, .blog-post-card td {
+            border: 1px solid #e2ebf3;
+            padding: 0.75rem;
+            text-align: left;
+        }
+        
+        .blog-post-card th {
+            background: #f8fafd;
+            font-weight: 600;
+            color: #122b44;
+        }
+
+        /* FAQ Section */
+        .faq-section {
+            background: #f8fafd;
+            padding: 2rem 0 3rem 0;
+        }
+        
+        .faq-container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+        
+        .faq-card {
+            background: #ffffff;
+            border-radius: 28px;
+            padding: 2rem;
+            border: 1px solid #e2ebf3;
+            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.04);
+        }
+        
+        .faq-card h3 {
+            font-size: 1.4rem;
+            font-weight: 700;
+            color: #122b44;
+            margin-bottom: 1.5rem;
+            text-align: center;
+        }
+        
+        .faq-item {
+            margin-bottom: 1.5rem;
+            border-bottom: 1px solid #eef2f6;
+            padding-bottom: 1rem;
+        }
+        
+        .faq-item:last-child {
+            border-bottom: none;
+            margin-bottom: 0;
+            padding-bottom: 0;
+        }
+        
+        .faq-question {
+            font-weight: 700;
+            font-size: 1rem;
+            color: #122b44;
+            margin-bottom: 0.5rem;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .faq-question:hover {
+            color: #3b82f6;
+        }
+        
+        .faq-toggle {
+            font-size: 1.2rem;
+            color: #8ba3bc;
+        }
+        
+        .faq-answer {
+            color: #2c4c6e;
+            line-height: 1.6;
+            font-size: 0.95rem;
+            display: none;
+            margin-top: 0.75rem;
+        }
+        
+        .faq-answer.open {
+            display: block;
+        }
+
+        .site-footer {
+            background: #0c1f2f;
+            color: #bdd4e8;
+            padding: 2rem 0 1.5rem;
+            margin-top: auto;
+        }
+
+        .footer-grid {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            gap: 2rem;
+            border-bottom: 1px solid #254f6e;
+            padding-bottom: 1.5rem;
+            margin-bottom: 1.2rem;
+        }
+
+        .footer-col {
+            flex: 1;
+            min-width: 180px;
+        }
+
+        .footer-col h4 {
+            color: white;
+            margin-bottom: 0.8rem;
+            font-size: 1rem;
+        }
+
+        .footer-links {
+            list-style: none;
+        }
+
+        .footer-links li {
+            margin-bottom: 0.5rem;
+        }
+
+        .footer-links a, .footer-legal-link {
+            color: #bdd4e8;
+            text-decoration: none;
+            cursor: pointer;
+            font-size: 0.85rem;
+        }
+        
+        .footer-links a:hover, .footer-legal-link:hover {
+            color: white;
+            text-decoration: underline;
+        }
+
+        .blog-section {
+            margin-top: 0;
+        }
+        
+        .blog-item {
+            margin-bottom: 0.75rem;
+            cursor: pointer;
+            transition: opacity 0.2s;
+        }
+        
+        .blog-item:hover {
+            opacity: 0.8;
+        }
+        
+        .blog-title {
+            font-size: 0.85rem;
+            color: #bdd4e8;
+            display: block;
+        }
+
+        .copyright {
+            text-align: center;
+            font-size: 0.8rem;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 1.5rem;
+        }
+
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0; left: 0;
+            width: 100%; height: 100%;
+            background: rgba(12,31,47,0.95);
+            align-items: center;
+            justify-content: center;
+            z-index: 1100;
+            backdrop-filter: blur(4px);
+        }
+
+        .modal-content {
+            background: white;
+            max-width: 550px;
+            width: 90%;
+            border-radius: 28px;
+            padding: 2rem;
+            position: relative;
+            box-shadow: 0 25px 40px rgba(0,0,0,0.25);
+        }
+
+        .close-modal {
+            position: absolute;
+            top: 1rem;
+            right: 1.5rem;
+            font-size: 1.8rem;
+            cursor: pointer;
+            background: none;
+            border: none;
+            color: #6c8eaa;
+        }
+        
+        .modal-content h3 {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+            color: #122b44;
+        }
+
+        @media (max-width: 800px) {
+            .calc-two-columns { grid-template-columns: 1fr; }
+            .container { padding: 0 1.2rem; }
+            .site-title { font-size: 1.2rem; }
+            .direct-answer h1 { font-size: 1.5rem; }
+            .blog-post-card h2 { font-size: 1.3rem; }
+        }
+    </style>
+</head>
+<body>
+
+<header class="site-header">
+    <div class="container header-inner">
+        <div class="site-title" id="homeLinkHeader">SmartRatesLab</div>
+        <button class="menu-btn" id="menuButton">☰ Menu</button>
+    </div>
+</header>
+
+<div class="drawer-overlay" id="drawerOverlay"></div>
+<div class="drawer" id="drawerMenu">
+    <div class="drawer-header"><h3>Navigation & Tools</h3><button class="close-drawer" id="closeDrawerBtn">&times;</button></div>
+    <div class="drawer-nav">
+        <div class="drawer-section"><h4>Main</h4><a class="drawer-item" data-nav="home">🏠 Home</a><a class="drawer-item" data-nav="about">📄 About</a><a class="drawer-item" data-nav="contact">📞 Contact</a></div>
+        <div class="drawer-section"><h4>Legal</h4><a class="drawer-item" data-nav="privacy">🔒 Privacy Policy</a><a class="drawer-item" data-nav="terms">⚖️ Terms of Service</a></div>
+        <div class="drawer-section"><h4>📊 Financial Tools</h4><div id="drawerToolsList"></div></div>
+    </div>
+</div>
+
+<main>
+    <!-- Direct Answer Box Above Calculator - Long Answer (Made Even Longer) -->
+    <div class="container">
+        <div class="direct-answer">
+            <h1>How Do I Calculate the Future Value of an Investment?</h1>
+            <div class="subtitle">Free Investment Calculator — See Your Money Grow</div>
+            <div class="answer-text">
+                <p><strong>Yes — calculating the future value of an investment is easier than you think, and it is the single most important skill for building wealth.</strong> The future value (FV) tells you exactly how much your money will be worth at a specific date in the future, assuming it grows at a certain rate. This is the magic behind every millionaire story you have ever heard.</p>
+                
+                <p>The basic future value formula is: <strong>FV = PV × (1 + r)^n</strong> where PV is your present value (initial investment), r is the annual return rate, and n is the number of years. For example, if you invest $10,000 at 8% for 20 years: $10,000 × (1.08)^20 = $46,609. That is your money growing more than four times without you lifting a finger. That is the power of compound interest — earning returns on your returns.</p>
+                
+                <p>But here is where most people get it wrong — they forget about monthly contributions. If you add $500 per month to that same $10,000 investment at 8% for 20 years, your future value jumps from $46,609 to over $350,000. That is not a typo. Consistent monthly contributions turn a good outcome into a life-changing one. The calculator below does this complex math for you instantly, so you do not need to be a math genius.</p>
+                
+                <p>The truth is that understanding how to calculate future value changed my entire financial life. I used to think investing was only for wealthy people or those with finance degrees. Then I learned that even small, consistent contributions grow into staggering amounts over time. A 25-year-old who invests $200 per month at 8% will have over $600,000 by age 65. A 35-year-old who does the same will have around $250,000. That ten-year delay costs nearly $350,000. That is the cost of not knowing this simple calculation.</p>
+                
+                <p>Let me give you another example that blew my mind. Two friends — Sarah and Mike — both want to retire with $1 million. Sarah starts at 25, investing $500 per month at 8%. Mike waits until 35 to start, investing the same $500 per month at 8%. Sarah reaches $1 million at age 58. Mike reaches $1 million at age 67 — nearly a decade later. And Sarah invested only $60,000 more than Mike over those extra 10 years. Time is your greatest asset in investing, and the future value formula proves it mathematically.</p>
+                
+                <p>That is why using an investment calculator before you start investing is so important. You enter your initial investment, monthly contribution, expected return rate, and time horizon. The calculator instantly shows you your future value, total contributions, and total interest earned. No more guessing. No more wondering if you are saving enough. You will know exactly where you are headed and whether you need to save more or adjust your expectations.</p>
+                
+                <p>The calculator below will show you the future value of any investment — whether you are saving for retirement, a down payment on a house, your child's college education, or a dream vacation. Enter your numbers and see the magic of compound interest in action. And remember: the best time to start was yesterday. The second best time is right now.</p>
+            </div>
+        </div>
+    </div>
+
+    <section class="tools-section">
+        <div class="container">
+            <div class="tools-grid" id="calculatorsGrid"></div>
+        </div>
+    </section>
+
+    <!-- Long Blog Post Section -->
+    <section class="blog-post-section">
+        <div class="blog-post-container">
+            <div class="blog-post-card">
+                <h2>I Had No Idea How to Calculate Future Value — Then I Learned This Simple Formula</h2>
+                
+                <p>Five years ago, I was clueless about investing. I had $10,000 sitting in a savings account earning 0.5% interest. I thought I was being smart with my money. Then a friend asked me: <strong>"How do I calculate the future value of an investment?"</strong> I had no answer. That question sent me down a rabbit hole that changed my financial future forever.</p>
+                
+                <p>I started researching and discovered the future value formula: FV = PV × (1 + r)^n. I plugged in my numbers: $10,000 at 0.5% for 5 years. The result? $10,253. I had earned $253 in five years. Then I tried the same calculation with an 8% return — the historical average of the stock market. $10,000 at 8% for 5 years grows to $14,693. That is nearly $4,500 more for doing absolutely nothing different except where I parked my money.</p>
+                
+                <div class="highlight-box">
+                    <strong>📊 The Eye-Opening Comparison:</strong><br>
+                    • Savings account (0.5%): $10,000 → $10,253 after 5 years<br>
+                    • Stock market (8%): $10,000 → $14,693 after 5 years<br>
+                    • Difference: $4,440 for the exact same effort
+                </div>
+                
+                <p>But the real magic happened when I added monthly contributions. I started investing $500 per month into a diversified portfolio. Using the same <strong>future value formula</strong>, I calculated that $10,000 + $500/month at 8% for 20 years would grow to over $350,000. That was the moment I became obsessed with investing.</p>
+                
+                <p>Here is what most people don't understand about <strong>how to calculate investment growth</strong>. The formula is simple, but the results are staggering. A 25-year-old who invests $200 per month at 8% will have over $600,000 by age 65. A 35-year-old who does the same will have around $250,000. That ten-year delay costs nearly $350,000. That is the cost of not knowing <strong>how to calculate the future value of an investment</strong>.</p>
+                
+                <h3>The Future Value Formula Explained</h3>
+                <p>The formula is: <strong>FV = PV × (1 + r)^n</strong></p>
+                <ul>
+                    <li><strong>FV</strong> = Future Value (what your money will be worth)</li>
+                    <li><strong>PV</strong> = Present Value (your initial investment)</li>
+                    <li><strong>r</strong> = Annual return rate (as a decimal, so 8% = 0.08)</li>
+                    <li><strong>n</strong> = Number of years</li>
+                </ul>
+                <p>For example: $10,000 × (1.08)^20 = $46,609. That is your money doubling more than four times without adding another dollar.</p>
+                
+                <h3>With Monthly Contributions (The Real Game Changer)</h3>
+                <p>The formula gets more complex with monthly contributions, which is why the calculator above is so valuable. It handles the math for you. But here is the rule of thumb: adding consistent monthly contributions dramatically increases your future value.</p>
+                
+                <div class="highlight-box">
+                    <strong>📊 $10,000 Initial Investment at 8% for 20 Years:</strong><br>
+                    • $0/month → $46,609<br>
+                    • $200/month → $157,000<br>
+                    • $500/month → $350,000<br>
+                    • $1,000/month → $650,000
+                </div>
+                
+                <h3>The Rule of 72 — A Shortcut</h3>
+                <p>The Rule of 72 tells you how long it takes to double your money. Divide 72 by your annual return rate. At 8%, 72 ÷ 8 = 9 years to double your money. At 10%, it takes 7.2 years. This is a quick way to estimate <strong>how much will my investment grow</strong> without doing complex math.</p>
+                
+                <h3>Real Example: Retirement Savings</h3>
+                <p>Let us say you are 30 years old with $20,000 saved. You plan to retire at 65 (35 years). You can save $500 per month. Using an 8% average return:</p>
+                
+                <table>
+                    <thead>
+                        <tr><th>Age</th><th>Contributions to Date</th><th>Future Value at 65</th></tr>
+                    </thead>
+                    <tbody>
+                        <tr><td>30</td><td>$20,000</td><td>$295,000 (if you stop adding)</td></tr>
+                        <tr><td>30 + $500/month</td><td>$20,000 + $210,000 = $230,000</td><td>$1,200,000</td></tr>
+                        <tr><td>40 (start at 40 instead of 30)</td><td>$20,000 + $500/month = $170,000</td><td>$550,000</td></tr>
+                    </tbody>
+                </table>
+                
+                <p>Starting at 30 instead of 40 gives you an extra $650,000 at retirement. That is the power of understanding <strong>how to calculate the future value of an investment</strong> early.</p>
+                
+                <div class="warning-box">
+                    <strong>⚠️ Common Future Value Mistakes:</strong>
+                    <ul style="margin-top: 0.5rem; margin-bottom: 0; margin-left: 1.2rem;">
+                        <li>Forgetting to account for inflation (use 5-6% real return for long-term planning)</li>
+                        <li>Assuming you will get the same return every year (markets go up and down)</li>
+                        <li>Not including fees and taxes in your calculations</li>
+                        <li>Starting too late — every year you delay costs you tens of thousands</li>
+                    </ul>
+                </div>
+                
+                <h3>What About Inflation?</h3>
+                <p>Inflation eats away at your purchasing power. A 3% inflation rate means your money loses half its value every 24 years. That is why you should use a "real return" (return minus inflation) for long-term planning. If you expect 8% returns and 3% inflation, use 5% for your future value calculations.</p>
+                
+                <h3>Stocks vs Bonds vs Savings</h3>
+                <p>Different investments have different expected returns:</p>
+                
+                <table>
+                    <thead>
+                        <tr><th>Investment Type</th><th>Historical Average Return</th><th>Risk Level</th></tr>
+                    </thead>
+                    <tbody>
+                        <tr><td>Savings Account</td><td>0.5-1%</td><td>Very Low</td></tr>
+                        <tr><td>Bonds</td><td>3-5%</td><td>Low</td></tr>
+                        <tr><td>S&P 500 Index Fund</td><td>8-10%</td><td>Medium</td></tr>
+                        <tr><td>Growth Stocks</td><td>10-12%</td><td>High</td></tr>
+                    </tbody>
+                </table>
+                
+                <div class="highlight-box">
+                    <strong>✅ Key Takeaways for Calculating Future Value:</strong><br>
+                    • Start as early as possible — time is your biggest asset<br>
+                    • Add monthly contributions — they matter more than your starting amount<br>
+                    • Use realistic return rates (8% for stocks, 4-5% for conservative)<br>
+                    • Account for inflation by using a 5-6% real return<br>
+                    • The calculator above does all the math for you — no formulas needed
+                </div>
+                
+                <h2>Ready to Calculate Your Future Value?</h2>
+                <p>Use the <strong>investment calculator</strong> at the top of this page. Enter your initial investment, monthly contribution, expected annual return, and number of years. The calculator will instantly show you your future value, total contributions, and total interest earned.</p>
+                
+                <p>Whether you are saving for retirement, a house, or your child's education, knowing <strong>how to calculate the future value of an investment</strong> is the first step to reaching your financial goals. Start today — even small amounts grow into life-changing sums over time.</p>
+                
+                <p style="margin-top: 1.5rem; font-style: italic; color: #6c8eaa; border-top: 1px solid #eef2f6; padding-top: 1.5rem;">*Past performance does not guarantee future results. All calculations are estimates based on average returns. Consult a financial advisor for personalized advice.</p>
+            </div>
+        </div>
+    </section>
+    
+    <!-- FAQ Section - Added 4 More Relevant Questions -->
+    <section class="faq-section">
+        <div class="faq-container">
+            <div class="faq-card">
+                <h3>Frequently Asked Questions</h3>
+                
+                <div class="faq-item"><div class="faq-question">How do I calculate the future value of an investment?<span class="faq-toggle">+</span></div><div class="faq-answer">The future value formula is FV = PV × (1 + r)^n, where PV is your initial investment, r is the annual return rate, and n is the number of years. For monthly contributions, use the calculator above — it handles the complex math automatically.</div></div>
+                
+                <div class="faq-item"><div class="faq-question">What is a good annual return on investment?<span class="faq-toggle">+</span></div><div class="faq-answer">The S&P 500 has historically returned 8-10% annually. Bonds return 3-5%. Savings accounts return 0.5-1%. For long-term retirement planning, many experts use 7-8% before inflation or 5-6% after accounting for 2-3% inflation.</div></div>
+                
+                <div class="faq-item"><div class="faq-question">How much will my investment grow with monthly contributions?<span class="faq-toggle">+</span></div><div class="faq-answer">Monthly contributions dramatically increase your future value. For example, $10,000 invested at 8% for 20 years grows to $46,609 with no additional contributions. Adding $500 per month increases that to over $350,000. Use the calculator above to see your specific numbers.</div></div>
+                
+                <div class="faq-item"><div class="faq-question">What is the Rule of 72?<span class="faq-toggle">+</span></div><div class="faq-answer">The Rule of 72 is a quick way to estimate how long it takes to double your money. Divide 72 by your annual return rate. At 8% returns, 72 ÷ 8 = 9 years to double your money. At 10%, it takes 7.2 years. At 5%, it takes 14.4 years.</div></div>
+                
+                <div class="faq-item"><div class="faq-question">Should I use simple or compound interest for investment calculations?<span class="faq-toggle">+</span></div><div class="faq-answer">Always use compound interest for investment calculations. Compound interest means you earn returns on your returns — this is how investments grow exponentially over time. Simple interest only earns returns on your original principal and will significantly underestimate your future value.</div></div>
+                
+                <div class="faq-item"><div class="faq-question">How does inflation affect future value?<span class="faq-toggle">+</span></div><div class="faq-answer">Inflation reduces your purchasing power over time. A 3% inflation rate means your money loses half its value every 24 years. For long-term planning, use a "real return" (expected return minus inflation). If you expect 8% returns and 3% inflation, use 5% for your future value calculations.</div></div>
+                
+                <div class="faq-item"><div class="faq-question">What is the difference between future value and present value?<span class="faq-toggle">+</span></div><div class="faq-answer">Present value (PV) is what your money is worth today. Future value (FV) is what your money will be worth in the future after earning returns. The relationship between them is: FV = PV × (1 + r)^n. Understanding both concepts helps you compare investment opportunities and make better financial decisions.</div></div>
+                
+                <div class="faq-item"><div class="faq-question">How accurate are future value calculations?<span class="faq-toggle">+</span></div><div class="faq-answer">Future value calculations are mathematically accurate based on your inputs, but they are estimates because future returns are unknown. Markets fluctuate, and actual returns vary year to year. For long-term planning (10+ years), historical averages are reasonably reliable. For short-term (1-5 years), be more conservative with your return assumptions.</div></div>
+                
+                <div class="faq-item"><div class="faq-question">Can I calculate future value for non-annual contributions?<span class="faq-toggle">+</span></div><div class="faq-answer">Yes — the calculator above handles monthly contributions, which is the most common scenario for retirement savings. The formula can also be adjusted for weekly, quarterly, or annual contributions. More frequent contributions generally lead to slightly higher future values because your money spends more time earning returns.</div></div>
+                
+                <div class="faq-item"><div class="faq-question">What return rate should I use for retirement planning?<span class="faq-toggle">+</span></div><div class="faq-answer">Most financial advisors recommend using 7-8% for stock-heavy portfolios before inflation, or 5-6% after accounting for 2-3% inflation. For conservative portfolios with more bonds, use 4-5% before inflation or 2-3% after inflation. Being too aggressive with your return assumptions can leave you short of your retirement goals.</div></div>
+            </div>
+        </div>
+    </section>
+</main>
+
+<footer class="site-footer">
+    <div class="container">
+        <div class="footer-grid">
+            <div class="footer-col"><h4>SmartRatesLab</h4><p style="font-size:0.85rem;">Professional-grade financial calculators. 100% free.</p></div>
+            <div class="footer-col"><h4>Quick Links</h4><ul class="footer-links"><li><a class="footer-nav-link" data-nav="home">Home</a></li><li><a class="footer-nav-link" data-nav="about">About</a></li><li><a class="footer-nav-link" data-nav="contact">Contact</a></li><li><a class="footer-nav-link" data-nav="privacy">Privacy</a></li><li><a class="footer-nav-link" data-nav="terms">Terms</a></li></ul></div>
+            <div class="footer-col"><div class="blog-section"><h4>📖 Blog</h4><div class="blog-item" data-blog="1"><span class="blog-title">Mortgage prepayment vs. index funds</span></div><div class="blog-item" data-blog="2"><span class="blog-title">How to calculate real return after inflation</span></div><div class="blog-item" data-blog="3"><span class="blog-title">Coast FIRE: when investments outrun expenses</span></div><div class="blog-item" data-blog="4"><span class="blog-title">Mortgage recasting without refinancing</span></div><div class="blog-item" data-blog="5"><span class="blog-title">Tax-loss harvesting for capital gains</span></div></div></div>
+        </div>
+        <div class="copyright"><span>© 2026 SmartRatesLab - Educational purposes only.</span><span><a class="footer-legal-link" data-nav="privacy">Privacy</a> | <a class="footer-legal-link" data-nav="terms">Terms</a> | <a class="footer-legal-link" data-nav="about">About</a> | <a class="footer-legal-link" data-nav="contact">Contact</a></span></div>
+    </div>
+</footer>
+
+<div id="infoModal" class="modal"><div class="modal-content"><button class="close-modal" id="closeModalBtn">&times;</button><div id="modalBody"><h3 id="modalTitle"></h3><div id="modalText"></div></div></div></div>
+
+<script>
+    (function() {
+        let donutChartInstance = null;
+        
+        function createInvestmentCalculator() {
+            const calculatorHTML = `
+                <div class="calculator-card" id="investmentCalculatorCard">
+                    <div style="text-align: center; margin-bottom: 1.5rem;">
+                        <div class="tool-icon" style="font-size: 2.5rem;">📈💰</div>
+                        <h3 style="font-size: 1.3rem; color: #122b44;">Future Value Investment Calculator</h3>
+                        <p style="font-size: 0.85rem; color: #6c8eaa;">Calculate how much your money will grow over time</p>
+                    </div>
+                    <div class="calc-two-columns">
+                        <div>
+                            <div class="calc-input-group"><label>💰 Initial Investment ($)</label><input type="number" id="initialInvestment" value="10000" step="1000"></div>
+                            <div class="calc-input-group"><label>📅 Monthly Contribution ($)</label><input type="number" id="monthlyContribution" value="500" step="100"></div>
+                            <div class="calc-input-group"><label>📈 Annual Return Rate (%)</label><input type="number" id="returnRate" value="8" step="0.5"></div>
+                            <div class="calc-input-group"><label>⏱️ Number of Years</label><input type="number" id="years" value="20" step="1"></div>
+                            <button class="calc-button" id="calculateInvestment">⟳ Calculate Future Value</button>
+                        </div>
+                        <div>
+                            <div class="donut-wrapper"><canvas id="donutChart" width="200" height="200"></canvas></div>
+                            <div class="results-box">
+                                <div class="result-item"><span class="result-label"><span class="green-dot"></span> Future Value</span><span class="result-value best-value" id="futureValue">$0</span></div>
+                                <div class="result-item"><span class="result-label">💰 Total Contributions</span><span class="result-value" id="totalContributions">$0</span></div>
+                                <div class="result-item"><span class="result-label">📊 Total Interest Earned</span><span class="result-value" id="totalInterest">$0</span></div>
+                                <div class="result-item"><span class="result-label">📈 Effective Annual Return</span><span class="result-value" id="effectiveReturn">0.00%</span></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div style="margin-top: 1rem; text-align: center; font-size: 0.7rem; color: #8ba3bc;">
+                        *Calculations assume compound interest and contributions made at the end of each month. Past performance does not guarantee future results.
+                    </div>
+                </div>
+            `;
+            document.getElementById('calculatorsGrid').innerHTML = calculatorHTML;
+            
+            function calculateFutureValue(principal, monthly, rate, years) {
+                const monthlyRate = rate / 100 / 12;
+                const months = years * 12;
+                
+                let futureValue = principal * Math.pow(1 + monthlyRate, months);
+                if (monthly > 0 && monthlyRate > 0) {
+                    futureValue += monthly * ((Math.pow(1 + monthlyRate, months) - 1) / monthlyRate);
+                } else if (monthly > 0) {
+                    futureValue += monthly * months;
+                }
+                
+                const totalContributions = principal + (monthly * months);
+                const totalInterest = futureValue - totalContributions;
+                const effectiveReturn = Math.pow(futureValue / principal, 1 / years) - 1;
+                
+                return { futureValue, totalContributions, totalInterest, effectiveReturn: effectiveReturn * 100 };
+            }
+            
+            function updateDonutChart(contributions, interest) {
+                const ctx = document.getElementById('donutChart').getContext('2d');
+                if (donutChartInstance) donutChartInstance.destroy();
+                donutChartInstance = new Chart(ctx, {
+                    type: 'doughnut',
+                    data: { labels: ['Total Contributions', 'Total Interest Earned'], datasets: [{ data: [Math.max(0, contributions), Math.max(0, interest)], backgroundColor: ['#10b981', '#3b82f6'], borderWidth: 0, cutout: '65%' }] },
+                    options: { responsive: true, maintainAspectRatio: true, plugins: { legend: { position: 'bottom', labels: { usePointStyle: true, pointStyle: 'circle', font: { size: 11 }, generateLabels: (chart) => { const data = chart.data; return data.labels.map((l, i) => ({ text: `${l}: $${data.datasets[0].data[i].toFixed(0)}`, fillStyle: data.datasets[0].backgroundColor[i], index: i })); } } } } }
+                });
+            }
+            
+            function performCalculation() {
+                const initial = parseFloat(document.getElementById('initialInvestment').value) || 0;
+                const monthly = parseFloat(document.getElementById('monthlyContribution').value) || 0;
+                const rate = parseFloat(document.getElementById('returnRate').value) || 0;
+                const years = parseFloat(document.getElementById('years').value) || 0;
+                
+                const result = calculateFutureValue(initial, monthly, rate, years);
+                
+                document.getElementById('futureValue').innerHTML = '$' + result.futureValue.toLocaleString('en-US', { minimumFractionDigits: 0, maximumFractionDigits: 0 });
+                document.getElementById('totalContributions').innerHTML = '$' + result.totalContributions.toLocaleString('en-US', { minimumFractionDigits: 0, maximumFractionDigits: 0 });
+                document.getElementById('totalInterest').innerHTML = '$' + result.totalInterest.toLocaleString('en-US', { minimumFractionDigits: 0, maximumFractionDigits: 0 });
+                document.getElementById('effectiveReturn').innerHTML = result.effectiveReturn.toFixed(2) + '%';
+                
+                updateDonutChart(result.totalContributions, result.totalInterest);
+            }
+            
+            document.getElementById('calculateInvestment').addEventListener('click', performCalculation);
+            ['initialInvestment', 'monthlyContribution', 'returnRate', 'years'].forEach(id => {
+                const element = document.getElementById(id);
+                if (element) element.addEventListener('input', performCalculation);
+            });
+            performCalculation();
+        }
+        
+        createInvestmentCalculator();
+        
+        const drawerToolsList = document.getElementById('drawerToolsList');
+        const allTools = [
+            "📈 Investment Calculator", "💳 Credit Card Points Calculator", "💳 Credit Card Payoff Calculator", 
+            "🚗 Car Refinance Calculator", "🏠 Mortgage Calculator", "💰 Savings Calculator",
+            "📊 Retirement Planner", "🏦 Loan Comparison Tool", "🔄 Refinance Breakeven",
+            "📅 DTI Calculator", "🏡 Rent vs Buy Analyzer", "📈 Compound Interest Calculator", "🎓 Student Loan Planner"
+        ];
+        allTools.forEach(toolName => {
+            const toolLink = document.createElement('a');
+            toolLink.className = 'drawer-item';
+            toolLink.innerHTML = toolName;
+            toolLink.href = '#';
+            toolLink.style.fontSize = '0.85rem';
+            toolLink.addEventListener('click', (e) => {
+                e.preventDefault();
+                document.getElementById('investmentCalculatorCard').scrollIntoView({ behavior: 'smooth' });
+                closeDrawer();
+            });
+            drawerToolsList.appendChild(toolLink);
+        });
+        
+        // FAQ Accordion
+        const faqItems = document.querySelectorAll('.faq-item');
+        faqItems.forEach(item => {
+            const question = item.querySelector('.faq-question');
+            const answer = item.querySelector('.faq-answer');
+            const toggle = item.querySelector('.faq-toggle');
+            if (question && answer && toggle) {
+                question.addEventListener('click', () => {
+                    const isOpen = answer.classList.contains('open');
+                    faqItems.forEach(otherItem => {
+                        const otherAnswer = otherItem.querySelector('.faq-answer');
+                        const otherToggle = otherItem.querySelector('.faq-toggle');
+                        if (otherAnswer && otherAnswer !== answer) {
+                            otherAnswer.classList.remove('open');
+                            if (otherToggle) otherToggle.textContent = '+';
+                        }
+                    });
+                    if (isOpen) { answer.classList.remove('open'); toggle.textContent = '+'; }
+                    else { answer.classList.add('open'); toggle.textContent = '−'; }
+                });
+            }
+        });
+        
+        const modal = document.getElementById('infoModal');
+        const modalTitle = document.getElementById('modalTitle');
+        const modalText = document.getElementById('modalText');
+        const closeModalBtn = document.getElementById('closeModalBtn');
+        
+        function closeModalFunc() { modal.style.display = 'none'; }
+        closeModalBtn.addEventListener('click', closeModalFunc);
+        window.addEventListener('click', (e) => { if (e.target === modal) closeModalFunc(); });
+        
+        const contentMap = {
+            about: { title: "📌 About SmartRatesLab", body: "<p>SmartRatesLab delivers professional-grade financial calculators. Founded in 2022, we're committed to transparency and accuracy. All calculations are performed locally in your browser.</p>" },
+            contact: { title: "📧 Contact Us", body: "<p><strong>Email:</strong> supportentry1@gmail.com<br><strong>Hours:</strong> Monday-Friday, 9am-6pm EST<br>We respond within 24 hours.</p>" },
+            privacy: { title: "🔒 Privacy Policy", body: "<p>We do not store any personal financial data. All calculations happen locally in your browser. We use anonymous analytics to improve our tools.</p>" },
+            terms: { title: "⚖️ Terms of Service", body: "<p>Calculators are for educational purposes only. Not financial advice. Always consult a qualified financial advisor before making major decisions.</p>" },
+            home: { title: "SmartRatesLab", body: "<p>Welcome to SmartRatesLab — your hub for financial calculators. Use our Investment Calculator to see how your money grows over time.</p>" }
+        };
+        
+        function openModal(type) { const data = contentMap[type]; if (data) { modalTitle.innerText = data.title; modalText.innerHTML = data.body; modal.style.display = 'flex'; } }
+        function handleNavigation(navType) { if (navType === 'home') { window.scrollTo({ top: 0, behavior: 'smooth' }); openModal('home'); } else { openModal(navType); } closeDrawer(); }
+        
+        const drawer = document.getElementById('drawerMenu');
+        const overlay = document.getElementById('drawerOverlay');
+        const menuBtn = document.getElementById('menuButton');
+        const closeDrawerBtn = document.getElementById('closeDrawerBtn');
+        
+        function openDrawer() { drawer.classList.add('open'); overlay.classList.add('active'); document.body.style.overflow = 'hidden'; }
+        function closeDrawer() { drawer.classList.remove('open'); overlay.classList.remove('active'); document.body.style.overflow = ''; }
+        
+        menuBtn.addEventListener('click', openDrawer);
+        closeDrawerBtn.addEventListener('click', closeDrawer);
+        overlay.addEventListener('click', closeDrawer);
+        
+        document.querySelectorAll('.drawer-item[data-nav]').forEach(item => {
+            item.addEventListener('click', (e) => { e.preventDefault(); handleNavigation(item.getAttribute('data-nav')); });
+        });
+        
+        document.querySelectorAll('.footer-nav-link, .footer-legal-link, [data-nav]').forEach(link => {
+            if (!link.closest('.drawer')) {
+                link.addEventListener('click', (e) => { e.preventDefault(); const nav = link.getAttribute('data-nav'); if (nav) handleNavigation(nav); });
+            }
+        });
+        
+        document.getElementById('homeLinkHeader')?.addEventListener('click', () => { window.scrollTo({ top: 0, behavior: 'smooth' }); openModal('home'); });
+        
+        const blogPosts = {
+            1: { title: "Mortgage prepayment vs. index funds", content: "<p>Extra mortgage payments give a guaranteed return equal to your interest rate. Compare with expected market returns using our calculators.</p>" },
+            2: { title: "Real return after inflation & taxes", content: "<p>Use our calculators to adjust nominal returns for inflation and your marginal tax rate to find your true purchasing power growth.</p>" },
+            3: { title: "Coast FIRE fundamentals", content: "<p>Coast FIRE is when your existing investments will grow to cover retirement without additional contributions. Our retirement planner can help.</p>" },
+            4: { title: "Mortgage recasting explained", content: "<p>Recasting lowers monthly payments without refinancing. Use our calculator to model lump sum impacts.</p>" },
+            5: { title: "Tax-loss harvesting strategies", content: "<p>Offset capital gains by selling losing positions. The IRS wash-sale rule applies within 30 days.</p>" }
+        };
+        
+        document.querySelectorAll('.blog-item').forEach(item => {
+            item.addEventListener('click', () => {
+                const blogId = item.getAttribute('data-blog');
+                const post = blogPosts[blogId];
+                if (post) { modalTitle.innerText = post.title; modalText.innerHTML = post.content; modal.style.display = 'flex'; }
+                closeDrawer();
+            });
+        });
+    })();
+</script>
+    
+<script src="nav.js"></script>
+</body>
+</html>
