@@ -1,0 +1,1119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <title>What Are the Best College Saving Strategies?</title>
+    <meta name="description" content="Plan for future education costs. Calculate how much to save monthly for college, project 529 plan growth, and see the impact of inflation on tuition. Compare savings strategies.">
+    
+    <link rel="canonical" href="https://www.smartrateslab.com/">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
+    
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', system-ui, -apple-system, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+            background: #f4f8fe;
+            color: #1a2c3e;
+            line-height: 1.5;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+
+        .container {
+            max-width: 1280px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        .site-header {
+            background: #0c1f2f;
+            box-shadow: 0 2px 12px rgba(0, 0, 0, 0.15);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .header-inner {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 0;
+            min-height: 70px;
+        }
+
+        .site-title {
+            font-size: 1.6rem;
+            font-weight: 700;
+            letter-spacing: -0.3px;
+            color: #ffffff;
+            cursor: pointer;
+            transition: opacity 0.2s;
+        }
+
+        .site-title:hover {
+            opacity: 0.85;
+        }
+
+        .menu-btn {
+            background: #ffffff;
+            color: #0c1f2f;
+            border: none;
+            padding: 0.6rem 1.4rem;
+            border-radius: 40px;
+            font-weight: 600;
+            font-size: 0.95rem;
+            cursor: pointer;
+            transition: all 0.2s;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+        }
+
+        .menu-btn:hover {
+            background: #eef3fc;
+            transform: scale(1.02);
+        }
+
+        .drawer {
+            position: fixed;
+            top: 0;
+            right: -400px;
+            width: 380px;
+            max-width: 85vw;
+            height: 100%;
+            background: #ffffff;
+            box-shadow: -4px 0 30px rgba(0, 0, 0, 0.15);
+            z-index: 1000;
+            transition: right 0.3s ease;
+            display: flex;
+            flex-direction: column;
+            overflow-y: auto;
+        }
+
+        .drawer.open {
+            right: 0;
+        }
+
+        .drawer-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1.5rem;
+            border-bottom: 1px solid #e2ebf3;
+        }
+
+        .drawer-header h3 {
+            font-size: 1.4rem;
+            color: #122b44;
+        }
+
+        .close-drawer {
+            background: none;
+            border: none;
+            font-size: 1.8rem;
+            cursor: pointer;
+            color: #6c8eaa;
+        }
+
+        .drawer-nav {
+            padding: 1rem 0;
+        }
+
+        .drawer-section {
+            padding: 0.5rem 1.5rem;
+        }
+
+        .drawer-section h4 {
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            color: #6c8eaa;
+            margin: 1rem 0 0.5rem 0;
+        }
+
+        .drawer-item {
+            display: block;
+            padding: 0.75rem 1rem;
+            color: #1a2c3e;
+            text-decoration: none;
+            font-weight: 500;
+            border-radius: 12px;
+            transition: background 0.2s;
+            cursor: pointer;
+        }
+
+        .drawer-item:hover {
+            background: #eef3fc;
+        }
+
+        .drawer-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0,0,0,0.4);
+            z-index: 999;
+            display: none;
+        }
+
+        .drawer-overlay.active {
+            display: block;
+        }
+
+        /* Direct Answer Box */
+        .direct-answer {
+            background: #ffffff;
+            border-radius: 20px;
+            padding: 1.8rem 2rem;
+            margin: 1rem auto 2rem auto;
+            max-width: 1000px;
+            text-align: left;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.04);
+            border: 1px solid #e2ebf3;
+        }
+        
+        .direct-answer h1 {
+            font-size: 2rem;
+            font-weight: 800;
+            color: #122b44;
+            margin-bottom: 0.5rem;
+            line-height: 1.2;
+        }
+        
+        .direct-answer .subtitle {
+            font-size: 1.1rem;
+            color: #5a7a9a;
+            margin-bottom: 1.5rem;
+            border-bottom: 1px solid #eef2f6;
+            padding-bottom: 0.75rem;
+        }
+        
+        .direct-answer .answer-text {
+            font-size: 1rem;
+            line-height: 1.7;
+            color: #1a2c3e;
+        }
+        
+        .direct-answer .answer-text strong:first-child {
+            font-size: 1.05rem;
+            color: #000000;
+        }
+        
+        .direct-answer .answer-text p {
+            margin-bottom: 1rem;
+        }
+
+        .tools-section {
+            padding: 0 0 2rem 0;
+            background: white;
+        }
+
+        .tools-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 1.5rem;
+            margin-bottom: 1.5rem;
+            max-width: 1000px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .mortgage-calculator-card {
+            background: white;
+            border-radius: 24px;
+            padding: 1.8rem;
+            border: 1px solid #e2ebf3;
+            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.04);
+        }
+        
+        .calc-two-columns {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 2rem;
+        }
+        
+        .calc-input-group {
+            margin-bottom: 1rem;
+        }
+        
+        .calc-input-group label {
+            display: block;
+            font-size: 0.85rem;
+            font-weight: 600;
+            color: #122b44;
+            margin-bottom: 0.5rem;
+        }
+        
+        .calc-input-group input, .calc-input-group select {
+            width: 100%;
+            padding: 0.75rem;
+            border: 1px solid #e2ebf3;
+            border-radius: 12px;
+            font-size: 1rem;
+            font-family: inherit;
+            background: white;
+        }
+        
+        .calc-input-group input:focus, .calc-input-group select:focus {
+            outline: none;
+            border-color: #3f9eff;
+        }
+        
+        .calc-button {
+            background: #122b44;
+            color: white;
+            border: none;
+            padding: 0.75rem 1.5rem;
+            border-radius: 40px;
+            font-weight: 600;
+            font-size: 0.95rem;
+            cursor: pointer;
+            width: 100%;
+            margin-top: 0.5rem;
+        }
+        
+        .calc-button:hover {
+            background: #1f4a6e;
+            transform: translateY(-2px);
+        }
+        
+        .donut-wrapper {
+            max-width: 200px;
+            margin: 0 auto;
+        }
+        
+        .payment-breakdown {
+            margin-top: 1rem;
+            text-align: center;
+        }
+        
+        .breakdown-item {
+            display: flex;
+            justify-content: space-between;
+            padding: 0.6rem 0;
+            border-bottom: 1px solid #eef2f6;
+        }
+        
+        .breakdown-label {
+            font-size: 0.85rem;
+            color: #6c8eaa;
+        }
+        
+        .breakdown-value {
+            font-weight: 600;
+            color: #122b44;
+        }
+        
+        .green-dot {
+            display: inline-block;
+            width: 12px;
+            height: 12px;
+            background-color: #10b981;
+            border-radius: 50%;
+            margin-right: 6px;
+        }
+        
+        .red-dot {
+            display: inline-block;
+            width: 12px;
+            height: 12px;
+            background-color: #ef4444;
+            border-radius: 50%;
+            margin-right: 6px;
+        }
+        
+        .blue-dot {
+            display: inline-block;
+            width: 12px;
+            height: 12px;
+            background-color: #3b82f6;
+            border-radius: 50%;
+            margin-right: 6px;
+        }
+
+        .extra-payment-results {
+            margin-top: 1.8rem;
+            background: linear-gradient(135deg, #f0f9ff 0%, #e8f4fd 100%);
+            border-radius: 20px;
+            padding: 1.25rem;
+            border: 1px solid #cbdde9;
+        }
+        
+        .extra-payment-results h4 {
+            color: #122b44;
+            margin-bottom: 1rem;
+            font-size: 1rem;
+            font-weight: 700;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        
+        .extra-row {
+            display: flex;
+            justify-content: space-between;
+            padding: 0.5rem 0;
+            font-size: 0.9rem;
+            border-bottom: 1px dashed #cbdde9;
+        }
+        
+        .extra-row:last-child {
+            border-bottom: none;
+        }
+        
+        .extra-label {
+            color: #5a7a9a;
+            font-weight: 500;
+        }
+        
+        .extra-value {
+            font-weight: 700;
+            color: #122b44;
+        }
+        
+        .saved-highlight {
+            color: #059669;
+            font-weight: 800;
+            font-size: 1rem;
+        }
+
+        /* Blog Post Styles */
+        .blog-post-section {
+            background: white;
+            padding: 2rem 0 0 0;
+            border-top: 1px solid #eef2f6;
+        }
+        
+        .blog-post-container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+        
+        .blog-post-card {
+            background: #ffffff;
+            border-radius: 28px;
+            padding: 2rem;
+            border: 1px solid #e2ebf3;
+            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.04);
+        }
+        
+        .blog-post-card h2 {
+            font-size: 1.6rem;
+            font-weight: 700;
+            color: #122b44;
+            margin-bottom: 1rem;
+            line-height: 1.3;
+        }
+        
+        .blog-post-card h3 {
+            font-size: 1.3rem;
+            font-weight: 600;
+            color: #122b44;
+            margin: 1.5rem 0 0.75rem 0;
+        }
+        
+        .blog-post-card p {
+            margin-bottom: 1rem;
+            line-height: 1.7;
+            color: #2c4c6e;
+        }
+        
+        .blog-post-card .highlight-box {
+            background: #f0f9ff;
+            border-left: 4px solid #3b82f6;
+            padding: 1.25rem;
+            border-radius: 16px;
+            margin: 1.5rem 0;
+        }
+        
+        .blog-post-card .warning-box {
+            background: #fff5f0;
+            border-left: 4px solid #ef4444;
+            padding: 1.25rem;
+            border-radius: 16px;
+            margin: 1.5rem 0;
+        }
+        
+        .blog-post-card table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 1.5rem 0;
+            font-size: 0.9rem;
+        }
+        
+        .blog-post-card th, .blog-post-card td {
+            border: 1px solid #e2ebf3;
+            padding: 0.75rem;
+            text-align: left;
+        }
+        
+        .blog-post-card th {
+            background: #f8fafd;
+            font-weight: 600;
+            color: #122b44;
+        }
+
+        /* FAQ Section */
+        .faq-section {
+            background: #f8fafd;
+            padding: 2rem 0 3rem 0;
+        }
+        
+        .faq-container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+        
+        .faq-card {
+            background: #ffffff;
+            border-radius: 28px;
+            padding: 2rem;
+            border: 1px solid #e2ebf3;
+            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.04);
+        }
+        
+        .faq-card h3 {
+            font-size: 1.4rem;
+            font-weight: 700;
+            color: #122b44;
+            margin-bottom: 1.5rem;
+            text-align: center;
+        }
+        
+        .faq-item {
+            margin-bottom: 1.5rem;
+            border-bottom: 1px solid #eef2f6;
+            padding-bottom: 1rem;
+        }
+        
+        .faq-item:last-child {
+            border-bottom: none;
+            margin-bottom: 0;
+            padding-bottom: 0;
+        }
+        
+        .faq-question {
+            font-weight: 700;
+            font-size: 1rem;
+            color: #122b44;
+            margin-bottom: 0.5rem;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .faq-question:hover {
+            color: #3b82f6;
+        }
+        
+        .faq-toggle {
+            font-size: 1.2rem;
+            color: #8ba3bc;
+        }
+        
+        .faq-answer {
+            color: #2c4c6e;
+            line-height: 1.6;
+            font-size: 0.95rem;
+            display: none;
+            margin-top: 0.75rem;
+        }
+        
+        .faq-answer.open {
+            display: block;
+        }
+
+        .site-footer {
+            background: #0c1f2f;
+            color: #bdd4e8;
+            padding: 2rem 0 1.5rem;
+            margin-top: auto;
+        }
+
+        .footer-grid {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            gap: 2rem;
+            border-bottom: 1px solid #254f6e;
+            padding-bottom: 1.5rem;
+            margin-bottom: 1.2rem;
+        }
+
+        .footer-col {
+            flex: 1;
+            min-width: 180px;
+        }
+
+        .footer-col h4 {
+            color: white;
+            margin-bottom: 0.8rem;
+            font-size: 1rem;
+        }
+
+        .footer-links {
+            list-style: none;
+        }
+
+        .footer-links li {
+            margin-bottom: 0.5rem;
+        }
+
+        .footer-links a, .footer-legal-link {
+            color: #bdd4e8;
+            text-decoration: none;
+            cursor: pointer;
+            font-size: 0.85rem;
+        }
+        
+        .footer-links a:hover, .footer-legal-link:hover {
+            color: white;
+            text-decoration: underline;
+        }
+
+        .blog-section {
+            margin-top: 0;
+        }
+        
+        .blog-item {
+            margin-bottom: 0.75rem;
+            cursor: pointer;
+            transition: opacity 0.2s;
+        }
+        
+        .blog-item:hover {
+            opacity: 0.8;
+        }
+        
+        .blog-title {
+            font-size: 0.85rem;
+            color: #bdd4e8;
+            display: block;
+        }
+
+        .copyright {
+            text-align: center;
+            font-size: 0.8rem;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 1.5rem;
+        }
+
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0; left: 0;
+            width: 100%; height: 100%;
+            background: rgba(12,31,47,0.95);
+            align-items: center;
+            justify-content: center;
+            z-index: 1100;
+            backdrop-filter: blur(4px);
+        }
+
+        .modal-content {
+            background: white;
+            max-width: 550px;
+            width: 90%;
+            border-radius: 28px;
+            padding: 2rem;
+            position: relative;
+            box-shadow: 0 25px 40px rgba(0,0,0,0.25);
+        }
+
+        .close-modal {
+            position: absolute;
+            top: 1rem;
+            right: 1.5rem;
+            font-size: 1.8rem;
+            cursor: pointer;
+            background: none;
+            border: none;
+            color: #6c8eaa;
+        }
+        
+        .modal-content h3 {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+            color: #122b44;
+        }
+
+        @media (max-width: 800px) {
+            .calc-two-columns { grid-template-columns: 1fr; }
+            .container { padding: 0 1.2rem; }
+            .site-title { font-size: 1.2rem; }
+            .direct-answer h1 { font-size: 1.5rem; }
+            .blog-post-card h2 { font-size: 1.3rem; }
+        }
+    </style>
+</head>
+<body>
+
+<header class="site-header">
+    <div class="container header-inner">
+        <div class="site-title" id="homeLinkHeader">SmartRatesLab</div>
+        <button class="menu-btn" id="menuButton">☰ Menu</button>
+    </div>
+</header>
+
+<div class="drawer-overlay" id="drawerOverlay"></div>
+<div class="drawer" id="drawerMenu">
+    <div class="drawer-header"><h3>Navigation & Tools</h3><button class="close-drawer" id="closeDrawerBtn">&times;</button></div>
+    <div class="drawer-nav">
+        <div class="drawer-section"><h4>Main</h4><a class="drawer-item" data-nav="home">🏠 Home</a><a class="drawer-item" data-nav="about">📄 About</a><a class="drawer-item" data-nav="contact">📞 Contact</a></div>
+        <div class="drawer-section"><h4>Legal</h4><a class="drawer-item" data-nav="privacy">🔒 Privacy Policy</a><a class="drawer-item" data-nav="terms">⚖️ Terms of Service</a></div>
+        <div class="drawer-section"><h4>📊 Financial Tools</h4><div id="drawerToolsList"></div></div>
+    </div>
+</div>
+
+<main>
+    <!-- Answer Box Above Calculator -->
+    <div class="container">
+        <div class="direct-answer">
+            <h1>What Are the Best College Saving Strategies?</h1>
+            <div class="subtitle">Free 529 Plan Calculator — Find Your Monthly Savings Goal</div>
+            <div class="answer-text">
+                <p><strong>Yes — starting early and choosing the right college saving strategy can save you tens of thousands of dollars in taxes and interest.</strong> The best strategy depends on your child's age, your income, your risk tolerance, and how much you can save each month. But the single most important factor is starting now. Every year you delay, you lose the power of compound growth.</p>
+                
+                <p>Let me show you why starting early matters so much. If you start saving $200 per month when your child is born, assuming a 6% annual return, you will have over $80,000 by the time they turn 18. If you wait until they are 10 years old, you will have less than $30,000. That eight-year delay costs you $50,000. The best college saving strategy is simply starting as early as possible.</p>
+                
+                <p>The most popular and effective college saving vehicle is the <strong>529 plan</strong>. Named after Section 529 of the IRS tax code, these state-sponsored investment accounts offer tax-free growth and tax-free withdrawals for qualified education expenses. That means every dollar your investments earn never gets taxed — not when you contribute, not when it grows, and not when you withdraw it for college costs. Over 18 years, that tax advantage can add tens of thousands of dollars to your college fund.</p>
+                
+                <p>But 529 plans are not the only option. <strong>Roth IRAs</strong> allow you to withdraw your contributions (but not earnings) penalty-free for college expenses. This gives you flexibility if your child does not go to college or gets a scholarship. <strong>Custodial accounts (UTMA/UGMA)</strong> offer more flexibility but count more heavily against financial aid. <strong>Coverdell Education Savings Accounts (ESAs)</strong> are another tax-advantaged option, but they have lower contribution limits ($2,000 per year) and income restrictions.</p>
+                
+                <p>Here is a real-world example. The Johnsons have a newborn daughter. They want to save for her college education at a state university that currently costs $25,000 per year. Assuming 4% annual tuition inflation, that same education will cost over $50,000 per year by the time she enrolls. That is $200,000 for four years. Using the calculator below, they can see exactly how much to save each month to reach that goal.</p>
+                
+                <p>The calculator shows that saving $300 per month in a 529 plan earning 6% returns would give them about $120,000 by age 18 — enough to cover about 60% of projected costs. To fully fund $200,000, they would need to save about $500 per month. This is the power of the calculator — it takes the guesswork out of college planning.</p>
+                
+                <p>Another powerful strategy is the <strong>front-loading approach</strong>. Some 529 plans allow you to contribute up to five years' worth of gifts at once — up to $90,000 per parent ($180,000 per couple) without triggering gift taxes. This gets more money invested earlier, maximizing compound growth. If grandparents want to help, they can also contribute to a 529 plan.</p>
+                
+                <p>One often-overlooked strategy is the <strong>scholarship strategy</strong>. Many parents assume they will not qualify for scholarships, but millions of dollars go unclaimed every year. The best way to position yourself for scholarships is to have a high GPA, strong test scores, and unique extracurriculars. Some 529 plans allow you to withdraw the equivalent of scholarship amounts penalty-free, though earnings may be subject to income tax.</p>
+                
+                <p>The calculator below will show you exactly how much to save each month based on your child's age, current savings, expected return, and college cost projections. Enter your numbers and see if you are on track. If you are falling short, the calculator will suggest a monthly contribution to fully fund your goal. Start today — your child's future self will thank you.</p>
+            </div>
+        </div>
+    </div>
+
+    <section class="tools-section">
+        <div class="container">
+            <div class="tools-grid" id="calculatorsGrid"></div>
+        </div>
+    </section>
+
+    <!-- Blog Post Section -->
+    <section class="blog-post-section">
+        <div class="blog-post-container">
+            <div class="blog-post-card">
+                <h2>I Saved $100,000 for College Without Stress — Here's How You Can Too</h2>
+                
+                <p>When my daughter was born, I had no idea how to save for college. I was overwhelmed by the options: 529 plans, Roth IRAs, custodial accounts, Coverdell ESAs. I did not know which one was best or how much to save each month. That is when I discovered the <strong>college savings strategies calculator</strong> — and it changed everything.</p>
+                
+                <p>I plugged in my numbers: newborn daughter, $0 current savings, $200 per month contribution, 6% expected return, 18 years until college. The calculator showed me that I would have about $80,000 by the time she turned 18. That sounded good — until I added tuition inflation. At 4% inflation, current $25,000 annual tuition would cost over $50,000 per year by 2040. That is $200,000 for four years. I was only going to cover 40% of the cost.</p>
+                
+                <div class="highlight-box">
+                    <strong>📊 My Wake-Up Call:</strong><br>
+                    • Newborn daughter, $200/month savings, 6% return → $80,000 at age 18<br>
+                    • Projected 4-year college cost (4% inflation) → $200,000<br>
+                    • Shortfall → $120,000<br>
+                    • Needed monthly contribution → $500/month
+                </div>
+                
+                <p>I increased my monthly contribution to $500 and opened a 529 plan through my state. The tax advantages were significant — every dollar my investments earned would grow tax-free. I also learned about the front-loading strategy and put an extra $10,000 in during the first year to get more money working earlier.</p>
+                
+                <p>One of the best decisions I made was involving grandparents. They wanted to help, so they contributed to the 529 plan instead of buying toys and clothes. Over 18 years, their contributions added over $30,000 to the college fund. This is an often-overlooked strategy that more families should use.</p>
+                
+                <p>I also learned about the <strong>scholarship strategy</strong>. I encouraged my daughter to focus on academics and extracurriculars. She earned a partial merit scholarship, which reduced our out-of-pocket costs. Some 529 plans allow penalty-free withdrawals equal to scholarship amounts, so we were able to use those funds for other expenses.</p>
+                
+                <div class="warning-box">
+                    <strong>⚠️ Common College Saving Mistakes I Avoided:</strong>
+                    <ul style="margin-top: 0.5rem; margin-bottom: 0; margin-left: 1.2rem;">
+                        <li>Starting too late — every year you delay costs you thousands in compound growth</li>
+                        <li>Using a regular savings account instead of a 529 plan — losing tax advantages</li>
+                        <li>Not accounting for tuition inflation — costs double every 15-18 years</li>
+                        <li>Ignoring financial aid implications — 529 plans owned by parents are treated favorably</li>
+                    </ul>
+                </div>
+                
+                <h3>Comparing College Savings Strategies</h3>
+                <p>Here is how the main options stack up against each other:</p>
+                
+                <table>
+                    <thead>
+                        <tr><th>Strategy</th><th>Tax Treatment</th><th>Contribution Limit</th><th>Financial Aid Impact</th></tr>
+                    </thead>
+                    <tbody>
+                        <tr><td>529 Plan</td><td>Tax-free growth & withdrawals for education</td><td>$300,000+ per beneficiary</td><td>Parent-owned: 5.64% counted</td></tr>
+                        <tr>
+                        <tr><td>Roth IRA</td><td>Tax-free growth, penalty-free withdrawal of contributions</td><td>$7,000/year (2024)</td><td>Counts as parent asset</td></tr>
+                        <tr>
+                        <tr><td>Custodial (UTMA/UGMA)</td><td>First $1,250 tax-free, next $1,250 at child's rate</td><td>No limit</td><td>Counts as child asset (20%+ impact)</td></tr>
+                        <tr>
+                        <tr><td>Coverdell ESA</td><td>Tax-free growth & withdrawals</td><td>$2,000/year</td><td>Parent asset</td></tr>
+                        </tr>
+                    </tbody>
+                </table>
+                
+                <h3>How Much Should You Save for College?</h3>
+                <p>The answer depends on several factors. Here is a quick reference table based on child's age and monthly contribution (assuming 6% return and 4% tuition inflation):</p>
+                
+                <table>
+                    <thead>
+                        <tr><th>Child's Age</th><th>$100/month</th><th>$300/month</th><th>$500/month</th></tr>
+                    </thead>
+                    <tbody>
+                        <tr><td>Newborn</td><td>$40,000 (20% of $200k)</td><td>$120,000 (60%)</td><td>$200,000 (100%)</td></tr>
+                        <tr>
+                        <tr><td>5 years old</td><td>$25,000 (15%)</td><td>$75,000 (45%)</td><td>$125,000 (75%)</td></tr>
+                        <tr>
+                        <tr><td>10 years old</td><td>$12,000 (8%)</td><td>$36,000 (24%)</td><td>$60,000 (40%)</td></tr>
+                        <tr>
+                        <tr><td>15 years old</td><td>$5,000 (4%)</td><td>$15,000 (12%)</td><td>$25,000 (20%)</td></tr>
+                        </tr>
+                    </tbody>
+                </table>
+                
+                <p>As you can see, starting early makes a massive difference. A $500 monthly contribution starting at birth fully funds a $200,000 college education. Starting at age 15, the same $500 per month only covers 20% of the cost.</p>
+                
+                <div class="highlight-box">
+                    <strong>✅ My College Savings Action Plan:</strong><br>
+                    • Open a 529 plan the month my child was born<br>
+                    • Set up automatic monthly contributions of $500<br>
+                    • Front-loaded an extra $10,000 in year one<br>
+                    • Involved grandparents in contributing instead of buying gifts<br>
+                    • Rebalanced the investment portfolio every 3-5 years to reduce risk as college approached<br>
+                    • Used the calculator above annually to track progress
+                </div>
+                
+                <h2>Ready to Start Your College Savings Plan?</h2>
+                <p>Use the <strong>college savings calculator</strong> at the top of this page. Enter your current savings, monthly contribution, expected return, years until college, and current college costs. The calculator will instantly show you your projected savings, estimated college costs, and whether you are on track.</p>
+                
+                <p>Do not wait. Every month you delay costs you compound growth that you can never get back. Start today — even $50 per month makes a difference. Your child's future education is worth it.</p>
+                
+                <p style="margin-top: 1.5rem; font-style: italic; color: #6c8eaa; border-top: 1px solid #eef2f6; padding-top: 1.5rem;">*All calculations are estimates. Actual returns, tuition inflation, and tax laws may vary. Consult a financial advisor for personalized advice.</p>
+            </div>
+        </div>
+    </section>
+    
+    <!-- FAQ Section -->
+    <section class="faq-section">
+        <div class="faq-container">
+            <div class="faq-card">
+                <h3>Frequently Asked Questions</h3>
+                
+                <div class="faq-item"><div class="faq-question">What is the best college saving strategy?<span class="faq-toggle">+</span></div><div class="faq-answer">The best college saving strategy for most families is a 529 plan. It offers tax-free growth and tax-free withdrawals for qualified education expenses. Starting early and contributing consistently is more important than which specific investment you choose. Use the calculator above to see how much you need to save each month.</div></div>
+                
+                <div class="faq-item"><div class="faq-question">How much should I save for college each month?<span class="faq-toggle">+</span></div><div class="faq-answer">The answer depends on your child's age, current savings, and the type of college you are targeting. Use the calculator above to see your personalized number. As a rule of thumb, saving $200-500 per month from birth can cover 50-100% of in-state public college costs.</div></div>
+                
+                <div class="faq-item"><div class="faq-question">What is a 529 plan and how does it work?<span class="faq-toggle">+</span></div><div class="faq-answer">A 529 plan is a state-sponsored investment account designed for education savings. Contributions grow tax-free, and withdrawals are tax-free when used for qualified education expenses like tuition, room and board, books, and computers. Many states also offer a state income tax deduction for contributions.</div></div>
+                
+                <div class="faq-item"><div class="faq-question">Can I use a Roth IRA for college savings?<span class="faq-toggle">+</span></div><div class="faq-answer">Yes, you can withdraw your Roth IRA contributions (but not earnings) penalty-free for college expenses. This offers flexibility if your child does not go to college or gets a scholarship. However, using a Roth IRA for college may reduce your retirement savings, so prioritize retirement first.</div></div>
+                
+                <div class="faq-item"><div class="faq-question">How does a custodial account (UTMA/UGMA) work for college?<span class="faq-toggle">+</span></div><div class="faq-answer">Custodial accounts (UTMA/UGMA) are held in the child's name with an adult custodian. They offer more flexibility than 529 plans but count more heavily against financial aid (20% of assets counted vs 5.64% for parent-owned 529 plans). They also have less favorable tax treatment after the first $2,500 of earnings.</div></div>
+                
+                <div class="faq-item"><div class="faq-question">What is the Coverdell Education Savings Account (ESA)?<span class="faq-toggle">+</span></div><div class="faq-answer">A Coverdell ESA is similar to a 529 plan but with lower contribution limits ($2,000 per year) and income restrictions. It can be used for K-12 expenses as well as college. For most families, a 529 plan is a better choice due to higher contribution limits and no income phaseouts.</div></div>
+                
+                <div class="faq-item"><div class="faq-question">How does saving for college affect financial aid?<span class="faq-toggle">+</span></div><div class="faq-answer">Parent-owned 529 plans count as parent assets on the FAFSA, which reduces financial aid by at most 5.64% of the account value. Custodial accounts count as child assets, reducing aid by 20% or more. Grandparent-owned 529 plans currently do not count as assets but withdrawals count as untaxed income to the student.</div></div>
+                
+                <div class="faq-item"><div class="faq-question">What happens to unused 529 plan funds?<span class="faq-toggle">+</span></div><div class="faq-answer">Unused 529 plan funds can be transferred to another family member (siblings, cousins, parents, grandparents) without penalty. They can also be withdrawn for non-education expenses, but earnings will be subject to income tax and a 10% penalty. Some states also recapture state tax deductions.</div></div>
+                
+                <div class="faq-item"><div class="faq-question">What is the projected cost of college in 18 years?<span class="faq-toggle">+</span></div><div class="faq-answer">Assuming 4% annual tuition inflation, today's $25,000 annual cost will be over $50,000 per year in 18 years — over $200,000 for four years. Elite private universities currently costing $60,000+ per year could exceed $120,000 per year in 18 years. Use the calculator above to see your specific projections.</div></div>
+                
+                <div class="faq-item"><div class="faq-question">Should I prioritize retirement or college savings?<span class="faq-toggle">+</span></div><div class="faq-answer">Prioritize retirement first. Your child can borrow for college, but you cannot borrow for retirement. Aim to save at least 15% of your income for retirement before contributing to a 529 plan. If you have extra room in your budget, then contribute to college savings. The calculator above can help you balance both goals.</div></div>
+            </div>
+        </div>
+    </section>
+</main>
+
+<footer class="site-footer">
+    <div class="container">
+        <div class="footer-grid">
+            <div class="footer-col"><h4>SmartRatesLab</h4><p style="font-size:0.85rem;">Professional-grade financial calculators. 100% free.</p></div>
+            <div class="footer-col"><h4>Quick Links</h4><ul class="footer-links"><li><a class="footer-nav-link" data-nav="home">Home</a></li><li><a class="footer-nav-link" data-nav="about">About</a></li><li><a class="footer-nav-link" data-nav="contact">Contact</a></li><li><a class="footer-nav-link" data-nav="privacy">Privacy</a></li><li><a class="footer-nav-link" data-nav="terms">Terms</a></li></ul></div>
+            <div class="footer-col"><div class="blog-section"><h4>📖 Blog</h4><div class="blog-item" data-blog="1"><span class="blog-title">Mortgage prepayment vs. index funds</span></div><div class="blog-item" data-blog="2"><span class="blog-title">How to calculate real return after inflation</span></div><div class="blog-item" data-blog="3"><span class="blog-title">Coast FIRE: when investments outrun expenses</span></div><div class="blog-item" data-blog="4"><span class="blog-title">Mortgage recasting without refinancing</span></div><div class="blog-item" data-blog="5"><span class="blog-title">Tax-loss harvesting for capital gains</span></div></div></div>
+        </div>
+        <div class="copyright"><span>© 2026 SmartRatesLab - Educational purposes only.</span><span><a class="footer-legal-link" data-nav="privacy">Privacy</a> | <a class="footer-legal-link" data-nav="terms">Terms</a> | <a class="footer-legal-link" data-nav="about">About</a> | <a class="footer-legal-link" data-nav="contact">Contact</a></span></div>
+    </div>
+</footer>
+
+<div id="infoModal" class="modal"><div class="modal-content"><button class="close-modal" id="closeModalBtn">&times;</button><div id="modalBody"><h3 id="modalTitle"></h3><div id="modalText"></div></div></div></div>
+
+<script>
+    (function() {
+        let donutChartInstance = null;
+        
+        function createCollegeSavingsCalculator() {
+            const calculatorHTML = `
+                <div class="mortgage-calculator-card" id="mortgageCalculatorCard">
+                    <div style="text-align: center; margin-bottom: 1.5rem;">
+                        <div class="tool-icon" style="font-size: 2.5rem;">🎓💰</div>
+                        <h3 style="font-size: 1.3rem; color: #122b44;">College Savings Strategies Calculator</h3>
+                        <p style="font-size: 0.85rem; color: #6c8eaa;">Plan for future education costs. Calculate 529 plan growth and monthly savings needed.</p>
+                    </div>
+                    <div class="calc-two-columns">
+                        <div>
+                            <div class="calc-input-group"><label>🎓 Current College Savings ($)</label><input type="number" id="currentSavings" value="5000" step="1000"></div>
+                            <div class="calc-input-group"><label>📅 Monthly Contribution ($)</label><input type="number" id="monthlyContribution" value="200" step="50"></div>
+                            <div class="calc-input-group"><label>📈 Expected Investment Return (%)</label><input type="number" id="expectedReturn" value="6.0" step="0.5"></div>
+                            <div class="calc-input-group"><label>📚 Years Until College Starts</label><input type="number" id="yearsUntilCollege" value="10" step="1"></div>
+                            <div class="calc-input-group"><label>🏫 Current Annual College Cost ($)</label><input type="number" id="currentCollegeCost" value="25000" step="5000"></div>
+                            <div class="calc-input-group"><label>📈 Annual Tuition Inflation Rate (%)</label><input type="number" id="tuitionInflation" value="4.0" step="0.5"></div>
+                            <button class="calc-button" id="calculateCollege">⟳ Calculate College Savings Plan</button>
+                        </div>
+                        <div>
+                            <div class="donut-wrapper"><canvas id="donutChart" width="200" height="200"></canvas></div>
+                            <div class="payment-breakdown">
+                                <div class="breakdown-item"><span class="breakdown-label"><span class="green-dot"></span> Total Contributions</span><span class="breakdown-value" id="totalContributions">$0</span></div>
+                                <div class="breakdown-item"><span class="breakdown-label"><span class="blue-dot"></span> Investment Earnings</span><span class="breakdown-value" id="investmentEarnings">$0</span></div>
+                                <div class="breakdown-item"><span class="breakdown-label"><span class="red-dot"></span> Projected 4-Year College Cost</span><span class="breakdown-value" id="projectedCollegeCost">$0</span></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="extra-payment-results">
+                        <h4>📊 COLLEGE SAVINGS ANALYSIS</h4>
+                        <div class="extra-row"><span class="extra-label">💰 Projected Future Savings Balance:</span><span class="extra-value saved-highlight" id="futureSavings">$0</span></div>
+                        <div class="extra-row"><span class="extra-label">🎓 Estimated College Cost at Start (1 year):</span><span class="extra-value" id="futureYear1Cost">$0</span></div>
+                        <div class="extra-row"><span class="extra-label">📚 Total Projected 4-Year College Cost:</span><span class="extra-value" id="totalFourYearCost">$0</span></div>
+                        <div class="extra-row"><span class="extra-label">✅ Percentage of College Cost Covered:</span><span class="extra-value" id="percentCovered">0%</span></div>
+                        <div class="extra-row"><span class="extra-label">📊 Savings Goal Shortfall (if any):</span><span class="extra-value" id="shortfall">$0</span></div>
+                        <div class="extra-row"><span class="extra-label">💡 Suggested Monthly Contribution to Fully Fund:</span><span class="extra-value" id="suggestedContribution">$0</span></div>
+                    </div>
+                    <div style="margin-top: 1rem; text-align: center; font-size: 0.7rem; color: #8ba3bc;">
+                        *529 plan projections assume annual compounding. College costs increase with inflation. Adjust contributions to meet your goal.
+                    </div>
+                </div>
+            `;
+            document.getElementById('calculatorsGrid').innerHTML = calculatorHTML;
+            
+            function calculateCollegeSavings(currentSavings, monthlyAdd, expectedReturn, yearsUntilCollege, currentAnnualCost, tuitionInflation) {
+                const annualReturn = expectedReturn / 100;
+                const annualInflation = tuitionInflation / 100;
+                
+                let balance = currentSavings;
+                let totalContributions = currentSavings;
+                
+                for (let year = 1; year <= yearsUntilCollege; year++) {
+                    const contributionsThisYear = monthlyAdd * 12;
+                    balance += contributionsThisYear;
+                    totalContributions += contributionsThisYear;
+                    const earningsThisYear = balance * annualReturn;
+                    balance += earningsThisYear;
+                }
+                
+                const investmentEarnings = balance - totalContributions;
+                
+                let year1Cost = currentAnnualCost;
+                for (let i = 0; i < yearsUntilCollege; i++) {
+                    year1Cost *= (1 + annualInflation);
+                }
+                
+                let year2Cost = year1Cost * (1 + annualInflation);
+                let year3Cost = year2Cost * (1 + annualInflation);
+                let year4Cost = year3Cost * (1 + annualInflation);
+                
+                const totalFourYearCost = year1Cost + year2Cost + year3Cost + year4Cost;
+                const percentCovered = (balance / totalFourYearCost) * 100;
+                const shortfall = Math.max(0, totalFourYearCost - balance);
+                
+                let suggestedMonthly = monthlyAdd;
+                if (shortfall > 0) {
+                    let testBalance = currentSavings;
+                    let testMonthly = monthlyAdd;
+                    let step = 10;
+                    let iterations = 0;
+                    while (testBalance < totalFourYearCost && iterations < 200) {
+                        testMonthly += step;
+                        testBalance = currentSavings;
+                        for (let year = 1; year <= yearsUntilCollege; year++) {
+                            testBalance += testMonthly * 12;
+                            testBalance *= (1 + annualReturn);
+                        }
+                        iterations++;
+                        if (testBalance > totalFourYearCost && step > 1) {
+                            testMonthly -= step;
+                            step = Math.max(1, Math.floor(step / 2));
+                        }
+                    }
+                    suggestedMonthly = Math.ceil(testMonthly);
+                }
+                
+                return {
+                    futureSavings: balance,
+                    totalContributions,
+                    investmentEarnings,
+                    year1Cost,
+                    totalFourYearCost,
+                    percentCovered: Math.min(100, percentCovered),
+                    shortfall,
+                    suggestedContribution: suggestedMonthly
+                };
+            }
+            
+            function updateDonutChart(totalContributions, investmentEarnings, projectedCost) {
+                const ctx = document.getElementById('donutChart').getContext('2d');
+                if (donutChartInstance) donutChartInstance.destroy();
+                donutChartInstance = new Chart(ctx, {
+                    type: 'doughnut',
+                    data: { labels: ['Total Contributions', 'Investment Earnings', 'Projected 4-Year College Cost'], datasets: [{ data: [Math.max(0, totalContributions), Math.max(0, investmentEarnings), Math.max(0, projectedCost)], backgroundColor: ['#10b981', '#3b82f6', '#ef4444'], borderWidth: 0, cutout: '65%' }] },
+                    options: { responsive: true, maintainAspectRatio: true, plugins: { legend: { position: 'bottom', labels: { usePointStyle: true, pointStyle: 'circle', font: { size: 10 }, generateLabels: (chart) => { const data = chart.data; return data.labels.map((l, i) => ({ text: `${l}: $${data.datasets[0].data[i].toFixed(0)}`, fillStyle: data.datasets[0].backgroundColor[i], index: i })); } } } } }
+                });
+            }
+            
+            function performCalculation() {
+                const currentSavings = parseFloat(document.getElementById('currentSavings').value) || 0;
+                const monthlyContribution = parseFloat(document.getElementById('monthlyContribution').value) || 0;
+                const expectedReturn = parseFloat(document.getElementById('expectedReturn').value) || 0;
+                const yearsUntilCollege = parseFloat(document.getElementById('yearsUntilCollege').value) || 1;
+                const currentCollegeCost = parseFloat(document.getElementById('currentCollegeCost').value) || 0;
+                const tuitionInflation = parseFloat(document.getElementById('tuitionInflation').value) || 0;
+                
+                const result = calculateCollegeSavings(currentSavings, monthlyContribution, expectedReturn, yearsUntilCollege, currentCollegeCost, tuitionInflation);
+                
+                document.getElementById('totalContributions').innerHTML = '$' + result.totalContributions.toLocaleString('en-US', { minimumFractionDigits: 0 });
+                document.getElementById('investmentEarnings').innerHTML = '$' + result.investmentEarnings.toLocaleString('en-US', { minimumFractionDigits: 0 });
+                document.getElementById('projectedCollegeCost').innerHTML = '$' + result.totalFourYearCost.toLocaleString('en-US', { minimumFractionDigits: 0 });
+                document.getElementById('futureSavings').innerHTML = '$' + result.futureSavings.toLocaleString('en-US', { minimumFractionDigits: 0 });
+                document.getElementById('futureYear1Cost').innerHTML = '$' + result.year1Cost.toLocaleString('en-US', { minimumFractionDigits: 0 });
+                document.getElementById('totalFourYearCost').innerHTML = '$' + result.totalFourYearCost.toLocaleString('en-US', { minimumFractionDigits: 0 });
+                document.getElementById('percentCovered').innerHTML = result.percentCovered.toFixed(1) + '%';
+                document.getElementById('shortfall').innerHTML = '$' + result.shortfall.toLocaleString('en-US', { minimumFractionDigits: 0 });
+                document.getElementById('suggestedContribution').innerHTML = '$' + result.suggestedContribution.toLocaleString('en-US', { minimumFractionDigits: 0 });
+                
+                updateDonutChart(result.totalContributions, result.investmentEarnings, result.totalFourYearCost);
+            }
+            
+            document.getElementById('calculateCollege').addEventListener('click', performCalculation);
+            ['currentSavings', 'monthlyContribution', 'expectedReturn', 'yearsUntilCollege', 'currentCollegeCost', 'tuitionInflation'].forEach(id => {
+                const element = document.getElementById(id);
+                if (element) element.addEventListener('input', performCalculation);
+            });
+            performCalculation();
+        }
+        
+        createCollegeSavingsCalculator();
+        
+        // RESTORE ALL TOOLS in drawer menu
+        const drawerToolsList = document.getElementById('drawerToolsList');
+        const allTools = [
+            "🎓 College Savings Calculator", "💳 Credit Card Points Calculator", "💳 Credit Card Payoff Calculator", 
+            "🚗 Car Refinance Calculator", "🏠 Mortgage Calculator", "💰 Savings Calculator",
+            "📊 Retirement Planner", "🏦 Loan Comparison Tool", "🔄 Refinance Breakeven",
+            "📅 DTI Calculator", "🏡 Rent vs Buy Analyzer", "📈 Compound Interest Calculator", "🎓 Student Loan Planner"
+        ];
+        allTools.forEach(toolName => {
+            const toolLink = document.createElement('a');
+            toolLink.className = 'drawer-item';
+            toolLink.innerHTML = toolName;
+            toolLink.href = '#';
+            toolLink.style.fontSize = '0.85rem';
+            toolLink.addEventListener('click', (e) => {
+                e.preventDefault();
+                document.getElementById('mortgageCalculatorCard').scrollIntoView({ behavior: 'smooth' });
+                closeDrawer();
+            });
+            drawerToolsList.appendChild(toolLink);
+        });
+        
+        // FAQ Accordion
+        const faqItems = document.querySelectorAll('.faq-item');
+        faqItems.forEach(item => {
+            const question = item.querySelector('.faq-question');
+            const answer = item.querySelector('.faq-answer');
+            const toggle = item.querySelector('.faq-toggle');
+            if (question && answer && toggle) {
+                question.addEventListener('click', () => {
+                    const isOpen = answer.classList.contains('open');
+                    faqItems.forEach(otherItem => {
+                        const otherAnswer = otherItem.querySelector('.faq-answer');
+                        const otherToggle = otherItem.querySelector('.faq-toggle');
+                        if (otherAnswer && otherAnswer !== answer) {
+                            otherAnswer.classList.remove('open');
+                            if (otherToggle) otherToggle.textContent = '+';
+                        }
+                    });
+                    if (isOpen) { answer.classList.remove('open'); toggle.textContent = '+'; }
+                    else { answer.classList.add('open'); toggle.textContent = '−'; }
+                });
+            }
+        });
+        
+        // Modal and Navigation
+        const modal = document.getElementById('infoModal');
+        const modalTitle = document.getElementById('modalTitle');
+        const modalText = document.getElementById('modalText');
+        const closeModalBtn = document.getElementById('closeModalBtn');
+        
+        function closeModalFunc() { modal.style.display = 'none'; }
+        closeModalBtn.addEventListener('click', closeModalFunc);
+        window.addEventListener('click', (e) => { if (e.target === modal) closeModalFunc(); });
+        
+        const contentMap = {
+            about: { title: "📌 About SmartRatesLab", body: "<p>SmartRatesLab delivers professional-grade financial calculators. Founded in 2022, we're committed to transparency and accuracy. All calculations are performed locally in your browser.</p>" },
+            contact: { title: "📧 Contact Us", body: "<p><strong>Email:</strong> supportentry1@gmail.com<br><strong>Hours:</strong> Monday-Friday, 9am-6pm EST<br>We respond within 24 hours.</p>" },
+            privacy: { title: "🔒 Privacy Policy", body: "<p>We do not store any personal financial data. All calculations happen locally in your browser. We use anonymous analytics to improve our tools.</p>" },
+            terms: { title: "⚖️ Terms of Service", body: "<p>Calculators are for educational purposes only. Not financial advice. Always consult a qualified financial advisor before making major decisions.</p>" },
+            home: { title: "SmartRatesLab", body: "<p>Welcome to SmartRatesLab — your hub for financial calculators. Use our College Savings Calculator to plan for future education costs and see if your 529 plan is on track.</p>" }
+        };
+        
+        function openModal(type) { const data = contentMap[type]; if (data) { modalTitle.innerText = data.title; modalText.innerHTML = data.body; modal.style.display = 'flex'; } }
+        function handleNavigation(navType) { if (navType === 'home') { window.scrollTo({ top: 0, behavior: 'smooth' }); openModal('home'); } else { openModal(navType); } closeDrawer(); }
+        
+        const drawer = document.getElementById('drawerMenu');
+        const overlay = document.getElementById('drawerOverlay');
+        const menuBtn = document.getElementById('menuButton');
+        const closeDrawerBtn = document.getElementById('closeDrawerBtn');
+        
+        function openDrawer() { drawer.classList.add('open'); overlay.classList.add('active'); document.body.style.overflow = 'hidden'; }
+        function closeDrawer() { drawer.classList.remove('open'); overlay.classList.remove('active'); document.body.style.overflow = ''; }
+        
+        menuBtn.addEventListener('click', openDrawer);
+        closeDrawerBtn.addEventListener('click', closeDrawer);
+        overlay.addEventListener('click', closeDrawer);
+        
+        document.querySelectorAll('.drawer-item[data-nav]').forEach(item => {
+            item.addEventListener('click', (e) => { e.preventDefault(); handleNavigation(item.getAttribute('data-nav')); });
+        });
+        
+        document.querySelectorAll('.footer-nav-link, .footer-legal-link, [data-nav]').forEach(link => {
+            if (!link.closest('.drawer')) {
+                link.addEventListener('click', (e) => { e.preventDefault(); const nav = link.getAttribute('data-nav'); if (nav) handleNavigation(nav); });
+            }
+        });
+        
+        document.getElementById('homeLinkHeader')?.addEventListener('click', () => { window.scrollTo({ top: 0, behavior: 'smooth' }); openModal('home'); });
+        
+        // Blog posts
+        const blogPosts = {
+            1: { title: "Mortgage prepayment vs. index funds", content: "<p>Extra mortgage payments give a guaranteed return equal to your interest rate. Compare with expected market returns using our calculators.</p>" },
+            2: { title: "Real return after inflation & taxes", content: "<p>Use our calculators to adjust nominal returns for inflation and your marginal tax rate to find your true purchasing power growth.</p>" },
+            3: { title: "Coast FIRE fundamentals", content: "<p>Coast FIRE is when your existing investments will grow to cover retirement without additional contributions. Our retirement planner can help.</p>" },
+            4: { title: "Mortgage recasting explained", content: "<p>Recasting lowers monthly payments without refinancing. Use our calculator to model lump sum impacts.</p>" },
+            5: { title: "Tax-loss harvesting strategies", content: "<p>Offset capital gains by selling losing positions. The IRS wash-sale rule applies within 30 days.</p>" }
+        };
+        
+        document.querySelectorAll('.blog-item').forEach(item => {
+            item.addEventListener('click', () => {
+                const blogId = item.getAttribute('data-blog');
+                const post = blogPosts[blogId];
+                if (post) { modalTitle.innerText = post.title; modalText.innerHTML = post.content; modal.style.display = 'flex'; }
+                closeDrawer();
+            });
+        });
+    })();
+</script>
+                
+<script src="nav.js"></script>
+</body>
+</html>
