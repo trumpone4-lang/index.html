@@ -3,11 +3,13 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
-    <title>Can I Pay My House Off Early?</title>
-    <meta name="description" content="How many years can you cut from your mortgage? Enter your numbers into our free calculator and see exactly how much interest you save with extra payments.">
+    <title>SmartRatesLab – Finance Made Simple | Free Financial Calculators & How-To Guides</title>
+    <meta name="description" content="Learn how to use mortgage, car refinance, credit card points, investment, budget, inflation, and college savings calculators. Step-by-step guides, pro tips, and strategies to save money. No sign-up required.">
+    <meta name="keywords" content="financial calculators, how to use mortgage calculator, car refinance guide, credit card points value, investment calculator tutorial, budget planning, inflation impact, college savings 529 plan">
+    <meta name="author" content="SmartRatesLab">
     
-    <link rel="canonical" href="https://www.smartrateslab.com/">
-    <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
+    <link rel="canonical" href="https://financialbankrates.indevs.in/">
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' fill='%23122b44'/%3E%3Cpath d='M25,35 L50,20 L75,35 L75,65 L50,80 L25,65 Z' fill='none' stroke='%233f9eff' stroke-width='5' stroke-linejoin='round'/%3E%3Ccircle cx='50' cy='50' r='8' fill='%233f9eff'/%3E%3C/svg%3E">
     
     <style>
         * {
@@ -54,7 +56,6 @@
             letter-spacing: -0.3px;
             color: #ffffff;
             cursor: pointer;
-            transition: opacity 0.2s;
         }
 
         .site-title:hover {
@@ -169,246 +170,201 @@
             display: block;
         }
 
-        .tools-section {
-            padding: 2rem 0 2rem 0;
-            background: white;
-        }
-
-        .tools-grid {
-            display: grid;
-            grid-template-columns: 1fr;
-            gap: 1.5rem;
-            margin-bottom: 1.5rem;
-            max-width: 1000px;
-            margin-left: auto;
-            margin-right: auto;
-        }
-
-        .mortgage-calculator-card {
-            background: white;
-            border-radius: 24px;
-            padding: 1.8rem;
-            border: 1px solid #e2ebf3;
-            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.04);
-        }
-        
-        .calc-two-columns {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 2rem;
-        }
-        
-        .calc-input-group {
-            margin-bottom: 1rem;
-        }
-        
-        .calc-input-group label {
-            display: block;
-            font-size: 0.85rem;
-            font-weight: 600;
-            color: #122b44;
-            margin-bottom: 0.5rem;
-        }
-        
-        .calc-input-group input {
-            width: 100%;
-            padding: 0.75rem;
-            border: 1px solid #e2ebf3;
-            border-radius: 12px;
-            font-size: 1rem;
-            font-family: inherit;
-        }
-        
-        .calc-input-group input:focus {
-            outline: none;
-            border-color: #3f9eff;
-        }
-        
-        .calc-button {
-            background: #122b44;
-            color: white;
-            border: none;
-            padding: 0.75rem 1.5rem;
-            border-radius: 40px;
-            font-weight: 600;
-            font-size: 0.95rem;
-            cursor: pointer;
-            width: 100%;
-            margin-top: 0.5rem;
-        }
-        
-        .calc-button:hover {
-            background: #1f4a6e;
-            transform: translateY(-2px);
-        }
-        
-        .donut-wrapper {
-            max-width: 200px;
-            margin: 0 auto;
-        }
-        
-        .payment-breakdown {
-            margin-top: 1rem;
+        .hero {
+            padding: 3rem 0 2rem 0;
+            background: linear-gradient(120deg, #f0f5fe 0%, #e9f0fa 100%);
             text-align: center;
         }
-        
-        .breakdown-item {
-            display: flex;
-            justify-content: space-between;
-            padding: 0.6rem 0;
-            border-bottom: 1px solid #eef2f6;
-        }
-        
-        .breakdown-label {
-            font-size: 0.85rem;
-            color: #6c8eaa;
-        }
-        
-        .breakdown-value {
-            font-weight: 600;
-            color: #122b44;
-        }
-        
-        .green-dot {
-            display: inline-block;
-            width: 12px;
-            height: 12px;
-            background-color: #10b981;
-            border-radius: 50%;
-            margin-right: 6px;
-        }
-        
-        .red-dot {
-            display: inline-block;
-            width: 12px;
-            height: 12px;
-            background-color: #ef4444;
-            border-radius: 50%;
-            margin-right: 6px;
-        }
 
-        .extra-payment-results {
-            margin-top: 1.8rem;
-            background: linear-gradient(135deg, #f0f9ff 0%, #e8f4fd 100%);
-            border-radius: 20px;
-            padding: 1.25rem;
-            border: 1px solid #cbdde9;
-        }
-        
-        .extra-payment-results h4 {
-            color: #122b44;
-            margin-bottom: 1rem;
-            font-size: 1rem;
-            font-weight: 700;
-            display: flex;
-            align-items: center;
-            gap: 8px;
-        }
-        
-        .extra-row {
-            display: flex;
-            justify-content: space-between;
-            padding: 0.5rem 0;
-            font-size: 0.9rem;
-            border-bottom: 1px dashed #cbdde9;
-        }
-        
-        .extra-row:last-child {
-            border-bottom: none;
-        }
-        
-        .extra-label {
-            color: #5a7a9a;
-            font-weight: 500;
-        }
-        
-        .extra-value {
-            font-weight: 700;
-            color: #122b44;
-        }
-        
-        .saved-highlight {
-            color: #059669;
+        .hero h1 {
+            font-size: 2.5rem;
             font-weight: 800;
-            font-size: 1rem;
+            color: #122b44;
+            margin-bottom: 1rem;
         }
 
-        /* Article & FAQ Styles */
-        .article-section {
-            background: white;
-            border-radius: 24px;
-            padding: 2rem;
-            margin-top: 1.5rem;
-            border: 1px solid #e2ebf3;
-            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.04);
-        }
-        .article-section h2 {
-            font-size: 1.6rem;
-            color: #122b44;
-            margin: 1.5rem 0 1rem 0;
-            border-left: 4px solid #10b981;
-            padding-left: 1rem;
-        }
-        .article-section h2:first-of-type {
-            margin-top: 0;
-        }
-        .article-section h3 {
-            font-size: 1.3rem;
-            color: #1f4a6e;
-            margin: 1.2rem 0 0.8rem 0;
-        }
-        .article-section p {
-            margin-bottom: 1rem;
-            line-height: 1.6;
-            color: #2c3e4e;
-        }
-        .article-section ul, .article-section ol {
-            margin: 1rem 0 1rem 1.8rem;
-        }
-        .article-section li {
-            margin-bottom: 0.5rem;
-        }
-        .faq-item {
-            margin: 1.5rem 0;
-            border-bottom: 1px solid #e2ebf3;
-            padding-bottom: 1rem;
-        }
-        .faq-question {
-            font-weight: 700;
+        .hero p {
             font-size: 1.1rem;
-            color: #122b44;
-            cursor: pointer;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
+            color: #3a5a74;
+            max-width: 600px;
+            margin: 0 auto;
         }
-        .faq-question:hover {
-            color: #10b981;
+
+        .tools-grid-home {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 1.5rem;
+            padding: 2rem 0;
+            max-width: 1000px;
+            margin: 0 auto;
         }
-        .faq-answer {
-            margin-top: 0.8rem;
-            color: #4a627a;
-            line-height: 1.6;
-            display: none;
-        }
-        .faq-answer.show {
+
+        .tool-card {
+            background: white;
+            border-radius: 20px;
+            padding: 1.5rem;
+            text-align: center;
+            text-decoration: none;
+            border: 1px solid #e2ebf3;
+            transition: all 0.25s ease;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.02);
             display: block;
         }
-        .toggle-icon {
-            font-size: 1.3rem;
+
+        .tool-card:hover {
+            transform: translateY(-6px);
+            border-color: #3f9eff;
+            box-shadow: 0 20px 30px -12px rgba(0, 0, 0, 0.12);
         }
-        .tool-link {
-            display: inline-block;
-            background: #eef3fc;
-            padding: 0.2rem 0.6rem;
-            border-radius: 20px;
-            font-size: 0.8rem;
-            margin-left: 0.5rem;
+
+        .tool-icon {
+            font-size: 2.5rem;
+            margin-bottom: 0.75rem;
+        }
+
+        .tool-card h3 {
+            font-size: 1.1rem;
+            font-weight: 600;
             color: #122b44;
-            text-decoration: none;
+            margin-bottom: 0.5rem;
         }
-        .tool-link:hover {
-            background: #d4e6f5;
+
+        .tool-card p {
+            font-size: 0.8rem;
+            color: #6c8eaa;
+        }
+
+        /* SEO Content Styles */
+        .seo-content {
+            max-width: 1000px;
+            margin: 2rem auto 3rem auto;
+            background: white;
+            border-radius: 28px;
+            padding: 2.5rem;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+        }
+
+        .seo-content h2 {
+            font-size: 1.8rem;
+            color: #122b44;
+            margin-top: 2rem;
+            margin-bottom: 1rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 3px solid #3f9eff;
+            display: inline-block;
+        }
+
+        .seo-content h3 {
+            font-size: 1.4rem;
+            color: #1f5068;
+            margin-top: 1.8rem;
+            margin-bottom: 0.8rem;
+        }
+
+        .seo-content h4 {
+            font-size: 1.2rem;
+            color: #2c7da0;
+            margin-top: 1.2rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .seo-content p {
+            font-size: 1rem;
+            line-height: 1.7;
+            color: #2c3e4e;
+            margin-bottom: 1rem;
+        }
+
+        .seo-content ul, .seo-content ol {
+            margin: 1rem 0 1rem 2rem;
+            line-height: 1.7;
+        }
+
+        .seo-content li {
+            margin-bottom: 0.5rem;
+        }
+
+        .pro-tip {
+            background: #e8f4f8;
+            border-left: 4px solid #3f9eff;
+            padding: 1.2rem 1.5rem;
+            margin: 1.5rem 0;
+            border-radius: 0 12px 12px 0;
+        }
+
+        .pro-tip strong {
+            color: #1f5068;
+        }
+
+        .warning-box {
+            background: #fff8e8;
+            border-left: 4px solid #ff9800;
+            padding: 1.2rem 1.5rem;
+            margin: 1.5rem 0;
+            border-radius: 0 12px 12px 0;
+        }
+
+        .step-box {
+            background: #f0f4f8;
+            padding: 1rem 1.5rem;
+            margin: 1rem 0;
+            border-radius: 12px;
+        }
+
+        .step-number {
+            display: inline-block;
+            background: #3f9eff;
+            color: white;
+            width: 28px;
+            height: 28px;
+            text-align: center;
+            border-radius: 50%;
+            line-height: 28px;
+            font-weight: bold;
+            font-size: 0.9rem;
+            margin-right: 10px;
+        }
+
+        .faq-item {
+            margin: 1.5rem 0;
+            padding-bottom: 1rem;
+            border-bottom: 1px solid #e2ebf3;
+        }
+
+        .faq-item h4 {
+            margin-bottom: 0.5rem;
+            cursor: pointer;
+            color: #122b44;
+        }
+
+        .seo-content table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 1.5rem 0;
+        }
+
+        .seo-content th, .seo-content td {
+            border: 1px solid #ddd;
+            padding: 10px;
+            text-align: left;
+        }
+
+        .seo-content th {
+            background: #122b44;
+            color: white;
+        }
+
+        .seo-content tr:nth-child(even) {
+            background: #f9f9f9;
+        }
+
+        @media (max-width: 700px) {
+            .hero h1 { font-size: 1.8rem; }
+            .container { padding: 0 1.2rem; }
+            .site-title { font-size: 1.2rem; }
+            .tools-grid-home { grid-template-columns: 1fr; }
+            .seo-content { padding: 1.5rem; }
+            .seo-content h2 { font-size: 1.5rem; }
         }
 
         .site-footer {
@@ -477,7 +433,6 @@
             align-items: center;
             justify-content: center;
             z-index: 1100;
-            backdrop-filter: blur(4px);
         }
 
         .modal-content {
@@ -487,7 +442,6 @@
             border-radius: 28px;
             padding: 2rem;
             position: relative;
-            box-shadow: 0 25px 40px rgba(0,0,0,0.25);
         }
 
         .close-modal {
@@ -496,21 +450,6 @@
             right: 1.5rem;
             font-size: 1.8rem;
             cursor: pointer;
-            background: none;
-            border: none;
-            color: #6c8eaa;
-        }
-        
-        .modal-content h3 {
-            font-size: 1.5rem;
-            margin-bottom: 1rem;
-            color: #122b44;
-        }
-
-        @media (max-width: 800px) {
-            .calc-two-columns { grid-template-columns: 1fr; }
-            .container { padding: 0 1.2rem; }
-            .site-title { font-size: 1.2rem; }
         }
     </style>
 </head>
@@ -534,108 +473,461 @@
 </div>
 
 <main>
-    <section class="tools-section">
+    <section class="hero">
         <div class="container">
-            <!-- LONG-FORM ANSWER WITH DARKER BLUE H1 -->
-            <div class="article-section" id="mainArticle" style="margin-top:0;">
-                <h1 style="font-size: 2rem; color: #1e3a8a; margin-bottom: 1rem;">Can I Pay My House Off Early? Free Tools to Run the Numbers</h1>
-                
-                <p><strong>Yes. Absolutely yes.</strong> Thousands of homeowners do it every year, and you can too. Paying off your mortgage early is not only possible, it is mathematically straightforward. The only variables are: how much extra you pay, how often you pay it, and when you start. The sooner you begin making extra payments, the more interest you save and the faster you own your home free and clear.</p>
-                
-                <p>When you take out a 30-year mortgage, the bank calculates your monthly payment so that you pay mostly interest in the first years and mostly principal toward the end. This means that every additional dollar you put toward your <strong>principal</strong> early in the loan term has an outsized impact. That extra dollar never accrues interest again. In effect, you get a guaranteed return equal to your mortgage interest rate — something no savings account or CD can offer today.</p>
-                
-                <p>Let’s look at a real-world example. On a $280,000 loan at 6.12% interest with a 30-year term, your normal monthly principal and interest payment is about $1,700. Over 30 years, you would pay roughly $332,000 in total interest. But if you add just <strong>$200 extra per month</strong> toward principal, you cut your payoff time by several years and save over $50,000 in interest. If you can add <strong>$1,000 extra per month</strong>, you pay off the loan in just 12.3 years and save more than $212,000. And if you go even further with $5,000 extra monthly, you could own your home in as little as 4 years, saving nearly $300,000 in interest.</p>
-                
-                <p>The math is clear: extra payments work. But you don’t need to be extreme. Even small, consistent extra payments add up dramatically over time. A $50 monthly extra payment might not feel like much, but over 30 years it can shave off 2-3 years and save you $15,000-$20,000 depending on your rate and balance. The key is consistency and starting as early as possible.</p>
-                
-                <p>There are several popular strategies for paying off your mortgage early. The <strong>biweekly payment method</strong> involves paying half your monthly payment every two weeks. Because there are 52 weeks in a year, this results in 26 half-payments, or 13 full payments per year instead of 12. That extra full payment each year goes entirely to principal and can cut years off your loan without you even noticing. Many lenders offer biweekly programs, or you can do it yourself by simply adding 1/12 of your monthly payment to each check.</p>
-                
-                <p>Another powerful approach is the <strong>lump sum method</strong>. If you receive an annual bonus, tax refund, inheritance, or any windfall, putting that entire amount toward your mortgage principal can have a massive impact. A single $10,000 lump sum payment early in your loan term can save you over $30,000 in interest and cut your payoff time by 2-3 years. Combining monthly extra payments with occasional lump sums is the most effective strategy of all.</p>
-                
-                <p>Financial expert Dave Ramsey advocates for what he calls "gazelle intensity" — throwing every possible dollar at your mortgage after you have a fully funded emergency fund and are investing 15% of your income into retirement. His approach is behavioral: the peace of a paid-for house is worth more than the mathematical argument that you might earn a higher return in the stock market. For many people, the psychological freedom of being debt-free outweighs a few percentage points of potential investment gains.</p>
-                
-                <p>However, paying off your mortgage early is not always the right choice for everyone. If your mortgage interest rate is below 4%, you might be better off investing that extra money in the stock market, where historical returns average 7-10% annually. But that comes with risk. Paying down your mortgage gives you a guaranteed, risk-free return equal to your interest rate. If your rate is above 6%, most financial experts agree that paying it down aggressively is a smart move. If your rate is above 7%, you should prioritize mortgage payoff over almost everything else except your employer 401(k) match.</p>
-                
-                <p>One important distinction: paying extra toward principal is not the same as prepaying future payments. When you send extra money to your lender, you must specify that it should go toward <strong>principal reduction</strong>. Otherwise, some lenders may treat it as prepaying your next month's payment, which does not save you interest. Always write "principal only" on your check or select that option in your online portal.</p>
-                
-                <p>Another common question is whether you should refinance to a shorter loan term, like a 15-year mortgage. Refinancing can lower your interest rate and force you to pay off the loan faster, but it comes with closing costs that can be thousands of dollars. A better alternative for many homeowners is simply making extra payments on your existing 30-year loan. This gives you flexibility: if you have a tight month, you can skip the extra payment without penalty. With a 15-year refinance, the higher monthly payment is mandatory.</p>
-                
-                <p>For homeowners planning to sell their home, the calculation changes. When you sell, your payoff amount is not simply your remaining principal balance. You also owe accrued interest from your last payment to the closing date, plus recording fees, transfer taxes, and any prepayment penalties (though these are rare today). Your lender will provide a formal payoff statement that includes all these items. As a rule of thumb, add 15-30 days of interest plus $200-$500 in fees to your principal balance to estimate your true payoff.</p>
-                
-                <p>Ultimately, the decision to pay off your mortgage early is personal. It depends on your interest rate, your risk tolerance, your other debts, and your emotional needs. Some people sleep better knowing they own their home outright. Others prefer to keep their money invested where it can grow. Both approaches are valid. The best path is the one you will stick with consistently.</p>
-                
-                <p>The calculator below is designed to help you make this decision with real numbers, not guesses. Enter your actual loan details and experiment with different extra monthly payments. See for yourself how many years you can cut off your loan and how much interest you can save. Then take action — even if it's just $50 extra next month. Your future debt-free self will thank you.</p>
-                
-                <p><strong>Run your numbers now.</strong> The calculator is waiting below.</p>
-            </div>
-            
-            <!-- CALCULATOR (EXACTLY AS ORIGINAL) -->
-            <div class="tools-grid" id="calculatorsGrid"></div>
-            
-            <!-- BLOG ARTICLE (NO HIGHLIGHTING, COMPLETELY DIFFERENT FROM FAQ) -->
-            <div class="article-section">
-                <h2>How I Cut 12 Years Off My Mortgage (And You Can Too)</h2>
-                <p>Three years ago, I was staring at a 30-year mortgage with a 6.5% interest rate. The total interest over the life of the loan was staggering — nearly as much as the house itself. That is when I started researching every possible way to pay off my home faster. What I learned changed my financial future.</p>
-                
-                <p>The first tool I discovered was an early payoff home mortgage calculator. I plugged in my numbers: $280,000 balance, 6.5% interest, 27 years remaining. Then I started experimenting. What if I paid an extra $100 per month? The calculator showed I would save over $40,000 in interest and cut 5 years off my loan. That got my attention.</p>
-                
-                <p>Next, I needed to understand how to calculate mortgage payoff when selling home because I thought about moving. I learned that selling requires a formal payoff statement from your lender — it includes principal, accrued interest, and fees. That knowledge saved me from a costly mistake later.</p>
-                
-                <p>Using a home mortgage early payoff calculator became a weekly habit. Every time I got paid, I would run a new scenario. Could I afford $200 extra this month? What about $300? Seeing the numbers update in real time kept me motivated.</p>
-                
-                <p>A friend recommended the Dave Ramsey home mortgage payoff calculator approach. Dave's method is simple: after paying off all other debt, throw every extra dollar at the mortgage. I started following his "gazelle intensity" mindset. No more eating out, no more unused subscriptions. Every saved dollar went to principal.</p>
-                
-                <p>I also used a home mortgage calculator early payoff feature to compare different strategies. Should I pay extra monthly or save up for a lump sum? The calculator showed that monthly extras beat waiting for a lump sum because interest accrues daily. Small, consistent payments won every time.</p>
-                
-                <p>Sometimes I just needed a home mortgage calculator payoff to remind me of my goal. Seeing my original payoff date (2051) next to my new projected date (2039) was incredibly satisfying. That visual comparison kept me going during tough months.</p>
-                
-                <p>The early home mortgage payoff calculator became my favorite tool. It showed me that even $50 extra per month mattered. Over 20 years, that $50 would grow into nearly $30,000 in interest savings. I stopped thinking "I can't afford extra" and started thinking "I can't afford not to."</p>
-                
-                <p>I even looked at the how to pay off mortgage in 5 years calculator just for fun. For my loan, it required paying over $5,000 per month — not realistic for me. But it showed me what was mathematically possible for someone with a higher income or smaller loan.</p>
-                
-                <p>The paying off home loan early calculator worked for my brother too. He has an FHA loan at 5.75%. He started with $100 extra monthly and cut 6 years off his term. The math works for any loan type — conventional, FHA, VA, or USDA.</p>
-                
-                <p>One strategy I love is using a mortgage calculator with extra payments and lump sum. When I got a $5,000 tax refund, I split it: $2,500 as a lump sum toward principal, and the remaining $2,500 spread as an extra $200 per month for the next year. The calculator showed this hybrid approach saved me more than doing either one alone.</p>
-                
-                <p>I also learned about the extra principal payment calculator. The key insight: always specify "principal only" when sending extra money. Otherwise, some lenders apply it to future interest, which saves you nothing. That one tip saved me thousands.</p>
-                
-                <p>My goal shifted to the how to pay off mortgage in 10 years calculator. I increased my extra monthly payment until the calculator showed a 10-year payoff. That number became my target. It was higher than I wanted, so I compromised on 12 years. The point is, the calculator gave me a real, achievable number to aim for.</p>
-                
-                <p>When I considered refinancing, I used a calculator net mortgage payoff calculator to understand my true payoff amount. Principal plus accrued interest plus fees. That number helped me decide whether refinancing made sense. (It didn't — closing costs ate up the savings.)</p>
-                
-                <p>The most popular goal is the how to pay off a 30-year mortgage in 15 years calculator. I tried it. For my loan, adding 40% to my monthly principal payment got me to 15 years. That was my sweet spot — aggressive but not painful.</p>
-                
-                <p>Finally, I realized the same principle applies to all debt. A pay off loan early calculator with extra payments works for car loans, student loans, and credit cards. I applied the same strategy to my car loan and paid it off 2 years early.</p>
-                
-                <p>Today, my mortgage is on track to be paid off in 18 years instead of 30. I have saved over $100,000 in future interest. And it all started with a simple calculator and a decision to pay just $100 extra per month. You can do this too. Start today.</p>
-            </div>
-            
-            <!-- FAQ SECTION (UNCHANGED) -->
-            <div class="article-section">
-                <h2>Frequently Asked Questions</h2>
-                <div id="faqContainer">
-                    <div class="faq-item"><div class="faq-question">1. How much extra should I pay each month to pay off my mortgage early? <span class="toggle-icon">+</span></div><div class="faq-answer">Even $50 or $100 extra per month makes a difference. Use our calculator above to see your exact payoff date with any extra amount. Start small and increase over time.</div></div>
-                    <div class="faq-item"><div class="faq-question">2. Does paying extra toward principal reduce my monthly payment? <span class="toggle-icon">+</span></div><div class="faq-answer">No. It reduces total interest and shortens your loan term, but your required monthly payment stays the same unless you refinance or recast.</div></div>
-                    <div class="faq-item"><div class="faq-question">3. Is it better to pay extra monthly or make one lump sum payment? <span class="toggle-icon">+</span></div><div class="faq-answer">Lump sum saves more interest if done early. Monthly extras build consistency. Best is both. Use our calculator for monthly extras; for lump sum, divide by 12.</div></div>
-                    <div class="faq-item"><div class="faq-question">4. Can I pay off my mortgage in 5 years without a huge income? <span class="toggle-icon">+</span></div><div class="faq-answer">Only if your loan balance is very small or you make drastic lifestyle changes. Use our calculator above to see if it's realistic for you.</div></div>
-                    <div class="faq-item"><div class="faq-question">5. What does Dave Ramsey say about paying off a mortgage early? <span class="toggle-icon">+</span></div><div class="faq-answer">He recommends paying it off as fast as possible after baby steps 1-3, using "gazelle intensity." Use our calculator to model his method.</div></div>
-                    <div class="faq-item"><div class="faq-question">6. How do I calculate my mortgage payoff amount when selling my home? <span class="toggle-icon">+</span></div><div class="faq-answer">Call your lender for a formal payoff statement — it includes principal, accrued interest, and fees. Don't rely on remaining balance alone.</div></div>
-                    <div class="faq-item"><div class="faq-question">7. What is the difference between extra principal payment and regular extra payment? <span class="toggle-icon">+</span></div><div class="faq-answer">Extra principal goes directly to loan balance. Regular extra might prepay future interest. Always specify "principal only."</div></div>
-                    <div class="faq-item"><div class="faq-question">8. Can I pay off a 30-year mortgage in 15 years without refinancing? <span class="toggle-icon">+</span></div><div class="faq-answer">Yes. Pay roughly 30‑40% more each month toward principal. Use our calculator to find your exact extra payment.</div></div>
-                    <div class="faq-item"><div class="faq-question">9. What is net mortgage payoff when selling a home? <span class="toggle-icon">+</span></div><div class="faq-answer">Net payoff is what you actually owe at closing — principal + accrued interest + fees. Our calculator shows principal + interest; add $200‑$500 for fees.</div></div>
-                    <div class="faq-item"><div class="faq-question">10. Should I pay off my mortgage early or invest the extra money? <span class="toggle-icon">+</span></div><div class="faq-answer">If your rate is below 4%, consider investing. Above 6%, paying off is a guaranteed return. Above 7%, pay it immediately.</div></div>
-                </div>
-                <p style="margin-top: 1.5rem;"><strong>Ready to pay off your house?</strong> Enter your numbers into the calculator above, pick an extra monthly payment that fits your budget, and start making extra principal payments — even $50/month moves the needle.</p>
-            </div>
+            <h1>Free Financial Calculators</h1>
+            <p>Mortgage, car refinance, credit card points, investments, budget, inflation & college savings. No sign-up required.</p>
         </div>
     </section>
+
+    <div class="container">
+        <div class="tools-grid-home">
+            <a href="mortgage-calculator.html" class="tool-card">
+                <div class="tool-icon">🏠</div>
+                <h3>Mortgage Calculator</h3>
+                <p>Pay off your house early. See interest savings with extra payments.</p>
+            </a>
+            <a href="car-refinance-calculator.html" class="tool-card">
+                <div class="tool-icon">🚗</div>
+                <h3>Car Refinance Calculator</h3>
+                <p>Refinance your auto loan. Compare rates and see monthly savings.</p>
+            </a>
+            <a href="credit-card-points-calculator.html" class="tool-card">
+                <div class="tool-icon">💳</div>
+                <h3>Credit Card Points Calculator</h3>
+                <p>Value your points. Compare cash back, travel & gift cards.</p>
+            </a>
+            <a href="investment-calculator.html" class="tool-card">
+                <div class="tool-icon">📈</div>
+                <h3>Investment Calculator</h3>
+                <p>Calculate future value. See how your money grows over time.</p>
+            </a>
+            <a href="budget-calculator.html" class="tool-card">
+                <div class="tool-icon">📊</div>
+                <h3>Budget Calculator</h3>
+                <p>Track income and expenses. Find where your money goes.</p>
+            </a>
+            <a href="inflation-calculator.html" class="tool-card">
+                <div class="tool-icon">📉</div>
+                <h3>Inflation Calculator</h3>
+                <p>See how inflation impacts your savings. Calculate real purchasing power.</p>
+            </a>
+            <a href="college-savings-calculator.html" class="tool-card">
+                <div class="tool-icon">🎓</div>
+                <h3>College Savings Calculator</h3>
+                <p>Plan for education costs. Calculate 529 plan growth.</p>
+            </a>
+        </div>
+    </div>
+
+    <!-- BLOG-STYLE SEO CONTENT START - 2,500+ WORDS -->
+    <div class="container">
+        <div class="seo-content">
+            <h2>How to Use Financial Calculators: Complete Guide for 2026</h2>
+            
+            <p>Welcome to SmartRatesLab. This comprehensive guide will walk you through each of our seven financial calculators. Whether you're a first-time homebuyer, looking to refinance your car, planning for retirement, or saving for college, these step-by-step tutorials will help you get the most accurate results and make better financial decisions.</p>
+            
+            <p>Unlike other financial websites that bury useful information behind paywalls, every tool here is 100% free. No email required. No credit card. Just honest calculations to help you understand exactly where your money is going and how to make it work harder for you.</p>
+            
+            <div class="pro-tip">
+                <strong>💡 Pro Tip:</strong> Before using any calculator, gather your current numbers (loan balance, interest rate, monthly payment, etc.). Having accurate inputs leads to accurate outputs. Bookmark this page — you'll come back to it often.
+            </div>
+            
+            <!-- TOOL 1: MORTGAGE CALCULATOR -->
+            <h2>1. Mortgage Calculator: How to Pay Off Your Home Faster</h2>
+            
+            <p>The mortgage calculator is one of our most popular tools. It helps you understand not just your monthly payment, but the <strong>total cost of your loan</strong> and how <strong>extra payments</strong> can save you thousands in interest.</p>
+            
+            <h3>What This Calculator Does</h3>
+            <p>This tool calculates your monthly mortgage payment (principal + interest) based on your loan amount, interest rate, and loan term. But the real power comes from the <strong>extra payment feature</strong> — you can see exactly how much time and money you'll save by paying a little extra each month.</p>
+            
+            <h3>Step-by-Step Instructions</h3>
+            
+            <div class="step-box">
+                <span class="step-number">1</span> <strong>Enter your home price</strong> — The total purchase price of the home you want to buy.
+            </div>
+            <div class="step-box">
+                <span class="step-number">2</span> <strong>Enter your down payment</strong> — The amount you're putting down (in dollars or percentage). A 20% down payment helps you avoid Private Mortgage Insurance (PMI).
+            </div>
+            <div class="step-box">
+                <span class="step-number">3</span> <strong>Enter the loan term</strong> — Most common terms are 15, 20, or 30 years. Shorter terms have higher monthly payments but much lower total interest.
+            </div>
+            <div class="step-box">
+                <span class="step-number">4</span> <strong>Enter the interest rate</strong> — Your quoted annual percentage rate (APR). As of April 2026, 30-year fixed rates average around 6.5-7%, but your rate depends on credit score, down payment, and location.
+            </div>
+            <div class="step-box">
+                <span class="step-number">5</span> <strong>Add extra monthly payment (optional)</strong> — Try adding $50, $100, or $200 to see the impact. You might be surprised how much time you'll shave off your loan.
+            </div>
+            
+            <h3>Understanding Your Results</h3>
+            <p>The calculator shows you:</p>
+            <ul>
+                <li><strong>Monthly payment</strong> — Principal + interest only (remember to budget separately for property taxes, insurance, and HOA fees)</li>
+                <li><strong>Total interest paid</strong> — The staggering number that shows why paying extra makes sense</li>
+                <li><strong>Payoff date</strong> — When your loan will be paid off (earlier if you add extra payments)</li>
+                <li><strong>Total savings from extra payments</strong> — The amount of interest you avoid paying</li>
+            </ul>
+            
+            <div class="pro-tip">
+                <strong>💡 Pro Tip:</strong> Even an extra $50 per month on a $300,000 mortgage at 6.5% interest can save you over $30,000 in interest and pay off your loan 3-4 years early. Try different numbers — the results are eye-opening.
+            </div>
+            
+            <div class="warning-box">
+                <strong>⚠️ Important:</strong> This calculator shows principal and interest only. Your actual monthly payment will also include property taxes, homeowners insurance, and possibly PMI (if down payment is less than 20%). Always factor in another 0.5-1.5% of the home's value annually for taxes and insurance.
+            </div>
+            
+            <h3>Common Mortgage Questions</h3>
+            <p><strong>Should I get a 15-year or 30-year mortgage?</strong> A 15-year mortgage has higher monthly payments but much lower total interest. A 30-year has lower monthly payments but you'll pay more interest over time. Choose based on your monthly cash flow and long-term goals.</p>
+            <p><strong>How does my credit score affect my rate?</strong> Excellent credit (740+) gets the best rates. Good credit (680-739) might pay 0.5-1% higher. Fair credit (620-679) could pay 1-2% higher. Always check your credit score before applying for a mortgage.</p>
+            
+            <!-- TOOL 2: CAR REFINANCE CALCULATOR -->
+            <h2>2. Car Refinance Calculator: Lower Your Auto Loan Payment</h2>
+            
+            <p>Auto loan refinancing can save you hundreds or even thousands of dollars over the life of your loan. Our car refinance calculator helps you compare your current loan against potential new loans.</p>
+            
+            <h3>When Should You Refinance Your Car?</h3>
+            <p>Refinancing makes sense when:</p>
+            <ul>
+                <li>Interest rates have dropped since you got your original loan</li>
+                <li>Your credit score has improved significantly (e.g., from 650 to 720)</li>
+                <li>You want to lower your monthly payment to free up cash flow</li>
+                <li>You want to pay off your loan faster with a shorter term</li>
+            </ul>
+            
+            <h3>How to Use the Car Refinance Calculator</h3>
+            
+            <div class="step-box">
+                <span class="step-number">1</span> <strong>Enter your current loan balance</strong> — The amount you still owe on your car.
+            </div>
+            <div class="step-box">
+                <span class="step-number">2</span> <strong>Enter your current interest rate</strong> — Check your loan statement. Most auto loans range from 4-15% depending on credit.
+            </div>
+            <div class="step-box">
+                <span class="step-number">3</span> <strong>Enter remaining months on current loan</strong> — How many months are left? (e.g., 36 months if you have 3 years left)
+            </div>
+            <div class="step-box">
+                <span class="step-number">4</span> <strong>Enter the new interest rate you qualify for</strong> — Check with banks or credit unions. Even a 2% drop can make a big difference.
+            </div>
+            <div class="step-box">
+                <span class="step-number">5</span> <strong>Enter the new loan term (months)</strong> — Common terms are 24, 36, 48, 60, or 72 months.
+            </div>
+            
+            <h3>Understanding Your Refinance Results</h3>
+            <p>The calculator shows you:</p>
+            <ul>
+                <li><strong>Current monthly payment vs. new monthly payment</strong> — See your monthly savings</li>
+                <li><strong>Total interest on current loan vs. new loan</strong> — How much interest you'll save (or pay more if extending the term)</li>
+                <li><strong>Break-even point</strong> — How many months until refinancing costs (if any) are recovered</li>
+            </ul>
+            
+            <div class="pro-tip">
+                <strong>💡 Pro Tip:</strong> Be careful about extending your loan term too much. A lower monthly payment is great, but if you go from a 36-month loan to a 72-month loan, you might pay more total interest even with a lower rate. Always compare total interest paid, not just the monthly payment.
+            </div>
+            
+            <h3>Refinancing Costs to Consider</h3>
+            <p>Most auto loan refinances have minimal fees ($0-$300), but some lenders charge:</p>
+            <ul>
+                <li>Title transfer fees ($15-$75)</li>
+                <li>Document preparation fees ($25-$100)</li>
+                <li>Prepayment penalties on your old loan (rare but check your contract)</li>
+            </ul>
+            
+            <!-- TOOL 3: CREDIT CARD POINTS CALCULATOR -->
+            <h2>3. Credit Card Points Calculator: Maximize Your Rewards</h2>
+            
+            <p>Credit card points and miles can be confusing. Is 50,000 points worth $500 in cash back? Or $1,000 in first-class travel? Our calculator helps you compare redemption options side-by-side.</p>
+            
+            <h3>Understanding Points Valuation</h3>
+            <p>Not all points are created equal. Different credit cards and different redemption methods give you different values:</p>
+            
+            <table>
+                <thead>
+                    <tr><th>Redemption Method</th><th>Typical Value per 100 Points</th><th>Best For</th></tr>
+                </thead>
+                <tbody>
+                    <tr><td>Cash Back / Statement Credit</td><td>$1.00</td><td>Simplicity, guaranteed value</td></tr>
+                    <tr><td>Gift Cards</td><td>$0.80 - $1.00</td><td>Everyday spending at specific stores</td></tr>
+                    <tr><td>Travel (economy)</td><td>$1.00 - $1.50</td><td>Occasional travelers</td></tr>
+                    <tr><td>Travel (business/first class)</td><td>$2.00 - $5.00+</td><td>Luxury travelers, high spenders</td></tr>
+                    <tr><td>Merchandise</td><td>$0.50 - $0.80</td><td>Usually the worst value — avoid</td></tr>
+                </tbody>
+            </table>
+            
+            <h3>How to Use the Points Calculator</h3>
+            
+            <div class="step-box">
+                <span class="step-number">1</span> <strong>Enter how many points/miles you have</strong> — Check your credit card rewards portal.
+            </div>
+            <div class="step-box">
+                <span class="step-number">2</span> <strong>Select your points type</strong> — Choose from common programs like Chase Ultimate Rewards, Amex Membership Rewards, Capital One Miles, Citi ThankYou Points, or generic points.
+            </div>
+            <div class="step-box">
+                <span class="step-number">3</span> <strong>Compare redemption options</strong> — The calculator shows the cash value, travel value, and gift card value side by side.
+            </div>
+            
+            <div class="pro-tip">
+                <strong>💡 Pro Tip:</strong> Never redeem points for merchandise or "shopping" through your credit card portal. These redemptions typically give you the worst value (often less than $0.50 per 100 points). Cash back or travel transfers almost always give you better value.
+            </div>
+            
+            <h3>Which Credit Card Points Are Most Valuable?</h3>
+            <p>Based on 2025-2026 valuations:</p>
+            <ul>
+                <li><strong>Chase Ultimate Rewards</strong> — 1.5-2.0 cents per point (with Sapphire Reserve), best for Hyatt hotel transfers</li>
+                <li><strong>Amex Membership Rewards</strong> — 1.0-2.2 cents per point, best for airline transfers (Air Canada, Delta, British Airways)</li>
+                <li><strong>Capital One Miles</strong> — 1.0-1.8 cents per point, best for international airline transfers</li>
+                <li><strong>Citi ThankYou Points</strong> — 1.0-1.7 cents per point, best for JetBlue and Choice Hotels</li>
+            </ul>
+            
+            <!-- TOOL 4: INVESTMENT CALCULATOR -->
+            <h2>4. Investment Calculator: See Your Money Grow Over Time</h2>
+            
+            <p>Understanding compound interest is the single most important financial concept for building wealth. Our investment calculator shows you exactly how your money grows over time, whether you're saving for retirement, a down payment, or just building a nest egg.</p>
+            
+            <h3>The Magic of Compound Interest</h3>
+            <p>Albert Einstein reportedly called compound interest the "eighth wonder of the world." Here's why: If you invest $10,000 at age 25 with an 8% average annual return, by age 65 that $10,000 grows to over $217,000 — without adding another dollar. Now imagine adding monthly contributions.</p>
+            
+            <h3>How to Use the Investment Calculator</h3>
+            
+            <div class="step-box">
+                <span class="step-number">1</span> <strong>Enter your initial investment</strong> — The amount you're starting with today.
+            </div>
+            <div class="step-box">
+                <span class="step-number">2</span> <strong>Enter monthly contribution</strong> — How much you'll add each month. Even $50 or $100 makes a huge difference over time.
+            </div>
+            <div class="step-box">
+                <span class="step-number">3</span> <strong>Enter expected annual return rate</strong> — For stock market investments, historical average is 7-10% (before inflation). For savings accounts, use 4-5%. Be realistic.
+            </div>
+            <div class="step-box">
+                <span class="step-number">4</span> <strong>Enter the number of years</strong> — How long will you let the money grow? Longer time horizons = more compound growth.
+            </div>
+            
+            <h3>Sample Scenarios</h3>
+            <p><strong>Scenario 1: Retirement savings</strong><br>
+            Age 30, $20,000 saved, add $500/month for 35 years (until age 65). At 8% return = over $1.3 million.</p>
+            
+            <p><strong>Scenario 2: College fund for a newborn</strong><br>
+            $0 starting, $200/month for 18 years. At 7% return = over $85,000.</p>
+            
+            <p><strong>Scenario 3: Down payment in 5 years</strong><br>
+            $10,000 starting, $1,000/month for 5 years. At 5% return (safe investment) = over $80,000.</p>
+            
+            <div class="pro-tip">
+                <strong>💡 Pro Tip:</strong> The most important number in investing is <strong>time</strong>. A 25-year-old investing $200/month will likely have more at retirement than a 35-year-old investing $400/month. Start early, even with small amounts.
+            </div>
+            
+            <div class="warning-box">
+                <strong>⚠️ Important:</strong> Past performance doesn't guarantee future returns. The stock market goes up and down. Investment calculators assume consistent returns, but real returns vary year to year. Always diversify your investments and consider your risk tolerance.
+            </div>
+            
+            <!-- TOOL 5: BUDGET CALCULATOR -->
+            <h2>5. Budget Calculator: Take Control of Your Money</h2>
+            
+            <p>You can't improve what you don't measure. Our budget calculator helps you track exactly where your money goes each month — and identifies areas where you can save.</p>
+            
+            <h3>The 50/30/20 Rule</h3>
+            <p>A popular budgeting framework:</p>
+            <ul>
+                <li><strong>50% for Needs</strong> — Housing, utilities, groceries, transportation, insurance, minimum debt payments</li>
+                <li><strong>30% for Wants</strong> — Dining out, entertainment, subscriptions, travel, hobbies</li>
+                <li><strong>20% for Savings & Debt</strong> — Emergency fund, retirement, extra debt payments, investments</li>
+            </ul>
+            
+            <h3>How to Use the Budget Calculator</h3>
+            
+            <div class="step-box">
+                <span class="step-number">1</span> <strong>Enter your total monthly income (after taxes)</strong> — Your take-home pay.
+            </div>
+            <div class="step-box">
+                <span class="step-number">2</span> <strong>Enter your expenses in each category</strong> — Housing, transportation, food, utilities, insurance, debt payments, entertainment, subscriptions, etc.
+            </div>
+            <div class="step-box">
+                <span class="step-number">3</span> <strong>Review your surplus or deficit</strong> — If expenses exceed income, you have a problem to solve. If you have a surplus, decide where to put it (savings, debt, investments).
+            </div>
+            
+            <h3>Where to Cut When You're Over Budget</h3>
+            <ul>
+                <li><strong>Subscriptions</strong> — Cancel unused streaming services, gym memberships, and app subscriptions. Average American wastes $350/year on unused subscriptions.</li>
+                <li><strong>Dining out</strong> — Reducing from 5x to 2x per month can save $200-300/month.</li>
+                <li><strong>Groceries</strong> — Shop sales, buy generic brands, plan meals. Typical savings: 15-25%.</li>
+                <li><strong>Insurance</strong> — Shop your auto and home insurance every 12 months. Loyalty doesn't pay — switching saves average $500/year.</li>
+            </ul>
+            
+            <div class="pro-tip">
+                <strong>💡 Pro Tip:</strong> Track your spending for 30 days using a notes app or spreadsheet. Most people are surprised by where their money actually goes. The $5 coffee + $15 lunch + $20 drinks add up to over $1,200/month for some people.
+            </div>
+            
+            <!-- TOOL 6: INFLATION CALCULATOR -->
+            <h2>6. Inflation Calculator: Understand Your True Purchasing Power</h2>
+            
+            <p>Inflation is a hidden tax on your savings. If your money isn't growing faster than inflation, you're actually losing purchasing power over time. Our inflation calculator shows you the real value of your money in past or future dollars.</p>
+            
+            <h3>Why Inflation Matters</h3>
+            <p>A dollar today buys less than a dollar bought 10 years ago. From 2020 to 2025, cumulative inflation was approximately 20-25%. That means something that cost $100 in 2020 costs about $120-125 in 2025. If your savings account pays 1% interest, you're losing purchasing power every year.</p>
+            
+            <h3>How to Use the Inflation Calculator</h3>
+            
+            <div class="step-box">
+                <span class="step-number">1</span> <strong>Enter an amount of money</strong> — For example, $10,000 in savings.
+            </div>
+            <div class="step-box">
+                <span class="step-number">2</span> <strong>Select the starting year</strong> — When did you have that money? (e.g., 2020)
+            </div>
+            <div class="step-box">
+                <span class="step-number">3</span> <strong>Select the ending year</strong> — When do you want to compare? (e.g., 2026)
+            </div>
+            <div class="step-box">
+                <span class="step-number">4</span> <strong>View the inflation-adjusted value</strong> — The calculator shows what that amount is worth today (in today's dollars).
+            </div>
+            
+            <h3>Historical Inflation Rates (US, 2020-2026)</h3>
+            
+            <table>
+                <thead><tr><th>Year</th><th>Average Inflation Rate</th><th>Cumulative Impact</th></tr></thead>
+                <tbody>
+                    <tr><td>2020</td><td>1.2%</td><td>Base year</td></tr>
+                    <tr><td>2021</td><td>4.7%</td><td>+5.9% since 2020</td></tr>
+                    <tr><td>2022</td><td>8.0%</td><td>+14.4% since 2020</td></tr>
+                    <tr><td>2023</td><td>4.1%</td><td>+19.1% since 2020</td></tr>
+                    <tr><td>2024</td><td>3.2%</td><td>+22.9% since 2020</td></tr>
+                    <tr><td>2025</td><td>2.8%</td><td>+26.3% since 2020</td></tr>
+                    <tr><td>2026 (estimated)</td><td>2.5%</td><td>+29.5% since 2020</td></tr>
+                </tbody>
+            </table>
+            
+            <div class="pro-tip">
+                <strong>💡 Pro Tip:</strong> Use the inflation calculator to set savings goals. If you need $50,000 in today's dollars for a down payment in 10 years, you'll actually need about $65,000-$70,000 in future dollars (assuming 2.5-3% annual inflation). Plan accordingly.
+            </div>
+            
+            <h3>How to Beat Inflation</h3>
+            <ul>
+                <li><strong>Invest in stocks</strong> — Historical returns of 7-10% outpace inflation</li>
+                <li><strong>I Bonds / Treasury Inflation-Protected Securities (TIPS)</strong> — Designed to match inflation</li>
+                <li><strong>Real estate</strong> — Property values and rents tend to rise with inflation</li>
+                <li><strong>High-yield savings accounts</strong> — Currently paying 4-5%, which barely beats inflation</li>
+                <li><strong>Avoid keeping large amounts in low-interest savings</strong> — You're losing purchasing power every year</li>
+            </ul>
+            
+            <!-- TOOL 7: COLLEGE SAVINGS CALCULATOR -->
+            <h2>7. College Savings Calculator: Plan for Education Costs</h2>
+            
+            <p>College costs have risen faster than inflation for decades. A 529 plan is the most tax-advantaged way to save for education expenses. Our calculator helps you see if you're on track.</p>
+            
+            <h3>Current College Costs (2025-2026)</h3>
+            <ul>
+                <li><strong>Public in-state university</strong> — $25,000-$35,000 per year (tuition + room/board)</li>
+                <li><strong>Public out-of-state</strong> — $40,000-$55,000 per year</li>
+                <li><strong>Private university</strong> — $55,000-$80,000+ per year</li>
+                <li><strong>Community college</strong> — $8,000-$12,000 per year</li>
+            </ul>
+            
+            <h3>How to Use the College Savings Calculator</h3>
+            
+            <div class="step-box">
+                <span class="step-number">1</span> <strong>Enter your child's current age</strong> — Or years until college starts.
+            </div>
+            <div class="step-box">
+                <span class="step-number">2</span> <strong>Enter current college savings</strong> — What's already in the 529 plan or savings account.
+            </div>
+            <div class="step-box">
+                <span class="step-number">3</span> <strong>Enter monthly contribution</strong> — How much you'll add each month.
+            </div>
+            <div class="step-box">
+                <span class="step-number">4</span> <strong>Select expected college type</strong> — Public in-state, public out-of-state, private, or community college.
+            </div>
+            <div class="step-box">
+                <span class="step-number">5</span> <strong>Enter expected annual return</strong> — For 529 plans, typical returns are 5-7% depending on investment allocation.
+            </div>
+            
+            <h3>Sample Savings Targets (for a newborn, 18 years to save)</h3>
+            
+            <table>
+                <thead><tr><th>College Type</th><th>Total Cost (4 years)</th><th>Monthly Savings Needed (5% return)</th></tr>
+                </thead>
+                <tbody>
+                    <tr><td>Community college</td><td>$40,000-$50,000</td><td>$115-$145/month</td></tr>
+                    <tr><td>Public in-state</td><td>$110,000-$140,000</td><td>$320-$405/month</td></tr>
+                    <tr><td>Public out-of-state</td><td>$180,000-$230,000</td><td>$520-$665/month</td></tr>
+                    <tr><td>Private university</td><td>$250,000-$320,000</td><td>$725-$930/month</td></tr>
+                </tbody>
+            </table>
+            
+            <div class="pro-tip">
+                <strong>💡 Pro Tip:</strong> Open a 529 plan even if you can only contribute a small amount. Many states offer tax deductions for 529 contributions. And money in a 529 grows tax-free if used for qualified education expenses (tuition, room/board, books, computers).
+            </div>
+            
+            <h3>529 Plan Alternatives</h3>
+            <ul>
+                <li><strong>Custodial account (UTMA/UGMA)</strong> — More flexibility but fewer tax benefits</li>
+                <li><strong>Roth IRA</strong> — Can withdraw contributions (not earnings) for college without penalty</li>
+                <li><strong>Regular savings account</strong> — No tax benefits, low returns — least recommended</li>
+            </ul>
+            
+            <!-- FAQ SECTION -->
+            <h2>Frequently Asked Questions About Financial Calculators</h2>
+            
+            <div class="faq-item">
+                <h4>❓ Are these calculators really free? Do I need to sign up?</h4>
+                <p>Yes, completely free. No sign-up, no email, no credit card. All calculations happen locally in your browser — we never store or share your data.</p>
+            </div>
+            
+            <div class="faq-item">
+                <h4>❓ How accurate are these calculators?</h4>
+                <p>Very accurate for what they do. The math is precise. However, real-world results vary based on factors like changing interest rates, investment returns, and lender fees. Always use calculator results as estimates, not guarantees.</p>
+            </div>
+            
+            <div class="faq-item">
+                <h4>❓ Can I use these calculators on my phone?</h4>
+                <p>Yes. All calculators are fully mobile-responsive and work on smartphones, tablets, laptops, and desktops.</p>
+            </div>
+            
+            <div class="faq-item">
+                <h4>❓ How often are interest rates updated?</h4>
+                <p>Our calculators use the rates YOU enter — they're not connected to live rate feeds. For current mortgage, auto, or savings rates, check with banks or financial comparison sites before using the calculators.</p>
+            </div>
+            
+            <div class="faq-item">
+                <h4>❓ Is this financial advice?</h4>
+                <p>No. SmartRatesLab provides educational tools and information only. We are not financial advisors. Always consult with a qualified professional before making major financial decisions.</p>
+            </div>
+            
+            <div class="faq-item">
+                <h4>❓ What's the best way to save for retirement?</h4>
+                <p>Use the Investment Calculator to test different scenarios. General advice: maximize employer 401(k) match first, then contribute to Roth IRA, then return to 401(k). Aim to save 15% of your gross income for retirement starting in your 20s or 30s.</p>
+            </div>
+            
+            <!-- CONCLUSION -->
+            <h2>Start Using SmartRatesLab Today</h2>
+            
+            <p>You now have everything you need to use all seven financial calculators on SmartRatesLab. Bookmark this page — you'll come back whenever you need to run numbers for a mortgage, car loan, investment decision, budget review, or college savings plan.</p>
+            
+            <p>Remember: The best financial decision you can make is to <strong>run the numbers before making a commitment</strong>. A 15-minute calculation can save you thousands of dollars in unnecessary interest or help you discover opportunities you didn't know existed.</p>
+            
+            <div class="pro-tip">
+                <strong>✅ Quick Recap:</strong><br>
+                • Mortgage calculator — Try extra payments to save thousands<br>
+                • Car refinance — Compare current vs. new loan terms<br>
+                • Credit card points — Never redeem for merchandise<br>
+                • Investment calculator — Start early, even with small amounts<br>
+                • Budget calculator — Track spending for 30 days<br>
+                • Inflation calculator — Adjust savings goals for purchasing power<br>
+                • College savings — Open a 529 plan as early as possible
+            </div>
+            
+            <p>Ready to start? Click on any calculator above to begin. All tools are free, private, and work instantly in your browser.</p>
+            
+            <p style="text-align: center; margin-top: 2rem;"><strong>— SmartRatesLab Team</strong></p>
+        </div>
+    </div>
+    <!-- BLOG-STYLE SEO CONTENT END -->
 </main>
 
 <footer class="site-footer">
     <div class="container">
         <div class="footer-grid">
             <div class="footer-col"><h4>SmartRatesLab</h4><p style="font-size:0.85rem;">Professional-grade financial calculators. 100% free.</p></div>
-            <div class="footer-col"><h4>Quick Links</h4><ul class="footer-links"><li><a class="footer-nav-link" data-nav="about">📄 About</a></li><li><a class="footer-nav-link" data-nav="contact">📞 Contact</a></li><li><a class="footer-nav-link" data-nav="privacy">🔒 Privacy</a></li><li><a class="footer-nav-link" data-nav="terms">⚖️ Terms</a></li></ul></div>
+            <div class="footer-col"><h4>Quick Links</h4><ul class="footer-links"><li><a class="footer-nav-link" data-nav="about">About</a></li><li><a class="footer-nav-link" data-nav="contact">Contact</a></li><li><a class="footer-nav-link" data-nav="privacy">Privacy</a></li><li><a class="footer-nav-link" data-nav="terms">Terms</a></li></ul></div>
+            <div class="footer-col"><div class="blog-section"><h4></h4><div class="blog-item" data-blog="1"><span class="blog-title"></span></div><div class="blog-item" data-blog="2"><span class="blog-title"></span></div><div class="blog-item" data-blog="3"><span class="blog-title"></span></div><div class="blog-item" data-blog="4"><span class="blog-title"></span></div><div class="blog-item" data-blog="5"><span class="blog-title">
+            </span></div></div></div>
         </div>
         <div class="copyright"><span>© 2026 SmartRatesLab - Educational purposes only.</span><span><a class="footer-legal-link" data-nav="privacy">Privacy</a> | <a class="footer-legal-link" data-nav="terms">Terms</a> | <a class="footer-legal-link" data-nav="about">About</a> | <a class="footer-legal-link" data-nav="contact">Contact</a></span></div>
     </div>
@@ -645,209 +937,92 @@
 
 <script>
     (function() {
-        let donutChartInstance = null;
-        
-        function calculateAmortizationWithExtras(loanAmount, annualRate, years, extraMonthly) {
-            const monthlyRate = annualRate / 100 / 12;
-            const totalMonthsStandard = years * 12;
-            let standardPayment = 0;
-            if (loanAmount > 0 && monthlyRate > 0) {
-                standardPayment = loanAmount * monthlyRate * Math.pow(1 + monthlyRate, totalMonthsStandard) / (Math.pow(1 + monthlyRate, totalMonthsStandard) - 1);
-            } else if (loanAmount > 0 && monthlyRate === 0) {
-                standardPayment = loanAmount / totalMonthsStandard;
-            }
-            const standardTotalInterest = (standardPayment * totalMonthsStandard) - loanAmount;
-            let balance = loanAmount;
-            let totalInterestWithExtras = 0;
-            let monthsPaid = 0;
-            const totalMonthlyWithExtra = standardPayment + extraMonthly;
-            if (extraMonthly > 0 && loanAmount > 0 && monthlyRate > 0) {
-                while (balance > 0.01 && monthsPaid < 600) {
-                    const interestThisMonth = balance * monthlyRate;
-                    let principalThisMonth = totalMonthlyWithExtra - interestThisMonth;
-                    if (principalThisMonth > balance) principalThisMonth = balance;
-                    totalInterestWithExtras += interestThisMonth;
-                    balance -= principalThisMonth;
-                    monthsPaid++;
-                    if (balance <= 0) break;
-                }
-            } else if (extraMonthly === 0) {
-                monthsPaid = totalMonthsStandard;
-                totalInterestWithExtras = standardTotalInterest;
-            } else if (loanAmount <= 0 || monthlyRate === 0) {
-                totalInterestWithExtras = 0;
-                monthsPaid = 0;
-            } else {
-                monthsPaid = totalMonthsStandard;
-                totalInterestWithExtras = standardTotalInterest;
-            }
-            const payoffYears = monthsPaid / 12;
-            const yearsSaved = Math.max(0, years - payoffYears);
-            const interestSaved = Math.max(0, standardTotalInterest - totalInterestWithExtras);
-            return { standardPayment, standardTotalInterest, totalInterestWithExtras, monthsToPayoff: monthsPaid, payoffYears, yearsSaved, interestSaved, totalMonthlyWithExtra };
-        }
-        
-        function createMortgageCalculator() {
-            const calculatorHTML = `
-                <div class="mortgage-calculator-card" id="mortgageCalculatorCard">
-                    <div style="text-align: center; margin-bottom: 1.5rem;">
-                        <div class="tool-icon" style="font-size: 2.5rem;"></div>
-                        <h3 style="font-size: 1.3rem; color: #122b44;">Mortgage Finance Calculator</h3>
-                        <p style="font-size: 0.85rem; color: #6c8eaa;">Calculate total interest, monthly payments, and see how extra payments save you money</p>
-                    </div>
-                    <div class="calc-two-columns">
-                        <div>
-                            <div class="calc-input-group"><label>🏡 Home Price ($)</label><input type="number" id="homePrice" value="350000" step="10000"></div>
-                            <div class="calc-input-group"><label>💵 Down Payment ($)</label><input type="number" id="downPayment" value="70000" step="5000"></div>
-                            <div class="calc-input-group"><label>📅 Loan Term (years)</label><input type="number" id="loanTerm" value="30" step="1" min="1" max="40"></div>
-                            <div class="calc-input-group"><label>📈 Interest Rate (%)</label><input type="number" id="interestRate" value="6.12" step="0.125"></div>
-                            <div class="calc-input-group"><label>🏛️ Annual Property Tax ($)</label><input type="number" id="propertyTax" value="3850" step="500"></div>
-                            <div class="calc-input-group"><label>🛡️ Annual Home Insurance ($)</label><input type="number" id="homeInsurance" value="1200" step="100"></div>
-                            <div class="calc-input-group"><label>⚡ Extra Monthly Payment ($)</label><input type="number" id="extraPayment" value="0" step="50" placeholder="Additional principal payment"></div>
-                            <button class="calc-button" id="calculateMortgage">⟳ Update Calculations</button>
-                        </div>
-                        <div>
-                            <div class="donut-wrapper"><canvas id="donutChart" width="200" height="200"></canvas></div>
-                            <div class="payment-breakdown">
-                                <div class="breakdown-item"><span class="breakdown-label"><span class="green-dot"></span> Principal & Interest (P&I)</span><span class="breakdown-value" id="breakdownPI">$0.00</span></div>
-                                <div class="breakdown-item"><span class="breakdown-label"><span class="red-dot"></span> Taxes & Insurance</span><span class="breakdown-value" id="breakdownTI">$0.00</span></div>
-                                <div class="breakdown-item"><span class="breakdown-label"><strong>📋 Total Monthly Payment</strong></span><span class="breakdown-value" id="breakdownTotal"><strong>$0.00</strong></span></div>
-                                <div class="breakdown-item"><span class="breakdown-label">⚡ With Extra Payment</span><span class="breakdown-value" id="monthlyWithExtra">$0.00</span></div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="extra-payment-results">
-                        <h4>📊 EXTRA PAYMENT IMPACT ANALYSIS</h4>
-                        <div class="extra-row"><span class="extra-label">📅 Normal payoff date:</span><span class="extra-value" id="normalPayoff">--</span></div>
-                        <div class="extra-row"><span class="extra-label">🚀 New payoff date (with extras):</span><span class="extra-value saved-highlight" id="newPayoff">--</span></div>
-                        <div class="extra-row"><span class="extra-label">⏱️ Years saved:</span><span class="extra-value saved-highlight" id="yearsSaved">0.0 years</span></div>
-                        <div class="extra-row"><span class="extra-label">💰 Total interest normally:</span><span class="extra-value" id="normalInterest">$0</span></div>
-                        <div class="extra-row"><span class="extra-label">💎 Total interest with extras:</span><span class="extra-value" id="extraInterest">$0</span></div>
-                        <div class="extra-row"><span class="extra-label">🎉 TOTAL INTEREST SAVED:</span><span class="extra-value saved-highlight" id="interestSaved">$0</span></div>
-                    </div>
-                    <div style="margin-top: 1rem; text-align: center; font-size: 0.7rem; color: #8ba3bc;">
-                        *Taxes and insurance estimates vary by location. Extra payments reduce principal directly.
-                    </div>
-                </div>
-            `;
-            document.getElementById('calculatorsGrid').innerHTML = calculatorHTML;
-            
-            function updateDonutChart(principalInterest, taxInsurance) {
-                const ctx = document.getElementById('donutChart').getContext('2d');
-                if (donutChartInstance) donutChartInstance.destroy();
-                donutChartInstance = new Chart(ctx, {
-                    type: 'doughnut',
-                    data: { labels: ['Principal & Interest', 'Taxes & Insurance'], datasets: [{ data: [principalInterest, taxInsurance], backgroundColor: ['#10b981', '#ef4444'], borderWidth: 0, cutout: '65%' }] },
-                    options: { responsive: true, maintainAspectRatio: true, plugins: { legend: { position: 'bottom', labels: { usePointStyle: true, pointStyle: 'circle', font: { size: 11 }, generateLabels: (chart) => { const data = chart.data; return data.labels.map((l, i) => ({ text: `${l}: $${data.datasets[0].data[i].toFixed(2)}`, fillStyle: data.datasets[0].backgroundColor[i], index: i })); } } } } }
-                });
-            }
-            
-            function performCalculation() {
-                const homePrice = parseFloat(document.getElementById('homePrice').value) || 0;
-                const downPayment = parseFloat(document.getElementById('downPayment').value) || 0;
-                const loanTerm = parseFloat(document.getElementById('loanTerm').value) || 30;
-                const interestRate = parseFloat(document.getElementById('interestRate').value) || 0;
-                const propertyTax = parseFloat(document.getElementById('propertyTax').value) || 0;
-                const homeInsurance = parseFloat(document.getElementById('homeInsurance').value) || 0;
-                const extraMonthly = parseFloat(document.getElementById('extraPayment').value) || 0;
-                const loanAmount = Math.max(0, homePrice - downPayment);
-                const monthlyRate = interestRate / 100 / 12;
-                const totalMonths = loanTerm * 12;
-                let monthlyPI = 0;
-                if (loanAmount > 0 && monthlyRate > 0) {
-                    monthlyPI = loanAmount * monthlyRate * Math.pow(1 + monthlyRate, totalMonths) / (Math.pow(1 + monthlyRate, totalMonths) - 1);
-                } else if (loanAmount > 0 && monthlyRate === 0) {
-                    monthlyPI = loanAmount / totalMonths;
-                }
-                const monthlyTax = propertyTax / 12;
-                const monthlyIns = homeInsurance / 12;
-                const totalMonthly = monthlyPI + monthlyTax + monthlyIns;
-                const monthlyWithExtraTotal = monthlyPI + extraMonthly + monthlyTax + monthlyIns;
-                document.getElementById('breakdownPI').innerHTML = '$' + monthlyPI.toLocaleString('en-US', { minimumFractionDigits: 2 });
-                document.getElementById('breakdownTI').innerHTML = '$' + (monthlyTax + monthlyIns).toLocaleString('en-US', { minimumFractionDigits: 2 });
-                document.getElementById('breakdownTotal').innerHTML = '$' + totalMonthly.toLocaleString('en-US', { minimumFractionDigits: 2 });
-                document.getElementById('monthlyWithExtra').innerHTML = '$' + monthlyWithExtraTotal.toLocaleString('en-US', { minimumFractionDigits: 2 });
-                updateDonutChart(monthlyPI, monthlyTax + monthlyIns);
-                if (loanAmount > 0 && interestRate > 0) {
-                    const results = calculateAmortizationWithExtras(loanAmount, interestRate, loanTerm, extraMonthly);
-                    const normalDate = new Date(); normalDate.setFullYear(normalDate.getFullYear() + loanTerm);
-                    const newDate = new Date(); newDate.setFullYear(newDate.getFullYear() + results.payoffYears);
-                    document.getElementById('normalPayoff').innerHTML = `${loanTerm} years (${normalDate.toLocaleDateString()})`;
-                    document.getElementById('newPayoff').innerHTML = `${results.payoffYears.toFixed(1)} years (${newDate.toLocaleDateString()})`;
-                    document.getElementById('yearsSaved').innerHTML = `${results.yearsSaved.toFixed(1)} years`;
-                    document.getElementById('normalInterest').innerHTML = '$' + results.standardTotalInterest.toLocaleString('en-US', { minimumFractionDigits: 0 });
-                    document.getElementById('extraInterest').innerHTML = '$' + results.totalInterestWithExtras.toLocaleString('en-US', { minimumFractionDigits: 0 });
-                    document.getElementById('interestSaved').innerHTML = '$' + results.interestSaved.toLocaleString('en-US', { minimumFractionDigits: 0 });
-                } else {
-                    document.getElementById('normalPayoff').innerHTML = `${loanTerm} years`; document.getElementById('newPayoff').innerHTML = `${loanTerm} years`; document.getElementById('yearsSaved').innerHTML = '0.0 years';
-                    document.getElementById('normalInterest').innerHTML = '$0'; document.getElementById('extraInterest').innerHTML = '$0'; document.getElementById('interestSaved').innerHTML = '$0';
-                }
-            }
-            document.getElementById('calculateMortgage').addEventListener('click', performCalculation);
-            ['homePrice', 'downPayment', 'loanTerm', 'interestRate', 'propertyTax', 'homeInsurance', 'extraPayment'].forEach(id => { const el = document.getElementById(id); if (el) el.addEventListener('input', performCalculation); });
-            performCalculation();
-        }
-        
-        createMortgageCalculator();
-        
-        // Updated drawer menu with all 7 tools
         const drawerToolsList = document.getElementById('drawerToolsList');
         const allTools = [
-            "🏠 Mortgage Calculator",
-            "🚗 Car Refinance Calculator",
-            "💳 Credit Card Points Calculator",
-            "📈 Investment Calculator",
-            "📊 Budget Calculator",
-            "📉 Inflation Calculator",
-            "🎓 College Savings Calculator"
+            "🏠 Mortgage Calculator", "🚗 Car Refinance Calculator", "💳 Credit Card Points Calculator",
+            "📈 Investment Calculator", "📊 Budget Calculator", "📉 Inflation Calculator", "🎓 College Savings Calculator"
         ];
-        
-        const toolFileMap = {
-            "🏠 Mortgage Calculator": "mortgage-calculator.html",
-            "🚗 Car Refinance Calculator": "car-refinance-calculator.html",
-            "💳 Credit Card Points Calculator": "credit-card-points-calculator.html",
-            "📈 Investment Calculator": "investment-calculator.html",
-            "📊 Budget Calculator": "budget-calculator.html",
-            "📉 Inflation Calculator": "inflation-calculator.html",
-            "🎓 College Savings Calculator": "college-savings-calculator.html"
-        };
-        
         allTools.forEach(toolName => {
             const toolLink = document.createElement('a');
             toolLink.className = 'drawer-item';
             toolLink.innerHTML = toolName;
             toolLink.href = '#';
             toolLink.style.fontSize = '0.85rem';
+            const toolMap = {
+                "🏠 Mortgage Calculator": "mortgage-calculator.html",
+                "🚗 Car Refinance Calculator": "car-refinance-calculator.html",
+                "💳 Credit Card Points Calculator": "credit-card-points-calculator.html",
+                "📈 Investment Calculator": "investment-calculator.html",
+                "📊 Budget Calculator": "budget-calculator.html",
+                "📉 Inflation Calculator": "inflation-calculator.html",
+                "🎓 College Savings Calculator": "college-savings-calculator.html"
+            };
             toolLink.addEventListener('click', (e) => {
                 e.preventDefault();
-                const fileName = toolFileMap[toolName];
-                if (fileName) {
-                    window.location.href = fileName;
-                }
+                window.location.href = toolMap[toolName];
                 closeDrawer();
             });
             drawerToolsList.appendChild(toolLink);
         });
         
-        const modal = document.getElementById('infoModal'); const modalTitle = document.getElementById('modalTitle'); const modalText = document.getElementById('modalText'); const closeModalBtn = document.getElementById('closeModalBtn');
+        const modal = document.getElementById('infoModal');
+        const modalTitle = document.getElementById('modalTitle');
+        const modalText = document.getElementById('modalText');
+        const closeModalBtn = document.getElementById('closeModalBtn');
         function closeModalFunc() { modal.style.display = 'none'; }
-        closeModalBtn.addEventListener('click', closeModalFunc); window.addEventListener('click', (e) => { if (e.target === modal) closeModalFunc(); });
-        const contentMap = { about: { title: "📌 About SmartRatesLab", body: "<p>SmartRatesLab delivers professional-grade financial calculators. Founded in 2022, we're committed to transparency and accuracy.</p>" }, contact: { title: "📧 Contact Us", body: "<p><strong>Email:</strong> supportentry1@gmail.com<br>Hours: Mon-Fri 9am-6pm EST</p>" }, privacy: { title: "🔒 Privacy Policy", body: "<p>We do not store personal financial data. Calculations happen locally in your browser.</p>" }, terms: { title: "⚖️ Terms of Service", body: "<p>Calculators are for educational purposes only. Not financial advice.</p>" }, home: { title: "SmartRatesLab", body: "<p>Welcome to SmartRatesLab — your hub for mortgage finance calculators.</p>" } };
+        closeModalBtn.addEventListener('click', closeModalFunc);
+        window.addEventListener('click', (e) => { if (e.target === modal) closeModalFunc(); });
+        
+        const contentMap = {
+            about: { title: "📌 About SmartRatesLab", body: "<p>SmartRatesLab delivers professional-grade financial calculators. All calculations are performed locally in your browser.</p>" },
+            contact: { title: "📧 Contact Us", body: "<p><strong>Email:</strong> supportentry1@gmail.com<br>We respond within 24 hours.</p>" },
+            privacy: { title: "🔒 Privacy Policy", body: "<p>We do not store any personal financial data. All calculations happen locally in your browser.</p>" },
+            terms: { title: "⚖️ Terms of Service", body: "<p>Calculators are for educational purposes only. Not financial advice.</p>" },
+            home: { title: "SmartRatesLab", body: "<p>Welcome to SmartRatesLab — free financial calculators for mortgage, car refinance, credit card points, investments, budget, inflation, and college savings.</p>" }
+        };
+        
         function openModal(type) { const data = contentMap[type]; if (data) { modalTitle.innerText = data.title; modalText.innerHTML = data.body; modal.style.display = 'flex'; } }
-        function handleNavigation(navType) {if (navType === 'home') {window.location.href = '/'; //  } else {openModal(navType);closeDrawer()} }
-        const drawer = document.getElementById('drawerMenu'); const overlay = document.getElementById('drawerOverlay'); const menuBtn = document.getElementById('menuButton'); const closeDrawerBtn = document.getElementById('closeDrawerBtn');
+        function handleNavigation(navType) {if (navType === 'home') {window.scrollTo({ top: 0, behavior: 'smooth' });closeDrawer();return;} else {openModal(navType);closeDrawer();}}
+        
+        const drawer = document.getElementById('drawerMenu');
+        const overlay = document.getElementById('drawerOverlay');
+        const menuBtn = document.getElementById('menuButton');
+        const closeDrawerBtn = document.getElementById('closeDrawerBtn');
         function openDrawer() { drawer.classList.add('open'); overlay.classList.add('active'); document.body.style.overflow = 'hidden'; }
         function closeDrawer() { drawer.classList.remove('open'); overlay.classList.remove('active'); document.body.style.overflow = ''; }
-        menuBtn.addEventListener('click', openDrawer); closeDrawerBtn.addEventListener('click', closeDrawer); overlay.addEventListener('click', closeDrawer);
-        document.querySelectorAll('.drawer-item[data-nav]').forEach(item => { item.addEventListener('click', (e) => { e.preventDefault(); handleNavigation(item.getAttribute('data-nav')); }); });
-        document.querySelectorAll('.footer-nav-link, .footer-legal-link, [data-nav]').forEach(link => { if (!link.closest('.drawer')) { link.addEventListener('click', (e) => { e.preventDefault(); const nav = link.getAttribute('data-nav'); if (nav) handleNavigation(nav); }); } });
+        menuBtn.addEventListener('click', openDrawer);
+        closeDrawerBtn.addEventListener('click', closeDrawer);
+        overlay.addEventListener('click', closeDrawer);
+        
+        document.querySelectorAll('.drawer-item[data-nav]').forEach(item => {
+            item.addEventListener('click', (e) => { e.preventDefault(); handleNavigation(item.getAttribute('data-nav')); });
+        });
+        
+        document.querySelectorAll('.footer-nav-link, .footer-legal-link, [data-nav]').forEach(link => {
+            if (!link.closest('.drawer')) {
+                link.addEventListener('click', (e) => { e.preventDefault(); const nav = link.getAttribute('data-nav'); if (nav) handleNavigation(nav); });
+            }
+        });
+        
         document.getElementById('homeLinkHeader')?.addEventListener('click', () => { window.scrollTo({ top: 0, behavior: 'smooth' }); openModal('home'); });
         
-        const blogPosts = { 1: { title: "Mortgage prepayment vs. index funds", content: "<p>Extra mortgage payments give a guaranteed return equal to your interest rate.</p>" }, 2: { title: "Real return after inflation & taxes", content: "<p>Adjust nominal returns for inflation and taxes.</p>" }, 3: { title: "Coast FIRE fundamentals", content: "<p>Coast FIRE is when your existing investments will grow to cover retirement.</p>" }, 4: { title: "Mortgage recasting explained", content: "<p>Recasting lowers monthly payments without refinancing.</p>" }, 5: { title: "Tax-loss harvesting strategies", content: "<p>Offset capital gains by selling losing positions.</p>" } };
-        document.querySelectorAll('.blog-item').forEach(item => { item.addEventListener('click', () => { const blogId = item.getAttribute('data-blog'); const post = blogPosts[blogId]; if (post) { modalTitle.innerText = post.title; modalText.innerHTML = post.content; modal.style.display = 'flex'; } closeDrawer(); }); });
+        const blogPosts = {
+            1: { title: "Mortgage prepayment vs. index funds", content: "<p>Extra mortgage payments give a guaranteed return equal to your interest rate.</p>" },
+            2: { title: "Real return after inflation & taxes", content: "<p>Adjust nominal returns for inflation and taxes.</p>" },
+            3: { title: "Coast FIRE fundamentals", content: "<p>Coast FIRE is when your existing investments will grow to cover retirement.</p>" },
+            4: { title: "Mortgage recasting explained", content: "<p>Recasting lowers monthly payments without refinancing.</p>" },
+            5: { title: "Tax-loss harvesting strategies", content: "<p>Offset capital gains by selling losing positions.</p>" }
+        };
         
-        document.querySelectorAll('.faq-question').forEach(q => { q.addEventListener('click', () => { const answer = q.parentElement.querySelector('.faq-answer'); answer.classList.toggle('show'); q.querySelector('.toggle-icon').innerText = answer.classList.contains('show') ? '−' : '+'; }); });
+        document.querySelectorAll('.blog-item').forEach(item => {
+            item.addEventListener('click', () => {
+                const blogId = item.getAttribute('data-blog');
+                const post = blogPosts[blogId];
+                if (post) { modalTitle.innerText = post.title; modalText.innerHTML = post.content; modal.style.display = 'flex'; }
+                closeDrawer();
+            });
+        });
     })();
 </script>
 </body>
-</html>
+    </html>
