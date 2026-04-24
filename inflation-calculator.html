@@ -657,9 +657,9 @@
 <div class="drawer" id="drawerMenu">
     <div class="drawer-header"><h3>Navigation & Tools</h3><button class="close-drawer" id="closeDrawerBtn">&times;</button></div>
     <div class="drawer-nav">
-        <div class="drawer-section"><h4>Main</h4><a class="drawer-item" data-nav="home">🏠 Home</a><a class="drawer-item" data-nav="about">📄 About</a><a class="drawer-item" data-nav="contact">📞 Contact</a></div>
-        <div class="drawer-section"><h4>Legal</h4><a class="drawer-item" data-nav="privacy">🔒 Privacy Policy</a><a class="drawer-item" data-nav="terms">⚖️ Terms of Service</a></div>
-        <div class="drawer-section"><h4>📊 Financial Tools</h4><div id="drawerToolsList"></div></div>
+        <div class="drawer-section"><h4>Main</h4><a class="drawer-item" data-nav="home">Home</a><a class="drawer-item" data-nav="about">About</a><a class="drawer-item" data-nav="contact">Contact</a></div>
+        <div class="drawer-section"><h4>Legal</h4><a class="drawer-item" data-nav="privacy">Privacy Policy</a><a class="drawer-item" data-nav="terms">Terms of Service</a></div>
+        <div class="drawer-section"><h4>Financial Tools</h4><div id="drawerToolsList"></div></div>
     </div>
 </div>
 
@@ -708,7 +708,7 @@
                 <p>I plugged my numbers into an inflation calculator: $50,000 balance, 1.2% interest, 3% inflation, 5 years. The result nearly made me sick. My $50,000 would grow to about $53,000 in nominal terms. But after adjusting for inflation, it was worth only $45,000 in today's dollars. I had lost $5,000 of purchasing power while thinking I was saving. And that was just the beginning.</p>
                 
                 <div class="highlight-box">
-                    <strong>📊 The Painful Truth About My Savings:</strong><br>
+                    <strong>The Painful Truth About My Savings:</strong><br>
                     • Starting balance: $50,000<br>
                     • After 5 years in savings account: $53,000 (nominal)<br>
                     • After adjusting for 3% inflation: $45,000 (real)<br>
@@ -726,7 +726,7 @@
                 <p>The results have been dramatic. Over the past three years, my inflation-protected investments have grown at 7-8% annually while my savings account would have lost purchasing power. The calculator above showed me the path. Now I want to share it with you.</p>
                 
                 <div class="warning-box">
-                    <strong>⚠️ Common Inflation Mistakes I Made:</strong>
+                    <strong>Common Inflation Mistakes I Made:</strong>
                     <ul style="margin-top: 0.5rem; margin-bottom: 0; margin-left: 1.2rem;">
                         <li>Assuming a savings account was "safe" — it is safe in nominal terms, not real terms</li>
                         <li>Ignoring inflation because it happens slowly — that is how it steals the most</li>
@@ -763,7 +763,7 @@
                 </ul>
                 
                 <div class="highlight-box">
-                    <strong>✅ My Inflation Protection Action Plan:</strong><br>
+                    <strong>My Inflation Protection Action Plan:</strong><br>
                     • 3 months expenses in high-yield savings (4.5%)<br>
                     • 6 months expenses in I Bonds (inflation-indexed)<br>
                     • Long-term savings in S&P 500 index fund (10% historical return)<br>
@@ -831,18 +831,18 @@
             const calculatorHTML = `
                 <div class="mortgage-calculator-card" id="mortgageCalculatorCard">
                     <div style="text-align: center; margin-bottom: 1.5rem;">
-                        <div class="tool-icon" style="font-size: 2.5rem;">📉💰</div>
+                        <div class="tool-icon" style="font-size: 2.5rem;"></div>
                         <h3 style="font-size: 1.3rem; color: #122b44;">Inflation Impact on Savings Calculator</h3>
                         <p style="font-size: 0.85rem; color: #6c8eaa;">See how inflation erodes your savings over time. Calculate real purchasing power.</p>
                     </div>
                     <div class="calc-two-columns">
                         <div>
-                            <div class="calc-input-group"><label>💰 Current Savings Balance ($)</label><input type="number" id="currentSavings" value="10000" step="1000"></div>
-                            <div class="calc-input-group"><label>📅 Monthly Contribution ($)</label><input type="number" id="monthlyContribution" value="500" step="100"></div>
-                            <div class="calc-input-group"><label>🏦 Savings Account Interest Rate (%)</label><input type="number" id="savingsRate" value="1.5" step="0.25"></div>
-                            <div class="calc-input-group"><label>📈 Expected Inflation Rate (%)</label><input type="number" id="inflationRate" value="3.0" step="0.25"></div>
-                            <div class="calc-input-group"><label>⏱️ Time Horizon (years)</label><input type="number" id="timeYears" value="10" step="1"></div>
-                            <div class="calc-input-group"><label>💰 Tax Rate on Interest (%)</label><input type="number" id="taxRate" value="0" step="5" placeholder="Ordinary income tax rate"></div>
+                            <div class="calc-input-group"><label>Current Savings Balance ($)</label><input type="number" id="currentSavings" value="10000" step="1000"></div>
+                            <div class="calc-input-group"><label>Monthly Contribution ($)</label><input type="number" id="monthlyContribution" value="500" step="100"></div>
+                            <div class="calc-input-group"><label>Savings Account Interest Rate (%)</label><input type="number" id="savingsRate" value="1.5" step="0.25"></div>
+                            <div class="calc-input-group"><label>Expected Inflation Rate (%)</label><input type="number" id="inflationRate" value="3.0" step="0.25"></div>
+                            <div class="calc-input-group"><label>Time Horizon (years)</label><input type="number" id="timeYears" value="10" step="1"></div>
+                            <div class="calc-input-group"><label>Tax Rate on Interest (%)</label><input type="number" id="taxRate" value="0" step="5" placeholder="Ordinary income tax rate"></div>
                             <button class="calc-button" id="calculateImpact">⟳ Calculate Inflation Impact</button>
                         </div>
                         <div>
@@ -855,13 +855,13 @@
                         </div>
                     </div>
                     <div class="extra-payment-results">
-                        <h4>📊 INFLATION IMPACT ANALYSIS</h4>
-                        <div class="extra-row"><span class="extra-label">💰 Nominal Future Value (Before Inflation):</span><span class="extra-value saved-highlight" id="nominalValue">$0</span></div>
-                        <div class="extra-row"><span class="extra-label">📉 Real Future Value (Inflation Adjusted):</span><span class="extra-value" id="realValue">$0</span></div>
-                        <div class="extra-row"><span class="extra-label">💸 Total Interest Earned (Before Tax):</span><span class="extra-value" id="interestBeforeTax">$0</span></div>
-                        <div class="extra-row"><span class="extra-label">🏦 Taxes Paid on Interest:</span><span class="extra-value" id="taxesPaid">$0</span></div>
-                        <div class="extra-row"><span class="extra-label">📉 Purchasing Power Lost to Inflation:</span><span class="extra-value" id="powerLostDetail">$0</span></div>
-                        <div class="extra-row"><span class="extra-label">📊 Real Rate of Return (After Inflation & Tax):</span><span class="extra-value" id="realReturn">0.00%</span></div>
+                        <h4>INFLATION IMPACT ANALYSIS</h4>
+                        <div class="extra-row"><span class="extra-label">Nominal Future Value (Before Inflation):</span><span class="extra-value saved-highlight" id="nominalValue">$0</span></div>
+                        <div class="extra-row"><span class="extra-label">Real Future Value (Inflation Adjusted):</span><span class="extra-value" id="realValue">$0</span></div>
+                        <div class="extra-row"><span class="extra-label">Total Interest Earned (Before Tax):</span><span class="extra-value" id="interestBeforeTax">$0</span></div>
+                        <div class="extra-row"><span class="extra-label">Taxes Paid on Interest:</span><span class="extra-value" id="taxesPaid">$0</span></div>
+                        <div class="extra-row"><span class="extra-label">Purchasing Power Lost to Inflation:</span><span class="extra-value" id="powerLostDetail">$0</span></div>
+                        <div class="extra-row"><span class="extra-label">Real Rate of Return (After Inflation & Tax):</span><span class="extra-value" id="realReturn">0.00%</span></div>
                     </div>
                     <div style="margin-top: 1rem; text-align: center; font-size: 0.7rem; color: #8ba3bc;">
                         *Calculations assume annual compounding. Inflation reduces purchasing power over time. Taxes apply to interest earned.
@@ -954,23 +954,23 @@
         // Updated drawer menu with all 7 tools
         const drawerToolsList = document.getElementById('drawerToolsList');
         const allTools = [
-            "🏠 Mortgage Calculator",
-            "🚗 Car Refinance Calculator",
-            "💳 Credit Card Points Calculator",
-            "📈 Investment Calculator",
-            "📊 Budget Calculator",
-            "📉 Inflation Calculator",
-            "🎓 College Savings Calculator"
+            "Mortgage Calculator",
+            "Car Refinance Calculator",
+            "Credit Card Points Calculator",
+            "Investment Calculator",
+            "Budget Calculator",
+            "Inflation Calculator",
+            "College Savings Calculator"
         ];
         
         const toolFileMap = {
-            "🏠 Mortgage Calculator": "mortgage-calculator.html",
-            "🚗 Car Refinance Calculator": "car-refinance-calculator.html",
-            "💳 Credit Card Points Calculator": "credit-card-points-calculator.html",
-            "📈 Investment Calculator": "investment-calculator.html",
-            "📊 Budget Calculator": "budget-calculator.html",
-            "📉 Inflation Calculator": "inflation-calculator.html",
-            "🎓 College Savings Calculator": "college-savings-calculator.html"
+            "Mortgage Calculator": "mortgage-calculator.html",
+            "Car Refinance Calculator": "car-refinance-calculator.html",
+            "Credit Card Points Calculator": "credit-card-points-calculator.html",
+            "Investment Calculator": "investment-calculator.html",
+            "Budget Calculator": "budget-calculator.html",
+            "Inflation Calculator": "inflation-calculator.html",
+            "College Savings Calculator": "college-savings-calculator.html"
         };
         
         allTools.forEach(toolName => {
@@ -1024,10 +1024,10 @@
         window.addEventListener('click', (e) => { if (e.target === modal) closeModalFunc(); });
         
         const contentMap = {
-            about: { title: "📌 About SmartRatesLab", body: "<p>SmartRatesLab delivers professional-grade financial calculators. Founded in 2022, we're committed to transparency and accuracy. All calculations are performed locally in your browser.</p>" },
-            contact: { title: "📧 Contact Us", body: "<p><strong>Email:</strong> supportentry1@gmail.com<br><strong>Hours:</strong> Monday-Friday, 9am-6pm EST<br>We respond within 24 hours.</p>" },
-            privacy: { title: "🔒 Privacy Policy", body: "<p>We do not store any personal financial data. All calculations happen locally in your browser. We use anonymous analytics to improve our tools.</p>" },
-            terms: { title: "⚖️ Terms of Service", body: "<p>Calculators are for educational purposes only. Not financial advice. Always consult a qualified financial advisor before making major decisions.</p>" },
+            about: { title: "About SmartRatesLab", body: "<p>SmartRatesLab delivers professional-grade financial calculators. Founded in 2022, we're committed to transparency and accuracy. All calculations are performed locally in your browser.</p>" },
+            contact: { title: "Contact Us", body: "<p><strong>Email:</strong> supportentry1@gmail.com<br><strong>Hours:</strong> Monday-Friday, 9am-6pm EST<br>We respond within 24 hours.</p>" },
+            privacy: { title: "Privacy Policy", body: "<p>We do not store any personal financial data. All calculations happen locally in your browser. We use anonymous analytics to improve our tools.</p>" },
+            terms: { title: "Terms of Service", body: "<p>Calculators are for educational purposes only. Not financial advice. Always consult a qualified financial advisor before making major decisions.</p>" },
             home: { title: "SmartRatesLab", body: "<p>Welcome to SmartRatesLab — your hub for financial calculators. Use our Inflation Impact Calculator to see how inflation erodes your savings and what your money will really be worth in the future.</p>" }
         };
         
