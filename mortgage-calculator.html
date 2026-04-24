@@ -704,13 +704,13 @@
                     </div>
                     <div class="calc-two-columns">
                         <div>
-                            <div class="calc-input-group"><label>🏡 Home Price ($)</label><input type="number" id="homePrice" value="350000" step="10000"></div>
-                            <div class="calc-input-group"><label>💵 Down Payment ($)</label><input type="number" id="downPayment" value="70000" step="5000"></div>
-                            <div class="calc-input-group"><label>📅 Loan Term (years)</label><input type="number" id="loanTerm" value="30" step="1" min="1" max="40"></div>
-                            <div class="calc-input-group"><label>📈 Interest Rate (%)</label><input type="number" id="interestRate" value="6.12" step="0.125"></div>
-                            <div class="calc-input-group"><label>🏛️ Annual Property Tax ($)</label><input type="number" id="propertyTax" value="3850" step="500"></div>
-                            <div class="calc-input-group"><label>🛡️ Annual Home Insurance ($)</label><input type="number" id="homeInsurance" value="1200" step="100"></div>
-                            <div class="calc-input-group"><label>⚡ Extra Monthly Payment ($)</label><input type="number" id="extraPayment" value="0" step="50" placeholder="Additional principal payment"></div>
+                            <div class="calc-input-group"><label>Home Price ($)</label><input type="number" id="homePrice" value="350000" step="10000"></div>
+                            <div class="calc-input-group"><label>Down Payment ($)</label><input type="number" id="downPayment" value="70000" step="5000"></div>
+                            <div class="calc-input-group"><label>Loan Term (years)</label><input type="number" id="loanTerm" value="30" step="1" min="1" max="40"></div>
+                            <div class="calc-input-group"><label>Interest Rate (%)</label><input type="number" id="interestRate" value="6.12" step="0.125"></div>
+                            <div class="calc-input-group"><label>Annual Property Tax ($)</label><input type="number" id="propertyTax" value="3850" step="500"></div>
+                            <div class="calc-input-group"><label>Annual Home Insurance ($)</label><input type="number" id="homeInsurance" value="1200" step="100"></div>
+                            <div class="calc-input-group"><label>Extra Monthly Payment ($)</label><input type="number" id="extraPayment" value="0" step="50" placeholder="Additional principal payment"></div>
                             <button class="calc-button" id="calculateMortgage">⟳ Update Calculations</button>
                         </div>
                         <div>
@@ -718,19 +718,19 @@
                             <div class="payment-breakdown">
                                 <div class="breakdown-item"><span class="breakdown-label"><span class="green-dot"></span> Principal & Interest (P&I)</span><span class="breakdown-value" id="breakdownPI">$0.00</span></div>
                                 <div class="breakdown-item"><span class="breakdown-label"><span class="red-dot"></span> Taxes & Insurance</span><span class="breakdown-value" id="breakdownTI">$0.00</span></div>
-                                <div class="breakdown-item"><span class="breakdown-label"><strong>📋 Total Monthly Payment</strong></span><span class="breakdown-value" id="breakdownTotal"><strong>$0.00</strong></span></div>
-                                <div class="breakdown-item"><span class="breakdown-label">⚡ With Extra Payment</span><span class="breakdown-value" id="monthlyWithExtra">$0.00</span></div>
+                                <div class="breakdown-item"><span class="breakdown-label"><strong>Total Monthly Payment</strong></span><span class="breakdown-value" id="breakdownTotal"><strong>$0.00</strong></span></div>
+                                <div class="breakdown-item"><span class="breakdown-label">With Extra Payment</span><span class="breakdown-value" id="monthlyWithExtra">$0.00</span></div>
                             </div>
                         </div>
                     </div>
                     <div class="extra-payment-results">
                         <h4>EXTRA PAYMENT IMPACT ANALYSIS</h4>
-                        <div class="extra-row"><span class="extra-label">📅 Normal payoff date:</span><span class="extra-value" id="normalPayoff">--</span></div>
-                        <div class="extra-row"><span class="extra-label">🚀 New payoff date (with extras):</span><span class="extra-value saved-highlight" id="newPayoff">--</span></div>
-                        <div class="extra-row"><span class="extra-label">⏱️ Years saved:</span><span class="extra-value saved-highlight" id="yearsSaved">0.0 years</span></div>
-                        <div class="extra-row"><span class="extra-label">💰 Total interest normally:</span><span class="extra-value" id="normalInterest">$0</span></div>
-                        <div class="extra-row"><span class="extra-label">💎 Total interest with extras:</span><span class="extra-value" id="extraInterest">$0</span></div>
-                        <div class="extra-row"><span class="extra-label">🎉 TOTAL INTEREST SAVED:</span><span class="extra-value saved-highlight" id="interestSaved">$0</span></div>
+                        <div class="extra-row"><span class="extra-label">Normal payoff date:</span><span class="extra-value" id="normalPayoff">--</span></div>
+                        <div class="extra-row"><span class="extra-label">New payoff date (with extras):</span><span class="extra-value saved-highlight" id="newPayoff">--</span></div>
+                        <div class="extra-row"><span class="extra-label">Years saved:</span><span class="extra-value saved-highlight" id="yearsSaved">0.0 years</span></div>
+                        <div class="extra-row"><span class="extra-label">Total interest normally:</span><span class="extra-value" id="normalInterest">$0</span></div>
+                        <div class="extra-row"><span class="extra-label">Total interest with extras:</span><span class="extra-value" id="extraInterest">$0</span></div>
+                        <div class="extra-row"><span class="extra-label">TOTAL INTEREST SAVED:</span><span class="extra-value saved-highlight" id="interestSaved">$0</span></div>
                     </div>
                     <div style="margin-top: 1rem; text-align: center; font-size: 0.7rem; color: #8ba3bc;">
                         *Taxes and insurance estimates vary by location. Extra payments reduce principal directly.
