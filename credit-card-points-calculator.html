@@ -657,9 +657,9 @@
 <div class="drawer" id="drawerMenu">
     <div class="drawer-header"><h3>Navigation & Tools</h3><button class="close-drawer" id="closeDrawerBtn">&times;</button></div>
     <div class="drawer-nav">
-        <div class="drawer-section"><h4>Main</h4><a class="drawer-item" data-nav="home">🏠 Home</a><a class="drawer-item" data-nav="about">📄 About</a><a class="drawer-item" data-nav="contact">📞 Contact</a></div>
-        <div class="drawer-section"><h4>Legal</h4><a class="drawer-item" data-nav="privacy">🔒 Privacy Policy</a><a class="drawer-item" data-nav="terms">⚖️ Terms of Service</a></div>
-        <div class="drawer-section"><h4>📊 Financial Tools</h4><div id="drawerToolsList"></div></div>
+        <div class="drawer-section"><h4>Main</h4><a class="drawer-item" data-nav="home">Home</a><a class="drawer-item" data-nav="about">About</a><a class="drawer-item" data-nav="contact">Contact</a></div>
+        <div class="drawer-section"><h4>Legal</h4><a class="drawer-item" data-nav="privacy">Privacy Policy</a><a class="drawer-item" data-nav="terms">Terms of Service</a></div>
+        <div class="drawer-section"><h4>Financial Tools</h4><div id="drawerToolsList"></div></div>
     </div>
 </div>
 
@@ -717,7 +717,7 @@
                 <p>I had been leaving $1,200 on the table by choosing the wrong redemption method. A simple <strong>credit card points value calculator</strong> would have saved me from that mistake.</p>
                 
                 <div class="highlight-box">
-                    <strong>📊 The Truth About Points Value:</strong><br>
+                    <strong>The Truth About Points Value:</strong><br>
                     • Cash back: 1¢ per point (standard)<br>
                     • Travel portal: 1.25-1.5¢ per point<br>
                     • Gift cards: 0.8-1¢ per point (worst value)<br>
@@ -771,7 +771,7 @@
                 </table>
                 
                 <div class="warning-box">
-                    <strong>⚠️ Common Points Mistakes:</strong>
+                    <strong>Common Points Mistakes:</strong>
                     <ul style="margin-top: 0.5rem; margin-bottom: 0; margin-left: 1.2rem;">
                         <li>Redeeming for gift cards without checking if there is a bonus</li>
                         <li>Cashing out points when a travel redemption is available</li>
@@ -846,18 +846,18 @@
             const calculatorHTML = `
                 <div class="mortgage-calculator-card" id="mortgageCalculatorCard">
                     <div style="text-align: center; margin-bottom: 1.5rem;">
-                        <div class="tool-icon" style="font-size: 2.5rem;">💳✨</div>
+                        <div class="tool-icon" style="font-size: 2.5rem;"></div>
                         <h3 style="font-size: 1.3rem; color: #122b44;">Credit Card Points & Rewards Calculator</h3>
                         <p style="font-size: 0.85rem; color: #6c8eaa;">Calculate the value of your credit card rewards. See how much your spending is worth.</p>
                     </div>
                     <div class="calc-two-columns">
                         <div>
-                            <div class="calc-input-group"><label>💳 Reward Type</label><select id="rewardType"><option value="cashback">💰 Cash Back (1-5% back)</option><option value="travel">✈️ Travel Miles (1-3x miles)</option><option value="points">⭐ Flexible Points (1-4x points)</option></select></div>
-                            <div class="calc-input-group"><label>📊 Points/Rewards Earn Rate</label><input type="number" id="earnRate" value="1.5" step="0.5" placeholder="Points per $1 spent"></div>
-                            <div class="calc-input-group"><label>💵 Monthly Credit Card Spending ($)</label><input type="number" id="monthlySpend" value="2000" step="250"></div>
-                            <div class="calc-input-group"><label>🎁 Point Value per 100 points (cents)</label><input type="number" id="pointValue" value="1.0" step="0.1" placeholder="Value per point in cents"></div>
-                            <div class="calc-input-group"><label>🏆 Sign-up Bonus Points</label><input type="number" id="signupBonus" value="0" step="5000" placeholder="Welcome bonus points"></div>
-                            <div class="calc-input-group"><label>🎯 Annual Fee ($)</label><input type="number" id="annualFee" value="0" step="50"></div>
+                            <div class="calc-input-group"><label>Reward Type</label><select id="rewardType"><option value="cashback">💰 Cash Back (1-5% back)</option><option value="travel">✈️ Travel Miles (1-3x miles)</option><option value="points">⭐ Flexible Points (1-4x points)</option></select></div>
+                            <div class="calc-input-group"><label>Points/Rewards Earn Rate</label><input type="number" id="earnRate" value="1.5" step="0.5" placeholder="Points per $1 spent"></div>
+                            <div class="calc-input-group"><label>Monthly Credit Card Spending ($)</label><input type="number" id="monthlySpend" value="2000" step="250"></div>
+                            <div class="calc-input-group"><label>Point Value per 100 points (cents)</label><input type="number" id="pointValue" value="1.0" step="0.1" placeholder="Value per point in cents"></div>
+                            <div class="calc-input-group"><label>Sign-up Bonus Points</label><input type="number" id="signupBonus" value="0" step="5000" placeholder="Welcome bonus points"></div>
+                            <div class="calc-input-group"><label>Annual Fee ($)</label><input type="number" id="annualFee" value="0" step="50"></div>
                             <button class="calc-button" id="calculateRewards">⟳ Calculate Rewards</button>
                         </div>
                         <div>
@@ -871,12 +871,12 @@
                     </div>
                     <div class="extra-payment-results">
                         <h4>📊 REWARD VALUE ANALYSIS</h4>
-                        <div class="extra-row"><span class="extra-label">💎 Points/Dollars Earned (annual):</span><span class="extra-value" id="earnedAmount">$0</span></div>
-                        <div class="extra-row"><span class="extra-label">🏆 Sign-up Bonus Value:</span><span class="extra-value" id="bonusValue">$0</span></div>
-                        <div class="extra-row"><span class="extra-label">💰 Total Reward Value (Year 1):</span><span class="extra-value saved-highlight" id="totalValue">$0</span></div>
-                        <div class="extra-row"><span class="extra-label">💸 Annual Fee:</span><span class="extra-value" id="annualFeeDisplay">$0</span></div>
-                        <div class="extra-row"><span class="extra-label">🎉 NET VALUE AFTER ANNUAL FEE:</span><span class="extra-value saved-highlight" id="netValue">$0</span></div>
-                        <div class="extra-row"><span class="extra-label">📈 Effective Cashback Rate:</span><span class="extra-value" id="effectiveRate">0.00%</span></div>
+                        <div class="extra-row"><span class="extra-label">Points/Dollars Earned (annual):</span><span class="extra-value" id="earnedAmount">$0</span></div>
+                        <div class="extra-row"><span class="extra-label">Sign-up Bonus Value:</span><span class="extra-value" id="bonusValue">$0</span></div>
+                        <div class="extra-row"><span class="extra-label">Total Reward Value (Year 1):</span><span class="extra-value saved-highlight" id="totalValue">$0</span></div>
+                        <div class="extra-row"><span class="extra-label">Annual Fee:</span><span class="extra-value" id="annualFeeDisplay">$0</span></div>
+                        <div class="extra-row"><span class="extra-label">NET VALUE AFTER ANNUAL FEE:</span><span class="extra-value saved-highlight" id="netValue">$0</span></div>
+                        <div class="extra-row"><span class="extra-label">Effective Cashback Rate:</span><span class="extra-value" id="effectiveRate">0.00%</span></div>
                     </div>
                     <div style="margin-top: 1rem; text-align: center; font-size: 0.7rem; color: #8ba3bc;">
                         *Point values vary by redemption method (travel, gift cards, cash back). Sign-up bonus typically requires minimum spending.
@@ -952,23 +952,23 @@
         // Updated drawer menu with all 7 tools
         const drawerToolsList = document.getElementById('drawerToolsList');
         const allTools = [
-            "🏠 Mortgage Calculator",
-            "🚗 Car Refinance Calculator",
-            "💳 Credit Card Points Calculator",
-            "📈 Investment Calculator",
-            "📊 Budget Calculator",
-            "📉 Inflation Calculator",
-            "🎓 College Savings Calculator"
+            "Mortgage Calculator",
+            "Car Refinance Calculator",
+            "Credit Card Points Calculator",
+            "Investment Calculator",
+            "Budget Calculator",
+            "Inflation Calculator",
+            "College Savings Calculator"
         ];
         
         const toolFileMap = {
-            "🏠 Mortgage Calculator": "mortgage-calculator.html",
-            "🚗 Car Refinance Calculator": "car-refinance-calculator.html",
-            "💳 Credit Card Points Calculator": "credit-card-points-calculator.html",
-            "📈 Investment Calculator": "investment-calculator.html",
-            "📊 Budget Calculator": "budget-calculator.html",
-            "📉 Inflation Calculator": "inflation-calculator.html",
-            "🎓 College Savings Calculator": "college-savings-calculator.html"
+            "Mortgage Calculator": "mortgage-calculator.html",
+            "Car Refinance Calculator": "car-refinance-calculator.html",
+            "Credit Card Points Calculator": "credit-card-points-calculator.html",
+            "Investment Calculator": "investment-calculator.html",
+            "Budget Calculator": "budget-calculator.html",
+            "Inflation Calculator": "inflation-calculator.html",
+            "College Savings Calculator": "college-savings-calculator.html"
         };
         
         allTools.forEach(toolName => {
@@ -1021,10 +1021,10 @@
         window.addEventListener('click', (e) => { if (e.target === modal) closeModalFunc(); });
         
         const contentMap = {
-            about: { title: "📌 About SmartRatesLab", body: "<p>SmartRatesLab delivers professional-grade financial calculators. Founded in 2022, we're committed to transparency and accuracy. All calculations are performed locally in your browser.</p>" },
-            contact: { title: "📧 Contact Us", body: "<p><strong>Email:</strong> supportentry1@gmail.com<br><strong>Hours:</strong> Monday-Friday, 9am-6pm EST<br>We respond within 24 hours.</p>" },
-            privacy: { title: "🔒 Privacy Policy", body: "<p>We do not store any personal financial data. All calculations happen locally in your browser. We use anonymous analytics to improve our tools.</p>" },
-            terms: { title: "⚖️ Terms of Service", body: "<p>Calculators are for educational purposes only. Not financial advice. Always consult a qualified financial advisor before making major decisions.</p>" },
+            about: { title: "About SmartRatesLab", body: "<p>SmartRatesLab delivers professional-grade financial calculators. Founded in 2022, we're committed to transparency and accuracy. All calculations are performed locally in your browser.</p>" },
+            contact: { title: "Contact Us", body: "<p><strong>Email:</strong> supportentry1@gmail.com<br><strong>Hours:</strong> Monday-Friday, 9am-6pm EST<br>We respond within 24 hours.</p>" },
+            privacy: { title: "Privacy Policy", body: "<p>We do not store any personal financial data. All calculations happen locally in your browser. We use anonymous analytics to improve our tools.</p>" },
+            terms: { title: "Terms of Service", body: "<p>Calculators are for educational purposes only. Not financial advice. Always consult a qualified financial advisor before making major decisions.</p>" },
             home: { title: "SmartRatesLab", body: "<p>Welcome to SmartRatesLab — your hub for financial calculators. Use our Credit Card Points Calculator to maximize your rewards and find the best card for your spending.</p>" }
         };
         
