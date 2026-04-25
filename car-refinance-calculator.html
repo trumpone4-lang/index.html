@@ -173,7 +173,7 @@
             display: block;
         }
 
-        /* Direct Answer Box - matching mortgage style, much longer */
+        /* Direct Answer Box */
         .direct-answer {
             background: #ffffff;
             border-radius: 20px;
@@ -205,11 +205,6 @@
             font-size: 1rem;
             line-height: 1.7;
             color: #1a2c3e;
-        }
-        
-        .direct-answer .answer-text strong:first-child {
-            font-size: 1.05rem;
-            color: #000000;
         }
         
         .direct-answer .answer-text p {
@@ -380,7 +375,7 @@
             font-size: 1rem;
         }
 
-        /* Blog post styles - matching mortgage style, keyword clustering */
+        /* Blog post styles */
         .blog-post-section {
             background: white;
             padding: 2rem 0 3rem 0;
@@ -578,6 +573,24 @@
             color: white;
             text-decoration: underline;
         }
+        
+        /* Footer tools list styling */
+        .footer-tool-list {
+            list-style: none;
+        }
+        .footer-tool-list li {
+            margin-bottom: 0.5rem;
+        }
+        .footer-tool-list a {
+            color: #bdd4e8;
+            text-decoration: none;
+            font-size: 0.85rem;
+            transition: color 0.2s;
+        }
+        .footer-tool-list a:hover {
+            color: white;
+            text-decoration: underline;
+        }
 
         .copyright {
             text-align: center;
@@ -649,14 +662,23 @@
 <div class="drawer" id="drawerMenu">
     <div class="drawer-header"><h3>Navigation & Tools</h3><button class="close-drawer" id="closeDrawerBtn">&times;</button></div>
     <div class="drawer-nav">
-        <div class="drawer-section"><h4>Main</h4><a class="drawer-item" data-nav="home">Home</a><a class="drawer-item" data-nav="about">About</a><a class="drawer-item" data-nav="contact">Contact</a></div>
-        <div class="drawer-section"><h4>Legal</h4><a class="drawer-item" data-nav="privacy">Privacy Policy</a><a class="drawer-item" data-nav="terms">Terms of Service</a></div>
+        <!-- Main section - direct page links -->
+        <div class="drawer-section"><h4>Main</h4>
+            <a class="drawer-item" href="https://financialbankrates.indevs.in/">Home</a>
+            <a class="drawer-item" href="/about.html">About</a>
+            <a class="drawer-item" href="/contact.html">Contact</a>
+        </div>
+        <!-- Legal section - direct page links -->
+        <div class="drawer-section"><h4>Legal</h4>
+            <a class="drawer-item" href="/privacy.html">Privacy Policy</a>
+            <a class="drawer-item" href="/terms.html">Terms of Service</a>
+        </div>
         <div class="drawer-section"><h4>Financial Tools</h4><div id="drawerToolsList"></div></div>
     </div>
 </div>
 
 <main>
-    <!-- Direct Answer Box Above Calculator - ADDED MISSING KEY POINTS -->
+    <!-- Direct Answer Box Above Calculator -->
     <div class="container">
         <div class="direct-answer">
             <h1>I Owe More Than My Car Is Worth? Can I Refinance?</h1>
@@ -664,23 +686,19 @@
             <div class="answer-text">
                 <p><strong>Yes. You absolutely can refinance a car loan if you're upside down.</strong> Thousands of people do it every year, and you can too. Being upside down — also called negative equity — means you owe more on your car loan than the vehicle is currently worth. This happens to nearly 27% of people trading in vehicles, with an average negative equity of nearly $7,000.</p>
                 
-                <p><strong>Key Point #1: Loan-to-Value (LTV) ratio is what matters most.</strong> Most credit unions accept LTV ratios up to 120-130%, meaning you can refinance if you owe up to 30% more than your car's current value. For example, if your car is worth $15,000 and you owe $18,000, your LTV is 120% — that is within most credit union limits. If you owe $20,000 on that same $15,000 car, your LTV is 133%, which is too high for most lenders.</p>
+                <p><strong>Key Point #1: Loan-to-Value (LTV) ratio is what matters most.</strong> Most credit unions accept LTV ratios up to 120-130%, meaning you can refinance if you owe up to 30% more than your car's current value.</p>
                 
-                <p><strong>Key Point #2: Your credit score dramatically affects your refinance options.</strong> At 650 credit score (fair credit), you can typically refinance with rates between 8-12% APR. At 600 credit score, expect rates between 12-18% APR. Below 600, you should bring a cosigner with good credit. Credit unions are much more forgiving than banks when you have negative equity.</p>
+                <p><strong>Key Point #2: Your credit score dramatically affects your refinance options.</strong> At 650 credit score (fair credit), you can typically refinance with rates between 8-12% APR. At 600 credit score, expect rates between 12-18% APR.</p>
                 
-                <p><strong>Key Point #3: Special lenders accept higher LTV ratios.</strong> While most lenders cap LTV at 120-125%, some credit unions and online lenders specialize in negative equity refinancing and accept up to 130-150% LTV. You may pay a slightly higher interest rate, but it could still be lower than your current rate.</p>
+                <p><strong>Key Point #3: Special lenders accept higher LTV ratios.</strong> While most lenders cap LTV at 120-125%, some credit unions and online lenders specialize in negative equity refinancing and accept up to 130-150% LTV.</p>
                 
-                <p><strong>Key Point #4: Making a lump sum payment can help you qualify.</strong> If your LTV is too high for most lenders, you can make a lump sum payment to reduce your loan balance before refinancing. Even paying down $1,000 or $2,000 can bring your LTV into an acceptable range.</p>
+                <p><strong>Key Point #4: Making a lump sum payment can help you qualify.</strong> Even paying down $1,000 or $2,000 can bring your LTV into an acceptable range.</p>
                 
-                <p><strong>Key Point #5: A cosigner can make a huge difference.</strong> If you have negative equity or a lower credit score, adding a cosigner with good credit (700+) can lower your interest rate by 3-5% and improve your approval odds significantly. This is one of the most effective strategies for upside down borrowers.</p>
+                <p><strong>Key Point #5: A cosigner can make a huge difference.</strong> Adding a cosigner with good credit (700+) can lower your interest rate by 3-5% and improve your approval odds significantly.</p>
                 
-                <p>Let me share a real example that might surprise you. A friend of mine had a car worth $12,000 but owed $15,000 on his loan — an LTV of 125%. His interest rate was 14%, and he had 36 months left. He applied at a local credit union that accepted up to 130% LTV. They offered him 8% over 48 months. His monthly payment dropped from $512 to $380. He saved $132 per month, and over the life of the loan, he saved over $4,700 in interest.</p>
+                <p>The calculator below will show you exactly how much you could save by refinancing your upside down car loan. Enter your current loan balance, remaining months, interest rate, and a potential new rate. You will see your current payment, new payment, monthly savings, total interest saved after fees, and your breakeven point.</p>
                 
-                <p>The calculator below will show you exactly how much you could save by refinancing your upside down car loan. Enter your current loan balance, remaining months, interest rate, and a potential new rate. You will see your current payment, new payment, monthly savings, total interest saved after fees, and your breakeven point. The best part? You can run unlimited scenarios to find the perfect refinance offer for your situation.</p>
-                
-                <p>The bottom line is that being upside down on your car loan is not a life sentence. Thousands of people refinance every year in your exact situation. The key is knowing your numbers, finding the right lender, and using a tool like this calculator to see your potential savings before you apply. Do not let fear stop you — run your numbers now and see how much you could save.</p>
-                
-                <p><strong>Key Point #6: Compare total interest saved, not just monthly payment.</strong> Some refinance offers lower your monthly payment but extend your term so much that you pay more total interest. The calculator above shows you total interest saved after fees so you can make an informed decision.</p>
+                <p><strong>Key Point #6: Compare total interest saved, not just monthly payment.</strong> Some refinance offers lower your monthly payment but extend your term so much that you pay more total interest. The calculator shows you total interest saved after fees so you can make an informed decision.</p>
             </div>
         </div>
     </div>
@@ -691,59 +709,31 @@
         </div>
     </section>
 
-    <!-- Long Form Blog Post Section - WITH ONE-TIME BACKLINKS -->
+    <!-- Long Form Blog Post Section -->
     <section class="blog-post-section">
         <div class="blog-post-container">
             <div class="blog-post-card">
                 <h2>How I Saved $3,200 Refinancing My Upside Down Car Loan (And You Can Too)</h2>
                 
-                <p>Two years ago, I was staring at a car loan with a 13% interest rate and 48 months remaining. The problem? I owed $18,000 on a car worth only $15,000. I was upside down by $3,000, and my monthly payment was crushing my budget. That is when I started researching every possible way to lower my car payment. I asked myself: <strong>can you refinance a car loan if you're upside down?</strong> The answer surprised me.</p>
-                
-                <p>The first tool I discovered was a car refinance calculator — exactly like the one above. I plugged in my numbers: $18,000 loan balance, 13% interest rate, 48 months remaining. Then I started experimenting. What if I refinanced to a 9% rate with a credit union? The calculator showed I would save over $3,200 in interest and lower my monthly payment by nearly $150 per month.</p>
-                
-                <p>If you're also managing other financial goals, check out our <a href="budget-calculator.html" style="color:#3b82f6; text-decoration:underline;">Budget Calculator</a> to see where you can find extra money each month to put toward your car payment or other savings.</p>
+                <p>Two years ago, I was staring at a car loan with a 13% interest rate and 48 months remaining. The problem? I owed $18,000 on a car worth only $15,000. I was upside down by $3,000, and my monthly payment was crushing my budget.</p>
                 
                 <div class="highlight-box">
                     <strong>My Real Numbers:</strong> $18,000 balance | 13% rate → 9% rate | 48 months | $250 refinance fees<br>
                     <strong>Result:</strong> Monthly payment dropped from $474 to $448 | Total interest saved after fees: $998 | Breakeven: 10 months
                 </div>
                 
-                <p>When I started telling friends about my refinance, they asked me all kinds of questions. One friend with a Toyota asked about a <strong>refinance Toyota car loan</strong> — and I learned that Toyota Financial Services does offer refinancing, but credit unions often give better rates. Another friend asked <strong>can i refinance a leased car</strong>, and I had to explain that you cannot refinance a lease directly, but you can buy out the lease and then refinance. Someone else asked <strong>can you refinance a buy here pay here car</strong>, and the answer is absolutely yes — those BHPH loans have sky-high rates, and refinancing can save you a fortune.</p>
-                
-                <p>One of the most common questions I heard was about credit scores. People kept asking <strong>can i refinance my car with a 600 credit score</strong> and <strong>can i refinance my car with a 650 credit score</strong>. The answer to both is yes, but your rate will vary. At 600, expect rates between 12-18% APR. At 650, you are in fair credit territory with rates between 8-12% APR. Credit unions are much more forgiving than banks, and a cosigner can make a huge difference if your score is on the lower end.</p>
-                
-                <p>Speaking of cosigners, many people asked <strong>can you refinance a car loan with a cosigner</strong>. Yes — and it is often the best strategy if you have negative equity or a lower credit score. A cosigner with good credit (700+) can lower your interest rate by 3-5% and improve your approval odds significantly. I did not need one, but I have seen this work wonders for friends with scores in the 500s and 600s.</p>
-                
-                <p>If you are also planning for other large purchases, our <a href="mortgage-calculator.html" style="color:#3b82f6;">Mortgage Calculator</a> can help you see how a car payment affects your home buying budget. And for understanding how to grow any savings you free up, try the <a href="investment-calculator.html" style="color:#3b82f6;">Investment Calculator</a> to project future growth.</p>
-                
-                <p>Another question that came up constantly was about timing: <strong>when's the best time to refinance a car</strong>? Based on my research and experience, the best time is when interest rates have dropped at least 1-2% below your current rate, and you have at least 24 months remaining on your loan. Avoid refinancing in the first 6 months of ownership or the last 12 months of your loan. The <strong>reasons to refinance your car</strong> go beyond just lowering your payment — you can also shorten your loan term, remove a cosigner, or switch from a variable to fixed rate.</p>
+                <p>One of the most common questions I heard was about credit scores. People kept asking <strong>can i refinance my car with a 600 credit score</strong> and <strong>can i refinance my car with a 650 credit score</strong>. The answer to both is yes, but your rate will vary.</p>
                 
                 <h3>Lenders That Accept Negative Equity Refinancing</h3>
-                <p>Based on my research and experience, here are lender types that will consider refinancing when you owe more than your car is worth:</p>
-                
                 <table>
-                    <thead>
-                        <tr><th>Lender Type</th><th>Max LTV</th><th>Best For</th></tr>
-                    </thead>
+                    <thead><tr><th>Lender Type</th><th>Max LTV</th><th>Best For</th></tr></thead>
                     <tbody>
-                        <tr><td>Credit Unions</loc><td>120-130%</loc><td>Members with good credit history</loc> </tr>
-                        <tr>
-                        <td>Online Lenders</loc><td>Varies</loc><td>Convenience and comparison shopping</loc>
-                        </tr>
-                        <tr>
-                        <td>Local Banks</loc><td>110-120%</loc><td>Existing customers with relationship</loc>
-                        </tr>
-                        <tr>
-                        <td>Specialty Refinance Lenders</loc><td>125-150%</loc><td>Borrowers with high negative equity</loc>
-                        </tr>
+                        <tr><td>Credit Unions</td><td>120-130%</td><td>Members with good credit history</td></tr>
+                        <tr><td>Online Lenders</td><td>Varies</td><td>Convenience and comparison shopping</td></tr>
+                        <tr><td>Local Banks</td><td>110-120%</td><td>Existing customers with relationship</td></tr>
+                        <tr><td>Specialty Refinance Lenders</td><td>125-150%</td><td>Borrowers with high negative equity</td></tr>
                     </tbody>
                 </table>
-                
-                <h3>How to Get Approved When You Owe More Than Your Car Is Worth</h3>
-                <p><strong>Step 1: Know your numbers.</strong> Get your car's current value from Kelley Blue Book or Edmunds. Request your 10-day payoff quote from your current lender. Calculate your LTV using this formula: (Loan Balance ÷ Car Value) × 100 = LTV%.</p>
-                <p><strong>Step 2: Check your credit score.</strong> If you are wondering <strong>can i refinance my car with a 600 credit score</strong>, the answer is yes — but you will need a credit union. At 650, you have more options. Below 600, bring a cosigner.</p>
-                <p><strong>Step 3: Apply with credit unions first.</strong> They are the most flexible with negative equity. Many offer LTV limits up to 130%.</p>
-                <p><strong>Step 4: Bring a cosigner if needed.</strong> This is especially helpful if you are asking <strong>can you refinance a car loan with a cosigner</strong> — yes, and it works.</p>
                 
                 <div class="warning-box">
                     <strong>When refinancing does NOT make sense:</strong>
@@ -751,127 +741,28 @@
                         <li>Your LTV is above 130% — no lender will approve</li>
                         <li>You have less than 12 months left on your current loan</li>
                         <li>Refinance fees are higher than your total interest savings</li>
-                        <li>You are planning to sell the car in the next 6 months</li>
                     </ul>
                 </div>
                 
-                <div class="highlight-box">
-                    <strong>Final Verdict: Should You Refinance When You Owe More Than Your Car Is Worth?</strong><br><br>
-                    <strong>Refinance if:</strong> Your LTV is 120% or lower, you can lower your interest rate by at least 2%, you plan to keep the car for another 24+ months, and refinance fees are less than your interest savings.<br><br>
-                    <strong>Do NOT refinance if:</strong> Your LTV is above 130%, you have less than 12 months left on your loan, or you are trying to lower payment by extending term (you will pay more total interest).
-                </div>
-                
                 <h2>Ready to Check Your Savings?</h2>
-                <p>Use the <strong>Car Refinance Calculator</strong> at the top of this page. Enter your current loan balance, remaining months, and interest rate. Then enter a potential new rate (check credit union websites for current offers). The calculator will instantly show you your current payment, new payment, monthly savings, total interest saved after fees, and breakeven point.</p>
+                <p>Use the <strong>Car Refinance Calculator</strong> at the top of this page. Enter your current loan balance, remaining months, and interest rate. Then enter a potential new rate (check credit union websites for current offers). The calculator will instantly show you your savings.</p>
             </div>
         </div>
     </section>
     
-    <!-- FAQ Section - Only keywords not covered in blog -->
+    <!-- FAQ Section -->
     <section class="faq-section">
         <div class="faq-container">
             <div class="faq-card">
                 <h3>Frequently Asked Questions</h3>
-                
-                <div class="faq-item">
-                    <div class="faq-question">
-                        Can you refinance a car loan if your upside down?
-                        <span class="faq-toggle">+</span>
-                    </div>
-                    <div class="faq-answer">
-                        Yes, you can refinance a car loan if you're upside down. Most credit unions accept LTV ratios up to 120-130%, meaning you can refinance even if you owe up to 30% more than your car is worth. The calculator above will show you exactly how much you could save.
-                    </div>
-                </div>
-                
-                <div class="faq-item">
-                    <div class="faq-question">
-                        What are the reasons to refinance your car?
-                        <span class="faq-toggle">+</span>
-                    </div>
-                    <div class="faq-answer">
-                        The main reasons to refinance your car include lowering your monthly payment, reducing your interest rate, shortening your loan term, removing a cosigner from the loan, or switching from a variable to fixed rate. Even if you owe more than the car is worth, refinancing can save you thousands in interest.
-                    </div>
-                </div>
-                
-                <div class="faq-item">
-                    <div class="faq-question">
-                        When's the best time to refinance a car?
-                        <span class="faq-toggle">+</span>
-                    </div>
-                    <div class="faq-answer">
-                        The best time to refinance a car is when interest rates have dropped at least 1-2% below your current rate, and you have at least 24 months remaining on your loan. Avoid refinancing in the first 6 months of ownership or the last 12 months of your loan term.
-                    </div>
-                </div>
-                
-                <div class="faq-item">
-                    <div class="faq-question">
-                        Can I refinance my car with a 600 credit score?
-                        <span class="faq-toggle">+</span>
-                    </div>
-                    <div class="faq-answer">
-                        Yes, you can refinance your car with a 600 credit score. Expect higher interest rates between 12-18% APR. Credit unions are your best option, and bringing a cosigner with better credit can help you qualify for a lower rate.
-                    </div>
-                </div>
-                
-                <div class="faq-item">
-                    <div class="faq-question">
-                        Can I refinance my car with a 650 credit score?
-                        <span class="faq-toggle">+</span>
-                    </div>
-                    <div class="faq-answer">
-                        Yes, at 650 credit score you are in "fair credit" territory. Many lenders will approve you with rates between 8-12% APR. You have more options than at 600, including online lenders, credit unions, and local banks.
-                    </div>
-                </div>
-                
-                <div class="faq-item">
-                    <div class="faq-question">
-                        Can you refinance a buy here pay here car?
-                        <span class="faq-toggle">+</span>
-                    </div>
-                    <div class="faq-answer">
-                        Yes, you can refinance a buy here pay here car. BHPH dealers charge very high interest rates (15-25% APR). Refinancing with a traditional lender like a credit union can save you thousands. Check your contract for prepayment penalties before refinancing.
-                    </div>
-                </div>
-                
-                <div class="faq-item">
-                    <div class="faq-question">
-                        Can I refinance a leased car?
-                        <span class="faq-toggle">+</span>
-                    </div>
-                    <div class="faq-answer">
-                        No, you cannot refinance a leased car because you don't own it. However, you can buy out your lease (purchase the car at the residual value) and then refinance that purchase immediately with an auto loan. This two-step process allows you to effectively refinance a leased car.
-                    </div>
-                </div>
-                
-                <div class="faq-item">
-                    <div class="faq-question">
-                        Can you refinance a car loan with a cosigner?
-                        <span class="faq-toggle">+</span>
-                    </div>
-                    <div class="faq-answer">
-                        Yes, you can refinance a car loan with a cosigner. A cosigner with good credit (700+) can lower your interest rate by 3-5% and improve your approval odds significantly. This is especially helpful if you have negative equity or a credit score below 650.
-                    </div>
-                </div>
-                
-                <div class="faq-item">
-                    <div class="faq-question">
-                        Refinance Toyota car loan — is it different?
-                        <span class="faq-toggle">+</span>
-                    </div>
-                    <div class="faq-answer">
-                        Refinancing a Toyota car loan works similarly to other cars. Toyota Financial Services offers refinancing for existing Toyota owners, but credit unions and online lenders often offer better rates. Most lenders require 12+ months of on-time payments before approving a Toyota refinance.
-                    </div>
-                </div>
-                
-                <div class="faq-item">
-                    <div class="faq-question">
-                        How does negative equity affect my refinance options?
-                        <span class="faq-toggle">+</span>
-                    </div>
-                    <div class="faq-answer">
-                        Negative equity means your LTV ratio is above 100%, which makes refinancing harder but not impossible. Most lenders accept LTV up to 120-130%. If your LTV is higher, you may need to make a lump sum payment, use a specialty lender, or add a cosigner. The calculator above shows you your LTV based on your inputs.
-                    </div>
-                </div>
+                <div class="faq-item"><div class="faq-question">Can you refinance a car loan if your upside down? <span class="faq-toggle">+</span></div><div class="faq-answer">Yes, you can refinance a car loan if you're upside down. Most credit unions accept LTV ratios up to 120-130%.</div></div>
+                <div class="faq-item"><div class="faq-question">What are the reasons to refinance your car? <span class="faq-toggle">+</span></div><div class="faq-answer">Lower monthly payment, reduce interest rate, shorten loan term, remove a cosigner.</div></div>
+                <div class="faq-item"><div class="faq-question">When's the best time to refinance a car? <span class="faq-toggle">+</span></div><div class="faq-answer">When rates have dropped 1-2% below your current rate and you have at least 24 months remaining.</div></div>
+                <div class="faq-item"><div class="faq-question">Can I refinance my car with a 600 credit score? <span class="faq-toggle">+</span></div><div class="faq-answer">Yes, with rates between 12-18% APR. Credit unions are your best option.</div></div>
+                <div class="faq-item"><div class="faq-question">Can I refinance my car with a 650 credit score? <span class="faq-toggle">+</span></div><div class="faq-answer">Yes, with rates between 8-12% APR through many lenders.</div></div>
+                <div class="faq-item"><div class="faq-question">Can you refinance a buy here pay here car? <span class="faq-toggle">+</span></div><div class="faq-answer">Yes, refinancing a BHPH car can save you thousands due to high interest rates.</div></div>
+                <div class="faq-item"><div class="faq-question">Can I refinance a leased car? <span class="faq-toggle">+</span></div><div class="faq-answer">No directly, but you can buy out the lease then refinance.</div></div>
+                <div class="faq-item"><div class="faq-question">Can you refinance a car loan with a cosigner? <span class="faq-toggle">+</span></div><div class="faq-answer">Yes, a cosigner can lower your rate by 3-5%.</div></div>
             </div>
         </div>
     </section>
@@ -881,9 +772,30 @@
     <div class="container">
         <div class="footer-grid">
             <div class="footer-col"><h4>SmartRatesLab</h4><p style="font-size:0.85rem;">Professional-grade financial calculators. 100% free.</p></div>
-            <div class="footer-col"><h4>Quick Links</h4><ul class="footer-links"><li><a class="footer-nav-link" data-nav="about">About</a></li><li><a class="footer-nav-link" data-nav="contact">Contact</a></li><li><a class="footer-nav-link" data-nav="privacy">Privacy</a></li><li><a class="footer-nav-link" data-nav="terms">Terms</a></li></ul></div>
+            <!-- Quick Links section -->
+            <div class="footer-col"><h4>Quick Links</h4>
+                <ul class="footer-links">
+                    <li><a href="/about.html">About</a></li>
+                    <li><a href="/contact.html">Contact</a></li>
+                    <li><a href="/privacy.html">Privacy</a></li>
+                    <li><a href="/terms.html">Terms</a></li>
+                </ul>
+            </div>
+            <!-- Tools section in footer - renamed from Resources to Tools, with all 7 tools linking to their pages -->
+            <div class="footer-col">
+                <h4>Tools</h4>
+                <ul class="footer-tool-list">
+                    <li><a href="mortgage-calculator.html">Mortgage Calculator</a></li>
+                    <li><a href="car-refinance-calculator.html">Car Refinance Calculator</a></li>
+                    <li><a href="credit-card-points-calculator.html">Credit Card Points Calculator</a></li>
+                    <li><a href="investment-calculator.html">Investment Calculator</a></li>
+                    <li><a href="budget-calculator.html">Budget Calculator</a></li>
+                    <li><a href="inflation-calculator.html">Inflation Calculator</a></li>
+                    <li><a href="college-savings-calculator.html">College Savings Calculator</a></li>
+                </ul>
+            </div>
         </div>
-        <div class="copyright"><span>© 2026 SmartRatesLab | For Educational purposes only.Consult a Financial advisor.</span><span><a class="footer-legal-link" data-nav="privacy">Privacy</a> | <a class="footer-legal-link" data-nav="terms">Terms</a> | <a class="footer-legal-link" data-nav="about">About</a> | <a class="footer-legal-link" data-nav="contact">Contact</a></span></div>
+        <div class="copyright"><span>© 2026 SmartRatesLab | For Educational purposes only. Consult a Financial advisor.</span></div>
     </div>
 </footer>
 
@@ -984,11 +896,11 @@
                 document.getElementById('currentPayment').innerHTML = '$' + currentMonthly.toLocaleString('en-US', { minimumFractionDigits: 2 });
                 document.getElementById('newPayment').innerHTML = '$' + newMonthly.toLocaleString('en-US', { minimumFractionDigits: 2 });
                 document.getElementById('monthlySavings').innerHTML = '$' + monthlySavings.toLocaleString('en-US', { minimumFractionDigits: 2 });
-                document.getElementById('currentInterest').innerHTML = '$' + currentTotalInterest.toLocaleString('en-US', { minimumFractionDigits: 0, maximumFractionDigits: 0 });
-                document.getElementById('newInterest').innerHTML = '$' + newTotalInterest.toLocaleString('en-US', { minimumFractionDigits: 0, maximumFractionDigits: 0 });
+                document.getElementById('currentInterest').innerHTML = '$' + currentTotalInterest.toLocaleString('en-US', { minimumFractionDigits: 0 });
+                document.getElementById('newInterest').innerHTML = '$' + newTotalInterest.toLocaleString('en-US', { minimumFractionDigits: 0 });
                 document.getElementById('feesDisplay').innerHTML = '$' + refiFees.toLocaleString('en-US', { minimumFractionDigits: 0 });
-                document.getElementById('interestSaved').innerHTML = '$' + totalInterestSaved.toLocaleString('en-US', { minimumFractionDigits: 0, maximumFractionDigits: 0 });
-                document.getElementById('breakeven').innerHTML = breakeven > 0 ? breakeven + ' months' : 'N/A (no fees or negative savings)';
+                document.getElementById('interestSaved').innerHTML = '$' + totalInterestSaved.toLocaleString('en-US', { minimumFractionDigits: 0 });
+                document.getElementById('breakeven').innerHTML = breakeven > 0 ? breakeven + ' months' : 'N/A';
                 
                 updateDonutChart(currentMonthly, newMonthly);
             }
@@ -1003,19 +915,9 @@
         
         createRefinanceCalculator();
         
-        // Updated drawer menu with all 7 tools
+        // Drawer tools list with all 7 tools
         const drawerToolsList = document.getElementById('drawerToolsList');
-        const allTools = [
-            "Mortgage Calculator",
-            "Car Refinance Calculator",
-            "Credit Card Points Calculator",
-            "Investment Calculator",
-            "Budget Calculator",
-            "Inflation Calculator",
-            "College Savings Calculator"
-        ];
-        
-        const toolFileMap = {
+        const toolUrls = {
             "Mortgage Calculator": "mortgage-calculator.html",
             "Car Refinance Calculator": "car-refinance-calculator.html",
             "Credit Card Points Calculator": "credit-card-points-calculator.html",
@@ -1024,48 +926,27 @@
             "Inflation Calculator": "inflation-calculator.html",
             "College Savings Calculator": "college-savings-calculator.html"
         };
-        
-        allTools.forEach(toolName => {
+        Object.keys(toolUrls).forEach(toolName => {
             const toolLink = document.createElement('a');
             toolLink.className = 'drawer-item';
             toolLink.innerHTML = toolName;
-            toolLink.href = '#';
+            toolLink.href = toolUrls[toolName];
             toolLink.style.fontSize = '0.85rem';
-            toolLink.addEventListener('click', (e) => {
-                e.preventDefault();
-                const fileName = toolFileMap[toolName];
-                if (fileName) {
-                    window.location.href = fileName;
-                }
-                closeDrawer();
-            });
+            toolLink.addEventListener('click', () => closeDrawer());
             drawerToolsList.appendChild(toolLink);
         });
         
-        // FAQ Accordion Functionality
-        const faqItems = document.querySelectorAll('.faq-item');
-        faqItems.forEach(item => {
+        // FAQ Accordion
+        document.querySelectorAll('.faq-item').forEach(item => {
             const question = item.querySelector('.faq-question');
             const answer = item.querySelector('.faq-answer');
             const toggle = item.querySelector('.faq-toggle');
-            
             if (question && answer && toggle) {
                 question.addEventListener('click', () => {
                     const isOpen = answer.classList.contains('open');
-                    // Close all other answers
-                    faqItems.forEach(otherItem => {
-                        const otherAnswer = otherItem.querySelector('.faq-answer');
-                        const otherToggle = otherItem.querySelector('.faq-toggle');
-                        if (otherAnswer && otherAnswer !== answer) {
-                            otherAnswer.classList.remove('open');
-                            if (otherToggle) otherToggle.textContent = '+';
-                        }
-                    });
-                    // Toggle current
-                    if (isOpen) {
-                        answer.classList.remove('open');
-                        toggle.textContent = '+';
-                    } else {
+                    document.querySelectorAll('.faq-answer').forEach(a => a.classList.remove('open'));
+                    document.querySelectorAll('.faq-toggle').forEach(t => t.textContent = '+');
+                    if (!isOpen) {
                         answer.classList.add('open');
                         toggle.textContent = '−';
                     }
@@ -1073,67 +954,23 @@
             }
         });
         
+        // Modal handling
         const modal = document.getElementById('infoModal');
         const modalTitle = document.getElementById('modalTitle');
         const modalText = document.getElementById('modalText');
         const closeModalBtn = document.getElementById('closeModalBtn');
-        
         function closeModalFunc() { modal.style.display = 'none'; }
         closeModalBtn.addEventListener('click', closeModalFunc);
         window.addEventListener('click', (e) => { if (e.target === modal) closeModalFunc(); });
         
-        const contentMap = {
-            about: { title: "About SmartRatesLab", body: "<p>SmartRatesLab delivers professional-grade financial calculators. Founded in 2022, we're committed to transparency and accuracy. All calculations are performed locally in your browser.</p>" },
-            contact: { title: "Contact Us", body: "<p><strong>Email:</strong> supportentry1@gmail.com<br><strong>Hours:</strong> Monday-Friday, 9am-6pm EST<br>We respond within 24 hours.</p>" },
-            privacy: { title: "Privacy Policy", body: "<p>We do not store any personal financial data. All calculations happen locally in your browser. We use anonymous analytics to improve our tools.</p>" },
-            terms: { title: "Terms of Service", body: "<p>Calculators are for educational purposes only. Not financial advice. Always consult a qualified financial advisor before making major decisions.</p>" },
-            home: { title: "SmartRatesLab", body: "<p>Welcome to SmartRatesLab — your hub for financial calculators. Use our Car Refinance Calculator to see how much you can save on your auto loan.</p>" }
-        };
-        
-        function openModal(type) { const data = contentMap[type]; if (data) { modalTitle.innerText = data.title; modalText.innerHTML = data.body; modal.style.display = 'flex'; } }
-        function handleNavigation(navType) { 
-            if (navType === 'home') { 
-                window.location.href = 'https://financialbankrates.indevs.in/';
-                closeDrawer();
-                return;
-            } else { 
-                openModal(navType); 
-            } 
-            closeDrawer(); 
-        }
-        
-        const drawer = document.getElementById('drawerMenu');
-        const overlay = document.getElementById('drawerOverlay');
-        const menuBtn = document.getElementById('menuButton');
-        const closeDrawerBtn = document.getElementById('closeDrawerBtn');
-        
-        function openDrawer() { drawer.classList.add('open'); overlay.classList.add('active'); document.body.style.overflow = 'hidden'; }
-        function closeDrawer() { drawer.classList.remove('open'); overlay.classList.remove('active'); document.body.style.overflow = ''; }
-        
-        menuBtn.addEventListener('click', openDrawer);
-        closeDrawerBtn.addEventListener('click', closeDrawer);
-        overlay.addEventListener('click', closeDrawer);
-        
-        document.querySelectorAll('.drawer-item[data-nav]').forEach(item => {
-            item.addEventListener('click', (e) => { e.preventDefault(); handleNavigation(item.getAttribute('data-nav')); });
-        });
-        
-        document.querySelectorAll('.footer-nav-link, .footer-legal-link, [data-nav]').forEach(link => {
-            if (!link.closest('.drawer')) {
-                link.addEventListener('click', (e) => { e.preventDefault(); const nav = link.getAttribute('data-nav'); if (nav) handleNavigation(nav); });
-            }
-        });
-        
-        document.getElementById('homeLinkHeader')?.addEventListener('click', () => { window.location.href = 'https://financialbankrates.indevs.in/'; });
-        
+        // Blog posts for modal (keeping for any remaining .blog-item elements)
         const blogPosts = {
-            1: { title: "Mortgage prepayment vs. index funds", content: "<p>Extra mortgage payments give a guaranteed return equal to your interest rate. Compare with expected market returns using our calculators.</p>" },
-            2: { title: "Real return after inflation & taxes", content: "<p>Use our calculators to adjust nominal returns for inflation and your marginal tax rate to find your true purchasing power growth.</p>" },
-            3: { title: "Coast FIRE fundamentals", content: "<p>Coast FIRE is when your existing investments will grow to cover retirement without additional contributions. Our retirement planner can help.</p>" },
-            4: { title: "Mortgage recasting explained", content: "<p>Recasting lowers monthly payments without refinancing. Use our calculator to model lump sum impacts.</p>" },
-            5: { title: "Tax-loss harvesting strategies", content: "<p>Offset capital gains by selling losing positions. The IRS wash-sale rule applies within 30 days.</p>" }
+            1: { title: "Mortgage prepayment vs. index funds", content: "<p>Extra mortgage payments give a guaranteed return equal to your interest rate.</p>" },
+            2: { title: "Real return after inflation & taxes", content: "<p>Adjust nominal returns for inflation and taxes.</p>" },
+            3: { title: "Coast FIRE fundamentals", content: "<p>Coast FIRE is when your existing investments will grow to cover retirement.</p>" },
+            4: { title: "Mortgage recasting explained", content: "<p>Recasting lowers monthly payments without refinancing.</p>" },
+            5: { title: "Tax-loss harvesting strategies", content: "<p>Offset capital gains by selling losing positions.</p>" }
         };
-        
         document.querySelectorAll('.blog-item').forEach(item => {
             item.addEventListener('click', () => {
                 const blogId = item.getAttribute('data-blog');
@@ -1142,7 +979,21 @@
                 closeDrawer();
             });
         });
+        
+        // Drawer controls
+        const drawer = document.getElementById('drawerMenu');
+        const overlay = document.getElementById('drawerOverlay');
+        const menuBtn = document.getElementById('menuButton');
+        const closeDrawerBtn = document.getElementById('closeDrawerBtn');
+        function openDrawer() { drawer.classList.add('open'); overlay.classList.add('active'); document.body.style.overflow = 'hidden'; }
+        function closeDrawer() { drawer.classList.remove('open'); overlay.classList.remove('active'); document.body.style.overflow = ''; }
+        menuBtn.addEventListener('click', openDrawer);
+        closeDrawerBtn.addEventListener('click', closeDrawer);
+        overlay.addEventListener('click', closeDrawer);
+        
+        // Header home link
+        document.getElementById('homeLinkHeader')?.addEventListener('click', () => { window.location.href = 'https://financialbankrates.indevs.in/'; });
     })();
 </script>
 </body>
-                                                                                                                                                                             </html>
+    </html>
