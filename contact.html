@@ -1,0 +1,663 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png">
+    <link rel="manifest" href="site.webmanifest">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <title>SmartRatesLab | Contact Us – Support, Feedback & Inquiries</title>
+    <meta name="description" content="Contact SmartRatesLab for support, bug reports, partnership opportunities, or general inquiries. Our team responds within 24-48 hours. We value user feedback.">
+    <meta name="keywords" content="contact SmartRatesLab, financial calculator support, bug report, partnership inquiry, feedback, fintech contact">
+    <meta name="author" content="SmartRatesLab">
+    
+    <link rel="canonical" href="https://financialbankrates.indevs.in/contact">
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' fill='%23122b44'/%3E%3Cpath d='M25,35 L50,20 L75,35 L75,65 L50,80 L25,65 Z' fill='none' stroke='%233f9eff' stroke-width='5' stroke-linejoin='round'/%3E%3Ccircle cx='50' cy='50' r='8' fill='%233f9eff'/%3E%3C/svg%3E">
+    
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', system-ui, -apple-system, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+            background: #f4f8fe;
+            color: #1a2c3e;
+            line-height: 1.5;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+
+        .container {
+            max-width: 1280px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        .site-header {
+            background: #0c1f2f;
+            box-shadow: 0 2px 12px rgba(0, 0, 0, 0.15);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .header-inner {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 0;
+            min-height: 70px;
+        }
+
+        .site-title {
+            font-size: 1.6rem;
+            font-weight: 700;
+            letter-spacing: -0.3px;
+            color: #ffffff;
+            cursor: pointer;
+        }
+
+        .site-title:hover {
+            opacity: 0.85;
+        }
+
+        .menu-btn {
+            background: #ffffff;
+            color: #0c1f2f;
+            border: none;
+            padding: 0.6rem 1.4rem;
+            border-radius: 40px;
+            font-weight: 600;
+            font-size: 0.95rem;
+            cursor: pointer;
+            transition: all 0.2s;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+        }
+
+        .menu-btn:hover {
+            background: #eef3fc;
+            transform: scale(1.02);
+        }
+
+        .drawer {
+            position: fixed;
+            top: 0;
+            right: -400px;
+            width: 380px;
+            max-width: 85vw;
+            height: 100%;
+            background: #ffffff;
+            box-shadow: -4px 0 30px rgba(0, 0, 0, 0.15);
+            z-index: 1000;
+            transition: right 0.3s ease;
+            display: flex;
+            flex-direction: column;
+            overflow-y: auto;
+        }
+
+        .drawer.open {
+            right: 0;
+        }
+
+        .drawer-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1.5rem;
+            border-bottom: 1px solid #e2ebf3;
+        }
+
+        .drawer-header h3 {
+            font-size: 1.4rem;
+            color: #122b44;
+        }
+
+        .close-drawer {
+            background: none;
+            border: none;
+            font-size: 1.8rem;
+            cursor: pointer;
+            color: #6c8eaa;
+        }
+
+        .drawer-nav {
+            padding: 1rem 0;
+        }
+
+        .drawer-section {
+            padding: 0.5rem 1.5rem;
+        }
+
+        .drawer-section h4 {
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            color: #6c8eaa;
+            margin: 1rem 0 0.5rem 0;
+        }
+
+        .drawer-item {
+            display: block;
+            padding: 0.75rem 1rem;
+            color: #1a2c3e;
+            text-decoration: none;
+            font-weight: 500;
+            border-radius: 12px;
+            transition: background 0.2s;
+            cursor: pointer;
+        }
+
+        .drawer-item:hover {
+            background: #eef3fc;
+        }
+
+        .drawer-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0,0,0,0.4);
+            z-index: 999;
+            display: none;
+        }
+
+        .drawer-overlay.active {
+            display: block;
+        }
+
+        .hero-contact {
+            background: linear-gradient(120deg, #0c1f2f 0%, #143750 100%);
+            padding: 3rem 0;
+            text-align: center;
+            color: white;
+        }
+
+        .hero-contact h1 {
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+        }
+
+        .hero-contact p {
+            font-size: 1rem;
+            opacity: 0.85;
+        }
+
+        .contact-content {
+            max-width: 1100px;
+            margin: 2.5rem auto;
+            background: white;
+            border-radius: 28px;
+            padding: 2.5rem 3rem;
+            box-shadow: 0 12px 30px rgba(0, 0, 0, 0.05);
+        }
+
+        .contact-content h2 {
+            font-size: 1.8rem;
+            color: #122b44;
+            margin-top: 2rem;
+            margin-bottom: 1rem;
+            border-left: 5px solid #3f9eff;
+            padding-left: 1rem;
+        }
+
+        .contact-content h3 {
+            font-size: 1.3rem;
+            color: #1f5068;
+            margin: 1.5rem 0 0.8rem 0;
+        }
+
+        .contact-content p {
+            font-size: 1rem;
+            line-height: 1.7;
+            color: #2c3e4e;
+            margin-bottom: 1rem;
+        }
+
+        .contact-content ul, .contact-content ol {
+            margin: 1rem 0 1rem 2rem;
+            line-height: 1.7;
+        }
+
+        .contact-content li {
+            margin-bottom: 0.5rem;
+        }
+
+        .contact-email-box {
+            background: #f0f6fa;
+            border: 1px solid #d4e2ef;
+            border-radius: 20px;
+            padding: 1.8rem;
+            text-align: center;
+            margin: 2rem 0;
+        }
+
+        .contact-email-box a {
+            font-size: 1.4rem;
+            font-weight: 600;
+            color: #0c1f2f;
+            text-decoration: none;
+            background: #ffffff;
+            padding: 0.75rem 1.8rem;
+            border-radius: 50px;
+            display: inline-block;
+            box-shadow: 0 2px 6px rgba(0,0,0,0.05);
+            transition: all 0.2s;
+            border: 1px solid #cbdde9;
+        }
+
+        .contact-email-box a:hover {
+            background: #eef3fc;
+            border-color: #3f9eff;
+        }
+
+        .response-badge {
+            background: #e8f0f7;
+            border-left: 4px solid #2c7da0;
+            padding: 1.2rem 1.8rem;
+            margin: 1.5rem 0;
+            border-radius: 12px;
+            font-size: 0.95rem;
+        }
+
+        .site-footer {
+            background: #0c1f2f;
+            color: #bdd4e8;
+            padding: 2rem 0 1.5rem;
+            margin-top: 2rem;
+        }
+
+        .footer-grid {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            gap: 2rem;
+            border-bottom: 1px solid #254f6e;
+            padding-bottom: 1.5rem;
+            margin-bottom: 1.2rem;
+        }
+
+        .footer-col {
+            flex: 1;
+            min-width: 180px;
+        }
+
+        .footer-col h4 {
+            color: white;
+            margin-bottom: 0.8rem;
+            font-size: 1rem;
+            font-weight: 600;
+            letter-spacing: 0.3px;
+        }
+
+        .footer-links {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+        }
+
+        .footer-links li {
+            margin-bottom: 0.5rem;
+        }
+
+        .footer-links a {
+            color: #bdd4e8;
+            text-decoration: none;
+            font-size: 0.85rem;
+            transition: color 0.2s ease;
+        }
+
+        .footer-links a:hover {
+            color: white;
+            text-decoration: underline;
+        }
+
+        .copyright {
+            text-align: center;
+            font-size: 0.8rem;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 1.5rem;
+        }
+
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0; left: 0;
+            width: 100%; height: 100%;
+            background: rgba(12,31,47,0.95);
+            align-items: center;
+            justify-content: center;
+            z-index: 1100;
+        }
+
+        .modal-content {
+            background: white;
+            max-width: 550px;
+            width: 90%;
+            border-radius: 28px;
+            padding: 2rem;
+            position: relative;
+        }
+
+        .close-modal {
+            position: absolute;
+            top: 1rem;
+            right: 1.5rem;
+            font-size: 1.8rem;
+            cursor: pointer;
+        }
+
+        @media (max-width: 700px) {
+            .hero-contact h1 { font-size: 1.8rem; }
+            .contact-content { padding: 1.5rem; }
+            .container { padding: 0 1.2rem; }
+            .contact-email-box a { font-size: 1rem; }
+            .footer-grid {
+                flex-direction: column;
+                gap: 1.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<header class="site-header">
+    <div class="container header-inner">
+        <div class="site-title" id="homeLinkHeader">SmartRatesLab</div>
+        <button class="menu-btn" id="menuButton">☰ Menu</button>
+    </div>
+</header>
+
+<div class="drawer-overlay" id="drawerOverlay"></div>
+<div class="drawer" id="drawerMenu">
+    <div class="drawer-header"><h3>Navigation & Tools</h3><button class="close-drawer" id="closeDrawerBtn">&times;</button></div>
+    <div class="drawer-nav">
+        <div class="drawer-section"><h4>Main</h4>
+            <a class="drawer-item" data-nav="home">Home</a>
+            <a class="drawer-item" data-nav="about-page">About</a>
+            <a class="drawer-item" data-nav="contact-page">Contact</a>
+        </div>
+        <div class="drawer-section"><h4>Legal</h4>
+            <a class="drawer-item" data-nav="privacy">Privacy Policy</a>
+            <a class="drawer-item" data-nav="terms">Terms of Service</a>
+        </div>
+        <div class="drawer-section"><h4>Financial Tools</h4><div id="drawerToolsList"></div></div>
+    </div>
+</div>
+
+<main>
+    <section class="hero-contact">
+        <div class="container">
+            <h1>Contact SmartRatesLab</h1>
+            <p>Direct communication for support, feedback, and partnership opportunities</p>
+        </div>
+    </section>
+
+    <div class="container">
+        <div class="contact-content">
+            <h2>We Value Your Input</h2>
+            <p>SmartRatesLab is committed to delivering high-precision financial tools with uncompromising accuracy. Your feedback, bug reports, and feature suggestions are essential to our continuous improvement. Whether you have identified a discrepancy in a calculation, wish to propose a new financial model, or require technical support for one of our eight calculators, our team is ready to assist.</p>
+            
+            <p>As a developer-first FinTech platform, we take every inquiry seriously. Each message is reviewed by our engineering and editorial teams to ensure that our calculators remain aligned with standard financial formulas, CFA guidelines, and real-world applicability. We encourage users to provide detailed information when reporting potential issues, including the calculator name, input values used, and expected versus observed outputs.</p>
+
+            <h3>Primary Contact Channel</h3>
+            <p>Email is the most efficient method to reach our support and operations team. We do not currently offer telephone support, as written correspondence allows us to document, track, and resolve technical or financial modeling inquiries with greater accuracy.</p>
+            
+            <div class="contact-email-box">
+                <a href="mailto:supportentry1@gmail.com">supportentry1@gmail.com</a>
+                <p style="margin-top: 1rem; font-size: 0.85rem;">Click to compose an email directly from your default mail client.</p>
+            </div>
+            
+            <div class="response-badge">
+                <strong>Response Time Commitment</strong><br>
+                Our standard response window is 24 to 48 hours (Monday through Friday, excluding US federal holidays). Inquiries submitted over weekends or holidays will be addressed on the next business day. For complex bug reports involving calculator logic, we may require additional time for verification and testing. You will receive an acknowledgment within 24 hours confirming receipt.
+            </div>
+
+            <h2>Types of Inquiries We Handle</h2>
+            <h3>Bug Reports & Technical Issues</h3>
+            <p>If you encounter unexpected behavior in any calculator (e.g., Mortgage, Car Refinance, FIRE Simulator, Credit Card Points, Investment, Budget, Inflation, or College Savings), please include the following in your email:</p>
+            <ul>
+                <li>Exact calculator name and URL.</li>
+                <li>All input values you entered (loan amount, interest rate, term, etc.).</li>
+                <li>The output you received versus the output you expected.</li>
+                <li>Browser name and version (e.g., Chrome 124, Safari 17).</li>
+                <li>Screenshots if applicable.</li>
+            </ul>
+            <p>Detailed bug reports enable our engineering team to replicate conditions and deploy fixes rapidly. We are grateful to users who contribute to the reliability of SmartRatesLab.</p>
+
+            <h3>Partnership & Integration Inquiries</h3>
+            <p>SmartRatesLab welcomes collaboration opportunities with financial institutions, educational platforms, media outlets, and technology partners. If you are interested in embedding our calculators via iframe, API access (coming soon), co-branded content, or cross-promotion, please direct your inquiry with the subject line "PARTNERSHIP INQUIRY" to the email address above. All partnership discussions are confidential and reviewed by our business development team.</p>
+
+            <h3>Feedback & Feature Requests</h3>
+            <p>We actively monitor user suggestions for new calculators, additional parameters, or enhanced visualization features. While we cannot guarantee implementation of every request, each submission is cataloged in our product roadmap. Popular requests — such as Monte Carlo simulations, currency conversions, or tax-adjusted returns — are prioritized based on engineering feasibility and user value.</p>
+
+            <h3>Media & Press Inquiries</h3>
+            <p>Journalists, bloggers, and financial analysts seeking commentary on personal finance trends, calculator methodologies, or FinTech innovation may contact our communications desk. Please use "MEDIA INQUIRY" in the subject line and include your publication name, deadline, and specific questions. We respond to verified media requests within 12 hours during business days.</p>
+
+            <h2>What We Do Not Support Via Email</h2>
+            <p>SmartRatesLab does not provide personalized financial advice, investment recommendations, or loan approval services. Our team is not licensed as financial advisors, and we cannot review individual financial situations. For personal financial planning, please consult a certified financial planner (CFP) or licensed professional. Emails requesting personal financial advice will receive a standard response directing the user to our disclaimer and educational resources.</p>
+            
+            <ul>
+                <li>We do not offer account management or portfolio review services.</li>
+                <li>We do not sell financial products or receive commissions from lenders.</li>
+                <li>We do not provide tax preparation or legal counsel.</li>
+            </ul>
+
+            <h3>Data Privacy Assurance</h3>
+            <p>Any information you provide via email (including your email address, name, or attached screenshots) will be used solely for the purpose of responding to your inquiry and improving SmartRatesLab. We do not share email correspondence with third-party advertisers or marketing lists. For complete details, please review our <a href="privacy.html" style="color:#3f9eff;">Privacy Policy</a>. We retain email logs for a maximum of 12 months for quality assurance and then delete them permanently.</p>
+
+            <h2>Operational Hours & Holiday Schedule</h2>
+            <p>Our team operates on Eastern Time (ET), USA. Standard monitoring hours are 9:00 AM to 5:00 PM ET, Monday through Friday. SmartRatesLab observes the following US federal holidays, during which email responses may be delayed:</p>
+            <ul>
+                <li>New Year's Day (January 1)</li>
+                <li>Martin Luther King Jr. Day (third Monday in January)</li>
+                <li>Presidents' Day (third Monday in February)</li>
+                <li>Memorial Day (last Monday in May)</li>
+                <li>Juneteenth National Independence Day (June 19)</li>
+                <li>Independence Day (July 4)</li>
+                <li>Labor Day (first Monday in September)</li>
+                <li>Thanksgiving Day (fourth Thursday in November)</li>
+                <li>Christmas Day (December 25)</li>
+            </ul>
+            <p>During major holiday closures, we post a notification banner on the website. Urgent bug reports related to critical calculation errors will be prioritized upon reopening.</p>
+
+            <h2>Alternative Resources</h2>
+            <p>Before contacting support, please consult the following resources:</p>
+            <ul>
+                <li><strong>About Us page</strong> – For our methodology and E-E-A-T commitment.</li>
+                <li><strong>Comprehensive Guide (Homepage)</strong> – Step-by-step instructions for each calculator.</li>
+                <li><strong>FAQ section</strong> – Answers to common questions regarding rate assumptions and financial formulas.</li>
+            </ul>
+            <p>Many technical questions are already addressed in these detailed guides. Self-service reduces wait times and allows our engineers to focus on complex development tasks.</p>
+
+            <div class="response-badge">
+                <strong>Before You Write</strong><br>
+                Ensure that your issue is not related to browser extensions (ad blockers, script managers) that may interfere with JavaScript calculations. We recommend testing in an incognito/private window or disabling extensions temporarily. If the issue persists, provide the information requested above.
+            </div>
+
+            <h2>Mailing Address (Formal Correspondence Only)</h2>
+            <p>For legal notices, subpoenas, or formal documentation that requires physical delivery, please use the following address. Note that this address is not staffed for walk-in inquiries or general support.</p>
+            
+            <p>Email remains the preferred and fastest channel for all other communications.</p>
+
+            <p style="margin-top: 2rem;">We look forward to assisting you. Every message helps us build a more accurate and useful financial platform.</p>
+            <p><strong>— The SmartRatesLab Operations Team</strong></p>
+        </div>
+    </div>
+</main>
+
+<footer class="site-footer">
+    <div class="container">
+        <div class="footer-grid">
+            <!-- Quick Links Column -->
+            <div class="footer-col">
+                <h4>Quick Links</h4>
+                <ul class="footer-links">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="about.html">About</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                    <li><a href="privacy.html">Privacy Policy</a></li>
+                    <li><a href="terms.html">Terms of Service</a></li>
+                </ul>
+            </div>
+            
+            <!-- Tools Column (7 core financial tools) -->
+            <div class="footer-col">
+                <h4>Financial Tools</h4>
+                <ul class="footer-links" id="footerToolsList">
+                    <!-- Dynamically populated with 7 core tools -->
+                </ul>
+            </div>
+            
+            <!-- Brand/Info Column -->
+            <div class="footer-col">
+                <h4>SmartRatesLab</h4>
+                <p style="font-size:0.85rem;">High-precision financial engines. 100% free, zero data collection.</p>
+                <p style="font-size:0.8rem; margin-top:0.8rem;"></p>
+            </div>
+        </div>
+        <div class="copyright">
+            <span>© 2026 SmartRatesLab | For educational purposes. Always consult a qualified financial advisor before making investment decisions.</span>
+        </div>
+    </div>
+</footer>
+
+<div id="infoModal" class="modal"><div class="modal-content"><button class="close-modal" id="closeModalBtn">&times;</button><div id="modalBody"><h3 id="modalTitle"></h3><div id="modalText"></div></div></div></div>
+
+<script>
+    (function() {
+        // Core tools mapping
+        const toolMap = {
+            "Mortgage Calculator": "mortgage-calculator.html",
+            "Car Refinance Calculator": "car-refinance-calculator.html",
+            "Credit Card Points Calculator": "credit-card-points-calculator.html",
+            "Investment Calculator": "investment-calculator.html",
+            "Budget Calculator": "budget-calculator.html",
+            "Inflation Calculator": "inflation-calculator.html",
+            "College Savings Calculator": "college-savings-calculator.html",
+            "FIRE Simulator": "fire-calculator.html"
+        };
+        
+        // Populate drawer tools (preserving original behavior with 8 tools)
+        const drawerToolsList = document.getElementById('drawerToolsList');
+        const allDrawerTools = ["Mortgage Calculator", "Car Refinance Calculator", "Credit Card Points Calculator", "Investment Calculator", "Budget Calculator", "Inflation Calculator", "College Savings Calculator", "FIRE Simulator"];
+        allDrawerTools.forEach(toolName => {
+            const toolLink = document.createElement('a');
+            toolLink.className = 'drawer-item';
+            toolLink.innerHTML = toolName;
+            toolLink.href = '#';
+            toolLink.style.fontSize = '0.85rem';
+            toolLink.addEventListener('click', (e) => {
+                e.preventDefault();
+                if (toolMap[toolName]) {
+                    window.location.href = toolMap[toolName];
+                } else {
+                    modalTitle.innerText = toolName;
+                    modalText.innerHTML = "<p>Full interactive version coming soon. Stay tuned for advanced simulations.</p>";
+                    modal.style.display = 'flex';
+                }
+                closeDrawer();
+            });
+            drawerToolsList.appendChild(toolLink);
+        });
+        
+        // Populate footer tools list (exactly 7 core tools as requested)
+        const footerToolsList = document.getElementById('footerToolsList');
+        if (footerToolsList) {
+            const footerCoreTools = ["Mortgage Calculator", "Car Refinance Calculator", "Credit Card Points Calculator", "Investment Calculator", "Budget Calculator", "Inflation Calculator", "College Savings Calculator"];
+            footerCoreTools.forEach(toolName => {
+                const li = document.createElement('li');
+                const link = document.createElement('a');
+                link.href = '#';
+                link.textContent = toolName;
+                link.addEventListener('click', (e) => {
+                    e.preventDefault();
+                    if (toolMap[toolName]) {
+                        window.location.href = toolMap[toolName];
+                    } else {
+                        modalTitle.innerText = toolName;
+                        modalText.innerHTML = "<p>Full interactive version coming soon. Stay tuned for advanced simulations.</p>";
+                        modal.style.display = 'flex';
+                    }
+                });
+                li.appendChild(link);
+                footerToolsList.appendChild(li);
+            });
+        }
+        
+        // Modal functionality
+        const modal = document.getElementById('infoModal');
+        const modalTitle = document.getElementById('modalTitle');
+        const modalText = document.getElementById('modalText');
+        const closeModalBtn = document.getElementById('closeModalBtn');
+        function closeModalFunc() { modal.style.display = 'none'; }
+        if (closeModalBtn) closeModalBtn.addEventListener('click', closeModalFunc);
+        window.addEventListener('click', (e) => { if (e.target === modal) closeModalFunc(); });
+        
+        // Navigation handler for drawer items
+        function handleNavigation(navType) {
+            if (navType === 'home') {
+                window.location.href = 'index.html';
+            } 
+            else if (navType === 'about-page') {
+                window.location.href = 'about.html';
+            }
+            else if (navType === 'contact-page') {
+                window.location.href = 'contact.html';
+            }
+            else if (navType === 'privacy') {
+                window.location.href = 'privacy.html';
+            }
+            else if (navType === 'terms') {
+                window.location.href = 'terms.html';
+            }
+            else {
+                closeDrawer();
+            }
+        }
+        
+        // Drawer controls
+        const drawer = document.getElementById('drawerMenu');
+        const overlay = document.getElementById('drawerOverlay');
+        const menuBtn = document.getElementById('menuButton');
+        const closeDrawerBtn = document.getElementById('closeDrawerBtn');
+        function openDrawer() { drawer.classList.add('open'); overlay.classList.add('active'); document.body.style.overflow = 'hidden'; }
+        function closeDrawer() { drawer.classList.remove('open'); overlay.classList.remove('active'); document.body.style.overflow = ''; }
+        if (menuBtn) menuBtn.addEventListener('click', openDrawer);
+        if (closeDrawerBtn) closeDrawerBtn.addEventListener('click', closeDrawer);
+        if (overlay) overlay.addEventListener('click', closeDrawer);
+        
+        document.querySelectorAll('.drawer-item[data-nav]').forEach(item => {
+            item.addEventListener('click', (e) => { 
+                e.preventDefault(); 
+                const navValue = item.getAttribute('data-nav');
+                handleNavigation(navValue);
+            });
+        });
+        
+        const homeLink = document.getElementById('homeLinkHeader');
+        if (homeLink) homeLink.addEventListener('click', () => { window.location.href = 'index.html'; });
+        
+        // Remove any stray footer nav links to ensure clean footer
+        const strayFooterLinks = document.querySelectorAll('.footer-nav-link, .footer-legal-link');
+        strayFooterLinks.forEach(link => link.remove());
+        
+        const blogItems = document.querySelectorAll('.blog-item');
+        blogItems.forEach(item => {
+            item.addEventListener('click', () => { closeDrawer(); });
+        });
+    })();
+</script>
+</body>
+</html>
