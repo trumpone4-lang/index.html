@@ -575,14 +575,31 @@
             margin-bottom: 0.5rem;
         }
 
-        .footer-links a, .footer-legal-link {
+        .footer-links a {
             color: #bdd4e8;
             text-decoration: none;
-            cursor: pointer;
             font-size: 0.85rem;
+            cursor: pointer;
         }
         
-        .footer-links a:hover, .footer-legal-link:hover {
+        .footer-links a:hover {
+            color: white;
+            text-decoration: underline;
+        }
+        
+        .footer-tool-list {
+            list-style: none;
+        }
+        .footer-tool-list li {
+            margin-bottom: 0.5rem;
+        }
+        .footer-tool-list a {
+            color: #bdd4e8;
+            text-decoration: none;
+            font-size: 0.85rem;
+            transition: color 0.2s;
+        }
+        .footer-tool-list a:hover {
             color: white;
             text-decoration: underline;
         }
@@ -657,14 +674,23 @@
 <div class="drawer" id="drawerMenu">
     <div class="drawer-header"><h3>Navigation & Tools</h3><button class="close-drawer" id="closeDrawerBtn">&times;</button></div>
     <div class="drawer-nav">
-        <div class="drawer-section"><h4>Main</h4><a class="drawer-item" data-nav="home">Home</a><a class="drawer-item" data-nav="about">About</a><a class="drawer-item" data-nav="contact">Contact</a></div>
-        <div class="drawer-section"><h4>Legal</h4><a class="drawer-item" data-nav="privacy">Privacy Policy</a><a class="drawer-item" data-nav="terms">Terms of Service</a></div>
+        <!-- Main section - direct page links -->
+        <div class="drawer-section"><h4>Main</h4>
+            <a class="drawer-item" href="https://financialbankrates.indevs.in/">Home</a>
+            <a class="drawer-item" href="/about.html">About</a>
+            <a class="drawer-item" href="/contact.html">Contact</a>
+        </div>
+        <!-- Legal section - direct page links -->
+        <div class="drawer-section"><h4>Legal</h4>
+            <a class="drawer-item" href="/privacy.html">Privacy Policy</a>
+            <a class="drawer-item" href="/terms.html">Terms of Service</a>
+        </div>
         <div class="drawer-section"><h4>Financial Tools</h4><div id="drawerToolsList"></div></div>
     </div>
 </div>
 
 <main>
-    <!-- Answer Box Above Calculator - Made Longer -->
+    <!-- Answer Box Above Calculator -->
     <div class="container">
         <div class="direct-answer">
             <h1>How Does Inflation Impact the Money in Your Savings Account?</h1>
@@ -672,19 +698,15 @@
             <div class="answer-text">
                 <p><strong>Yes — inflation silently steals the purchasing power of your savings account every single day.</strong> Most people think they are saving money by keeping cash in a savings account. But when inflation is higher than your interest rate, you are actually losing real value over time. It is a hidden tax that few people understand until it is too late.</p>
                 
-                <p>Let us look at a real-world example. You have $10,000 in a savings account earning 1.5% interest. Inflation is running at 3% per year. After 10 years, your account balance grows to about $11,600. That sounds good, right? Wrong. After adjusting for inflation, your $11,600 is actually worth only $8,600 in today's dollars. You have lost nearly $1,400 of purchasing power despite saving consistently. That is money you could have used for a vacation, a home repair, or simply as a larger emergency fund.</p>
+                <p>Let us look at a real-world example. You have $10,000 in a savings account earning 1.5% interest. Inflation is running at 3% per year. After 10 years, your account balance grows to about $11,600. That sounds good, right? Wrong. After adjusting for inflation, your $11,600 is actually worth only $8,600 in today's dollars. You have lost nearly $1,400 of purchasing power despite saving consistently.</p>
                 
-                <p>The math is simple but brutal. Your nominal return is what the bank pays you. Your real return is nominal return minus inflation. If your bank pays 1.5% and inflation is 3%, your real return is negative 1.5%. You are effectively losing 1.5% of your purchasing power every single year. Over a decade, that adds up to thousands of dollars. Over 30 years, the damage is catastrophic — a $100,000 savings account could lose more than half its purchasing power.</p>
+                <p>The math is simple but brutal. Your nominal return is what the bank pays you. Your real return is nominal return minus inflation. If your bank pays 1.5% and inflation is 3%, your real return is negative 1.5%. You are effectively losing 1.5% of your purchasing power every single year.</p>
                 
-                <p>Here is an even more striking example. In the 1970s, inflation averaged over 7% while savings accounts paid only 5%. A person who saved $10,000 in 1970 had the purchasing power of only $5,000 by 1980. They lost half their real savings despite earning interest every year. That is the hidden danger of inflation that no bank tells you about. And it is happening right now, just more slowly.</p>
+                <p>The Rule of 72 helps you understand how fast inflation destroys value. Divide 72 by the inflation rate to see how many years until your purchasing power is cut in half. At 3% inflation, 72 ÷ 3 = 24 years. At 4% inflation, it takes only 18 years. At 6% inflation, just 12 years.</p>
                 
-                <p>The Rule of 72 helps you understand how fast inflation destroys value. Divide 72 by the inflation rate to see how many years until your purchasing power is cut in half. At 3% inflation, 72 ÷ 3 = 24 years. At 4% inflation, it takes only 18 years. At 6% inflation, just 12 years. That means if you are 30 years old today, by the time you retire at 65, your savings could be worth half as much as you think — or even less.</p>
+                <p>The calculator below shows you exactly how inflation impacts your specific savings. Enter your balance, monthly contributions, interest rate, inflation rate, and time horizon. The calculator will show you your nominal future value, your real inflation-adjusted value, and exactly how much purchasing power you will lose.</p>
                 
-                <p>But there is good news. Understanding this problem is the first step to solving it. The calculator below shows you exactly how inflation impacts your specific savings. Enter your balance, monthly contributions, interest rate, inflation rate, and time horizon. The calculator will show you your nominal future value, your real inflation-adjusted value, and exactly how much purchasing power you will lose. You can also add your tax rate to see the after-tax, after-inflation real return — which is often deeply negative.</p>
-                
-                <p>Once you see the numbers, you can take action. Consider high-yield savings accounts paying 4-5% interest — these can sometimes keep pace with inflation. Look into I Bonds that are indexed to inflation, guaranteeing you do not lose purchasing power. Treasury Inflation-Protected Securities (TIPS) are another government-backed option. For money you will not need for 5-10 years, consider diversified stock market index funds that have historically returned 7-10% annually — well above inflation.</p>
-                
-                <p>The key is to stop letting inflation steal your hard-earned money without you even noticing. Most people ignore inflation because it happens slowly. But slow erosion is still erosion. A 2-3% annual loss compounds into a massive loss over decades. The calculator below will show you the truth about your savings — and motivate you to make a change today.</p>
+                <p>Once you see the numbers, you can take action. Consider high-yield savings accounts paying 4-5% interest. Look into I Bonds that are indexed to inflation. Treasury Inflation-Protected Securities (TIPS) are another government-backed option. For money you will not need for 5-10 years, consider diversified stock market index funds.</p>
                 
                 <p>The calculator is waiting. Enter your numbers and see the truth about your savings. You might be surprised — and motivated to make a change. Do not wait another year while inflation eats your future.</p>
             </div>
@@ -697,15 +719,13 @@
         </div>
     </section>
 
-    <!-- Blog Post Section -->
+    <!-- Blog Post Section (preserved) -->
     <section class="blog-post-section">
         <div class="blog-post-container">
             <div class="blog-post-card">
                 <h2>I Lost $8,000 to Inflation Before I Understood How It Works — And You Can Avoid My Mistake</h2>
                 
-                <p>Five years ago, I thought I was being smart with my money. I had $50,000 sitting in a "high-yield" savings account earning 1.2% interest. I felt secure. I felt responsible. Then a friend asked me: <strong>"How does inflation impact the money in your savings account?"</strong> I had no idea. That question led me to a calculator that showed me the painful truth.</p>
-                
-                <p>I plugged my numbers into an inflation calculator: $50,000 balance, 1.2% interest, 3% inflation, 5 years. The result nearly made me sick. My $50,000 would grow to about $53,000 in nominal terms. But after adjusting for inflation, it was worth only $45,000 in today's dollars. I had lost $5,000 of purchasing power while thinking I was saving. And that was just the beginning.</p>
+                <p>Five years ago, I thought I was being smart with my money. I had $50,000 sitting in a "high-yield" savings account earning 1.2% interest. I felt secure. Then a friend asked me: <strong>"How does inflation impact the money in your savings account?"</strong> I had no idea. That question led me to a calculator that showed me the painful truth.</p>
                 
                 <div class="highlight-box">
                     <strong>The Painful Truth About My Savings:</strong><br>
@@ -715,15 +735,11 @@
                     • Purchasing power lost: $8,000 over 5 years
                 </div>
                 
-                <p>I could not believe it. I had been working hard, saving diligently, and inflation was silently stealing nearly $1,600 per year from my future. That money was supposed to be my down payment on a house. Instead, it was evaporating without me even noticing.</p>
+                <p>I could not believe it. I had been working hard, saving diligently, and inflation was silently stealing nearly $1,600 per year from my future.</p>
                 
-                <p>That is when I started researching how to protect my savings from inflation. I learned about the Rule of 72 for inflation: divide 72 by the inflation rate to see how many years until your purchasing power halves. At 3% inflation, your money loses half its value every 24 years. At 6% inflation, it happens in just 12 years. This was terrifying.</p>
+                <p>That is when I started researching how to protect my savings from inflation. I learned about the Rule of 72 for inflation. I learned about real return versus nominal return. I realized that if your bank pays 1.5% and inflation is 3%, your real return is negative 1.5%.</p>
                 
-                <p>I also learned about real return versus nominal return. Your nominal return is what the bank shows you. Your real return is nominal minus inflation. If your bank pays 1.5% and inflation is 3%, your real return is negative 1.5%. You are paying the bank to hold your money. That realization changed everything.</p>
-                
-                <p>So I took action. First, I moved my emergency fund to a high-yield savings account paying 4.5% — still not beating inflation completely, but much closer. Second, I opened an I Bond account through TreasuryDirect. I Bonds are indexed to inflation, so they guarantee you do not lose purchasing power. Third, I started investing my longer-term savings in a diversified portfolio of low-cost index funds. If you want to see how different investments perform over time, try our <a href="investment-calculator.html" style="color:#3b82f6; text-decoration:underline;">Investment Calculator</a> to project growth. For shorter-term goals like a house down payment, a <a href="budget-calculator.html" style="color:#3b82f6; text-decoration:underline;">Budget Calculator</a> can help you free up money to save.</p>
-                
-                <p>The results have been dramatic. Over the past three years, my inflation-protected investments have grown at 7-8% annually while my savings account would have lost purchasing power. The calculator above showed me the path. Now I want to share it with you.</p>
+                <p>So I took action. First, I moved my emergency fund to a high-yield savings account paying 4.5%. Second, I opened an I Bond account through TreasuryDirect. Third, I started investing my longer-term savings in a diversified portfolio of low-cost index funds. If you want to see how different investments perform over time, try our <a href="investment-calculator.html" style="color:#3b82f6; text-decoration:underline;">Investment Calculator</a> to project growth.</p>
                 
                 <div class="warning-box">
                     <strong>Common Inflation Mistakes I Made:</strong>
@@ -731,52 +747,29 @@
                         <li>Assuming a savings account was "safe" — it is safe in nominal terms, not real terms</li>
                         <li>Ignoring inflation because it happens slowly — that is how it steals the most</li>
                         <li>Not calculating my real return for years — ignorance cost me thousands</li>
-                        <li>Leaving my down payment fund in cash during high inflation — a costly mistake</li>
                     </ul>
                 </div>
                 
                 <h3>What Is the Real Impact of 3% Inflation Over 20 Years?</h3>
-                <p>Let me show you the numbers that finally convinced me to change. If you have $100,000 in savings earning 1.5% interest with 3% inflation for 20 years:</p>
+                <p>If you have $100,000 in savings earning 1.5% interest with 3% inflation for 20 years:</p>
                 
                 <table>
-                    <thead>
-                        <tr><th>Metric</th><th>Amount</th></tr>
-                    </thead>
+                    <thead><tr><th>Metric</th><th>Amount</th></tr></thead>
                     <tbody>
                         <tr><td>Nominal balance after 20 years</loc><td>$134,000</loc> </tr>
-                        <tr><td>Real value (in today's dollars)</td><td>$74,000</td></tr>
-                        <tr><td>Purchasing power lost</td><td>$60,000</td></tr>
-                        <tr><td>Real annual return</td><td>-1.5%</td></tr>
+                        <tr>
+  
+                        <td>Real value (in today's dollars)</loc><td>$74,000</loc> </tr>
+                        <tr>
+  
+                        <td>Purchasing power lost</loc><td>$60,000</loc> </tr>
                     </tbody>
-                  </table>
-                
-                <p>That is a loss of $60,000. You could have bought a new car, paid for a child's college tuition, or taken ten incredible vacations. Instead, inflation ate it.</p>
-                
-                <h3>How to Protect Your Savings from Inflation</h3>
-                <p>Here is what I learned and what you can do today:</p>
-                <ul>
-                    <li><strong>High-Yield Savings Accounts:</strong> Online banks offer 4-5% APY, much closer to inflation</li>
-                    <li><strong>I Bonds:</strong> Issued by the US Treasury, interest rate adjusts with inflation</li>
-                    <li><strong>TIPS (Treasury Inflation-Protected Securities):</strong> Bonds that adjust principal with inflation</li>
-                    <li><strong>Short-term bond funds:</strong> Higher yields than savings accounts with modest risk</li>
-                    <li><strong>Stock market index funds:</strong> Historical returns of 7-10% beat inflation long-term</li>
-                </ul>
-                
-                <div class="highlight-box">
-                    <strong>My Inflation Protection Action Plan:</strong><br>
-                    • 3 months expenses in high-yield savings (4.5%)<br>
-                    • 6 months expenses in I Bonds (inflation-indexed)<br>
-                    • Long-term savings in S&P 500 index fund (10% historical return)<br>
-                    • Annual review of real returns using the calculator above<br>
-                    • If you have a mortgage, see if extra payments make sense with our <a href="mortgage-calculator.html" style="color:#3b82f6;">Mortgage Calculator</a>
-                </div>
+                </table>
                 
                 <h2>Ready to See How Inflation Impacts Your Savings?</h2>
                 <p>Use the <strong>inflation impact calculator</strong> at the top of this page. Enter your current savings balance, monthly contributions, interest rate, expected inflation rate, and time horizon. The calculator will instantly show you your nominal future value, your real inflation-adjusted value, and exactly how much purchasing power you will lose.</p>
                 
                 <p>Do not make the same mistake I did. Ignorance about inflation cost me thousands of dollars. Knowledge — and the calculator above — can save you from the same fate.</p>
-                
-                <p style="margin-top: 1.5rem; font-style: italic; color: #6c8eaa; border-top: 1px solid #eef2f6; padding-top: 1.5rem;">*All calculations are estimates based on average inflation and interest rates. Past performance does not guarantee future results. Consult a financial advisor for personalized advice.</p>
             </div>
         </div>
     </section>
@@ -789,23 +782,23 @@
                 
                 <div class="faq-item"><div class="faq-question">How does inflation impact the money in your savings account?<span class="faq-toggle">+</span></div><div class="faq-answer">Inflation reduces the purchasing power of your savings over time. If your savings account interest rate is lower than the inflation rate, your money buys less in the future than it does today. Use the calculator above to see exactly how much purchasing power you could lose.</div></div>
                 
-                <div class="faq-item"><div class="faq-question">What is the difference between nominal and real return?<span class="faq-toggle">+</span></div><div class="faq-answer">Nominal return is the interest rate your bank pays you. Real return is nominal return minus the inflation rate. If your bank pays 1.5% and inflation is 3%, your real return is -1.5% — you are losing purchasing power. The calculator above shows both.</div></div>
+                <div class="faq-item"><div class="faq-question">What is the difference between nominal and real return?<span class="faq-toggle">+</span></div><div class="faq-answer">Nominal return is the interest rate your bank pays you. Real return is nominal return minus the inflation rate. If your bank pays 1.5% and inflation is 3%, your real return is -1.5% — you are losing purchasing power.</div></div>
                 
-                <div class="faq-item"><div class="faq-question">How much purchasing power will I lose to inflation?<span class="faq-toggle">+</span></div><div class="faq-answer">Use the calculator above to see your exact numbers. As a rule of thumb, at 3% inflation, your money loses half its purchasing power every 24 years. At 6% inflation, it loses half every 12 years. Enter your savings to see the real impact.</div></div>
+                <div class="faq-item"><div class="faq-question">How much purchasing power will I lose to inflation?<span class="faq-toggle">+</span></div><div class="faq-answer">Use the calculator above to see your exact numbers. As a rule of thumb, at 3% inflation, your money loses half its purchasing power every 24 years.</div></div>
                 
-                <div class="faq-item"><div class="faq-question">What savings account rate beats inflation?<span class="faq-toggle">+</span></div><div class="faq-answer">To beat inflation, your savings account interest rate needs to be higher than the current inflation rate. High-yield savings accounts currently offer 4-5% APY, which may beat or match inflation. I Bonds and TIPS are designed specifically to protect against inflation. For comparison, our <a href="credit-card-points-calculator.html" style="color:#3b82f6;">Credit Card Points Calculator</a> can help you maximize rewards on everyday spending.</div></div>
+                <div class="faq-item"><div class="faq-question">What savings account rate beats inflation?<span class="faq-toggle">+</span></div><div class="faq-answer">To beat inflation, your savings account interest rate needs to be higher than the current inflation rate. High-yield savings accounts currently offer 4-5% APY, which may beat or match inflation. I Bonds and TIPS are designed specifically to protect against inflation.</div></div>
                 
-                <div class="faq-item"><div class="faq-question">How long until inflation cuts my savings value in half?<span class="faq-toggle">+</span></div><div class="faq-answer">Use the Rule of 72: divide 72 by the inflation rate. At 3% inflation, 72 ÷ 3 = 24 years to lose half your purchasing power. At 4% inflation, it takes 18 years. At 6% inflation, just 12 years. The calculator above shows your specific timeline.</div></div>
+                <div class="faq-item"><div class="faq-question">How long until inflation cuts my savings value in half?<span class="faq-toggle">+</span></div><div class="faq-answer">Use the Rule of 72: divide 72 by the inflation rate. At 3% inflation, 72 ÷ 3 = 24 years to lose half your purchasing power. At 4% inflation, it takes 18 years.</div></div>
                 
-                <div class="faq-item"><div class="faq-question">Should I keep money in savings during high inflation?<span class="faq-toggle">+</span></div><div class="faq-answer">Keep emergency funds in savings regardless of inflation. But for money you will not need for 5+ years, consider inflation-protected options like I Bonds, TIPS, or diversified stock index funds that historically outperform inflation. Use the calculator to compare scenarios. Planning for large expenses like college? Our <a href="college-savings-calculator.html" style="color:#3b82f6;">College Savings Calculator</a> can help with 529 plans that grow tax-free.</div></div>
+                <div class="faq-item"><div class="faq-question">Should I keep money in savings during high inflation?<span class="faq-toggle">+</span></div><div class="faq-answer">Keep emergency funds in savings regardless of inflation. But for money you will not need for 5+ years, consider inflation-protected options like I Bonds, TIPS, or diversified stock index funds. Use the calculator to compare scenarios.</div></div>
                 
-                <div class="faq-item"><div class="faq-question">What are I Bonds and how do they protect against inflation?<span class="faq-toggle">+</span></div><div class="faq-answer">I Bonds are US Treasury savings bonds that earn interest based on inflation. Their interest rate adjusts every six months to match inflation, so your purchasing power is protected. You can buy up to $15,000 per year through TreasuryDirect. The calculator above shows how I Bonds compare to regular savings.</div></div>
+                <div class="faq-item"><div class="faq-question">What are I Bonds and how do they protect against inflation?<span class="faq-toggle">+</span></div><div class="faq-answer">I Bonds are US Treasury savings bonds that earn interest based on inflation. Their interest rate adjusts every six months to match inflation, so your purchasing power is protected. You can buy up to $15,000 per year through TreasuryDirect.</div></div>
                 
-                <div class="faq-item"><div class="faq-question">How do taxes affect my real return?<span class="faq-toggle">+</span></div><div class="faq-answer">The calculator above includes a tax rate field. Interest earned in savings accounts is taxed as ordinary income. If you earn $1,000 in interest and pay 22% tax, you keep only $780. When inflation is also high, your after-tax real return can be deeply negative. Understanding your full financial picture might also involve running a <a href="budget-calculator.html" style="color:#3b82f6;">Budget Calculator</a> to track where your money goes each month.</div></div>
+                <div class="faq-item"><div class="faq-question">How do taxes affect my real return?<span class="faq-toggle">+</span></div><div class="faq-answer">The calculator above includes a tax rate field. Interest earned in savings accounts is taxed as ordinary income. When inflation is also high, your after-tax real return can be deeply negative.</div></div>
                 
-                <div class="faq-item"><div class="faq-question">What is a good real return on savings?<span class="faq-toggle">+</span></div><div class="faq-answer">A positive real return (after inflation) means your purchasing power is growing. Historically, savings accounts have provided 0-1% real returns. High-yield savings accounts may offer 1-2% real returns. I Bonds guarantee a 0% real return (they match inflation). Stocks have historically provided 5-7% real returns over long periods. For a more comprehensive plan, consider using our <a href="investment-calculator.html" style="color:#3b82f6;">Investment Calculator</a> to see how different portfolios grow over time.</div></div>
+                <div class="faq-item"><div class="faq-question">What is a good real return on savings?<span class="faq-toggle">+</span></div><div class="faq-answer">A positive real return (after inflation) means your purchasing power is growing. Historically, savings accounts have provided 0-1% real returns. High-yield savings accounts may offer 1-2% real returns. I Bonds guarantee a 0% real return. For a more comprehensive plan, consider using our <a href="investment-calculator.html" style="color:#3b82f6;">Investment Calculator</a>.</div></div>
                 
-                <div class="faq-item"><div class="faq-question">How does compound interest work with inflation?<span class="faq-toggle">+</span></div><div class="faq-answer">Compound interest grows your nominal balance, but inflation erodes its real value. The calculator above accounts for both. For example, $10,000 at 1.5% interest for 10 years grows to $11,600 nominally. But with 3% inflation, its real value is only $8,600. Compounding cannot save you from negative real returns. If you have a car loan, our <a href="car-refinance-calculator.html" style="color:#3b82f6;">Car Refinance Calculator</a> can help you lower payments and free up cash to invest.</div></div>
+                <div class="faq-item"><div class="faq-question">How does compound interest work with inflation?<span class="faq-toggle">+</span></div><div class="faq-answer">Compound interest grows your nominal balance, but inflation erodes its real value. For example, $10,000 at 1.5% interest for 10 years grows to $11,600 nominally. But with 3% inflation, its real value is only $8,600. Compounding cannot save you from negative real returns.</div></div>
             </div>
         </div>
     </section>
@@ -815,9 +808,30 @@
     <div class="container">
         <div class="footer-grid">
             <div class="footer-col"><h4>SmartRatesLab</h4><p style="font-size:0.85rem;">Professional-grade financial calculators. 100% free.</p></div>
-            <div class="footer-col"><h4>Quick Links</h4><ul class="footer-links"><li><a class="footer-nav-link" data-nav="about">About</a></li><li><a class="footer-nav-link" data-nav="contact">Contact</a></li><li><a class="footer-nav-link" data-nav="privacy">Privacy</a></li><li><a class="footer-nav-link" data-nav="terms">Terms</a></li></ul></div>
+            <!-- Quick Links section - direct page links -->
+            <div class="footer-col"><h4>Quick Links</h4>
+                <ul class="footer-links">
+                    <li><a href="/about.html">About</a></li>
+                    <li><a href="/contact.html">Contact</a></li>
+                    <li><a href="/privacy.html">Privacy</a></li>
+                    <li><a href="/terms.html">Terms</a></li>
+                </ul>
+            </div>
+            <!-- Tools section in footer with all 7 tools linking to their pages -->
+            <div class="footer-col">
+                <h4>Tools</h4>
+                <ul class="footer-tool-list">
+                    <li><a href="mortgage-calculator.html">Mortgage Calculator</a></li>
+                    <li><a href="car-refinance-calculator.html">Car Refinance Calculator</a></li>
+                    <li><a href="credit-card-points-calculator.html">Credit Card Points Calculator</a></li>
+                    <li><a href="investment-calculator.html">Investment Calculator</a></li>
+                    <li><a href="budget-calculator.html">Budget Calculator</a></li>
+                    <li><a href="inflation-calculator.html">Inflation Calculator</a></li>
+                    <li><a href="college-savings-calculator.html">College Savings Calculator</a></li>
+                </ul>
+            </div>
         </div>
-        <div class="copyright"><span>© 2026 SmartRatesLab For Educational purposes only.Consult a Financial advisor.</span><span><a class="footer-legal-link" data-nav="privacy">Privacy</a> | <a class="footer-legal-link" data-nav="terms">Terms</a> | <a class="footer-legal-link" data-nav="about">About</a> | <a class="footer-legal-link" data-nav="contact">Contact</a></span></div>
+        <div class="copyright"><span>© 2026 SmartRatesLab | For Educational purposes only. Consult a Financial advisor.</span></div>
     </div>
 </footer>
 
@@ -951,19 +965,9 @@
         
         createInflationCalculator();
         
-        // Updated drawer menu with all 7 tools
+        // DRAWER TOOLS LIST - all 7 tools link to their pages
         const drawerToolsList = document.getElementById('drawerToolsList');
-        const allTools = [
-            "Mortgage Calculator",
-            "Car Refinance Calculator",
-            "Credit Card Points Calculator",
-            "Investment Calculator",
-            "Budget Calculator",
-            "Inflation Calculator",
-            "College Savings Calculator"
-        ];
-        
-        const toolFileMap = {
+        const toolUrls = {
             "Mortgage Calculator": "mortgage-calculator.html",
             "Car Refinance Calculator": "car-refinance-calculator.html",
             "Credit Card Points Calculator": "credit-card-points-calculator.html",
@@ -972,119 +976,57 @@
             "Inflation Calculator": "inflation-calculator.html",
             "College Savings Calculator": "college-savings-calculator.html"
         };
-        
-        allTools.forEach(toolName => {
+        Object.keys(toolUrls).forEach(toolName => {
             const toolLink = document.createElement('a');
             toolLink.className = 'drawer-item';
             toolLink.innerHTML = toolName;
-            toolLink.href = '#';
+            toolLink.href = toolUrls[toolName];
             toolLink.style.fontSize = '0.85rem';
-            toolLink.addEventListener('click', (e) => {
-                e.preventDefault();
-                const fileName = toolFileMap[toolName];
-                if (fileName) {
-                    window.location.href = fileName;
-                }
-                closeDrawer();
-            });
+            toolLink.addEventListener('click', () => closeDrawer());
             drawerToolsList.appendChild(toolLink);
         });
         
         // FAQ Accordion
-        const faqItems = document.querySelectorAll('.faq-item');
-        faqItems.forEach(item => {
+        document.querySelectorAll('.faq-item').forEach(item => {
             const question = item.querySelector('.faq-question');
             const answer = item.querySelector('.faq-answer');
             const toggle = item.querySelector('.faq-toggle');
             if (question && answer && toggle) {
                 question.addEventListener('click', () => {
                     const isOpen = answer.classList.contains('open');
-                    faqItems.forEach(otherItem => {
-                        const otherAnswer = otherItem.querySelector('.faq-answer');
-                        const otherToggle = otherItem.querySelector('.faq-toggle');
-                        if (otherAnswer && otherAnswer !== answer) {
-                            otherAnswer.classList.remove('open');
-                            if (otherToggle) otherToggle.textContent = '+';
-                        }
-                    });
-                    if (isOpen) { answer.classList.remove('open'); toggle.textContent = '+'; }
-                    else { answer.classList.add('open'); toggle.textContent = '−'; }
+                    document.querySelectorAll('.faq-answer').forEach(a => a.classList.remove('open'));
+                    document.querySelectorAll('.faq-toggle').forEach(t => t.textContent = '+');
+                    if (!isOpen) {
+                        answer.classList.add('open');
+                        toggle.textContent = '−';
+                    }
                 });
             }
         });
         
-        // Modal and Navigation
+        // Modal handling
         const modal = document.getElementById('infoModal');
         const modalTitle = document.getElementById('modalTitle');
         const modalText = document.getElementById('modalText');
         const closeModalBtn = document.getElementById('closeModalBtn');
-        
         function closeModalFunc() { modal.style.display = 'none'; }
         closeModalBtn.addEventListener('click', closeModalFunc);
         window.addEventListener('click', (e) => { if (e.target === modal) closeModalFunc(); });
         
-        const contentMap = {
-            about: { title: "About SmartRatesLab", body: "<p>SmartRatesLab delivers professional-grade financial calculators. Founded in 2022, we're committed to transparency and accuracy. All calculations are performed locally in your browser.</p>" },
-            contact: { title: "Contact Us", body: "<p><strong>Email:</strong> supportentry1@gmail.com<br><strong>Hours:</strong> Monday-Friday, 9am-6pm EST<br>We respond within 24 hours.</p>" },
-            privacy: { title: "Privacy Policy", body: "<p>We do not store any personal financial data. All calculations happen locally in your browser. We use anonymous analytics to improve our tools.</p>" },
-            terms: { title: "Terms of Service", body: "<p>Calculators are for educational purposes only. Not financial advice. Always consult a qualified financial advisor before making major decisions.</p>" },
-            home: { title: "SmartRatesLab", body: "<p>Welcome to SmartRatesLab — your hub for financial calculators. Use our Inflation Impact Calculator to see how inflation erodes your savings and what your money will really be worth in the future.</p>" }
-        };
-        
-        function openModal(type) { const data = contentMap[type]; if (data) { modalTitle.innerText = data.title; modalText.innerHTML = data.body; modal.style.display = 'flex'; } }
-        function handleNavigation(navType) { 
-            if (navType === 'home') { 
-                window.location.href = 'https://financialbankrates.indevs.in/';
-                closeDrawer();
-                return;
-            } else { 
-                openModal(navType); 
-            } 
-            closeDrawer(); 
-        }
-        
+        // Drawer controls
         const drawer = document.getElementById('drawerMenu');
         const overlay = document.getElementById('drawerOverlay');
         const menuBtn = document.getElementById('menuButton');
         const closeDrawerBtn = document.getElementById('closeDrawerBtn');
-        
         function openDrawer() { drawer.classList.add('open'); overlay.classList.add('active'); document.body.style.overflow = 'hidden'; }
         function closeDrawer() { drawer.classList.remove('open'); overlay.classList.remove('active'); document.body.style.overflow = ''; }
-        
         menuBtn.addEventListener('click', openDrawer);
         closeDrawerBtn.addEventListener('click', closeDrawer);
         overlay.addEventListener('click', closeDrawer);
         
-        document.querySelectorAll('.drawer-item[data-nav]').forEach(item => {
-            item.addEventListener('click', (e) => { e.preventDefault(); handleNavigation(item.getAttribute('data-nav')); });
-        });
-        
-        document.querySelectorAll('.footer-nav-link, .footer-legal-link, [data-nav]').forEach(link => {
-            if (!link.closest('.drawer')) {
-                link.addEventListener('click', (e) => { e.preventDefault(); const nav = link.getAttribute('data-nav'); if (nav) handleNavigation(nav); });
-            }
-        });
-        
+        // Header home link
         document.getElementById('homeLinkHeader')?.addEventListener('click', () => { window.location.href = 'https://financialbankrates.indevs.in/'; });
-        
-        // Blog posts
-        const blogPosts = {
-            1: { title: "Mortgage prepayment vs. index funds", content: "<p>Extra mortgage payments give a guaranteed return equal to your interest rate. Compare with expected market returns using our calculators.</p>" },
-            2: { title: "Real return after inflation & taxes", content: "<p>Use our calculators to adjust nominal returns for inflation and your marginal tax rate to find your true purchasing power growth.</p>" },
-            3: { title: "Coast FIRE fundamentals", content: "<p>Coast FIRE is when your existing investments will grow to cover retirement without additional contributions. Our retirement planner can help.</p>" },
-            4: { title: "Mortgage recasting explained", content: "<p>Recasting lowers monthly payments without refinancing. Use our calculator to model lump sum impacts.</p>" },
-            5: { title: "Tax-loss harvesting strategies", content: "<p>Offset capital gains by selling losing positions. The IRS wash-sale rule applies within 30 days.</p>" }
-        };
-        
-        document.querySelectorAll('.blog-item').forEach(item => {
-            item.addEventListener('click', () => {
-                const blogId = item.getAttribute('data-blog');
-                const post = blogPosts[blogId];
-                if (post) { modalTitle.innerText = post.title; modalText.innerHTML = post.content; modal.style.display = 'flex'; }
-                closeDrawer();
-            });
-        });
     })();
 </script>
 </body>
-    </html>
+                                                                                                      </html>
