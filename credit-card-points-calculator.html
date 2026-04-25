@@ -586,6 +586,23 @@
             color: white;
             text-decoration: underline;
         }
+        
+        .footer-tool-list {
+            list-style: none;
+        }
+        .footer-tool-list li {
+            margin-bottom: 0.5rem;
+        }
+        .footer-tool-list a {
+            color: #bdd4e8;
+            text-decoration: none;
+            font-size: 0.85rem;
+            transition: color 0.2s;
+        }
+        .footer-tool-list a:hover {
+            color: white;
+            text-decoration: underline;
+        }
 
         .copyright {
             text-align: center;
@@ -657,14 +674,23 @@
 <div class="drawer" id="drawerMenu">
     <div class="drawer-header"><h3>Navigation & Tools</h3><button class="close-drawer" id="closeDrawerBtn">&times;</button></div>
     <div class="drawer-nav">
-        <div class="drawer-section"><h4>Main</h4><a class="drawer-item" data-nav="home">Home</a><a class="drawer-item" data-nav="about">About</a><a class="drawer-item" data-nav="contact">Contact</a></div>
-        <div class="drawer-section"><h4>Legal</h4><a class="drawer-item" data-nav="privacy">Privacy Policy</a><a class="drawer-item" data-nav="terms">Terms of Service</a></div>
+        <!-- Main section - direct page links -->
+        <div class="drawer-section"><h4>Main</h4>
+            <a class="drawer-item" href="https://financialbankrates.indevs.in/">Home</a>
+            <a class="drawer-item" href="/about.html">About</a>
+            <a class="drawer-item" href="/contact.html">Contact</a>
+        </div>
+        <!-- Legal section - direct page links -->
+        <div class="drawer-section"><h4>Legal</h4>
+            <a class="drawer-item" href="/privacy.html">Privacy Policy</a>
+            <a class="drawer-item" href="/terms.html">Terms of Service</a>
+        </div>
         <div class="drawer-section"><h4>Financial Tools</h4><div id="drawerToolsList"></div></div>
     </div>
 </div>
 
 <main>
-    <!-- Direct Answer Box Above Calculator - ADDED MISSING KEY POINTS ABOUT CREDIT CARD POINTS -->
+    <!-- Direct Answer Box Above Calculator -->
     <div class="container">
         <div class="direct-answer">
             <h1>Credit Card Points Calculator</h1>
@@ -697,7 +723,7 @@
         </div>
     </section>
 
-    <!-- Blog Post Section - KEPT EXACTLY AS ORIGINAL (NO EXTRA CALCULATOR EXPLANATIONS) -->
+    <!-- Blog Post Section - KEPT EXACTLY AS ORIGINAL -->
     <section class="blog-post-section">
         <div class="blog-post-container">
             <div class="blog-post-card">
@@ -796,7 +822,7 @@
         </div>
     </section>
     
-    <!-- FAQ Section - 10 Questions (UNCHANGED) -->
+    <!-- FAQ Section - 10 Questions -->
     <section class="faq-section">
         <div class="faq-container">
             <div class="faq-card">
@@ -830,9 +856,30 @@
     <div class="container">
         <div class="footer-grid">
             <div class="footer-col"><h4>SmartRatesLab</h4><p style="font-size:0.85rem;">Professional-grade financial calculators. 100% free.</p></div>
-            <div class="footer-col"><h4>Quick Links</h4><ul class="footer-links"><li><a class="footer-nav-link" data-nav="about">About</a></li><li><a class="footer-nav-link" data-nav="contact">Contact</a></li><li><a class="footer-nav-link" data-nav="privacy">Privacy</a></li><li><a class="footer-nav-link" data-nav="terms">Terms</a></li></ul></div>
+            <!-- Quick Links section - direct page links -->
+            <div class="footer-col"><h4>Quick Links</h4>
+                <ul class="footer-links">
+                    <li><a href="/about.html">About</a></li>
+                    <li><a href="/contact.html">Contact</a></li>
+                    <li><a href="/privacy.html">Privacy</a></li>
+                    <li><a href="/terms.html">Terms</a></li>
+                </ul>
+            </div>
+            <!-- Tools section in footer with all 7 tools linking to their pages -->
+            <div class="footer-col">
+                <h4>Tools</h4>
+                <ul class="footer-tool-list">
+                    <li><a href="mortgage-calculator.html">Mortgage Calculator</a></li>
+                    <li><a href="car-refinance-calculator.html">Car Refinance Calculator</a></li>
+                    <li><a href="credit-card-points-calculator.html">Credit Card Points Calculator</a></li>
+                    <li><a href="investment-calculator.html">Investment Calculator</a></li>
+                    <li><a href="budget-calculator.html">Budget Calculator</a></li>
+                    <li><a href="inflation-calculator.html">Inflation Calculator</a></li>
+                    <li><a href="college-savings-calculator.html">College Savings Calculator</a></li>
+                </ul>
+            </div>
         </div>
-        <div class="copyright"><span>© 2026 SmartRatesLab | For Educational purposes only.Consult a Financial advisor.</span><span><a class="footer-legal-link" data-nav="privacy">Privacy</a> | <a class="footer-legal-link" data-nav="terms">Terms</a> | <a class="footer-legal-link" data-nav="about">About</a> | <a class="footer-legal-link" data-nav="contact">Contact</a></span></div>
+        <div class="copyright"><span>© 2026 SmartRatesLab | For Educational purposes only. Consult a Financial advisor.</span></div>
     </div>
 </footer>
 
@@ -949,19 +996,9 @@
         
         createPointsCalculator();
         
-        // Updated drawer menu with all 7 tools
+        // DRAWER TOOLS LIST - all tools link to their pages
         const drawerToolsList = document.getElementById('drawerToolsList');
-        const allTools = [
-            "Mortgage Calculator",
-            "Car Refinance Calculator",
-            "Credit Card Points Calculator",
-            "Investment Calculator",
-            "Budget Calculator",
-            "Inflation Calculator",
-            "College Savings Calculator"
-        ];
-        
-        const toolFileMap = {
+        const toolUrls = {
             "Mortgage Calculator": "mortgage-calculator.html",
             "Car Refinance Calculator": "car-refinance-calculator.html",
             "Credit Card Points Calculator": "credit-card-points-calculator.html",
@@ -970,117 +1007,57 @@
             "Inflation Calculator": "inflation-calculator.html",
             "College Savings Calculator": "college-savings-calculator.html"
         };
-        
-        allTools.forEach(toolName => {
+        Object.keys(toolUrls).forEach(toolName => {
             const toolLink = document.createElement('a');
             toolLink.className = 'drawer-item';
             toolLink.innerHTML = toolName;
-            toolLink.href = '#';
+            toolLink.href = toolUrls[toolName];
             toolLink.style.fontSize = '0.85rem';
-            toolLink.addEventListener('click', (e) => {
-                e.preventDefault();
-                const fileName = toolFileMap[toolName];
-                if (fileName) {
-                    window.location.href = fileName;
-                }
-                closeDrawer();
-            });
+            toolLink.addEventListener('click', () => closeDrawer());
             drawerToolsList.appendChild(toolLink);
         });
         
         // FAQ Accordion
-        const faqItems = document.querySelectorAll('.faq-item');
-        faqItems.forEach(item => {
+        document.querySelectorAll('.faq-item').forEach(item => {
             const question = item.querySelector('.faq-question');
             const answer = item.querySelector('.faq-answer');
             const toggle = item.querySelector('.faq-toggle');
             if (question && answer && toggle) {
                 question.addEventListener('click', () => {
                     const isOpen = answer.classList.contains('open');
-                    faqItems.forEach(otherItem => {
-                        const otherAnswer = otherItem.querySelector('.faq-answer');
-                        const otherToggle = otherItem.querySelector('.faq-toggle');
-                        if (otherAnswer && otherAnswer !== answer) {
-                            otherAnswer.classList.remove('open');
-                            if (otherToggle) otherToggle.textContent = '+';
-                        }
-                    });
-                    if (isOpen) { answer.classList.remove('open'); toggle.textContent = '+'; }
-                    else { answer.classList.add('open'); toggle.textContent = '−'; }
+                    document.querySelectorAll('.faq-answer').forEach(a => a.classList.remove('open'));
+                    document.querySelectorAll('.faq-toggle').forEach(t => t.textContent = '+');
+                    if (!isOpen) {
+                        answer.classList.add('open');
+                        toggle.textContent = '−';
+                    }
                 });
             }
         });
         
+        // Modal handling
         const modal = document.getElementById('infoModal');
         const modalTitle = document.getElementById('modalTitle');
         const modalText = document.getElementById('modalText');
         const closeModalBtn = document.getElementById('closeModalBtn');
-        
         function closeModalFunc() { modal.style.display = 'none'; }
         closeModalBtn.addEventListener('click', closeModalFunc);
         window.addEventListener('click', (e) => { if (e.target === modal) closeModalFunc(); });
         
-        const contentMap = {
-            about: { title: "About SmartRatesLab", body: "<p>SmartRatesLab delivers professional-grade financial calculators. Founded in 2022, we're committed to transparency and accuracy. All calculations are performed locally in your browser.</p>" },
-            contact: { title: "Contact Us", body: "<p><strong>Email:</strong> supportentry1@gmail.com<br><strong>Hours:</strong> Monday-Friday, 9am-6pm EST<br>We respond within 24 hours.</p>" },
-            privacy: { title: "Privacy Policy", body: "<p>We do not store any personal financial data. All calculations happen locally in your browser. We use anonymous analytics to improve our tools.</p>" },
-            terms: { title: "Terms of Service", body: "<p>Calculators are for educational purposes only. Not financial advice. Always consult a qualified financial advisor before making major decisions.</p>" },
-            home: { title: "SmartRatesLab", body: "<p>Welcome to SmartRatesLab — your hub for financial calculators. Use our Credit Card Points Calculator to maximize your rewards and find the best card for your spending.</p>" }
-        };
-        
-        function openModal(type) { const data = contentMap[type]; if (data) { modalTitle.innerText = data.title; modalText.innerHTML = data.body; modal.style.display = 'flex'; } }
-        function handleNavigation(navType) { 
-            if (navType === 'home') { 
-                window.location.href = 'https://financialbankrates.indevs.in/';
-                closeDrawer();
-                return;
-            } else { 
-                openModal(navType); 
-            } 
-            closeDrawer(); 
-        }
-        
+        // Drawer controls
         const drawer = document.getElementById('drawerMenu');
         const overlay = document.getElementById('drawerOverlay');
         const menuBtn = document.getElementById('menuButton');
         const closeDrawerBtn = document.getElementById('closeDrawerBtn');
-        
         function openDrawer() { drawer.classList.add('open'); overlay.classList.add('active'); document.body.style.overflow = 'hidden'; }
         function closeDrawer() { drawer.classList.remove('open'); overlay.classList.remove('active'); document.body.style.overflow = ''; }
-        
         menuBtn.addEventListener('click', openDrawer);
         closeDrawerBtn.addEventListener('click', closeDrawer);
         overlay.addEventListener('click', closeDrawer);
         
-        document.querySelectorAll('.drawer-item[data-nav]').forEach(item => {
-            item.addEventListener('click', (e) => { e.preventDefault(); handleNavigation(item.getAttribute('data-nav')); });
-        });
-        
-        document.querySelectorAll('.footer-nav-link, .footer-legal-link, [data-nav]').forEach(link => {
-            if (!link.closest('.drawer')) {
-                link.addEventListener('click', (e) => { e.preventDefault(); const nav = link.getAttribute('data-nav'); if (nav) handleNavigation(nav); });
-            }
-        });
-        
+        // Header home link
         document.getElementById('homeLinkHeader')?.addEventListener('click', () => { window.location.href = 'https://financialbankrates.indevs.in/'; });
-        
-        const blogPosts = {
-            1: { title: "Mortgage prepayment vs. index funds", content: "<p>Extra mortgage payments give a guaranteed return equal to your interest rate. Compare with expected market returns using our calculators.</p>" },
-            2: { title: "Real return after inflation & taxes", content: "<p>Use our calculators to adjust nominal returns for inflation and your marginal tax rate to find your true purchasing power growth.</p>" },
-            3: { title: "Coast FIRE fundamentals", content: "<p>Coast FIRE is when your existing investments will grow to cover retirement without additional contributions. Our retirement planner can help.</p>" },
-            4: { title: "Mortgage recasting explained", content: "<p>Recasting lowers monthly payments without refinancing. Use our calculator to model lump sum impacts.</p>" },
-            5: { title: "Tax-loss harvesting strategies", content: "<p>Offset capital gains by selling losing positions. The IRS wash-sale rule applies within 30 days.</p>" }
-        };
-        
-        document.querySelectorAll('.blog-item').forEach(item => {
-            item.addEventListener('click', () => {
-                const blogId = item.getAttribute('data-blog');
-                const post = blogPosts[blogId];
-                if (post) { modalTitle.innerText = post.title; modalText.innerHTML = post.content; modal.style.display = 'flex'; }
-                closeDrawer();
-            });
-        });
     })();
 </script>
 </body>
-                                                                                                                                                                             </html>
+    </html>
