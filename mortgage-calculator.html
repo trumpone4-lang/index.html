@@ -462,6 +462,20 @@
             color: white;
             text-decoration: underline;
         }
+        
+        .footer-tool-item {
+            display: block;
+            color: #bdd4e8;
+            text-decoration: none;
+            font-size: 0.85rem;
+            margin-bottom: 0.5rem;
+            transition: color 0.2s;
+        }
+        
+        .footer-tool-item:hover {
+            color: white;
+            text-decoration: underline;
+        }
 
         .copyright {
             text-align: center;
@@ -531,8 +545,17 @@
 <div class="drawer" id="drawerMenu">
     <div class="drawer-header"><h3>Navigation & Tools</h3><button class="close-drawer" id="closeDrawerBtn">&times;</button></div>
     <div class="drawer-nav">
-        <div class="drawer-section"><h4>Main</h4><a class="drawer-item" data-nav="home">Home</a><a class="drawer-item" data-nav="about">About</a><a class="drawer-item" data-nav="contact">Contact</a></div>
-        <div class="drawer-section"><h4>Legal</h4><a class="drawer-item" data-nav="privacy">Privacy Policy</a><a class="drawer-item" data-nav="terms">Terms of Service</a></div>
+        <!-- Main section - direct page links -->
+        <div class="drawer-section"><h4>Main</h4>
+            <a class="drawer-item" href="https://financialbankrates.indevs.in/">Home</a>
+            <a class="drawer-item" href="/about.html">About</a>
+            <a class="drawer-item" href="/contact.html">Contact</a>
+        </div>
+        <!-- Legal section - direct page links -->
+        <div class="drawer-section"><h4>Legal</h4>
+            <a class="drawer-item" href="/privacy.html">Privacy Policy</a>
+            <a class="drawer-item" href="/terms.html">Terms of Service</a>
+        </div>
         <div class="drawer-section"><h4>Financial Tools</h4><div id="drawerToolsList"></div></div>
     </div>
 </div>
@@ -576,7 +599,7 @@
             <!-- CALCULATOR -->
             <div class="tools-grid" id="calculatorsGrid"></div>
             
-            <!-- BLOG ARTICLE -->
+            <!-- BLOG ARTICLE (preserved unchanged) -->
             <div class="article-section">
                 <h2>How I Cut 12 Years Off My Mortgage (And You Can Too)</h2>
                 <p>Three years ago, I was staring at a 30-year mortgage with a 6.5% interest rate. The total interest over the life of the loan was staggering — nearly as much as the house itself. That is when I started researching every possible way to pay off my home faster. What I learned changed my financial future.</p>
@@ -616,7 +639,7 @@
                 <p><strong>Pro tip:</strong> If your lender doesn't offer automatic biweekly payments, you can simulate the strategy by dividing your monthly payment by 12 and adding that amount to each monthly check. For example, on a $1,700 payment, add $142 to each monthly payment. This achieves the same extra payment per year as biweekly, with less administrative hassle.</p>
             </div>
             
-            <!-- FAQ SECTION -->
+            <!-- FAQ SECTION (preserved unchanged) -->
             <div class="article-section">
                 <h2>Frequently Asked Questions</h2>
                 <div id="faqContainer">
@@ -641,10 +664,31 @@
     <div class="container">
         <div class="footer-grid">
             <div class="footer-col"><h4>SmartRatesLab</h4><p style="font-size:0.85rem;">Professional-grade financial calculators. 100% free.</p></div>
-            <div class="footer-col"><h4>Quick Links</h4><ul class="footer-links"><li><a class="footer-nav-link" data-nav="about">About</a></li><li><a class="footer-nav-link" data-nav="contact">Contact</a></li><li><a class="footer-nav-link" data-nav="privacy">Privacy</a></li><li><a class="footer-nav-link" data-nav="terms">Terms</a></li></ul></div>
-            <div class="footer-col"><!-- Blog section removed --></div>
+            <!-- Quick Links section - direct page links -->
+            <div class="footer-col"><h4>Quick Links</h4>
+                <ul class="footer-links">
+                    <li><a href="/about.html">About</a></li>
+                    <li><a href="/contact.html">Contact</a></li>
+                    <li><a href="/privacy.html">Privacy</a></li>
+                    <li><a href="/terms.html">Terms</a></li>
+                </ul>
+            </div>
+            <!-- Tools section in footer with all 7 tools linking to their pages -->
+            <div class="footer-col">
+                <h4>Tools</h4>
+                <a href="https://financialbankrates.indevs.in/mortgage-calculator.html" class="footer-tool-item">Mortgage Calculator</a>
+                <a href="/car-refinance-calculator.html" class="footer-tool-item">Car Refinance Calculator</a>
+                <a href="/credit-card-points-calculator.html" class="footer-tool-item">Credit Card Points Calculator</a>
+                <a href="/investment-calculator.html" class="footer-tool-item">Investment Calculator</a>
+                <a href="/budget-calculator.html" class="footer-tool-item">Budget Calculator</a>
+                <a href="/inflation-calculator.html" class="footer-tool-item">Inflation Calculator</a>
+                <a href="/college-savings-calculator.html" class="footer-tool-item">College Savings Calculator</a>
+            </div>
         </div>
-        <div class="copyright"><span>© 2026 SmartRatesLab | For Educational purposes only.Consult a Financial advisor.</span><span><a class="footer-legal-link" data-nav="privacy">Privacy</a> | <a class="footer-legal-link" data-nav="terms">Terms</a> | <a class="footer-legal-link" data-nav="about">About</a> | <a class="footer-legal-link" data-nav="contact">Contact</a></span></div>
+        <!-- Removed the extra legal links row from copyright -->
+        <div class="copyright">
+            <span>© 2026 SmartRatesLab | For Educational purposes only. Consult a Financial advisor.</span>
+        </div>
     </div>
 </footer>
 
@@ -797,62 +841,44 @@
         
         createMortgageCalculator();
         
-        // MENU BUTTON TOOLS LIST - UPDATED WITH CORRECT URLS
+        // DRAWER TOOLS LIST - all tools link to their pages
         const drawerToolsList = document.getElementById('drawerToolsList');
-        const allTools = [
-            "Mortgage Calculator", "Car Refinance Calculator", "Credit Card Points Calculator",
-            "Investment Calculator", "Budget Calculator", "Inflation Calculator", "College Savings Calculator"
-        ];
         const toolUrls = {
             "Mortgage Calculator": "https://financialbankrates.indevs.in/mortgage-calculator.html",
-            "Car Refinance Calculator": "car-refinance-calculator.html",
-            "Credit Card Points Calculator": "credit-card-points-calculator.html",
-            "Investment Calculator": "investment-calculator.html",
-            "Budget Calculator": "budget-calculator.html",
-            "Inflation Calculator": "inflation-calculator.html",
-            "College Savings Calculator": "college-savings-calculator.html"
+            "Car Refinance Calculator": "/car-refinance-calculator.html",
+            "Credit Card Points Calculator": "/credit-card-points-calculator.html",
+            "Investment Calculator": "/investment-calculator.html",
+            "Budget Calculator": "/budget-calculator.html",
+            "Inflation Calculator": "/inflation-calculator.html",
+            "College Savings Calculator": "/college-savings-calculator.html"
         };
-        allTools.forEach(toolName => {
+        Object.keys(toolUrls).forEach(toolName => {
             const toolLink = document.createElement('a');
             toolLink.className = 'drawer-item';
             toolLink.innerHTML = toolName;
-            toolLink.href = '#';
+            toolLink.href = toolUrls[toolName];
             toolLink.style.fontSize = '0.85rem';
-            toolLink.addEventListener('click', (e) => {
-                e.preventDefault();
-                window.location.href = toolUrls[toolName];
-                closeDrawer();
-            });
+            toolLink.addEventListener('click', (e) => { closeDrawer(); });
             drawerToolsList.appendChild(toolLink);
         });
         
+        // Modal logic (kept for any residual modal needs)
         const modal = document.getElementById('infoModal'); const modalTitle = document.getElementById('modalTitle'); const modalText = document.getElementById('modalText'); const closeModalBtn = document.getElementById('closeModalBtn');
         function closeModalFunc() { modal.style.display = 'none'; }
         closeModalBtn.addEventListener('click', closeModalFunc); window.addEventListener('click', (e) => { if (e.target === modal) closeModalFunc(); });
-        const contentMap = { about: { title: "📌 About SmartRatesLab", body: "<p>SmartRatesLab delivers professional-grade financial calculators. Founded in 2022, we're committed to transparency and accuracy.</p>" }, contact: { title: "📧 Contact Us", body: "<p><strong>Email:</strong> supportentry1@gmail.com<br>Hours: Mon-Fri 9am-6pm EST</p>" }, privacy: { title: "🔒 Privacy Policy", body: "<p>We do not store personal financial data. Calculations happen locally in your browser.</p>" }, terms: { title: "⚖️ Terms of Service", body: "<p>Calculators are for educational purposes only. Not financial advice.</p>" }, home: { title: "SmartRatesLab", body: "<p>Welcome to SmartRatesLab — your hub for mortgage finance calculators.</p>" } };
-        function openModal(type) { const data = contentMap[type]; if (data) { modalTitle.innerText = data.title; modalText.innerHTML = data.body; modal.style.display = 'flex'; } }
-        function handleNavigation(navType) { 
-            if (navType === 'home') { 
-                window.location.href = 'https://financialbankrates.indevs.in/';
-                closeDrawer();
-                return;
-            } else { 
-                openModal(navType); 
-            } 
-            closeDrawer(); 
-        }
+        
+        // Drawer open/close
         const drawer = document.getElementById('drawerMenu'); const overlay = document.getElementById('drawerOverlay'); const menuBtn = document.getElementById('menuButton'); const closeDrawerBtn = document.getElementById('closeDrawerBtn');
         function openDrawer() { drawer.classList.add('open'); overlay.classList.add('active'); document.body.style.overflow = 'hidden'; }
         function closeDrawer() { drawer.classList.remove('open'); overlay.classList.remove('active'); document.body.style.overflow = ''; }
         menuBtn.addEventListener('click', openDrawer); closeDrawerBtn.addEventListener('click', closeDrawer); overlay.addEventListener('click', closeDrawer);
-        document.querySelectorAll('.drawer-item[data-nav]').forEach(item => { item.addEventListener('click', (e) => { e.preventDefault(); handleNavigation(item.getAttribute('data-nav')); }); });
-        document.querySelectorAll('.footer-nav-link, .footer-legal-link, [data-nav]').forEach(link => { if (!link.closest('.drawer')) { link.addEventListener('click', (e) => { e.preventDefault(); const nav = link.getAttribute('data-nav'); if (nav) handleNavigation(nav); }); } });
+        
+        // Header home link
         document.getElementById('homeLinkHeader')?.addEventListener('click', () => { window.location.href = 'https://financialbankrates.indevs.in/'; });
         
+        // FAQ toggle functionality
         document.querySelectorAll('.faq-question').forEach(q => { q.addEventListener('click', () => { const answer = q.parentElement.querySelector('.faq-answer'); answer.classList.toggle('show'); q.querySelector('.toggle-icon').innerText = answer.classList.contains('show') ? '−' : '+'; }); });
     })();
 </script>
-    
-<script src="nav.js"></script>
 </body>
-                                                             </html>
+    </html>
