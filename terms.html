@@ -356,12 +356,12 @@
     <div class="drawer-nav">
         <div class="drawer-section"><h4>Main</h4>
             <a class="drawer-item" data-nav="home">Home</a>
-            <a class="drawer-item" data-nav="about">About</a>
-            <a class="drawer-item" data-nav="contact">Contact</a>
+            <a class="drawer-item" data-nav="about.html">About</a>
+            <a class="drawer-item" data-nav="contact.html">Contact</a>
         </div>
         <div class="drawer-section"><h4>Legal</h4>
-            <a class="drawer-item" data-nav="privacy-policy">Privacy Policy</a>
-            <a class="drawer-item" data-nav="terms">Terms</a>
+            <a class="drawer-item" data-nav="privacy-policy.html">Privacy Policy</a>
+            <a class="drawer-item" data-nav="terms.html">Terms</a>
         </div>
         <div class="drawer-section"><h4>Financial Tools</h4><div id="drawerToolsList"></div></div>
     </div>
@@ -481,11 +481,11 @@
             <div class="footer-col">
                 <h4>Quick Links</h4>
                 <ul class="footer-links">
-                    <li><a href="/">Home</a></li>
-                    <li><a href="about">About</a></li>
-                    <li><a href="contact">Contact</a></li>
-                    <li><a href="privacy-policy">Privacy Policy</a></li>
-                    <li><a href="terms">Terms of Service</a></li>
+                    <li><a href="Home">Home</a></li>
+                    <li><a href="about.html">About</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                    <li><a href="privacy-policy.html">Privacy Policy</a></li>
+                    <li><a href="terms.html">Terms of Service</a></li>
                 </ul>
             </div>
             
@@ -519,14 +519,13 @@
         // For completeness we also have FIRE Simulator but we include exactly 7 tools as requested in footer; we also keep FIRE separate? The requirement says "using our 7 tools" -> core set is 7. 
         // I'll keep exactly these 7 for footer. The drawer already has 8 including FIRE; that's fine, but footer specifically shows 7 tools.
         const toolMap = {
-            "Mortgage Calculator": "mortgage-calculator",
-            "Car Refinance Calculator": "car-refinance-calculator",
-            "Credit Card Points Calculator": "credit-card-points-calculator",
-            "Investment Calculator": "investment-calculator",
-            "Budget Calculator": "budget-calculator",
-            "Inflation Calculator": "inflation-calculator",
-            "College Savings Calculator": "college-savings-calculator",
-            "FIRE Simulator": "fire-calculator"
+            "Mortgage Calculator": "mortgage-calculator.html",
+            "Car Refinance Calculator": "car-refinance-calculator.html",
+            "Credit Card Points Calculator": "credit-card-points-calculator.html",
+            "Investment Calculator": "investment-calculator.html",
+            "Budget Calculator": "budget-calculator.html",
+            "Inflation Calculator": "inflation-calculator.html",
+            "College Savings Calculator": "college-savings-calculator.html",
         };
         
         // Populate drawer tools (existing behaviour maintained, includes 8 tools including FIRE)
